@@ -1,4 +1,9 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@import 'flowbite/src/themes/default';
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
 
 :root {
   --background: #ffffff;
@@ -23,4 +28,69 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgba(100, 100, 100, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(100, 100, 100, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: repeat;
+}
+
+/* Blob animations */
+@keyframes blob-morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 40% 60% 30% 70% / 50% 60% 40% 60%;
+  }
+  100% {
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes blob-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Blob base styles */
+.blob {
+  position: absolute;
+  border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  animation: blob-morph 8s ease-in-out infinite, blob-spin 20s linear infinite;
+  filter: blur(2px);
+}
+
+/* Blob variants */
+.blob-primary {
+  background: rgba(236, 72, 153, 0.3); /* Pink-500 with opacity */
+  width: 300px;
+  height: 300px;
+}
+
+.blob-secondary {
+  background: rgba(99, 102, 241, 0.2); /* Indigo-500 with opacity */
+  width: 250px;
+  height: 250px;
+  animation-delay: 1s;
+  animation-duration: 10s;
+}
+
+.blob-accent {
+  background: rgba(16, 185, 129, 0.15); /* Emerald-500 with opacity */
+  width: 200px;
+  height: 200px;
+  animation-delay: 2s;
+  animation-duration: 12s;
 }
