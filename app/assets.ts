@@ -1,22 +1,32 @@
 export const assets = {
+  // Frontend
+  reactIcon: '/programming/react.svg',
+  nextjsIcon: '/programming/nextjs-icon.svg',
+  typescriptIcon: '/programming/typescript-icon.svg',
+  javascriptIcon: '/programming/javascript.svg',
+  tailwindcssIcon: '/programming/tailwindcss-icon.svg',
+  headlessuiIcon: '/programming/headlessui.svg',
+
+  // Backend
+  nodejsIcon: '/programming/nodejs-icon.svg',
+  pythonIcon: '/programming/python.svg',
+
+  // Databases
+  mongodbIcon: '/programming/mongodb-icon.svg',
+  postgresqlIcon: '/programming/postgresql.svg',
+  mysqlIcon: '/programming/mysql.svg',
+
+  // DevOps & Cloud
+  dockerIcon: '/programming/docker.svg',
+  awsIcon: '/programming/aws.svg',
+  vercelIcon: '/programming/vercel-icon.svg',
   digitalOceanIcon: '/programming/digital-ocean-icon.svg',
-  figmaIcon: '/programming/figma.svg',
+
+  // Tools & Version Control
   gitIcon: '/programming/git-icon.svg',
   githubOctocatIcon: '/programming/github-octocat.svg',
-  headlessuiIcon: '/programming/headlessui.svg',
-  javascriptIcon: '/programming/javascript.svg',
-  microsoftAzureIcon: '/programming/microsoft-azure.svg',
-  mongodbIcon: '/programming/mongodb-icon.svg',
-  mysqlIcon: '/programming/mysql.svg',
-  nextjsIcon: '/programming/nextjs-icon.svg',
-  nodejsIcon: '/programming/nodejs-icon.svg',
-  postgresqlIcon: '/programming/postgresql.svg',
-  pythonIcon: '/programming/python.svg',
+  figmaIcon: '/programming/figma.svg',
+
+  // Testing & State Management
   reactQueryIcon: '/programming/react-query-icon.svg',
-  reactIcon: '/programming/react.svg',
-  sqliteIcon: '/programming/sqlite.svg',
-  tailwindcssIcon: '/programming/tailwindcss-icon.svg',
-  typescriptIcon: '/programming/typescript-icon.svg',
-  ubuntuIcon: '/programming/ubuntu.svg',
-  vercelIcon: '/programming/vercel-icon.svg',
 };
