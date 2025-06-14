@@ -15,7 +15,7 @@ module.exports = {
       repo: "git@github.com:nicotordev/nicotordev.git",
       path: "/home/deploy/nicotordev",
       "post-deploy":
-        "bun install && bun run build && pm2 reload ecosystem.config.js --env production",
+        "~/.bun/bin/bun install && ~/.bun/bin/bun run build && pm2 reload ecosystem.config.js --env production",
     },
   },
 };
