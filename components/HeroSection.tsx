@@ -41,7 +41,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-slate-100 leading-tight">
-                Hello, I'm{" "}
+                Hello, I&apos;m{" "}
                 <span className="gradient-text animate-shimmer">
                   Nicolas Torres
                 </span>
@@ -55,7 +55,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                I'm a passionate{" "}
+                I&apos;m a passionate{" "}
                 <span className="font-semibold gradient-text-secondary">
                   Full Stack Developer
                 </span>{" "}
