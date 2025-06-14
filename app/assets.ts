@@ -29,4 +29,9 @@ export const assets = {
 
   // Testing & State Management
   reactQueryIcon: '/programming/react-query-icon.svg',
+
+  // Illustrations
+  meProgramming: '/illustrations/me-programming.png',
+
+  logo: '/logo.png',
 };
