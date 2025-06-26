@@ -2,21 +2,23 @@ import Motion from "@/components/Home/Motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Zap, MapPin, Briefcase, Code2, Calendar, Target, DollarSign, Clock, Rocket, Heart, Users, TrendingUp, Award } from "lucide-react";
+import { Zap, MapPin, Briefcase, Code2, Calendar, Target, DollarSign, Clock, Rocket, Heart, Users, TrendingUp } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
 import { assets } from "@/app/assets";
 import { Locale } from "@/lib/locales";
-import { formatCurrency } from "@/lib/currency";
-import AboutMeSectionProjects from "./AboutMeSectionProjects";
+// import AboutMeSectionProjects from "./AboutMeSectionProjects";
 // import { Collapsible } from "@/components/ui/collapsible";
 // import { CollapsibleTrigger } from "./ui/collapsible";
 // import { CollapsibleContent } from "@radix-ui/react-collapsible";
 
 import { Suspense } from "react";
 import { Skeleton } from "../ui/skeleton";
+// import { useDialog } from "@/hooks/use-dialog";
+// import AboutMeSectionProjectsWrapper from "./AboutMeSectionProjects";
+import AboutMeSectionContactButton from "./AboutMeSectionContactButton";
+import { formatCurrency } from "@/lib/currency";
+import AboutMeSectionProjectsWrapper from "./AboutMeSectionProjects";
 
 interface AboutMetric {
   label: string;
@@ -65,8 +67,6 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
       progress: 75
     }
   ];
-
-  const aboutMeSectionProjects = await (<AboutMeSectionProjects />)
 
   const skills = [
     { name: "Next.js/React", level: 95, color: "from-blue-500 to-cyan-500" },
@@ -408,27 +408,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
         </Motion>
 
         {/* Enhanced Projects Section */}
-        <Motion
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.0 }}
-        >
-          <div className="space-y-8">
-            <div className="text-center space-y-4">
-              <h3 className="text-3xl font-bold text-foreground flex items-center justify-center gap-3">
-                <Award className="w-8 h-8 text-primary" />
-                <span className="text-accent">
-                  {t('projects.title')}
-                </span>
-              </h3>
-              <p className="text-muted-foreground text-lg">{t('projects.subtitle')}</p>
-            </div>
-
-            <div className="grid gap-8">
-              {aboutMeSectionProjects}
-            </div>
-          </div>
-        </Motion>
+        <AboutMeSectionProjectsWrapper />
 
         {/* Enhanced CTA Section */}
         <Motion
@@ -444,7 +424,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
                   <div className="space-y-4">
                     <h3 className="text-3xl font-bold">
                       <span className="text-accent">
-                        {t('cta.title')}
+                        {t('cta.title')}8
                       </span>
                     </h3>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -457,10 +437,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                        <Mail className="w-5 h-5 mr-2" />
-                        {t('cta.contact')}
-                      </Button>
+                      <AboutMeSectionContactButton />
                     </Motion>
 
                     <p className="text-muted-foreground">

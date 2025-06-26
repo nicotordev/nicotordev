@@ -7,6 +7,7 @@ import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ThemeProvider } from "@/components/Home/ThemeProvider"
+import { DialogProvider } from "@/components/providers/dialog-provider"
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-sans",
@@ -132,7 +133,9 @@ export default async function LocaleLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <DialogProvider>
+            <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          </DialogProvider>
         </ThemeProvider>
       </body>
     </html>
