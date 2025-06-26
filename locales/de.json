@@ -2,129 +2,129 @@
   "hero": {
     "greeting": "Hallo, ich bin 👋",
     "name": "Nicolas Torres",
-    "title": "Full Stack Entwickler 🚀",
-    "description": "Ich bin ein leidenschaftlicher Full Stack Entwickler mit Erfahrung im Erstellen moderner Webanwendungen, die eine großartige Benutzererfahrung bieten. 💪✨",
+    "title": "Full Stack Developer 🚀",
+    "title_backend": "Backend & Datenbank 🗄️",
+    "title_frontend": "Frontend Mastery 🎨",
+    "description": "Ich bin ein leidenschaftlicher Full-Stack-Entwickler mit Erfahrung in der Entwicklung moderner Webanwendungen, die ein tolles Benutzererlebnis bieten. 💪✨",
     "cta": {
       "about": "Über mich 🤓",
       "resume": "Lebenslauf herunterladen 📄"
-    },
-    "title_backend": "Backend & Datenbank 🗄️",
-    "title_frontend": "Frontend-Meisterschaft 🎨"
+    }
   },
   "about": {
     "title": "Über mich 😎",
     "subtitle": "Full-Stack Developer TypeScript-First 🚀💥",
-    "description": "Ich erstelle Webprodukte von Grund auf mit Node.js + Express auf dem Server und Next.js 14 im Frontend, wobei ich immer TypeScript und eine reibungslose Benutzererfahrung priorisiere. 🔥💻",
+    "description": "Ich erstelle End-to-End-Webprodukte mit Node.js + Express auf dem Server und Next.js 14 auf dem Frontend, wobei TypeScript und ein reibungsloses Nutzererlebnis immer im Vordergrund stehen. 🔥💻",
     "role": {
-      "current": "Aktuelle Position 💼",
-      "position": "Full-Stack Developer bei spiritory GmbH 🏢",
-      "mode": "Arbeitsweise 🌍",
-      "modeDetails": "100% remote · Upwork Top Rated ⭐"
+      "current": "Aktuelle Rolle 💼",
+      "position": "Full-Stack Developer en spiritory GmbH 🏢",
+      "mode": "Modalität 🌍",
+      "modeDetails": "100% remoto - Upwork Top Rated ⭐"
     },
     "metrics": {
       "title": "Leistungsmetriken",
-      "subtitle": "Echte Ergebnisse sprechen für sich",
-      "hours": "Arbeitsstunden ⏰",
-      "earnings": "Verdienst 💰",
-      "total_earnings_short": "Gesamtverdienst 💎",
-      "total_earnings": "Gesamtverdienst 💸",
-      "success": "Erfolgsrate 📈",
+      "subtitle": "Echte Ergebnisse, die für sich selbst sprechen",
+      "hours": "Geleistete Arbeitsstunden ⏰ Geleistete Arbeitsstunden",
+      "earnings": "Gewinn 💰",
+      "total_earnings_short": "Gesamtgewinn 💎",
+      "total_earnings": "Gesamtgewinn 💸",
+      "success": "Erfolgsquote 📈",
       "salary": "Gehalt 💵",
       "experienceValue": "2 Jahre Erfahrung 🎯",
-      "experience": "Erfahrung 🏆",
-      "complete": "abgeschlossen"
+      "experience": "Erfahrung 🏆 Erfahrung 🏆 Erfahrung 🏆 Erfahrung 🏆 Erfahrung 🏆 Erfahrung",
+      "complete": "vollständig"
     },
     "specialties": {
       "title": "Meine Superkräfte 🦸‍♂️",
-      "description": "Ideen in digitale Erlebnisse zu verwandeln, die beeindrucken ✨🎨"
+      "description": "Ideen in digitale Erlebnisse verwandeln, in die man sich verliebt ✨🎨"
     },
     "stack": {
-      "title": "Meine Stack 💻",
-      "description": "Ich verwende die folgenden Technologien, um meine Projekte zu erstellen:"
+      "title": "Mi Stack 💻",
+      "description": "Ich verwende die folgenden Technologien zur Erstellung meiner Projekte:"
     },
     "methodology": {
       "title": "Methodik 🧠",
-      "title_frontend": "Frontend-Meisterschaft 🎨",
+      "title_frontend": "Frontend Mastery 🎨",
       "title_backend": "Backend & Datenbank 🗄️",
-      "title_styling": "Styling & UI 💅",
-      "description": "Leichte agile Praxis: atomare Commits, kleine PRs, CI/CD mit GitHub Actions, lebende Dokumentation in MD und schnelle Zyklen von «ship → learn → improve». 🔄⚡",
+      "title_styling": "Stile & UI 💅",
+      "description": "Leichte agile Praxis: atomare Commits, kleine PRs, CI/CD mit GitHub Actions, Live-Dokumentation in MD und schnelle ship → learn → improve Zyklen. 🔄⚡",
       "client_first": "Kunde zuerst",
       "results_driven": "Ergebnisorientiert"
     },
     "workStyle": {
       "title": "Wie ich arbeite 🤝",
-      "description": "Immer mit Humor und Respekt; ich bringe nützliche Ideen ein, kommuniziere reibungslos auf DE/EN und halte das Team im Einklang. 😄🌟"
+      "description": "Immer mit Humor und Respekt; ich bringe nützliche Ideen ein, kommuniziere in ES/EN ohne Reibungsverluste und halte das Team bei der Stange. 😄🌟"
     },
     "projects": {
       "title": "Schlüsselprojekte 🚀",
-      "subtitle": "Lösungen mit echtem Impact 💥",
-      "seguidoress": "SMM-Plattform zu 100% von mir erstellt 🔥",
-      "spiritory": "Premium E-Commerce für Spirituosen; Full-Stack-Wartung und neue Funktionen 🥃✨",
-      "quick10x": "Echtzeit-Crypto-Screener mit Abonnements und Admin-Panel ₿📊",
-      "spiritory_impact": "Europas größte Whisky-Trading-Plattform und bald weltweit! 🌍🥃",
-      "quick10x_impact": "Echtzeit-Crypto-Screener mit Abonnements und Admin-Panel 📈💎",
-      "seguidoress_impact": "96 Benutzer, ca. 114 USD insgesamt 💰🎉",
-      "spiritory_ct": "Spiritory besuchen 👀",
+      "subtitle": "Lösungen, die eine echte Wirkung erzielt haben 💥",
+      "seguidoress": "SMM-Plattform 100% von mir erstellt 🔥",
+      "spiritory": "Premium-E-Commerce für Spirituosen; vollständige Wartung und neue Funktionalitäten 🥃✨",
+      "quick10x": "Krypto-Screener in Echtzeit mit Abonnements und Verwaltungsbereich ₿📊",
+      "spiritory_impact": "Die größte Whisky-Handelsplattform Europas und bald der Welt! 🌍🥃",
+      "quick10x_impact": "Krypto-Screener in Echtzeit mit Abonnements und Verwaltungsbereich 📈💎",
+      "seguidoress_impact": "96 Nutzer, ca. 114 USD insgesamt 💰🎉",
+      "spiritory_ct": "Visitar Spiritory 👀",
       "quick10x_ct": "Quick10x besuchen 🚀",
-      "seguidoress_ct": "Seguidoress besuchen 💥"
+      "seguidoress_ct": "Follower besuchen 💥"
     },
     "personal": {
-      "title": "Etwas mehr über mich 🤠",
-      "description": "Außerhalb des Codes nehme ich Videos für YouTube auf, starte SaaS-Nebenprojekte und teile Entwicklertipps in sozialen Medien. Programmieren ist mein Hobby Nummer eins. 📺🎮💻"
+      "title": "Ein bisschen mehr über mich 🤠",
+      "description": "Außerhalb des Programmierens nehme ich Videos für YouTube auf, starte SaaS-Nebenprojekte und teile Entwicklungstipps in Netzwerken. Programmieren ist mein größtes Hobby. 📺🎮💻"
     },
     "cta": {
-      "title": "Bereit, etwas Unglaubliches zu schaffen? 🚀✨",
-      "description": "Lassen Sie uns zusammenarbeiten, um Ihre Vision in eine digitale Realität zu verwandeln, die heraussticht. 🎯💫",
-      "contact": "Lass uns sprechen 💬",
-      "alternative": "Oder verbinde dich mit mir auf LinkedIn 🔗",
+      "title": "sind Sie bereit, etwas Erstaunliches zu schaffen? 🚀✨",
+      "description": "Lassen Sie uns gemeinsam daran arbeiten, Ihre Vision in eine digitale Realität zu verwandeln, die sich abhebt. 🎯💫",
+      "contact": "Lass uns reden 💬",
+      "alternative": "Oder verbinden Sie mich auf LinkedIn 🔗",
       "modal": {
-        "title": "Lass uns über dein Projekt sprechen! 🚀",
-        "description": "Erzähl mir von deiner Vision und lass uns gemeinsam etwas Unglaubliches schaffen ✨",
+        "title": "lassen Sie uns über Ihr Projekt sprechen! 🚀",
+        "description": "Erzählen Sie mir von Ihrer Vision und lassen Sie uns gemeinsam etwas Erstaunliches schaffen ✨",
         "personal": {
           "title": "Persönliche Informationen",
           "name": {
-            "label": "Name",
-            "placeholder": "Dein vollständiger Name"
+            "label": "Anzahl",
+            "placeholder": "Ihr vollständiger Name"
           },
           "email": {
             "label": "E-Mail",
-            "placeholder": "deine@email.com"
+            "placeholder": "tu@email.com"
           },
           "company": {
             "label": "Unternehmen",
-            "placeholder": "Name deines Unternehmens"
+            "placeholder": "Ihr Firmenname"
           }
         },
         "project": {
-          "title": "Projektdetails",
+          "title": "Details zum Projekt",
           "type": {
             "label": "Projekttyp",
-            "placeholder": "Wähle den Projekttyp",
+            "placeholder": "Wählen Sie die Art des Projekts",
             "options": {
-              "web-development": "Webentwicklung",
-              "mobile-app": "Mobile App",
-              "e-commerce": "E-Commerce",
+              "web-development": "Web-Entwicklung",
+              "mobile-app": "Mobile Anwendung",
+              "e-commerce": "Elektronischer Geschäftsverkehr",
               "saas-platform": "SaaS-Plattform",
               "portfolio": "Portfolio",
               "consulting": "Beratung",
-              "other": "Andere"
+              "other": "Eine weitere"
             }
           },
           "budget": {
-            "label": "Budget",
+            "label": "Haushalt",
             "options": {
-              "under-5k": "Unter 5.000€",
-              "5k-15k": "5.000€ - 15.000€",
-              "15k-30k": "15.000€ - 30.000€",
-              "30k-50k": "30.000€ - 50.000€",
-              "50k+": "Über 50.000€"
+              "under-5k": "Weniger als $5.000",
+              "5k-15k": "$5,000 - $15,000",
+              "15k-30k": "$15,000 - $30,000",
+              "30k-50k": "$30,000 - $50,000",
+              "50k+": "Über $50.000"
             }
           },
           "timeline": {
-            "label": "Zeitplan",
-            "placeholder": "Wann benötigst du das Projekt?",
-            "asap": "So schnell wie möglich",
-            "1-month": "1 Monat",
+            "label": "Zeitleiste",
+            "placeholder": "wann brauchen Sie das Projekt?",
+            "asap": "So bald wie möglich",
+            "1-month": "1 Messer",
             "1-3-months": "1-3 Monate",
             "3-6-months": "3-6 Monate",
             "6-months+": "6+ Monate"
@@ -132,9 +132,9 @@
           "priority": {
             "label": "Hauptpriorität",
             "options": {
-              "design": "Design",
-              "performance": "Performance",
-              "functionality": "Funktionalität",
+              "design": "Gestaltung",
+              "performance": "Leistung",
+              "functionality": "Funktionsweise",
               "seo": "SEO",
               "user-experience": "Benutzererfahrung"
             }
@@ -143,70 +143,70 @@
         "message": {
           "title": "Nachricht und Kontakt",
           "description": {
-            "label": "Projektbeschreibung",
-            "placeholder": "Erzähl mir mehr über dein Projekt, Ziele und spezifische Anforderungen..."
+            "label": "Beschreibung des Projekts",
+            "placeholder": "Erzählen Sie mir mehr über Ihr Projekt, Ihre Ziele und Ihre spezifischen Anforderungen?"
           },
           "contact": {
-            "label": "Kontaktpräferenz",
+            "label": "Kontakt Präferenz",
             "email": "E-Mail",
             "phone": "Telefon",
-            "video": "Videocall",
+            "video": "Videoanruf",
             "send": "Nachricht senden",
-            "sending": "Wird gesendet...",
+            "sending": "Ich schicke...",
             "cancel": "Abbrechen",
-            "success": "Nachricht erfolgreich gesendet!",
-            "error": "Fehler beim Senden der Nachricht. Bitte versuche es erneut."
+            "success": "nachricht erfolgreich gesendet!",
+            "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut."
           }
         },
         "validation": {
           "name": {
-            "min": "Der Name muss mindestens 2 Zeichen haben",
+            "min": "Der Name muss mindestens 2 Zeichen lang sein",
             "max": "Der Name darf nicht länger als 50 Zeichen sein",
             "format": "Der Name darf nur Buchstaben und Leerzeichen enthalten"
           },
           "email": {
-            "invalid": "Bitte gib eine gültige E-Mail-Adresse ein",
+            "invalid": "Bitte geben Sie eine gültige E-Mail Adresse ein",
             "required": "E-Mail ist erforderlich"
           },
           "company": {
-            "required": "Unternehmensname ist erforderlich",
-            "max": "Der Unternehmensname darf nicht länger als 100 Zeichen sein"
+            "required": "Firmenname ist erforderlich",
+            "max": "Der Firmenname darf nicht länger als 100 Zeichen sein"
           },
           "projectType": {
-            "required": "Bitte wähle einen Projekttyp"
+            "required": "Bitte wählen Sie einen Projekttyp"
           },
           "budget": {
-            "required": "Bitte wähle einen Budgetbereich"
+            "required": "Bitte wählen Sie einen Budgetbereich"
           },
           "timeline": {
-            "required": "Bitte wähle einen Zeitplan"
+            "required": "Bitte wählen Sie einen Zeitplan"
           },
           "priority": {
-            "required": "Bitte wähle eine Hauptpriorität"
+            "required": "Bitte wählen Sie eine Top-Priorität"
           },
           "message": {
-            "min": "Die Nachricht muss mindestens 20 Zeichen haben",
+            "min": "Die Nachricht muss mindestens 20 Zeichen lang sein",
             "max": "Die Nachricht darf nicht länger als 1000 Zeichen sein"
           },
           "contactPreference": {
-            "required": "Bitte wähle eine Kontaktpräferenz"
+            "required": "Bitte wählen Sie eine Kontaktpräferenz"
           }
         },
         "success": {
-          "title": "¡Nachricht gesendet! 🎉",
-          "description": "Danke, dass du mich kontaktiert hast. Ich werde dir bald antworten, um dein Projekt zu besprechen."
+          "title": "nachricht gesendet! 🎉",
+          "description": "Vielen Dank, dass Sie mit mir Kontakt aufgenommen haben. Ich werde mich bald bei Ihnen melden, um Ihr Projekt zu besprechen."
         }
       }
     },
     "testimonial": {
-      "title": "Herausragendes Testimonial 🌟",
-      "quote": "Nicolas ist ein außergewöhnlicher Entwickler mit einem tiefen Verständnis moderner Webtechnologien. Seine Fähigkeit, komplexe Probleme zu lösen und hochwertigen Code zu liefern, ist beeindruckend. 🔥💪",
+      "title": "Ausgewählter Erfahrungsbericht 🌟",
+      "quote": "Nicolas ist ein außergewöhnlicher Entwickler mit einem tiefen Verständnis für moderne Webtechnologien. Seine Fähigkeit, komplexe Probleme zu lösen und qualitativ hochwertigen Code zu liefern, ist beeindruckend. 🔥💪",
       "author": "Kunde bei spiritory GmbH 👤"
     },
     "certifications": {
-      "title": "Relevante Zertifizierungen 🏆",
-      "postgresql": "PostgreSQL-Zertifizierung - Fortgeschrittene Datenbankentwicklung 🗄️",
-      "java": "Java SE-Zertifizierung - Objektorientierte Programmierung ☕"
+      "title": "Einschlägige Zertifizierungen 🏆",
+      "postgresql": "PostgreSQL Zertifizierung - Erweiterte Datenbankentwicklung 🗄️",
+      "java": "Java SE Zertifizierung - Objektorientierte Programmierung ☕"
     }
   },
   "navigation": {
@@ -215,27 +215,31 @@
     "projects": "Projekte 🚀",
     "contact": "Kontakt 📞",
     "language": "Sprache 🌍",
-    "theme": "Theme 🎨"
+    "theme": "Ihr 🎨"
   },
   "common": {
-    "loading": "Lädt... ⏳",
+    "loading": "Laden... ⏳",
     "error": "Ein Fehler ist aufgetreten 😱💥",
-    "currency": "EUR 💶",
-    "locale": "de-DE"
+    "currency": "CLP 💰",
+    "locale": "es-CL",
+    "profile": "Profil 👤",
+    "logout": "Abmelden 🚪",
+    "login": "Anmelden 🔑",
+    "signUp": "Registrieren ✍️"
   },
   "metadata": {
-    "title": "NicoTordev - Persönliche Website 🚀",
-    "description": "Willkommen auf meiner persönlichen Website, wo ich meine Gedanken, Projekte und Erfahrungen als Entwickler teile. 💻✨",
-    "keywords": "Persönliche Website, Blog, Entwickler, TypeScript, React, Next.js, Node.js, JavaScript, Webentwicklung, Technologie-Blog, Softwareentwicklung"
+    "title": "NicoTordev - Persönlicher Bereich 🚀",
+    "description": "Willkommen auf meiner persönlichen Seite, auf der ich meine Gedanken, Projekte und Erfahrungen als Entwickler mit Ihnen teile. 💻✨",
+    "keywords": "Persönliche Seite, Blog, Entwickler, TypeScript, React, Next.js, Node.js, JavaScript, Webentwicklung, Technologie-Blog, Softwareentwicklung"
   },
   "NotFound": {
     "title": "Seite nicht gefunden 🤔💀",
-    "description": "Entschuldigung, die Seite, die Sie suchen, existiert nicht oder wurde verschoben. 🕳️",
-    "goHome": "Zur Startseite 🏠"
+    "description": "Die Seite, die Sie suchen, existiert leider nicht oder wurde verschoben. 🕳️",
+    "goHome": "Nach oben gehen 🏠"
   },
   "theme": {
-    "toggle": "Theme wechseln 🔄",
-    "light": "Hell ☀️",
+    "toggle": "Thema ändern 🔄",
+    "light": "Claro ☀️",
     "dark": "Dunkel 🌙",
     "system": "System 🖥️"
   },

@@ -1,34 +1,14 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, IBM_Plex_Mono, Fira_Code } from "next/font/google";
 import "../globals.css";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { ThemeProvider } from "@/components/providers/ThemeProvider"
 import { getLanguage, setLanguage } from "../actions/language.actions";
 import Header from "@/components/Layout/Header";
 import Providers from "../providers";
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const firaCode = Fira_Code({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -130,26 +110,14 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head />
-      <body
-        className={`${jetbrainsMono.variable} ${ibmPlexMono.variable} ${firaCode.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <NextIntlClientProvider>
-            <Providers>
-              <Header />
 
-              {children}
-            </Providers>
-          </NextIntlClientProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider>
+      <Providers>
+        <Header />
+
+        {children}
+      </Providers>
+    </NextIntlClientProvider>
+
   )
 }

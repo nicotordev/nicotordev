@@ -2,28 +2,28 @@
   "hero": {
     "greeting": "Hola, soy 👋",
     "name": "Nicolas Torres",
-    "title": "Desarrollador Full Stack 🚀", 
-    "description": "Soy un Desarrollador Full Stack apasionado con experiencia construyendo aplicaciones web modernas que entregan una experiencia de usuario increíble. 💪✨",
+    "title": "Desarrollador Full Stack 🚀",
+    "title_backend": "Backend y base de datos 🗄️",
+    "title_frontend": "Mastería Frontend 🎨",
+    "description": "Soy un Desarrollador Full Stack apasionado, con experiencia construyendo aplicaciones web modernas que entregan una experiencia de usuario bacán. 💪✨",
     "cta": {
       "about": "Sobre mí 🤓",
       "resume": "Descargar CV 📄"
-    },
-    "title_backend": "Backend & Base de datos 🗄️",
-    "title_frontend": "Mastería Frontend 🎨"
+    }
   },
   "about": {
     "title": "Sobre mí 😎",
-    "subtitle": "Full-Stack Developer TypeScript-First 🚀💥",
-    "description": "Creo productos web de principio a fin con Node.js + Express en el servidor y Next.js 15 en el frontend, siempre priorizando TypeScript y una experiencia de usuario fluida. 🔥💻",
+    "subtitle": "Desarrollador Full-Stack TypeScript-First 🚀💥",
+    "description": "Creo productos web de principio a fin con Node.js + Express en el servidor y Next.js 14 en el frontend, siempre priorizando TypeScript y una experiencia de usuario fluida. 🔥💻",
     "role": {
       "current": "Rol actual 💼",
-      "position": "Full-Stack Developer en spiritory GmbH 🏢",
+      "position": "Desarrollador Full-Stack en spiritory GmbH 🏢",
       "mode": "Modalidad 🌍",
-      "modeDetails": "100% remoto · Upwork Top Rated ⭐"
+      "modeDetails": "100% remoto - Upwork Top Rated ⭐"
     },
     "metrics": {
       "title": "Métricas de Rendimiento",
-      "subtitle": "Resultados reales que hablan por sí mismos",
+      "subtitle": "Resultados reales que hablan por sí solos",
       "hours": "Horas trabajadas ⏰",
       "earnings": "Ganancias 💰",
       "total_earnings_short": "Total Ganancias 💎",
@@ -45,11 +45,11 @@
     "methodology": {
       "title": "Metodología 🧠",
       "title_frontend": "Mastería Frontend 🎨",
-      "title_backend": "Backend & Base de datos 🗄️",
+      "title_backend": "Backend y base de datos 🗄️",
       "title_styling": "Estilos & UI 💅",
-      "description": "Práctica ágil liviana: commits atómicos, PR pequeños, CI/CD con GitHub Actions, documentación en MD y ciclos rápidos de «ship → learn → improve». 🔄⚡",
+      "description": "Práctica ágil liviana: commits atómicos, PR pequeños, CI/CD con GitHub Actions, documentación viva en MD y ciclos rápidos de «ship → learn → improve». 🔄⚡",
       "client_first": "Cliente Primero",
-      "results_driven": "Orientado a Resultados"
+      "results_driven": "Orientación a los resultados"
     },
     "workStyle": {
       "title": "Cómo trabajo 🤝",
@@ -66,7 +66,7 @@
       "seguidoress_impact": "96 usuarios, 114 USD aprox. totales 💰🎉",
       "spiritory_ct": "Visitar Spiritory 👀",
       "quick10x_ct": "Visitar Quick10x 🚀",
-      "seguidoress_ct": "Visitar Seguidoress 💥"
+      "seguidoress_ct": "Visit Followers 💥"
     },
     "personal": {
       "title": "Un poco más de mí 🤠",
@@ -83,11 +83,11 @@
         "personal": {
           "title": "Información Personal",
           "name": {
-            "label": "Nombre",
+            "label": "Número",
             "placeholder": "Tu nombre completo"
           },
           "email": {
-            "label": "Email",
+            "label": "Correo electrónico",
             "placeholder": "tu@email.com"
           },
           "company": {
@@ -103,9 +103,9 @@
             "options": {
               "web-development": "Desarrollo Web",
               "mobile-app": "Aplicación Móvil",
-              "e-commerce": "E-commerce",
+              "e-commerce": "Comercio electrónico",
               "saas-platform": "Plataforma SaaS",
-              "portfolio": "Portfolio",
+              "portfolio": "Cartera",
               "consulting": "Consultoría",
               "other": "Otro"
             }
@@ -124,10 +124,10 @@
             "label": "Cronograma",
             "placeholder": "¿Cuándo necesitas el proyecto?",
             "asap": "Lo antes posible",
-            "1-month": "1 mes",
+            "1-month": "1 cuchillo",
             "1-3-months": "1-3 meses",
             "3-6-months": "3-6 meses",
-            "6-months+": "6+ meses"
+            "6-months+": "más de 6 meses"
           },
           "priority": {
             "label": "Prioridad Principal",
@@ -148,7 +148,7 @@
           },
           "contact": {
             "label": "Preferencia de Contacto",
-            "email": "Email",
+            "email": "Correo electrónico",
             "phone": "Teléfono",
             "video": "Videollamada",
             "send": "Enviar Mensaje",
@@ -215,13 +215,17 @@
     "projects": "Proyectos 🚀",
     "contact": "Contacto 📞",
     "language": "Idioma 🌍",
-    "theme": "Tema 🎨"
+    "theme": "Su 🎨"
   },
   "common": {
     "loading": "Cargando... ⏳",
     "error": "Ocurrió un error 😱💥",
-    "currency": "USD 💵",
-    "locale": "es-ES"
+    "currency": "CLP 💰",
+    "locale": "es-CL",
+    "profile": "Perfil 👤",
+    "logout": "Cerrar sesión 🚪",
+    "login": "Iniciar sesión 🔑",
+    "signUp": "Registrarse ✍️"
   },
   "metadata": {
     "title": "NicoTordev - Sitio Personal 🚀",
@@ -250,5 +254,5 @@
   "de": "de",
   "es-cl": "es-cl",
   "es-es": "es-es",
-  "en-gb": "en-gb"
+  "en-gb": "es-gb"
 }

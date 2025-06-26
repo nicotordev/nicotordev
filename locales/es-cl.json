@@ -221,7 +221,11 @@
     "loading": "Cargando... ⏳",
     "error": "Ocurrió un error 😱💥",
     "currency": "CLP 💰",
-    "locale": "es-CL"
+    "locale": "es-CL",
+    "profile": "Perfil 👤",
+    "logout": "Cerrar sesión 🚪",
+    "login": "Iniciar sesión 🔑",
+    "signUp": "Registrarse ✍️"
   },
   "metadata": {
     "title": "NicoTordev - Sitio Personal 🚀",

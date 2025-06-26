@@ -3,92 +3,92 @@
     "greeting": "Hi, I'm 👋",
     "name": "Nicolas Torres",
     "title": "Full Stack Developer 🚀",
-    "description": "I'm a passionate Full Stack Developer with experience building modern web applications that deliver an awesome user experience. 💪✨",
+    "title_backend": "Backend & Database 🗄️",
+    "title_frontend": "Frontend Mastery 🎨",
+    "description": "I'm a passionate Full Stack Developer, with experience building modern web applications that deliver a cool user experience. 💪✨",
     "cta": {
       "about": "About me 🤓",
-      "resume": "Download Resume 📄"
-    },
-    "title_backend": "Backend & Database 🗄️",
-    "title_frontend": "Frontend Mastery 🎨"
+      "resume": "Download CV 📄"
+    }
   },
   "about": {
     "title": "About me 😎",
     "subtitle": "Full-Stack Developer TypeScript-First 🚀💥",
-    "description": "I build web products from start to finish with Node.js + Express on the server and Next.js 14 on the frontend, always prioritizing TypeScript and a smooth user experience. 🔥💻",
+    "description": "I create end-to-end web products with Node.js + Express on the server and Next.js 14 on the frontend, always prioritizing TypeScript and a smooth user experience. 🔥💻",
     "role": {
       "current": "Current role 💼",
-      "position": "Full-Stack Developer at spiritory GmbH 🏢",
-      "mode": "Work mode 🌍",
-      "modeDetails": "100% remote · Upwork Top Rated ⭐"
+      "position": "Full-Stack Developer en spiritory GmbH 🏢",
+      "mode": "Modality 🌍",
+      "modeDetails": "100% remoto · Upwork Top Rated ⭐"
     },
     "metrics": {
       "title": "Performance Metrics",
       "subtitle": "Real results that speak for themselves",
       "hours": "Hours worked ⏰",
-      "earnings": "Earnings 💰",
+      "earnings": "Profit 💰",
       "total_earnings_short": "Total Earnings 💎",
       "total_earnings": "Total Earnings 💸",
       "success": "Success rate 📈",
       "salary": "Salary 💵",
       "experienceValue": "2 years of experience 🎯",
       "experience": "Experience 🏆",
-      "complete": "complete"
+      "complete": "completo"
     },
     "specialties": {
       "title": "My Superpowers 🦸‍♂️",
-      "description": "Turning ideas into digital experiences that captivate ✨🎨"
+      "description": "Transforming ideas into digital experiences that make you fall in love ✨🎨"
     },
     "stack": {
-      "title": "My Stack 💻",
+      "title": "Mi Stack 💻",
       "description": "I use the following technologies to create my projects:"
     },
     "methodology": {
       "title": "Methodology 🧠",
       "title_frontend": "Frontend Mastery 🎨",
       "title_backend": "Backend & Database 🗄️",
-      "title_styling": "Styling & UI 💅",
-      "description": "Lightweight agile practice: atomic commits, small PRs, CI/CD with GitHub Actions, living documentation in MD and fast cycles of «ship → learn → improve». 🔄⚡",
-      "client_first": "Client-First",
-      "results_driven": "Results-Driven"
+      "title_styling": "Styles & UI 💅",
+      "description": "Lightweight agile practice: atomic commits, small PRs, CI/CD with GitHub Actions, live documentation in MD and fast ship → learn → improve cycles. 🔄⚡",
+      "client_first": "Customer First",
+      "results_driven": "Results-oriented"
     },
     "workStyle": {
       "title": "How I work 🤝",
-      "description": "Always with humor and respect; I contribute useful ideas, communicate smoothly in EN/ES and keep the team aligned. 😄🌟"
+      "description": "Always with humor and respect; I bring useful ideas, communicate in ES/EN without friction and keep the team aligned. 😄🌟"
     },
     "projects": {
       "title": "Key projects 🚀",
       "subtitle": "Solutions that have generated real impact 💥",
       "seguidoress": "SMM platform created 100% by me 🔥",
-      "spiritory": "Premium spirits e-commerce; full-stack maintenance and new features 🥃✨",
-      "quick10x": "Real-time crypto screener with subscriptions and admin panel ₿📊",
-      "spiritory_impact": "Europe's largest whisky trading platform and soon the world! 🌍🥃",
+      "spiritory": "Premium spirits e-commerce; full-stack maintenance and new functionalities 🥃✨",
+      "quick10x": "Real-time crypto screener with subscription and admin panel ₿📊",
+      "spiritory_impact": "Europe's and soon the world's largest whisky trading platform! 🌍🥃",
       "quick10x_impact": "Real-time crypto screener with subscriptions and admin panel 📈💎",
-      "seguidoress_impact": "96 users, $114 USD approx. total 💰🎉",
-      "spiritory_ct": "Visit Spiritory 👀",
+      "seguidoress_impact": "96 users, approx. 114 USD total 💰🎉",
+      "spiritory_ct": "Visitar Spiritory 👀",
       "quick10x_ct": "Visit Quick10x 🚀",
-      "seguidoress_ct": "Visit Seguidoress 💥"
+      "seguidoress_ct": "Visit Followers 💥"
     },
     "personal": {
-      "title": "A bit more about me 🤠",
-      "description": "Outside of code, I record videos for YouTube, launch SaaS side-projects and share dev tips on social media. Programming is my number one hobby. 📺🎮💻"
+      "title": "A little more about me 🤠",
+      "description": "Outside of coding, I record videos for YouTube, launch SaaS side-projects and share dev tips on networks. Programming is my number one hobby. 📺🎮💻"
     },
     "cta": {
-      "title": "Ready to create something amazing? 🚀✨",
+      "title": "ready to create something amazing? 🚀✨",
       "description": "Let's work together to turn your vision into a digital reality that stands out. 🎯💫",
       "contact": "Let's talk 💬",
-      "alternative": "Or connect with me on LinkedIn 🔗",
+      "alternative": "Or connect me on LinkedIn 🔗",
       "modal": {
-        "title": "Let's talk about your project! 🚀",
+        "title": "let's talk about your project! 🚀",
         "description": "Tell me about your vision and let's create something amazing together ✨",
         "personal": {
           "title": "Personal Information",
           "name": {
-            "label": "Name",
+            "label": "Number",
             "placeholder": "Your full name"
           },
           "email": {
             "label": "Email",
-            "placeholder": "you@email.com"
+            "placeholder": "tu@email.com"
           },
           "company": {
             "label": "Company",
@@ -98,33 +98,33 @@
         "project": {
           "title": "Project Details",
           "type": {
-            "label": "Project Type",
-            "placeholder": "Select project type",
+            "label": "Type of Project",
+            "placeholder": "Select the type of project",
             "options": {
               "web-development": "Web Development",
-              "mobile-app": "Mobile App",
+              "mobile-app": "Mobile Application",
               "e-commerce": "E-commerce",
               "saas-platform": "SaaS Platform",
               "portfolio": "Portfolio",
               "consulting": "Consulting",
-              "other": "Other"
+              "other": "Another"
             }
           },
           "budget": {
             "label": "Budget",
             "options": {
-              "under-5k": "Under $5,000",
+              "under-5k": "Less than $5,000",
               "5k-15k": "$5,000 - $15,000",
               "15k-30k": "$15,000 - $30,000",
               "30k-50k": "$30,000 - $50,000",
-              "50k+": "Over $50,000"
+              "50k+": "More than $50,000"
             }
           },
           "timeline": {
-            "label": "Timeline",
-            "placeholder": "When do you need the project?",
-            "asap": "ASAP",
-            "1-month": "1 month",
+            "label": "Schedule",
+            "placeholder": "when do you need the project?",
+            "asap": "As soon as possible",
+            "1-month": "1 knife",
             "1-3-months": "1-3 months",
             "3-6-months": "3-6 months",
             "6-months+": "6+ months"
@@ -144,28 +144,28 @@
           "title": "Message and Contact",
           "description": {
             "label": "Project Description",
-            "placeholder": "Tell me more about your project, goals and specific requirements..."
+            "placeholder": "Tell me more about your project, objectives and specific requirements?"
           },
           "contact": {
             "label": "Contact Preference",
             "email": "Email",
             "phone": "Phone",
-            "video": "Video Call",
+            "video": "Videocall",
             "send": "Send Message",
             "sending": "Sending...",
             "cancel": "Cancel",
-            "success": "Message sent successfully!",
-            "error": "Error sending message. Please try again."
+            "success": "message sent successfully!",
+            "error": "Error sending the message. Please try again."
           }
         },
         "validation": {
           "name": {
-            "min": "Name must be at least 2 characters",
-            "max": "Name cannot exceed 50 characters",
-            "format": "Name can only contain letters and spaces"
+            "min": "The name must have at least 2 characters",
+            "max": "The name cannot exceed 50 characters",
+            "format": "The name can only contain letters and spaces"
           },
           "email": {
-            "invalid": "Please enter a valid email",
+            "invalid": "Please enter a valid email address",
             "required": "Email is required"
           },
           "company": {
@@ -179,63 +179,67 @@
             "required": "Please select a budget range"
           },
           "timeline": {
-            "required": "Please select a timeline"
+            "required": "Please select a schedule"
           },
           "priority": {
-            "required": "Please select a main priority"
+            "required": "Please select a top priority"
           },
           "message": {
-            "min": "Message must be at least 20 characters",
-            "max": "Message cannot exceed 1000 characters"
+            "min": "The message must be at least 20 characters long",
+            "max": "The message cannot exceed 1000 characters"
           },
           "contactPreference": {
             "required": "Please select a contact preference"
           }
         },
         "success": {
-          "title": "Message Sent! 🎉",
-          "description": "Thanks for reaching out. I'll get back to you soon to discuss your project."
+          "title": "message Sent! 🎉",
+          "description": "Thank you for contacting me. I will get back to you soon to discuss your project."
         }
       }
     },
     "testimonial": {
-      "title": "Featured testimonial 🌟",
-      "quote": "Nicolas is an exceptional developer with a deep understanding of modern web technologies. His ability to solve complex problems and deliver high-quality code is impressive. 🔥💪",
-      "author": "Client at spiritory GmbH 👤"
+      "title": "Featured Testimonial 🌟",
+      "quote": "Nicolas is an exceptional developer with a deep understanding of modern web technologies. His ability to solve complex problems and deliver high quality code is impressive. 🔥💪",
+      "author": "Customer in spiritory GmbH 👤"
     },
     "certifications": {
       "title": "Relevant certifications 🏆",
       "postgresql": "PostgreSQL Certification - Advanced Database Development 🗄️",
-      "java": "Java SE Certification - Object-Oriented Programming ☕"
+      "java": "Java SE Certification - Object Oriented Programming ☕"
     }
   },
   "navigation": {
     "home": "Home 🏠",
-    "about": "About 👤",
+    "about": "About me 👤",
     "projects": "Projects 🚀",
     "contact": "Contact 📞",
     "language": "Language 🌍",
-    "theme": "Theme 🎨"
+    "theme": "Tema 🎨"
   },
   "common": {
     "loading": "Loading... ⏳",
     "error": "An error occurred 😱💥",
-    "currency": "USD 💵",
-    "locale": "en-US"
+    "currency": "CLP 💰",
+    "locale": "es-CL",
+    "profile": "Profile 👤",
+    "logout": "Log off 🚪",
+    "login": "Log in 🔑",
+    "signUp": "Registrarse ✍️"
   },
   "metadata": {
-    "title": "NicoTordev - Personal Site 🚀",
+    "title": "NicoTordev - Sitio Personal 🚀",
     "description": "Welcome to my personal site where I share my thoughts, projects and experiences as a developer. 💻✨",
-    "keywords": "Personal site, Blog, Developer, TypeScript, React, Next.js, Node.js, JavaScript, Web development, Tech blog, Software development"
+    "keywords": "Personal Site, Blog, Developer, TypeScript, React, Next.js, Node.js, JavaScript, Web Development, Technology Blog, Software Development"
   },
   "NotFound": {
     "title": "Page not found 🤔💀",
-    "description": "Sorry, the page you're looking for doesn't exist or has been moved. 🕳️",
-    "goHome": "Go home 🏠"
+    "description": "Sorry, the page you are looking for does not exist or has been moved. 🕳️",
+    "goHome": "Go to top 🏠"
   },
   "theme": {
-    "toggle": "Toggle theme 🔄",
-    "light": "Light ☀️",
+    "toggle": "Change topic 🔄",
+    "light": "Claro ☀️",
     "dark": "Dark 🌙",
     "system": "System 🖥️"
   },

@@ -3,6 +3,11 @@
 import { Locale, locales } from '@/lib/locales'
 import { getTranslations } from 'next-intl/server'
 import { cookies } from 'next/headers'
+import localeEn from '@/locales/en.json'
+import localeEs from '@/locales/es.json'
+import localeEsCl from '@/locales/es-cl.json'
+import localeEsEs from '@/locales/es-es.json'
+import localeDe from '@/locales/de.json'
 
 export async function setLanguage(language: Locale) {
     const cookieStore = await cookies()
@@ -11,7 +16,27 @@ export async function setLanguage(language: Locale) {
 
 export async function getLanguage(): Promise<Locale> {
     const cookieStore = await cookies()
-    return cookieStore.get('NEXT_LOCALE')?.value as Locale || 'en'
+    return cookieStore.
+
+        get('NEXT_LOCALE')?.value as Locale || 'en'
+}
+
+
+export async function getTranslationsByLocale(locale: Locale): Promise<typeof localeEsCl> {
+    switch (locale) {
+        case 'en':
+            return localeEn
+        case 'es':
+            return localeEs
+        case 'es-cl':
+            return localeEsCl
+        case 'es-es':
+            return localeEsEs
+        case 'de':
+            return localeDe
+        default:
+            return localeEn
+    }
 }
 
 export async function getAllTranslations() {
@@ -79,4 +104,17 @@ export async function getValidLocale(locale: string): Promise<Locale> {
         return locale as Locale || 'en'
     }
     return 'en'
+}
+
+
+export async function getLocaleFromCookie(): Promise<Locale> {
+    const cookieStore = await cookies()
+    const nextLocaleCookie = cookieStore.get('NEXT_LOCALE')?.value || 'en'
+    return getValidLocale(nextLocaleCookie)
+}
+
+
+export async function getTranslationsFromCookie(): Promise<typeof localeEsCl> {
+    const locale = await getLocaleFromCookie()
+    return getTranslationsByLocale(locale)
 }
