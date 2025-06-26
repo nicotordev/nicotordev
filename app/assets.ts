@@ -1,35 +1,35 @@
 export const assets = {
-  // Frontend
-  reactIcon: '/programming/react.svg',
-  nextjsIcon: '/programming/nextjs-icon.svg',
-  typescriptIcon: '/programming/typescript-icon.svg',
-  javascriptIcon: '/programming/javascript.svg',
-  tailwindcssIcon: '/programming/tailwindcss-icon.svg',
-  headlessuiIcon: '/programming/headlessui.svg',
+  programmingIcons: {
+    // Frontend
+    reactIcon: '/programming/react.svg',
+    nextjsIcon: '/programming/nextjs-icon.svg',
+    typescriptIcon: '/programming/typescript-icon.svg',
+    javascriptIcon: '/programming/javascript.svg',
+    tailwindcssIcon: '/programming/tailwindcss-icon.svg',
+    headlessuiIcon: '/programming/headlessui.svg',
 
-  // Backend
-  nodejsIcon: '/programming/nodejs-icon.svg',
-  pythonIcon: '/programming/python.svg',
+    // Backend
+    nodejsIcon: '/programming/nodejs-icon.svg',
+    pythonIcon: '/programming/python.svg',
 
-  // Databases
-  mongodbIcon: '/programming/mongodb-icon.svg',
-  postgresqlIcon: '/programming/postgresql.svg',
-  mysqlIcon: '/programming/mysql.svg',
+    // Databases
+    mongodbIcon: '/programming/mongodb-icon.svg',
+    postgresqlIcon: '/programming/postgresql.svg',
+    mysqlIcon: '/programming/mysql.svg',
 
-  // DevOps & Cloud
-  dockerIcon: '/programming/docker.svg',
-  awsIcon: '/programming/aws.svg',
-  vercelIcon: '/programming/vercel-icon.svg',
-  digitalOceanIcon: '/programming/digital-ocean-icon.svg',
+    // DevOps & Cloud
+    dockerIcon: '/programming/docker-logo-blue.svg',
+    vercelIcon: '/programming/vercel-icon.svg',
+    digitalOceanIcon: '/programming/digital-ocean-icon.svg',
 
-  // Tools & Version Control
-  gitIcon: '/programming/git-icon.svg',
-  githubOctocatIcon: '/programming/github-octocat.svg',
-  figmaIcon: '/programming/figma.svg',
+    // Tools & Version Control
+    gitIcon: '/programming/git-icon.svg',
+    githubOctocatIcon: '/programming/github-octocat.svg',
+    figmaIcon: '/programming/figma.svg',
 
-  // Testing & State Management
-  reactQueryIcon: '/programming/react-query-icon.svg',
-
+    // Testing & State Management
+    reactQueryIcon: '/programming/react-query-icon.svg',
+  },
   // Illustrations
   meProgramming: '/illustrations/me-programming.webp',
   meTypescript: '/illustrations/me-typescript.webp',
@@ -42,7 +42,7 @@ export const assets = {
   logo: '/logo.png',
 
 
-  resume: {                                                                                                                                                                                                                                                                                                               
+  resume: {
     pdf: '/documents/resume.pdf',
     pptx: '/documents/resume.pptx',
     csv: '/documents/resume.csv',

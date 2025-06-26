@@ -1,4 +1,4 @@
-import Motion from "@/components/Motion";
+import Motion from "@/components/Home/Motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -16,7 +16,7 @@ import AboutMeSectionProjects from "./AboutMeSectionProjects";
 // import { CollapsibleContent } from "@radix-ui/react-collapsible";
 
 import { Suspense } from "react";
-import { Skeleton } from "./ui/skeleton";
+import { Skeleton } from "../ui/skeleton";
 
 interface AboutMetric {
   label: string;
@@ -66,7 +66,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
     }
   ];
 
-  const aboutMeSectionProjects = await (<AboutMeSectionProjects t={translations} />)
+  const aboutMeSectionProjects = await (<AboutMeSectionProjects />)   
 
   const skills = [
     { name: "Next.js/React", level: 95, color: "from-blue-500 to-cyan-500" },
@@ -118,7 +118,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <h2 className="text-4xl sm:text-6xl font-bold">
-                  <span className="text-white text-transparent animate-gradient-x">
+                  <span className="text-white animate-gradient-x">
                     {t('title')}
                   </span>
                   <br />
@@ -201,9 +201,9 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
           <div className="space-y-8">
             <div className="text-center">
               <h3 className="text-3xl font-bold text-foreground mb-4">
-                🚀 <span className="text-accent">Achievement Metrics</span>
+                🚀 <span className="text-accent">{t('metrics.title')}</span>
               </h3>
-              <p className="text-muted-foreground text-lg">Numbers that tell the story of dedication and success</p>
+              <p className="text-muted-foreground text-lg">{t('metrics.subtitle')}</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -238,7 +238,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
                           {metric.progress && (
                             <div className="space-y-2">
                               <Progress value={metric.progress} className="h-2" />
-                              <span className="text-xs text-muted-foreground">{metric.progress}% Complete</span>
+                              <span className="text-xs text-muted-foreground">{metric.progress}% {t('metrics.complete')}</span>
                             </div>
                           )}
                         </div>
@@ -266,7 +266,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-2xl">
                 <Zap className="w-7 h-7 text-primary" />
-                Core Expertise
+                {t('specialties.title')}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -342,7 +342,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
                   <div>
                     <p className="text-sm font-medium text-muted-foreground mb-2">{t('methodology.title_frontend')}</p>
                     <div className="flex flex-wrap gap-2">
-                      {['Next.js 14', 'React 18', 'TypeScript 5'].map((tech) => (
+                      {['Next.js 15', 'React 18', 'TypeScript 5'].map((tech) => (
                         <Badge key={tech} variant="secondary" className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 hover:scale-105 transition-transform">
                           {tech}
                         </Badge>
@@ -394,11 +394,11 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
                   <div className="grid grid-cols-2 gap-4 mt-6">
                     <div className="text-center p-4 bg-gradient-to-br from-primary/5 to-accent/5 rounded-lg">
                       <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-                      <p className="text-sm font-medium">Client-First</p>
+                      <p className="text-sm font-medium">{t('methodology.client_first')}</p>
                     </div>
                     <div className="text-center p-4 bg-gradient-to-br from-accent/5 to-primary/5 rounded-lg">
                       <TrendingUp className="w-8 h-8 text-accent mx-auto mb-2" />
-                      <p className="text-sm font-medium">Results-Driven</p>
+                      <p className="text-sm font-medium">{t('methodology.results_driven')}</p>
                     </div>
                   </div>
                 </div>

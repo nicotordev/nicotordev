@@ -22,6 +22,8 @@
       "modeDetails": "100% remoto · Upwork Top Rated ⭐"
     },
     "metrics": {
+      "title": "Métricas de Rendimiento",
+      "subtitle": "Resultados reales que hablan por sí mismos",
       "hours": "Horas trabajadas ⏰",
       "earnings": "Ganancias 💰",
       "total_earnings_short": "Total Ganancias 💎",
@@ -29,7 +31,8 @@
       "success": "Tasa de éxito 📈",
       "salary": "Salario 💵",
       "experienceValue": "2 años de experiencia 🎯",
-      "experience": "Experiencia 🏆"
+      "experience": "Experiencia 🏆",
+      "complete": "completo"
     },
     "specialties": {
       "title": "Mis Superpoderes 🦸‍♂️",
@@ -40,7 +43,9 @@
       "title_frontend": "Mastería Frontend 🎨",
       "title_backend": "Backend & Base de datos 🗄️",
       "title_styling": "Estilos & UI 💅",
-      "description": "Práctica ágil ligera: commits atómicos, PR pequeños, CI/CD con GitHub Actions, documentación viva en MD y ciclos rápidos de «ship → learn → improve». 🔄⚡"
+      "description": "Práctica ágil ligera: commits atómicos, PR pequeños, CI/CD con GitHub Actions, documentación viva en MD y ciclos rápidos de «ship → learn → improve». 🔄⚡",
+      "client_first": "Cliente Primero",
+      "results_driven": "Orientado a Resultados"
     },
     "workStyle": {
       "title": "Cómo trabajo 🤝",
@@ -54,7 +59,7 @@
       "quick10x": "Crypto screener en tiempo real con suscripciones y panel admin ₿📊",
       "spiritory_impact": "Plataforma de trading de whisky más grande de Europa y pronto del mundo! 🌍🥃",
       "quick10x_impact": "Crypto screener en tiempo real con suscripciones y panel admin 📈💎",
-      "seguidoress_impact": "96 usuarios, 114 USD / semana pasivo 💰🎉",
+      "seguidoress_impact": "96 usuarios, 114 USD aprox. totales 💰🎉",
       "spiritory_ct": "Visitar Spiritory 👀",
       "quick10x_ct": "Visitar Quick10x 🚀",
       "seguidoress_ct": "Visitar Seguidoress 💥"
@@ -115,5 +120,11 @@
     "pptx": "PPTX",
     "csv": "CSV",
     "json": "JSON"
-  }
+  },
+  "es": "es",
+  "en": "en",
+  "de": "de",
+  "es-cl": "es-cl",
+  "es-es": "es-es",
+  "en-gb": "en-gb"
 }

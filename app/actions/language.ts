@@ -13,56 +13,63 @@ export async function getLanguage(): Promise<Locale> {
     const cookieStore = await cookies()
     return cookieStore.get('NEXT_LOCALE')?.value as Locale || 'en'
 }
-export async function getAboutTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+
+export async function getAllTranslations() {
+    const translations = await getTranslations()
+    const t = (key: string) => translations(`${key}`)
+    return t
+}
+
+export async function getAboutTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`about.${key}`)
     return t
 }
 
-export async function getHeroTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+export async function getHeroTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`hero.${key}`)
     return t
 }
 
-export async function getNavigationTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+export async function getNavigationTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`navigation.${key}`)
     return t
 }
 
-export async function getCommonTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+export async function getCommonTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`common.${key}`)
     return t
 }
 
-export async function getMetadataTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+export async function getMetadataTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`metadata.${key}`)
     return t
 }
 
-export async function getNotFoundTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+export async function getNotFoundTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`NotFound.${key}`)
     return t
 }
 
-export async function getThemeTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+export async function getThemeTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`theme.${key}`)
     return t
 }
 
-export async function getResumeTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+export async function getResumeTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`resume.${key}`)
     return t
 }
 
-export async function getProjectsTranslations(language: Locale) {
-    const translations = await getTranslations(language)
+export async function getProjectsTranslations() {
+    const translations = await getTranslations()
     const t = (key: string) => translations(`about.projects.${key}`)
     return t
 }

@@ -1,6 +1,6 @@
-import Motion from "./Home/Motion";
+import Motion from "./Motion";
 import { assets } from "@/app/assets";
-import AnimatedBackgroundBlobs from "./Home/AnimatedBackgroundBlobs";
+import AnimatedBackgroundBlobs from "./AnimatedBackgroundBlobs";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -8,11 +8,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import LanguageSwitcher from "./Home/LanguageSwitcher";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { Download, Rocket, Zap } from "lucide-react";
-import HeroSectionScrollIndictor from "./Home/HeroSectionScrollIndictor";
+import HeroSectionScrollIndictor from "./HeroSectionScrollIndictor";
 import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language";
-import { Badge } from "./ui/badge";
+import { Badge } from "../ui/badge";
 
 export default async function HeroSection() {
   const [tHero, tResume] = await Promise.all([
@@ -71,15 +71,15 @@ export default async function HeroSection() {
               <div className="flex flex-wrap justify-center gap-4 pt-4">
                 <Badge variant="outline" className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20" asChild>
                   <>
-                    <Rocket className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-medium text-foreground">{tHero('title_backend')}</span>
+                  <Rocket className="w-4 h-4 text-primary" />
+                  <span className="text-sm font-medium text-foreground">{tHero('title_backend')}</span>
                   </>
                 </Badge>
                 <Badge variant="outline" className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20" asChild>
-                  <>
-                    <Zap className="w-4 h-4 text-accent" />
-                    <span className="text-sm font-medium text-foreground">{tHero('title_frontend')}</span>
-                  </>
+                 <>
+                 <Zap className="w-4 h-4 text-accent" />
+                 <span className="text-sm font-medium text-foreground">{tHero('title_frontend')}</span>
+                 </>
                 </Badge>
               </div>
             </Motion>

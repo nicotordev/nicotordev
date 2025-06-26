@@ -6,7 +6,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { ThemeProvider } from "@/components/ThemeProvider"
+import { ThemeProvider } from "@/components/Home/ThemeProvider"
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-sans",

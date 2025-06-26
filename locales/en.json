@@ -22,6 +22,8 @@
       "modeDetails": "100% remote · Upwork Top Rated ⭐"
     },
     "metrics": {
+      "title": "Performance Metrics",
+      "subtitle": "Real results that speak for themselves",
       "hours": "Hours worked ⏰",
       "earnings": "Earnings 💰",
       "total_earnings_short": "Total Earnings 💎",
@@ -29,7 +31,8 @@
       "success": "Success rate 📈",
       "salary": "Salary 💵",
       "experienceValue": "2 years of experience 🎯",
-      "experience": "Experience 🏆"
+      "experience": "Experience 🏆",
+      "complete": "complete"
     },
     "specialties": {
       "title": "My Superpowers 🦸‍♂️",
@@ -40,7 +43,9 @@
       "title_frontend": "Frontend Mastery 🎨",
       "title_backend": "Backend & Database 🗄️",
       "title_styling": "Styling & UI 💅",
-      "description": "Lightweight agile practice: atomic commits, small PRs, CI/CD with GitHub Actions, living documentation in MD and fast cycles of «ship → learn → improve». 🔄⚡"
+      "description": "Lightweight agile practice: atomic commits, small PRs, CI/CD with GitHub Actions, living documentation in MD and fast cycles of «ship → learn → improve». 🔄⚡",
+      "client_first": "Client-First",
+      "results_driven": "Results-Driven"
     },
     "workStyle": {
       "title": "How I work 🤝",
@@ -54,7 +59,7 @@
       "quick10x": "Real-time crypto screener with subscriptions and admin panel ₿📊",
       "spiritory_impact": "Europe's largest whisky trading platform and soon the world! 🌍🥃",
       "quick10x_impact": "Real-time crypto screener with subscriptions and admin panel 📈💎",
-      "seguidoress_impact": "96 users, $114 USD / week passive 💰🎉",
+      "seguidoress_impact": "96 users, $114 USD approx. total 💰🎉",
       "spiritory_ct": "Visit Spiritory 👀",
       "quick10x_ct": "Visit Quick10x 🚀",
       "seguidoress_ct": "Visit Seguidoress 💥"
@@ -115,5 +120,11 @@
     "pptx": "PPTX",
     "csv": "CSV",
     "json": "JSON"
-  }
+  },
+  "es": "es",
+  "en": "en",
+  "de": "de",
+  "es-cl": "es-cl",
+  "es-es": "es-es",
+  "en-gb": "en-gb"
 }
