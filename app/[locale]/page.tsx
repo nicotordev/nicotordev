@@ -11,8 +11,8 @@ interface HomePageProps {
 
 export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations('metadata');  
-  
+  const t = await getTranslations('metadata');
+
   // Locale mapping for OpenGraph
   const localeMap: Record<string, string> = {
     'en': 'en_US',
@@ -86,10 +86,12 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   };
 }
 
-export default function Home() {
+export default async function Home() { 
+  const heroSection = await HeroSection();
+
   return (
     <main>
-      <HeroSection />
+      {heroSection}
     </main>
   );
 }

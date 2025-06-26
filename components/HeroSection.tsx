@@ -1,5 +1,3 @@
-'use client';
-
 import Motion from "./Motion";
 import Image from "next/image";
 import { assets } from "@/app/assets";
@@ -11,12 +9,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Download } from "lucide-react";
 
-export default function HeroSection() {
-  const t = useTranslations('hero');
+export default async function HeroSection() {
+  const t = await getTranslations('hero');
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <AnimatedBackgroundBlobs />
