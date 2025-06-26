@@ -5,7 +5,7 @@ module.exports = {
       name: 'nicotordev', // Nombre principal
       cwd: '/home/deploy/nicotordev/current',
       script: 'node_modules/next/dist/bin/next',
-      args: 'start', // Next.js usará por defecto PORT=3000
+      args: 'start -p 3090', // Next.js usará por defecto PORT=3000
       exec_mode: 'cluster',
       instances: 'max',
 
