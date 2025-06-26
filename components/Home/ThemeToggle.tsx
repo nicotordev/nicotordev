@@ -12,10 +12,21 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useTranslations } from "next-intl"
+import { useSession } from "@/context/SessionContext"
+import { Theme } from "@/lib/generated/prisma"
+import { updateSession } from "@/app/actions/auth.actions"
 
 export function ThemeToggle() {
-    const t = useTranslations('theme')
-    const { setTheme } = useTheme()
+    const t = useTranslations('theme');
+    const { setTheme } = useTheme();
+    const { session } = useSession();
+
+    const handleThemeChange = (theme: string) => {
+        setTheme(theme);
+        if (session) {
+            updateSession(session.id, { theme: theme as Theme });
+        }
+    };
 
     return (
         <DropdownMenu>
@@ -27,13 +38,13 @@ export function ThemeToggle() {
                 </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setTheme("light")}>
+                <DropdownMenuItem onClick={() => handleThemeChange("light")}>
                     {t('light')}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("dark")}>
+                <DropdownMenuItem onClick={() => handleThemeChange("dark")}>
                     {t('dark')}
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setTheme("system")}>
+                <DropdownMenuItem onClick={() => handleThemeChange("system")}>
                     {t('system')}
                 </DropdownMenuItem>
             </DropdownMenuContent>

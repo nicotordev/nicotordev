@@ -3,13 +3,13 @@
 import { prisma } from '@/prisma/prisma';
 import { User, Session } from '@/lib/generated/prisma';
 import bcrypt from 'bcrypt';
-import { headers } from 'next/headers';
-import { getCookie, setCookie } from 'cookies-next/server';
-
+import { headers, cookies } from 'next/headers';
+import getCache from '@/lib/nodeCache';
 
 interface SessionWithUser extends Session {
     user: User;
 }
+
 
 // Types for authentication data
 export interface SignInData {
@@ -31,7 +31,8 @@ export async function signIn(email: string, password: string): Promise<{
     error?: string
 }> {
     try {
-        const existingSessionId = await getCookie('sessionId');
+        const cookieStore = await cookies();
+        const existingSessionId = cookieStore.get('sessionId')?.value;
         const headersStore = await headers();
         const ip = headersStore.get('x-forwarded-for') || '127.0.0.1';
         const userAgent = headersStore.get('user-agent') || 'Unknown';
@@ -80,7 +81,7 @@ export async function signIn(email: string, password: string): Promise<{
             });
         }
 
-        setCookie('sessionId', session.id, {
+        cookieStore.set('sessionId', session.id, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
@@ -101,9 +102,10 @@ export async function signOut(): Promise<{ success: boolean; error?: string }> {
         const headersStore = await headers();
         const ip = headersStore.get('x-forwarded-for') || '127.0.0.1';
         const userAgent = headersStore.get('user-agent') || 'Unknown';
-        const existingSessionId = await getCookie('sessionId');
+        const cookieStore = await cookies();
+        const existingSessionId = cookieStore.get('sessionId')?.value;
 
-        const session = await prisma.session.findFirst({
+        let session = await prisma.session.findFirst({
             where: {
                 ip,
                 userAgent,
@@ -117,10 +119,28 @@ export async function signOut(): Promise<{ success: boolean; error?: string }> {
         }
 
         if (existingSessionId) {
-            await prisma.session.delete({
+            session = await prisma.session.delete({
                 where: { id: existingSessionId },
             });
+
         }
+
+        session = await prisma.session.create({
+            data: {
+                ip,
+                userAgent,
+                expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+                userId: session?.userId || undefined,
+            },
+        });
+
+        cookieStore.set('sessionId', session.id, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 0,
+            path: '/',
+        });
 
         return { success: true };
     } catch (error) {
@@ -132,13 +152,29 @@ export async function signOut(): Promise<{ success: boolean; error?: string }> {
 // Get current session
 export async function getSession(): Promise<{ success: boolean; session?: SessionWithUser; error?: string }> {
     try {
+        const cache = await getCache()
+        const cookieStore = await cookies()
+
         const headersStore = await headers();
         const ip = headersStore.get('x-forwarded-for') || '127.0.0.1';
         const userAgent = headersStore.get('user-agent') || 'Unknown';
-        const existingSessionId = await getCookie('sessionId');
+        const existingSessionId = cookieStore.get('sessionId')?.value;
+
+        if (!existingSessionId) {
+            return { success: true, session: undefined };
+        }
+
+        // Check cache first
+        const cacheKey = `session:${existingSessionId}`;
+        const cachedSession = cache.get(cacheKey);
+
+        if (cachedSession) {
+            return { success: true, session: cachedSession as SessionWithUser };
+        }
 
         const session = await prisma.session.findFirst({
             where: {
+                id: existingSessionId,
                 ip,
                 userAgent,
                 expiresAt: {
@@ -150,11 +186,39 @@ export async function getSession(): Promise<{ success: boolean; session?: Sessio
             },
         });
 
-        if (existingSessionId) {
-            return { success: true, session: session as SessionWithUser || undefined };
+        if (session) {
+            cookieStore.set('sessionId', session.id, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'strict',
+                maxAge: 1000 * 60 * 60 * 24 * 30,
+                path: '/',
+            });
+            // Cache the session for 5 minutes
+            cache.set(cacheKey, session, 300);
+            return { success: true, session: session as SessionWithUser };
         }
 
-        return { success: true, session: session as SessionWithUser || undefined };
+        if (!session) {
+            const newSession = await prisma.session.create({
+                data: {
+                    ip,
+                    userAgent,
+                    expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
+                },
+            });
+            cookieStore.set('sessionId', newSession.id, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'strict',
+                maxAge: 1000 * 60 * 60 * 24 * 30,
+                path: '/',
+            });
+            cache.set(cacheKey, newSession, 300);
+            return { success: true, session: newSession as SessionWithUser };
+        }
+
+        return { success: true, session: undefined };
     } catch (error) {
         console.error('Error fetching session:', error);
         return { success: false, error: 'Failed to fetch session' };
@@ -171,7 +235,8 @@ export async function signUp(name: string, email: string, password: string): Pro
         const headersStore = await headers();
         const ip = headersStore.get('x-forwarded-for') || '127.0.0.1';
         const userAgent = headersStore.get('user-agent') || 'Unknown';
-        const existingSessionId = await getCookie('sessionId');
+        const cookieStore = await cookies();
+        const existingSessionId = cookieStore.get('sessionId')?.value;
 
         const existingUser = await prisma.user.findUnique({
             where: { email: email.toLowerCase().trim() },
@@ -206,8 +271,7 @@ export async function signUp(name: string, email: string, password: string): Pro
             },
         });
 
-
-        setCookie('sessionId', session.id, {
+        cookieStore.set('sessionId', session.id, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             maxAge: 1000 * 60 * 60 * 24 * 30,
@@ -251,4 +315,13 @@ export async function validateSession(sessionId: string): Promise<{
         console.error('Error validating session:', error);
         return { success: false, error: 'Failed to validate session' };
     }
+}
+
+
+export async function updateSession(sessionId: string, data: Partial<Session>) {
+    const session = await prisma.session.update({
+        where: { id: sessionId },
+        data,
+    });
+    return session;
 }
