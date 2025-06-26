@@ -28,6 +28,6 @@ export default function AboutMeButton() {
                     </Button>
                 </Link>
             </Motion>
-        </Motion>
+        </Motion >
     )
 }

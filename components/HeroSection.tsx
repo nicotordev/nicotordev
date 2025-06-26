@@ -13,6 +13,7 @@ import { Download, Rocket, Zap } from "lucide-react";
 import HeroSectionScrollIndictor from "./Home/HeroSectionScrollIndictor";
 import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language";
 import { Badge } from "./ui/badge";
+import HeroSectionAbout from "./HeroSectionAbout";
 
 export default async function HeroSection() {
   const [tHero, tResume] = await Promise.all([
@@ -95,13 +96,7 @@ export default async function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button
-                  size="lg"
-                  className="text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <Rocket className="w-5 h-5 mr-2" />
-                  {tHero('cta.about')}
-                </Button>
+                <HeroSectionAbout />
               </Motion>
 
               <Motion

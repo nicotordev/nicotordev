@@ -13,6 +13,8 @@ import { Download, Rocket, Zap } from "lucide-react";
 import HeroSectionScrollIndictor from "./HeroSectionScrollIndictor";
 import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language";
 import { Badge } from "../ui/badge";
+import { ThemeToggle } from "./ThemeToggle";
+import HeroSectionAbout from "../HeroSectionAbout";
 
 export default async function HeroSection() {
   const [tHero, tResume] = await Promise.all([
@@ -29,8 +31,9 @@ export default async function HeroSection() {
       <AnimatedBackgroundBlobs />
 
       {/* Language Switcher - Fixed position */}
-      <div className="fixed top-4 right-4 z-50">
+      <div className="fixed top-4 right-4 z-50 flex items-center gap-4">
         <LanguageSwitcher />
+        <ThemeToggle />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,15 +74,15 @@ export default async function HeroSection() {
               <div className="flex flex-wrap justify-center gap-4 pt-4">
                 <Badge variant="outline" className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20" asChild>
                   <>
-                  <Rocket className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium text-foreground">{tHero('title_backend')}</span>
+                    <Rocket className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-medium text-foreground">{tHero('title_backend')}</span>
                   </>
                 </Badge>
                 <Badge variant="outline" className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-accent/10 rounded-full border border-primary/20" asChild>
-                 <>
-                 <Zap className="w-4 h-4 text-accent" />
-                 <span className="text-sm font-medium text-foreground">{tHero('title_frontend')}</span>
-                 </>
+                  <>
+                    <Zap className="w-4 h-4 text-accent" />
+                    <span className="text-sm font-medium text-foreground">{tHero('title_frontend')}</span>
+                  </>
                 </Badge>
               </div>
             </Motion>
@@ -95,13 +98,7 @@ export default async function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button
-                  size="lg"
-                  className="text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
-                >
-                  <Rocket className="w-5 h-5 mr-2" />
-                  {tHero('cta.about')}
-                </Button>
+                <HeroSectionAbout />
               </Motion>
 
               <Motion

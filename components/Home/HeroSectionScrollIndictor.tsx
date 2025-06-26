@@ -1,13 +1,9 @@
 'use client'
 import { motion } from "framer-motion"
-import { usePathname } from "next/navigation"
-import { useRouter } from "next/navigation"
 export default function HeroSectionScrollIndictor() {
-    const pathname = usePathname()
-    const router = useRouter()
 
     function pushToAboutMe() {
-        router.push(`${pathname}#about-me`)
+        document.getElementById('about-me')?.scrollIntoView({ behavior: 'smooth' })
     }
 
     return (

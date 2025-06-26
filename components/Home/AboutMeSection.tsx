@@ -112,7 +112,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
               </Motion>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6" id="about-me">
               <Motion
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -267,8 +267,9 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-2xl">
                 <Zap className="w-7 h-7 text-primary" />
-                {t('specialties.title')}
+                {t('stack.title')}
               </CardTitle>
+              <p className="text-muted-foreground">{t('stack.description')}</p>
             </CardHeader>
             <CardContent>
               <div className="grid md:grid-cols-2 gap-8">

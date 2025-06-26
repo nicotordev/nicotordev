@@ -38,6 +38,10 @@
       "title": "My Superpowers 🦸‍♂️",
       "description": "Turning ideas into digital experiences that captivate ✨🎨"
     },
+    "stack": {
+      "title": "My Stack 💻",
+      "description": "I use the following technologies to create my projects:"
+    },  
     "methodology": {
       "title": "Methodology 🧠",
       "title_frontend": "Frontend Mastery 🎨",

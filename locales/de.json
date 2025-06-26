@@ -38,6 +38,10 @@
       "title": "Meine Superkräfte 🦸‍♂️",
       "description": "Ideen in digitale Erlebnisse zu verwandeln, die beeindrucken ✨🎨"
     },
+    "stack": {
+      "title": "Meine Stack 💻",
+      "description": "Ich verwende die folgenden Technologien, um meine Projekte zu erstellen:"
+    },
     "methodology": {
       "title": "Methodik 🧠",
       "title_frontend": "Frontend-Meisterschaft 🎨",
