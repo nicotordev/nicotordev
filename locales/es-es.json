@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Nicolas Torres",
+    "title": "Desarrollador Full Stack",
+    "description": "Soy un Desarrollador Full Stack apasionado con experiencia en la construcción de aplicaciones web modernas que ofrecen experiencias de usuario excepcionales.",
+    "cta": {
+      "about": "Sobre Mí",
+      "resume": "Descargar CV"
+    }
+  },
+  "navigation": {
+    "home": "Inicio",
+    "about": "Sobre Mí",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "currency": "EUR",
+    "locale": "es-ES"
+  },
+  "metadata": {
+    "title": "NicoTordev - Sitio Personal",
+    "description": "Bienvenido a mi sitio personal donde comparto mis pensamientos, proyectos y experiencias como desarrollador.",
+    "keywords": "Sitio Personal, Blog, Desarrollador, TypeScript, React, Next.js, Node.js, JavaScript, Desarrollo Web, Blog de Tecnología, Desarrollo de Software"
+  },
+  "NotFound": {
+    "title": "Página No Encontrada",
+    "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
+    "goHome": "Ir al Inicio"
+  }
+} 

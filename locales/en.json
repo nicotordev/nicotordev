@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Nicolas Torres",
+    "title": "Full Stack Developer",
+    "description": "I'm a passionate Full Stack Developer with expertise in building modern web applications that deliver exceptional user experiences.",
+    "cta": {
+      "about": "About Me",
+      "resume": "Download Resume"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "currency": "USD",
+    "locale": "en-US"
+  },
+  "metadata": {
+    "title": "NicoTordev - Personal Site",
+    "description": "Welcome to my personal site where I share my thoughts, projects, and experiences as a developer.",
+    "keywords": "Personal Site, Blog, Developer, TypeScript, React, Next.js, Node.js, JavaScript, Web Development, Tech Blog, Software Development"
+  },
+  "NotFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for doesn't exist or has been moved.",
+    "goHome": "Go Home"
+  }
+} 

@@ -34,4 +34,12 @@ export const assets = {
   meProgramming: '/illustrations/me-programming.png',
 
   logo: '/logo.png',
+
+
+  resume: {                                                                                                                                                                                                                                                                                                               
+    pdf: '/documents/resume.pdf',
+    pptx: '/documents/resume.pptx',
+    csv: '/documents/resume.csv',
+    json: '/documents/resume.json'
+  }
 };

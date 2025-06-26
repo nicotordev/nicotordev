@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "greeting": "Hallo, ich bin",
+    "name": "Nicolas Torres",
+    "title": "Full Stack Entwickler",
+    "description": "Ich bin ein leidenschaftlicher Full Stack Entwickler mit Expertise im Erstellen moderner Webanwendungen, die außergewöhnliche Benutzererfahrungen bieten.",
+    "cta": {
+      "about": "Über mich",
+      "resume": "Lebenslauf herunterladen"
+    }
+  },
+  "navigation": {
+    "home": "Startseite",
+    "about": "Über",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "language": "Sprache",
+    "theme": "Design"
+  },
+  "common": {
+    "loading": "Lädt...",
+    "error": "Ein Fehler ist aufgetreten",
+    "currency": "EUR",
+    "locale": "de-DE"
+  },
+  "metadata": {
+    "title": "NicoTordev - Persönliche Website",
+    "description": "Willkommen auf meiner persönlichen Website, wo ich meine Gedanken, Projekte und Erfahrungen als Entwickler teile.",
+    "keywords": "Persönliche Website, Blog, Entwickler, TypeScript, React, Next.js, Node.js, JavaScript, Webentwicklung, Tech Blog, Softwareentwicklung"
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Entschuldigung, die Seite, die Sie suchen, existiert nicht oder wurde verschoben.",
+    "goHome": "Zur Startseite"
+  }
+}

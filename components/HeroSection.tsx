@@ -1,13 +1,23 @@
+'use client';
+
 import Motion from "./Motion";
 import Image from "next/image";
 import { assets } from "@/app/assets";
 import AnimatedBackgroundBlobs from "./AnimatedBackgroundBlobs";
 import { Button, Dropdown, DropdownItem } from "flowbite-react";
+import { useTranslations } from 'next-intl';
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function HeroSection() {
+  const t = useTranslations('hero');
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <AnimatedBackgroundBlobs />
+
+      {/* Language Switcher - Fixed position */}
+      <div className="fixed top-4 right-4 z-50">
+        <LanguageSwitcher />
+      </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center space-y-8">
@@ -41,9 +51,9 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-slate-100 leading-tight">
-                Hello, I&apos;m{" "}
+                {t('greeting')}{" "}
                 <span className="gradient-text animate-shimmer">
-                  Nicolas Torres
+                  {t('name')}
                 </span>
               </h1>
             </Motion>
@@ -55,12 +65,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl mx-auto">
-                I&apos;m a passionate{" "}
-                <span className="font-semibold gradient-text-secondary">
-                  Full Stack Developer
-                </span>{" "}
-                with expertise in building modern web applications that deliver
-                exceptional user experiences.
+                {t('description')}
               </p>
             </Motion>
 
@@ -76,7 +81,7 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button color="pink">About Me</Button>
+                <Button color="pink">{t('cta.about')}</Button>
               </Motion>
 
               <Motion
@@ -84,11 +89,27 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Dropdown label="Download Resume" dismissOnClick={false}>
-                  <DropdownItem>PDF</DropdownItem>
-                  <DropdownItem>Word</DropdownItem>
-                  <DropdownItem>CSV</DropdownItem>
-                  <DropdownItem>JSON</DropdownItem>
+                <Dropdown label={t('cta.resume')} dismissOnClick={false}>
+                  <DropdownItem>
+                    <a href={assets.resume.pdf} download>
+                      PDF
+                    </a>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <a href={assets.resume.pptx} download>
+                      PPTX
+                    </a>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <a href={assets.resume.csv} download>
+                      CSV
+                    </a>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <a href={assets.resume.json} download>
+                      JSON
+                    </a>
+                  </DropdownItem>
                 </Dropdown>
               </Motion>
             </Motion>

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fira_Code, JetBrains_Mono, Source_Code_Pro } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { ThemeModeScript } from "flowbite-react";
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,21 +41,28 @@ export const metadata: Metadata = {
   description: "Personal portfolio showcasing programming projects and skills",
 };
 
-export default function RootLayout({
+export default async function LocaleLayout({
   children,
-}: Readonly<{
+  params
+}: {
   children: React.ReactNode;
-}>) {
+  params: Promise<{ locale: string }>;
+}) {
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <ThemeModeScript />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${firaCode.variable} ${jetbrainsMono.variable} ${sourceCodePro.variable} antialiased`}
       >
-
-        {children}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
