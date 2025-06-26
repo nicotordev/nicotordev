@@ -303,13 +303,13 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
                     src={assets.meColorScheme}
                     alt="Team collaboration"
                     className="rounded-lg shadow-lg w-full h-64 object-cover"
-                    width={128}
-                    height={128}
+                    width={1280}
+                    height={720}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-lg" />
                   <div className="absolute bottom-4 left-4 text-white">
-                    <p className="font-semibold">Collaborative Excellence</p>
-                    <p className="text-sm opacity-90">Building amazing products together</p>
+                    <p className="font-semibold">{t('specialties.title')}</p>
+                    <p className="text-sm opacity-90">{t('specialties.description')}</p>
                   </div>
                 </div>
               </div>
@@ -337,7 +337,7 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
               <CardContent className="space-y-6">
                 <div className="space-y-4">
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground mb-2">Frontend Mastery</p>
+                    <p className="text-sm font-medium text-muted-foreground mb-2">{t('methodology.title_frontend')}</p>
                     <div className="flex flex-wrap gap-2">
                       {['Next.js 14', 'React 18', 'TypeScript 5'].map((tech) => (
                         <Badge key={tech} variant="secondary" className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 hover:scale-105 transition-transform">
@@ -348,7 +348,7 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
                   </div>
 
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground mb-2">Backend & Database</p>
+                    <p className="text-sm font-medium text-muted-foreground mb-2">{t('methodology.title_backend')}</p>
                     <div className="flex flex-wrap gap-2">
                       {['Node.js 20', 'Prisma ORM', 'PostgreSQL', 'Azure'].map((tech) => (
                         <Badge key={tech} variant="secondary" className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 text-green-600 dark:text-green-400 border-green-500/20 hover:scale-105 transition-transform">
@@ -359,7 +359,7 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
                   </div>
 
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground mb-2">Styling & UI</p>
+                    <p className="text-sm font-medium text-muted-foreground mb-2">{t('methodology.title_styling')}</p>
                     <div className="flex flex-wrap gap-2">
                       {['Tailwind CSS v4', 'Framer Motion', 'shadcn/ui'].map((tech) => (
                         <Badge key={tech} variant="secondary" className="bg-gradient-to-r from-pink-500/10 to-rose-500/10 text-pink-600 dark:text-pink-400 border-pink-500/20 hover:scale-105 transition-transform">

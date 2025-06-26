@@ -30,10 +30,14 @@
       "experience": "Erfahrung"
     },
     "specialties": {
-      "title": "Spezialisierungen"
+      "title": "Meine Superkräfte",
+      "description": "Ideen in digitale Erlebnisse zu verwandeln, die sich beeindrucken"
     },
     "methodology": {
       "title": "Methodik",
+      "title_frontend": "Frontend-Meisterschaft",
+      "title_backend": "Backend & Datenbank",
+      "title_styling": "Styling & UI",
       "description": "Leichte agile Praxis: atomare Commits, kleine PRs, CI/CD mit GitHub Actions, lebende Dokumentation in MD und schnelle Zyklen von «ship → learn → improve»."
     },
     "workStyle": {

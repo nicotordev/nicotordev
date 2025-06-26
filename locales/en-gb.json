@@ -29,11 +29,15 @@
       "experienceValue": "2 years of experience",
       "experience": "Experience"
     },
-    "specialties": {
-      "title": "Specialities"
+   "specialties": {
+      "title": "My Superpowers",
+      "description": "Turning ideas into digital experiences that captivate"
     },
     "methodology": {
       "title": "Methodology",
+      "title_frontend": "Frontend Mastery",
+      "title_backend": "Backend & Database",
+      "title_styling": "Styling & UI",
       "description": "Lightweight agile practice: atomic commits, small PRs, CI/CD with GitHub Actions, living documentation in MD and rapid cycles of «ship → learn → improve»."
     },
     "workStyle": {

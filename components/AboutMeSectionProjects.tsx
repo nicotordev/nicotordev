@@ -10,7 +10,7 @@ interface AboutMeSectionProjectsProps {
 }
 
 export default async function AboutMeSectionProjects({ t }: AboutMeSectionProjectsProps) {
-    const projects = await getProjects(t);
+    const projects = await getProjects();
     return projects.map((project, index) => (
         <Motion
             key={project.name}

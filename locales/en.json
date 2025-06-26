@@ -30,10 +30,14 @@
       "experience": "Experience"
     },
     "specialties": {
-      "title": "Specialties"
+      "title": "My Superpowers",
+      "description": "Turning ideas into digital experiences that captivate"
     },
     "methodology": {
       "title": "Methodology",
+      "title_frontend": "Frontend Mastery",
+      "title_backend": "Backend & Database",
+      "title_styling": "Styling & UI",
       "description": "Lightweight agile practice: atomic commits, small PRs, CI/CD with GitHub Actions, living documentation in MD and fast cycles of «ship → learn → improve»."
     },
     "workStyle": {

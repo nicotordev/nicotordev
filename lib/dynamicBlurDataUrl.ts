@@ -1,6 +1,7 @@
+'use server';
 // lib/dynamicBlurDataUrl.ts
 import { assets } from "@/app/assets";
-
+import { getTranslations } from 'next-intl/server';
 const baseUrl = process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
     : process.env.NEXT_PUBLIC_DOMAIN || '';
@@ -60,7 +61,8 @@ function generateStaticBlurDataUrl(color = '#f3f4f6') {
 }
 
 
-export async function getProjects(t: (key: string) => string) {
+export async function getProjects() {
+    const t = await getTranslations('about');
     const projects = [
         {
             name: "Spiritory.com",

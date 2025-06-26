@@ -30,11 +30,15 @@
       "experience": "Experiencia"
     },
     "specialties": {
-      "title": "Especialidades"
+      "title": "Mis Superpoderes",
+      "description": "Transformando ideas en experiencias digitales que enamoran"
     },
     "methodology": {
       "title": "Metodología",
-      "description": "Práctica ágil liviana: commits atómicos, PR pequeños, CI/CD con GitHub Actions, documentación en MD y ciclos rápidos de «ship → learn → improve»."
+      "title_frontend": "Mastería Frontend",
+      "title_backend": "Backend & Base de datos",
+      "title_styling": "Estilos & UI",
+        "description": "Práctica ágil liviana: commits atómicos, PR pequeños, CI/CD con GitHub Actions, documentación en MD y ciclos rápidos de «ship → learn → improve»."
     },
     "workStyle": {
       "title": "Cómo trabajo",
