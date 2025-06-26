@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: "nicotordev",
-      script: "npm",
+      script: "bun",
       args: "start",
       env: { NODE_ENV: "production", PORT: 3090 },
     },
