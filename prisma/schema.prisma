@@ -86,11 +86,17 @@ enum AssetType {
   DOCUMENT
 }
 
+enum Role {
+  ADMIN
+  USER
+}
+
 model User {
   id        String   @id @default(cuid())
   name      String   @db.VarChar(50)
   email     String   @db.VarChar(255)
   password  String   @db.VarChar(255)
+  role      Role     @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
