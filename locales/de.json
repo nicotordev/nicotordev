@@ -9,7 +9,7 @@
       "resume": "Lebenslauf herunterladen 📄"
     },
     "title_backend": "Backend & Datenbank 🗄️",
-    "title_frontend": "Mastería Frontend 🎨"
+    "title_frontend": "Frontend-Meisterschaft 🎨"
   },
   "about": {
     "title": "Über mich 😎",
@@ -36,7 +36,7 @@
     },
     "specialties": {
       "title": "Meine Superkräfte 🦸‍♂️",
-      "description": "Ideen in digitale Erlebnisse zu verwandeln, die sich beeindrucken ✨🎨"
+      "description": "Ideen in digitale Erlebnisse zu verwandeln, die beeindrucken ✨🎨"
     },
     "methodology": {
       "title": "Methodik 🧠",
@@ -72,7 +72,133 @@
       "title": "Bereit, etwas Unglaubliches zu schaffen? 🚀✨",
       "description": "Lassen Sie uns zusammenarbeiten, um Ihre Vision in eine digitale Realität zu verwandeln, die heraussticht. 🎯💫",
       "contact": "Lass uns sprechen 💬",
-      "alternative": "Oder verbinde dich mit mir auf LinkedIn 🔗"
+      "alternative": "Oder verbinde dich mit mir auf LinkedIn 🔗",
+      "modal": {
+        "title": "Lass uns über dein Projekt sprechen! 🚀",
+        "description": "Erzähl mir von deiner Vision und lass uns gemeinsam etwas Unglaubliches schaffen ✨",
+        "personal": {
+          "title": "Persönliche Informationen",
+          "name": {
+            "label": "Name",
+            "placeholder": "Dein vollständiger Name"
+          },
+          "email": {
+            "label": "E-Mail",
+            "placeholder": "deine@email.com"
+          },
+          "company": {
+            "label": "Unternehmen",
+            "placeholder": "Name deines Unternehmens"
+          }
+        },
+        "project": {
+          "title": "Projektdetails",
+          "type": {
+            "label": "Projekttyp",
+            "placeholder": "Wähle den Projekttyp",
+            "options": {
+              "web-development": "Webentwicklung",
+              "mobile-app": "Mobile App",
+              "e-commerce": "E-Commerce",
+              "saas-platform": "SaaS-Plattform",
+              "portfolio": "Portfolio",
+              "consulting": "Beratung",
+              "other": "Andere"
+            }
+          },
+          "budget": {
+            "label": "Budget",
+            "options": {
+              "under-5k": "Unter 5.000€",
+              "5k-15k": "5.000€ - 15.000€",
+              "15k-30k": "15.000€ - 30.000€",
+              "30k-50k": "30.000€ - 50.000€",
+              "50k+": "Über 50.000€"
+            }
+          },
+          "timeline": {
+            "label": "Zeitplan",
+            "placeholder": "Wann benötigst du das Projekt?",
+            "asap": "So schnell wie möglich",
+            "1-month": "1 Monat",
+            "1-3-months": "1-3 Monate",
+            "3-6-months": "3-6 Monate",
+            "6-months+": "6+ Monate"
+          },
+          "priority": {
+            "label": "Hauptpriorität",
+            "options": {
+              "design": "Design",
+              "performance": "Performance",
+              "functionality": "Funktionalität",
+              "seo": "SEO",
+              "user-experience": "Benutzererfahrung"
+            }
+          }
+        },
+        "message": {
+          "title": "Nachricht und Kontakt",
+          "description": {
+            "label": "Projektbeschreibung",
+            "placeholder": "Erzähl mir mehr über dein Projekt, Ziele und spezifische Anforderungen..."
+          },
+          "contact": {
+            "label": "Kontaktpräferenz",
+            "email": "E-Mail",
+            "phone": "Telefon",
+            "video": "Videocall",
+            "send": "Nachricht senden",
+            "sending": "Wird gesendet...",
+            "cancel": "Abbrechen"
+          }
+        },
+        "validation": {
+          "name": {
+            "min": "Der Name muss mindestens 2 Zeichen haben",
+            "max": "Der Name darf nicht länger als 50 Zeichen sein",
+            "format": "Der Name darf nur Buchstaben und Leerzeichen enthalten"
+          },
+          "email": {
+            "invalid": "Bitte gib eine gültige E-Mail-Adresse ein",
+            "required": "E-Mail ist erforderlich"
+          },
+          "company": {
+            "required": "Unternehmensname ist erforderlich",
+            "max": "Der Unternehmensname darf nicht länger als 100 Zeichen sein"
+          },
+          "projectType": {
+            "required": "Bitte wähle einen Projekttyp"
+          },
+          "budget": {
+            "required": "Bitte wähle einen Budgetbereich"
+          },
+          "timeline": {
+            "required": "Bitte wähle einen Zeitplan"
+          },
+          "priority": {
+            "required": "Bitte wähle eine Hauptpriorität"
+          },
+          "description": {
+            "min": "Die Beschreibung muss mindestens 10 Zeichen haben",
+            "max": "Die Beschreibung darf nicht länger als 1000 Zeichen sein",
+            "required": "Projektbeschreibung ist erforderlich"
+          },
+          "contactPreference": {
+            "required": "Bitte wähle eine Kontaktpräferenz"
+          }
+        },
+        "success": {
+          "title": "Nachricht gesendet! 🎉",
+          "description": "Danke für dein Interesse! Ich werde mich innerhalb von 24 Stunden bei dir melden.",
+          "close": "Schließen"
+        },
+        "error": {
+          "title": "Oops! Etwas ist schiefgelaufen 😅",
+          "description": "Beim Senden deiner Nachricht ist ein Fehler aufgetreten. Bitte versuche es erneut oder kontaktiere mich direkt.",
+          "retry": "Erneut versuchen",
+          "close": "Schließen"
+        }
+      }
     },
     "testimonial": {
       "title": "Herausragendes Testimonial 🌟",

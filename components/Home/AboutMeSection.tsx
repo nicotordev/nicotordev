@@ -19,6 +19,7 @@ import { Skeleton } from "../ui/skeleton";
 import AboutMeSectionContactButton from "./AboutMeSectionContactButton";
 import { formatCurrency } from "@/lib/currency";
 import AboutMeSectionProjectsWrapper from "./AboutMeSectionProjects";
+import Link from "next/link";
 
 interface AboutMetric {
   label: string;
@@ -441,10 +442,13 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
                     </Motion>
 
                     <p className="text-muted-foreground">
-                      <a href="https://www.linkedin.com/in/nicotordev/"
+                      <Link
+                        href="https://www.linkedin.com/in/nicotordev/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-primary hover:text-accent font-medium hover:underline transition-colors">
                         {t('cta.alternative')}
-                      </a>
+                      </Link>
                     </p>
                   </div>
                 </div>

@@ -72,7 +72,125 @@
       "title": "Ready to create something amazing? 🚀✨",
       "description": "Let's work together to turn your vision into a digital reality that stands out. 🎯💫",
       "contact": "Let's talk 💬",
-      "alternative": "Or connect with me on LinkedIn 🔗"
+      "alternative": "Or connect with me on LinkedIn 🔗",
+      "modal": {
+        "title": "Let's talk about your project! 🚀",
+        "description": "Tell me about your vision and let's create something amazing together ✨",
+        "personal": {
+          "title": "Personal Information",
+          "name": {
+            "label": "Name",
+            "placeholder": "Your full name"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "you@email.com"
+          },
+          "company": {
+            "label": "Company",
+            "placeholder": "Your company name"
+          }
+        },
+        "project": {
+          "title": "Project Details",
+          "type": {
+            "label": "Project Type",
+            "placeholder": "Select project type",
+            "options": {
+              "web-development": "Web Development",
+              "mobile-app": "Mobile App",
+              "e-commerce": "E-commerce",
+              "saas-platform": "SaaS Platform",
+              "portfolio": "Portfolio",
+              "consulting": "Consulting",
+              "other": "Other"
+            }
+          },
+          "budget": {
+            "label": "Budget",
+            "options": {
+              "under-5k": "Under $5,000",
+              "5k-15k": "$5,000 - $15,000",
+              "15k-30k": "$15,000 - $30,000",
+              "30k-50k": "$30,000 - $50,000",
+              "50k+": "Over $50,000"
+            }
+          },
+          "timeline": {
+            "label": "Timeline",
+            "placeholder": "When do you need the project?",
+            "asap": "ASAP",
+            "1-month": "1 month",
+            "1-3-months": "1-3 months",
+            "3-6-months": "3-6 months",
+            "6-months+": "6+ months"
+          },
+          "priority": {
+            "label": "Main Priority",
+            "options": {
+              "design": "Design",
+              "performance": "Performance",
+              "functionality": "Functionality",
+              "seo": "SEO",
+              "user-experience": "User Experience"
+            }
+          }
+        },
+        "message": {
+          "title": "Message and Contact",
+          "description": {
+            "label": "Project Description",
+            "placeholder": "Tell me more about your project, goals and specific requirements..."
+          },
+          "contact": {
+            "label": "Contact Preference",
+            "email": "Email",
+            "phone": "Phone",
+            "video": "Video Call",
+            "send": "Send Message",
+            "sending": "Sending...",
+            "cancel": "Cancel"
+          }
+        },
+        "validation": {
+          "name": {
+            "min": "Name must be at least 2 characters",
+            "max": "Name cannot exceed 50 characters",
+            "format": "Name can only contain letters and spaces"
+          },
+          "email": {
+            "invalid": "Please enter a valid email",
+            "required": "Email is required"
+          },
+          "company": {
+            "required": "Company name is required",
+            "max": "Company name cannot exceed 100 characters"
+          },
+          "projectType": {
+            "required": "Please select a project type"
+          },
+          "budget": {
+            "required": "Please select a budget range"
+          },
+          "timeline": {
+            "required": "Please select a timeline"
+          },
+          "priority": {
+            "required": "Please select a main priority"
+          },
+          "message": {
+            "min": "Message must be at least 20 characters",
+            "max": "Message cannot exceed 1000 characters"
+          },
+          "contactPreference": {
+            "required": "Please select a contact preference"
+          }
+        },
+        "success": {
+          "title": "Message Sent! 🎉",
+          "description": "Thanks for reaching out. I'll get back to you soon to discuss your project."
+        }
+      }
     },
     "testimonial": {
       "title": "Featured testimonial 🌟",
