@@ -16,7 +16,7 @@
     "subtitle": "Full-Stack Developer TypeScript-First 🚀💥",
     "description": "I create end-to-end web products with Node.js + Express on the server and Next.js 14 on the frontend, always prioritising TypeScript and a smooth user experience. 🔥💻",
     "role": {
-      "current": "Rol actual 💼",
+      "current": "Current role 💼",
       "position": "Full-Stack Developer en spiritory GmbH 🏢",
       "mode": "Modality 🌍",
       "modeDetails": "100% remoto · Upwork Top Rated ⭐"
@@ -96,7 +96,7 @@
           }
         },
         "project": {
-          "title": "Project details",
+          "title": "Project Details",
           "type": {
             "label": "Type of project",
             "placeholder": "Select the type of project",
@@ -206,7 +206,109 @@
     "certifications": {
       "title": "Relevant certifications 🏆",
       "postgresql": "PostgreSQL Certification - Advanced Database Development 🗄️",
-      "java": "Java SE Certification - Object-Oriented Programming ☕"
+      "java": "Java SE Certification - Object Oriented Programming ☕"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "signUpLink": "Register here ✍️",
+      "title": "Log In 🔑",
+      "subtitle": "Welcome back! 🤝",
+      "noAccount": "don't have an account?",
+      "noAccountLink": "Register here ✍️",
+      "description": "Sign in to continue ✨ Sign in to your account to continue ✨",
+      "email": {
+        "label": "Email",
+        "placeholder": "tu@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Your password"
+      },
+      "submit": "Login 🚀",
+      "submitting": "Logging in... ⏳",
+      "forgotPassword": "forgotten your password 🤔?",
+      "signUp": "don't have an account? Register here ✍️",
+      "errors": {
+        "invalid": "Incorrect e-mail or password 🚫",
+        "required": "This field is required ⚠️",
+        "email": "Enter a valid email address 📧"
+      },
+      "metadata": {
+        "title": "Login - NicoTordev 🔑",
+        "description": "Log in to your NicoTordev account to manage your projects and configurations. 🚀✨",
+        "keywords": "login, login, access, account, NicoTordev, authentication, authentication"
+      }
+    },
+    "signUp": {
+      "signInLink": "Log in here ✍️",
+      "subtitle": "Welcome! 🤝",
+      "hasAccount": "already have an account?",
+      "noAccount": "already have an account?",
+      "title": "Create an Account 📝",
+      "description": "Join NicoTordev to access exclusive content ✨",
+      "email": {
+        "label": "Email",
+        "placeholder": "tu@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Create a secure password"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "Confirm your password"
+      },
+      "name": {
+        "label": "Number",
+        "placeholder": "Your full name"
+      },
+      "submit": "Create an Account 🚀",
+      "submitting": "Creating an account... ⏳",
+      "signIn": "already have an account? Sign in here 🔑",
+      "errors": {
+        "email": {
+          "required": "Email is required ⚠️",
+          "invalid": "Enter a valid email address 📧",
+          "exists": "This email address is already registered 🚫"
+        },
+        "password": {
+          "required": "Password is required ⚠️",
+          "minLength": "The password must be at least 8 characters long 🔒",
+          "mismatch": "Passwords do not match ❌"
+        },
+        "name": {
+          "required": "The name is required ⚠️",
+          "minLength": "The name must have at least 2 characters 📝"
+        }
+      },
+      "metadata": {
+        "title": "Create an Account - NicoTordev 📝",
+        "description": "Join NicoTordev to access exclusive content, manage projects and connect with the developer community. 🚀✨",
+        "keywords": "create account, sign up, join, new account, NicoTordev, developers, community"
+      }
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "name": "Number",
+      "emailPlaceholder": "tu@email.com",
+      "passwordPlaceholder": "Create a secure password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "namePlaceholder": "Your full name"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "The password must be at least {min} characters long",
+      "passwordMaxLength": "Password may not exceed {max} characters",
+      "confirmPasswordRequired": "Password confirmation is required",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "nameRequired": "Name is required",
+      "nameMinLength": "The name must be at least {min} characters long",
+      "nameMaxLength": "Name may not exceed {max} characters"
     }
   },
   "navigation": {
@@ -215,7 +317,7 @@
     "projects": "Projects 🚀",
     "contact": "Contact 📞",
     "language": "Language 🌍",
-    "theme": "Her 🎨"
+    "theme": "Tema 🎨"
   },
   "common": {
     "loading": "Loading... ⏳",

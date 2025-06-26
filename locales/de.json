@@ -76,7 +76,7 @@
       "title": "sind Sie bereit, etwas Erstaunliches zu schaffen? 🚀✨",
       "description": "Lassen Sie uns gemeinsam daran arbeiten, Ihre Vision in eine digitale Realität zu verwandeln, die sich abhebt. 🎯💫",
       "contact": "Lass uns reden 💬",
-      "alternative": "Oder verbinden Sie mich auf LinkedIn 🔗",
+      "alternative": "Oder verbinden Sie mich über LinkedIn 🔗",
       "modal": {
         "title": "lassen Sie uns über Ihr Projekt sprechen! 🚀",
         "description": "Erzählen Sie mir von Ihrer Vision und lassen Sie uns gemeinsam etwas Erstaunliches schaffen ✨",
@@ -126,7 +126,7 @@
             "asap": "So bald wie möglich",
             "1-month": "1 Messer",
             "1-3-months": "1-3 Monate",
-            "3-6-months": "3-6 Monate",
+            "3-6-months": "3-6 meses",
             "6-months+": "6+ Monate"
           },
           "priority": {
@@ -148,100 +148,202 @@
           },
           "contact": {
             "label": "Kontakt Präferenz",
-            "email": "E-Mail",
-            "phone": "Telefon",
+            "email": "Email",
+            "phone": "Teléfono",
             "video": "Videoanruf",
             "send": "Nachricht senden",
-            "sending": "Ich schicke...",
-            "cancel": "Abbrechen",
-            "success": "nachricht erfolgreich gesendet!",
-            "error": "Fehler beim Senden der Nachricht. Bitte versuchen Sie es erneut."
+            "sending": "Enviando...",
+            "cancel": "Cancelar",
+            "success": "¡Mensaje enviado exitosamente!",
+            "error": "Error al enviar el mensaje. Inténtalo de nuevo."
           }
         },
         "validation": {
           "name": {
-            "min": "Der Name muss mindestens 2 Zeichen lang sein",
-            "max": "Der Name darf nicht länger als 50 Zeichen sein",
-            "format": "Der Name darf nur Buchstaben und Leerzeichen enthalten"
+            "min": "El nombre debe tener al menos 2 caracteres",
+            "max": "El nombre no puede exceder 50 caracteres",
+            "format": "El nombre solo puede contener letras y espacios"
           },
           "email": {
-            "invalid": "Bitte geben Sie eine gültige E-Mail Adresse ein",
-            "required": "E-Mail ist erforderlich"
+            "invalid": "Por favor ingresa un email válido",
+            "required": "El email es requerido"
           },
           "company": {
-            "required": "Firmenname ist erforderlich",
-            "max": "Der Firmenname darf nicht länger als 100 Zeichen sein"
+            "required": "El nombre de la empresa es requerido",
+            "max": "El nombre de la empresa no puede exceder 100 caracteres"
           },
           "projectType": {
-            "required": "Bitte wählen Sie einen Projekttyp"
+            "required": "Por favor selecciona un tipo de proyecto"
           },
           "budget": {
-            "required": "Bitte wählen Sie einen Budgetbereich"
+            "required": "Por favor selecciona un rango de presupuesto"
           },
           "timeline": {
-            "required": "Bitte wählen Sie einen Zeitplan"
+            "required": "Por favor selecciona un cronograma"
           },
           "priority": {
-            "required": "Bitte wählen Sie eine Top-Priorität"
+            "required": "Por favor selecciona una prioridad principal"
           },
           "message": {
-            "min": "Die Nachricht muss mindestens 20 Zeichen lang sein",
-            "max": "Die Nachricht darf nicht länger als 1000 Zeichen sein"
+            "min": "El mensaje debe tener al menos 20 caracteres",
+            "max": "El mensaje no puede exceder 1000 caracteres"
           },
           "contactPreference": {
-            "required": "Bitte wählen Sie eine Kontaktpräferenz"
+            "required": "Por favor selecciona una preferencia de contacto"
           }
         },
         "success": {
-          "title": "nachricht gesendet! 🎉",
-          "description": "Vielen Dank, dass Sie mit mir Kontakt aufgenommen haben. Ich werde mich bald bei Ihnen melden, um Ihr Projekt zu besprechen."
+          "title": "¡Mensaje Enviado! 🎉",
+          "description": "Gracias por contactarme. Te responderé pronto para discutir tu proyecto."
         }
       }
     },
     "testimonial": {
-      "title": "Ausgewählter Erfahrungsbericht 🌟",
-      "quote": "Nicolas ist ein außergewöhnlicher Entwickler mit einem tiefen Verständnis für moderne Webtechnologien. Seine Fähigkeit, komplexe Probleme zu lösen und qualitativ hochwertigen Code zu liefern, ist beeindruckend. 🔥💪",
-      "author": "Kunde bei spiritory GmbH 👤"
+      "title": "Testimonio destacado 🌟",
+      "quote": "Nicolas es un desarrollador excepcional con un profundo entendimiento de las tecnologías web modernas. Su capacidad para resolver problemas complejos y entregar código de alta calidad es impresionante. 🔥💪",
+      "author": "Cliente en spiritory GmbH 👤"
     },
     "certifications": {
-      "title": "Einschlägige Zertifizierungen 🏆",
-      "postgresql": "PostgreSQL Zertifizierung - Erweiterte Datenbankentwicklung 🗄️",
-      "java": "Java SE Zertifizierung - Objektorientierte Programmierung ☕"
+      "title": "Certificaciones relevantes 🏆",
+      "postgresql": "Certificación PostgreSQL - Desarrollo Avanzado de Bases de Datos 🗄️",
+      "java": "Certificación Java SE - Programación Orientada a Objetos ☕"
+    }
+  },
+  "auth": {
+    "signIn": {
+      "signUpLink": "Regístrate aquí ✍️",
+      "title": "Iniciar Sesión 🔑",
+      "subtitle": "Bienvenido de nuevo! 🤝",
+      "noAccount": "¿No tienes cuenta?",
+      "noAccountLink": "Regístrate aquí ✍️",
+      "description": "Accede a tu cuenta para continuar ✨",
+      "email": {
+        "label": "Email",
+        "placeholder": "tu@email.com"
+      },
+      "password": {
+        "label": "Contraseña",
+        "placeholder": "Tu contraseña"
+      },
+      "submit": "Iniciar Sesión 🚀",
+      "submitting": "Iniciando sesión... ⏳",
+      "forgotPassword": "¿Olvidaste tu contraseña? 🤔",
+      "signUp": "¿No tienes cuenta? Regístrate aquí ✍️",
+      "errors": {
+        "invalid": "Email o contraseña incorrectos 🚫",
+        "required": "Este campo es requerido ⚠️",
+        "email": "Ingresa un email válido 📧"
+      },
+      "metadata": {
+        "title": "Iniciar Sesión - NicoTordev 🔑",
+        "description": "Accede a tu cuenta en NicoTordev para gestionar tus proyectos y configuraciones. 🚀✨",
+        "keywords": "iniciar sesión, login, acceso, cuenta, NicoTordev, autenticación"
+      }
+    },
+    "signUp": {
+      "signInLink": "Iniciar sesión aquí ✍️",
+      "subtitle": "Bienvenido! 🤝",
+      "hasAccount": "¿Ya tienes cuenta?",
+      "noAccount": "¿Ya tienes cuenta?",
+      "title": "Crear Cuenta 📝",
+      "description": "Únete a NicoTordev para acceder a contenido exclusivo ✨",
+      "email": {
+        "label": "Email",
+        "placeholder": "tu@email.com"
+      },
+      "password": {
+        "label": "Contraseña",
+        "placeholder": "Crea una contraseña segura"
+      },
+      "confirmPassword": {
+        "label": "Confirmar Contraseña",
+        "placeholder": "Confirma tu contraseña"
+      },
+      "name": {
+        "label": "Nombre",
+        "placeholder": "Tu nombre completo"
+      },
+      "submit": "Crear Cuenta 🚀",
+      "submitting": "Creando cuenta... ⏳",
+      "signIn": "¿Ya tienes cuenta? Inicia sesión aquí 🔑",
+      "errors": {
+        "email": {
+          "required": "El email es requerido ⚠️",
+          "invalid": "Ingresa un email válido 📧",
+          "exists": "Este email ya está registrado 🚫"
+        },
+        "password": {
+          "required": "La contraseña es requerida ⚠️",
+          "minLength": "La contraseña debe tener al menos 8 caracteres 🔒",
+          "mismatch": "Las contraseñas no coinciden ❌"
+        },
+        "name": {
+          "required": "El nombre es requerido ⚠️",
+          "minLength": "El nombre debe tener al menos 2 caracteres 📝"
+        }
+      },
+      "metadata": {
+        "title": "Crear Cuenta - NicoTordev 📝",
+        "description": "Únete a NicoTordev para acceder a contenido exclusivo, gestionar proyectos y conectar con la comunidad de desarrolladores. 🚀✨",
+        "keywords": "crear cuenta, registro, unirse, nueva cuenta, NicoTordev, desarrolladores, comunidad"
+      }
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar Contraseña",
+      "name": "Nombre",
+      "emailPlaceholder": "tu@email.com",
+      "passwordPlaceholder": "Crea una contraseña segura",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "namePlaceholder": "Tu nombre completo"
+    },
+    "validation": {
+      "emailRequired": "El email es requerido",
+      "emailInvalid": "Por favor ingresa un email válido",
+      "passwordRequired": "La contraseña es requerida",
+      "passwordMinLength": "La contraseña debe tener al menos {min} caracteres",
+      "passwordMaxLength": "La contraseña no puede exceder {max} caracteres",
+      "confirmPasswordRequired": "La confirmación de contraseña es requerida",
+      "passwordsDoNotMatch": "Las contraseñas no coinciden",
+      "nameRequired": "El nombre es requerido",
+      "nameMinLength": "El nombre debe tener al menos {min} caracteres",
+      "nameMaxLength": "El nombre no puede exceder {max} caracteres"
     }
   },
   "navigation": {
-    "home": "Startseite 🏠",
-    "about": "Über mich 👤",
-    "projects": "Projekte 🚀",
-    "contact": "Kontakt 📞",
-    "language": "Sprache 🌍",
-    "theme": "Ihr 🎨"
+    "home": "Inicio 🏠",
+    "about": "Sobre mí 👤",
+    "projects": "Proyectos 🚀",
+    "contact": "Contacto 📞",
+    "language": "Idioma 🌍",
+    "theme": "Tema 🎨"
   },
   "common": {
-    "loading": "Laden... ⏳",
-    "error": "Ein Fehler ist aufgetreten 😱💥",
+    "loading": "Cargando... ⏳",
+    "error": "Ocurrió un error 😱💥",
     "currency": "CLP 💰",
     "locale": "es-CL",
-    "profile": "Profil 👤",
-    "logout": "Abmelden 🚪",
-    "login": "Anmelden 🔑",
-    "signUp": "Registrieren ✍️"
+    "profile": "Perfil 👤",
+    "logout": "Cerrar sesión 🚪",
+    "login": "Iniciar sesión 🔑",
+    "signUp": "Registrarse ✍️"
   },
   "metadata": {
-    "title": "NicoTordev - Persönlicher Bereich 🚀",
-    "description": "Willkommen auf meiner persönlichen Seite, auf der ich meine Gedanken, Projekte und Erfahrungen als Entwickler mit Ihnen teile. 💻✨",
-    "keywords": "Persönliche Seite, Blog, Entwickler, TypeScript, React, Next.js, Node.js, JavaScript, Webentwicklung, Technologie-Blog, Softwareentwicklung"
+    "title": "NicoTordev - Sitio Personal 🚀",
+    "description": "Bienvenido a mi sitio personal donde comparto mis pensamientos, proyectos y experiencias como desarrollador. 💻✨",
+    "keywords": "Sitio personal, Blog, Desarrollador, TypeScript, React, Next.js, Node.js, JavaScript, Desarrollo web, Blog de tecnología, Desarrollo de software"
   },
   "NotFound": {
-    "title": "Seite nicht gefunden 🤔💀",
-    "description": "Die Seite, die Sie suchen, existiert leider nicht oder wurde verschoben. 🕳️",
-    "goHome": "Nach oben gehen 🏠"
+    "title": "Página no encontrada 🤔💀",
+    "description": "Lo sentimos, la página que buscas no existe o ha sido movida. 🕳️",
+    "goHome": "Ir al inicio 🏠"
   },
   "theme": {
-    "toggle": "Thema ändern 🔄",
+    "toggle": "Cambiar tema 🔄",
     "light": "Claro ☀️",
-    "dark": "Dunkel 🌙",
-    "system": "System 🖥️"
+    "dark": "Oscuro 🌙",
+    "system": "Sistema 🖥️"
   },
   "resume": {
     "pdf": "PDF",

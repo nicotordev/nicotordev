@@ -26,6 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   };
 
   return {
+    metadataBase: new URL('https://nicotordev.com'),
+
     title: {
       default: t('title'),
       template: `%s | ${t('title')}`

@@ -63,7 +63,7 @@
       "quick10x": "Real-time crypto screener with subscription and admin panel ₿📊",
       "spiritory_impact": "Europe's and soon the world's largest whisky trading platform! 🌍🥃",
       "quick10x_impact": "Real-time crypto screener with subscriptions and admin panel 📈💎",
-      "seguidoress_impact": "96 users, approx. 114 USD total 💰🎉",
+      "seguidoress_impact": "96 users, 114 USD approx. total 💰🎉",
       "spiritory_ct": "Visitar Spiritory 👀",
       "quick10x_ct": "Visit Quick10x 🚀",
       "seguidoress_ct": "Visit Followers 💥"
@@ -209,6 +209,108 @@
       "java": "Java SE Certification - Object Oriented Programming ☕"
     }
   },
+  "auth": {
+    "signIn": {
+      "signUpLink": "Register here ✍️",
+      "title": "Log In 🔑",
+      "subtitle": "Welcome back! 🤝",
+      "noAccount": "don't have an account?",
+      "noAccountLink": "Register here ✍️",
+      "description": "Log in to your account to continue ✨",
+      "email": {
+        "label": "Email",
+        "placeholder": "tu@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Your password"
+      },
+      "submit": "Login 🚀",
+      "submitting": "Logging in... ⏳",
+      "forgotPassword": "forgotten your password 🤔",
+      "signUp": "don't have an account? Register here ✍️",
+      "errors": {
+        "invalid": "Incorrect email or password 🚫",
+        "required": "This field is required ⚠️",
+        "email": "Enter a valid email address 📧"
+      },
+      "metadata": {
+        "title": "Login - NicoTordev 🔑",
+        "description": "Log in to your NicoTordev account to manage your projects and configurations. 🚀✨",
+        "keywords": "login, login, access, account, NicoTordev, authentication, authentication"
+      }
+    },
+    "signUp": {
+      "signInLink": "Login here ✍️",
+      "subtitle": "Welcome! 🤝",
+      "hasAccount": "already have an account?",
+      "noAccount": "already have an account?",
+      "title": "Create an Account 📝",
+      "description": "Join NicoTordev to access exclusive content ✨",
+      "email": {
+        "label": "Email",
+        "placeholder": "tu@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Create a secure password"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "Confirm your password"
+      },
+      "name": {
+        "label": "Number",
+        "placeholder": "Your full name"
+      },
+      "submit": "Create an Account 🚀",
+      "submitting": "Creating account... ⏳",
+      "signIn": "already have an account? Log in here 🔑",
+      "errors": {
+        "email": {
+          "required": "Email is required ⚠️",
+          "invalid": "Enter a valid email address 📧",
+          "exists": "This email is already registered 🚫"
+        },
+        "password": {
+          "required": "Password is required ⚠️",
+          "minLength": "The password must be at least 8 characters long 🔒",
+          "mismatch": "Passwords do not match ❌"
+        },
+        "name": {
+          "required": "The name is required ⚠️",
+          "minLength": "The name must be at least 2 characters long 📝"
+        }
+      },
+      "metadata": {
+        "title": "Create an Account - NicoTordev 📝",
+        "description": "Join NicoTordev to access exclusive content, manage projects and connect with the developer community. 🚀✨",
+        "keywords": "create account, register, join, new account, NicoTordev, developers, community"
+      }
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "name": "Number",
+      "emailPlaceholder": "tu@email.com",
+      "passwordPlaceholder": "Create a secure password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "namePlaceholder": "Your full name"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "The password must be at least {min} characters long",
+      "passwordMaxLength": "Password cannot exceed {max} characters",
+      "confirmPasswordRequired": "Password confirmation is required",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "nameRequired": "Name is required",
+      "nameMinLength": "The name must be at least {min} characters long",
+      "nameMaxLength": "The name cannot exceed {max} characters"
+    }
+  },
   "navigation": {
     "home": "Home 🏠",
     "about": "About me 👤",
@@ -223,14 +325,14 @@
     "currency": "CLP 💰",
     "locale": "es-CL",
     "profile": "Profile 👤",
-    "logout": "Log off 🚪",
+    "logout": "Log out 🚪",
     "login": "Log in 🔑",
     "signUp": "Registrarse ✍️"
   },
   "metadata": {
     "title": "NicoTordev - Sitio Personal 🚀",
     "description": "Welcome to my personal site where I share my thoughts, projects and experiences as a developer. 💻✨",
-    "keywords": "Personal Site, Blog, Developer, TypeScript, React, Next.js, Node.js, JavaScript, Web Development, Technology Blog, Software Development"
+    "keywords": "Personal site, Blog, Developer, TypeScript, React, Next.js, Node.js, JavaScript, Web Development, Technology Blog, Software Development"
   },
   "NotFound": {
     "title": "Page not found 🤔💀",

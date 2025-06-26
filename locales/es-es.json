@@ -209,13 +209,115 @@
       "java": "Certificación Java SE - Programación Orientada a Objetos ☕"
     }
   },
+  "auth": {
+    "signIn": {
+      "signUpLink": "Regístrate aquí ✍️",
+      "title": "Iniciar Sesión 🔑",
+      "subtitle": "Bienvenido de nuevo! 🤝",
+      "noAccount": "¿No tienes cuenta?",
+      "noAccountLink": "Regístrate aquí ✍️",
+      "description": "Accede a tu cuenta para continuar ✨",
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "tu@email.com"
+      },
+      "password": {
+        "label": "Contraseña",
+        "placeholder": "Tu contraseña"
+      },
+      "submit": "Iniciar Sesión 🚀",
+      "submitting": "Iniciando sesión... ⏳",
+      "forgotPassword": "¿Olvidaste tu contraseña? 🤔",
+      "signUp": "¿No tienes cuenta? Regístrate aquí ✍️",
+      "errors": {
+        "invalid": "Email o contraseña incorrectos 🚫",
+        "required": "Este campo es requerido ⚠️",
+        "email": "Ingresa un email válido 📧"
+      },
+      "metadata": {
+        "title": "Iniciar Sesión - NicoTordev 🔑",
+        "description": "Accede a tu cuenta en NicoTordev para gestionar tus proyectos y configuraciones. 🚀✨",
+        "keywords": "iniciar sesión, login, acceso, cuenta, NicoTordev, autenticación"
+      }
+    },
+    "signUp": {
+      "signInLink": "Iniciar sesión aquí ✍️",
+      "subtitle": "Bienvenido! 🤝",
+      "hasAccount": "¿Ya tienes cuenta?",
+      "noAccount": "¿Ya tienes cuenta?",
+      "title": "Crear Cuenta 📝",
+      "description": "Únete a NicoTordev para acceder a contenido exclusivo ✨",
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "tu@email.com"
+      },
+      "password": {
+        "label": "Contraseña",
+        "placeholder": "Crea una contraseña segura"
+      },
+      "confirmPassword": {
+        "label": "Confirmar Contraseña",
+        "placeholder": "Confirma tu contraseña"
+      },
+      "name": {
+        "label": "Número",
+        "placeholder": "Tu nombre completo"
+      },
+      "submit": "Crear Cuenta 🚀",
+      "submitting": "Creando cuenta... ⏳",
+      "signIn": "¿Ya tienes cuenta? Inicia sesión aquí 🔑",
+      "errors": {
+        "email": {
+          "required": "El email es requerido ⚠️",
+          "invalid": "Ingresa un email válido 📧",
+          "exists": "Este email ya está registrado 🚫"
+        },
+        "password": {
+          "required": "La contraseña es requerida ⚠️",
+          "minLength": "La contraseña debe tener al menos 8 caracteres 🔒",
+          "mismatch": "Las contraseñas no coinciden ❌"
+        },
+        "name": {
+          "required": "El nombre es requerido ⚠️",
+          "minLength": "El nombre debe tener al menos 2 caracteres 📝"
+        }
+      },
+      "metadata": {
+        "title": "Crear Cuenta - NicoTordev 📝",
+        "description": "Únete a NicoTordev para acceder a contenido exclusivo, gestionar proyectos y conectar con la comunidad de desarrolladores. 🚀✨",
+        "keywords": "crear cuenta, registro, unirse, nueva cuenta, NicoTordev, desarrolladores, comunidad"
+      }
+    },
+    "fields": {
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar Contraseña",
+      "name": "Número",
+      "emailPlaceholder": "tu@email.com",
+      "passwordPlaceholder": "Crea una contraseña segura",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "namePlaceholder": "Tu nombre completo"
+    },
+    "validation": {
+      "emailRequired": "El email es requerido",
+      "emailInvalid": "Por favor ingresa un email válido",
+      "passwordRequired": "La contraseña es requerida",
+      "passwordMinLength": "La contraseña debe tener al menos {min} caracteres",
+      "passwordMaxLength": "La contraseña no puede exceder {max} caracteres",
+      "confirmPasswordRequired": "La confirmación de contraseña es requerida",
+      "passwordsDoNotMatch": "Las contraseñas no coinciden",
+      "nameRequired": "El nombre es requerido",
+      "nameMinLength": "El nombre debe tener al menos {min} caracteres",
+      "nameMaxLength": "El nombre no puede exceder {max} caracteres"
+    }
+  },
   "navigation": {
     "home": "Inicio 🏠",
     "about": "Sobre mí 👤",
     "projects": "Proyectos 🚀",
     "contact": "Contacto 📞",
     "language": "Idioma 🌍",
-    "theme": "Su 🎨"
+    "theme": "Tema 🎨"
   },
   "common": {
     "loading": "Cargando... ⏳",
