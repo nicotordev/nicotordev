@@ -32,6 +32,7 @@ export default function LanguageSwitcher() {
       'es': Euro,
       'es-cl': DollarSign,
       'es-es': Euro,
+      'de': Euro,
     };
     return currencyIconMap[locale] || DollarSign;
   };

@@ -1,10 +1,10 @@
-
 export const Locales = {
   en: 'en',
   'en-gb': 'en-gb',
   es: 'es',
   'es-cl': 'es-cl',
   'es-es': 'es-es',
+  de: 'de',
 }
 
 export const localesJson = {
@@ -13,7 +13,8 @@ export const localesJson = {
   es: () => import('../locales/es.json'),
   'es-cl': () => import('../locales/es-cl.json'),
   'es-es': () => import('../locales/es-es.json'),
+  de: () => import('../locales/de.json'),
 } as const
 
 
-export type Locale = 'en' | 'en-gb' | 'es' | 'es-cl' | 'es-es' 
+export type Locale = 'en' | 'en-gb' | 'es' | 'es-cl' | 'es-es' | 'de'
