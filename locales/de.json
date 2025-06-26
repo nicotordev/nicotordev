@@ -153,7 +153,9 @@
             "video": "Videocall",
             "send": "Nachricht senden",
             "sending": "Wird gesendet...",
-            "cancel": "Abbrechen"
+            "cancel": "Abbrechen",
+            "success": "Nachricht erfolgreich gesendet!",
+            "error": "Fehler beim Senden der Nachricht. Bitte versuche es erneut."
           }
         },
         "validation": {
@@ -182,25 +184,17 @@
           "priority": {
             "required": "Bitte wähle eine Hauptpriorität"
           },
-          "description": {
-            "min": "Die Beschreibung muss mindestens 10 Zeichen haben",
-            "max": "Die Beschreibung darf nicht länger als 1000 Zeichen sein",
-            "required": "Projektbeschreibung ist erforderlich"
+          "message": {
+            "min": "Die Nachricht muss mindestens 20 Zeichen haben",
+            "max": "Die Nachricht darf nicht länger als 1000 Zeichen sein"
           },
           "contactPreference": {
             "required": "Bitte wähle eine Kontaktpräferenz"
           }
         },
         "success": {
-          "title": "Nachricht gesendet! 🎉",
-          "description": "Danke für dein Interesse! Ich werde mich innerhalb von 24 Stunden bei dir melden.",
-          "close": "Schließen"
-        },
-        "error": {
-          "title": "Oops! Etwas ist schiefgelaufen 😅",
-          "description": "Beim Senden deiner Nachricht ist ein Fehler aufgetreten. Bitte versuche es erneut oder kontaktiere mich direkt.",
-          "retry": "Erneut versuchen",
-          "close": "Schließen"
+          "title": "¡Nachricht gesendet! 🎉",
+          "description": "Danke, dass du mich kontaktiert hast. Ich werde dir bald antworten, um dein Projekt zu besprechen."
         }
       }
     },

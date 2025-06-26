@@ -153,7 +153,9 @@
             "video": "Videollamada",
             "send": "Enviar Mensaje",
             "sending": "Enviando...",
-            "cancel": "Cancelar"
+            "cancel": "Cancelar",
+            "success": "¡Mensaje enviado exitosamente!",
+            "error": "Error al enviar el mensaje. Inténtalo de nuevo."
           }
         },
         "validation": {

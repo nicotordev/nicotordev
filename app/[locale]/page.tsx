@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import HeroSection from '@/components/Home/HeroSection';
 import AboutMeSectionWrapper from '@/components/Home/AboutMeSection';
-import { getAllTranslations, getValidLocale } from '@/app/actions/language';
+import { getAllTranslations, getValidLocale } from '@/app/actions/language.actions';
 import HomeSeparator from '@/components/Home/HomeSeparator';
 
 interface HomePageProps {

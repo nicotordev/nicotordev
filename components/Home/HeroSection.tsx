@@ -11,10 +11,11 @@ import {
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Download, Rocket, Zap } from "lucide-react";
 import HeroSectionScrollIndictor from "./HeroSectionScrollIndictor";
-import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language";
+import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language.actions";
 import { Badge } from "../ui/badge";
 import { ThemeToggle } from "./ThemeToggle";
 import HeroSectionAbout from "../HeroSectionAbout";
+import ContactButton from "../common/ContactButton";
 
 export default async function HeroSection() {
   const [tHero, tResume] = await Promise.all([
@@ -34,6 +35,7 @@ export default async function HeroSection() {
       <div className="fixed top-4 right-4 z-50 flex items-center gap-4">
         <LanguageSwitcher />
         <ThemeToggle />
+        <ContactButton />
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">

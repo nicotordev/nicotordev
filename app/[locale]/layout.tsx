@@ -7,6 +7,7 @@ import { getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ThemeProvider } from "@/components/Home/ThemeProvider"
+import { getLanguage, setLanguage } from "../actions/language.actions";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-sans",
@@ -116,8 +117,14 @@ export default async function LocaleLayout({
 }) {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
+  const language = getLanguage();
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
+  }
+
+  if (!language) {
+    setLanguage(locale);
   }
 
   return (

@@ -16,9 +16,11 @@ import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
 import { Badge } from "../ui/badge";
+import { createLead } from "@/app/actions/leads.actions";
+import { toast } from "sonner";
 
 
-export default function AboutMeSectionContactButton() {
+export default function ContactButton() {
     const [isOpen, setIsOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -39,43 +41,43 @@ export default function AboutMeSectionContactButton() {
             .max(100, t('cta.modal.validation.company.max')),
 
         projectType: z.enum([
-            "web-development",
-            "mobile-app",
-            "e-commerce",
-            "saas-platform",
-            "portfolio",
-            "consulting",
-            "other"
+            "WEB_DEVELOPMENT",
+            "MOBILE_APP",
+            "E_COMMERCE",
+            "SAAS_PLATFORM",
+            "PORTFOLIO",
+            "CONSULTING",
+            "OTHER"
         ], {
             required_error: t('cta.modal.validation.projectType.required')
         }),
 
         budget: z.enum([
-            "under-5k",
-            "5k-15k",
-            "15k-30k",
-            "30k-50k",
-            "50k+"
+            "UNDER_5K",
+            "RANGE_5K_15K",
+            "RANGE_15K_30K",
+            "RANGE_30K_50K",
+            "OVER_50K"
         ], {
             required_error: t('cta.modal.validation.budget.required')
         }),
 
         timeline: z.enum([
-            "asap",
-            "1-month",
-            "1-3-months",
-            "3-6-months",
-            "6-months+"
+            "ASAP",
+            "ONE_MONTH",
+            "ONE_TO_THREE_MONTHS",
+            "THREE_TO_SIX_MONTHS",
+            "OVER_SIX_MONTHS"
         ], {
             required_error: t('cta.modal.validation.timeline.required')
         }),
 
         priority: z.enum([
-            "design",
-            "performance",
-            "functionality",
-            "seo",
-            "user-experience"
+            "DESIGN",
+            "PERFORMANCE",
+            "FUNCTIONALITY",
+            "SEO",
+            "USER_EXPERIENCE"
         ], {
             required_error: t('cta.modal.validation.priority.required')
         }),
@@ -84,7 +86,7 @@ export default function AboutMeSectionContactButton() {
             .min(20, t('cta.modal.validation.message.min'))
             .max(1000, t('cta.modal.validation.message.max')),
 
-        contactPreference: z.enum(["email", "phone", "video-call"], {
+        contactPreference: z.enum(["EMAIL", "PHONE", "VIDEO_CALL"], {
             required_error: t('cta.modal.validation.contactPreference.required')
         })
     });
@@ -102,12 +104,19 @@ export default function AboutMeSectionContactButton() {
     });
 
     const onSubmit = async (data: ContactFormData) => {
+        const toastId = toast.loading(t('cta.modal.message.contact.sending'));
         setIsSubmitting(true);
 
         // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        const { success, error } = await createLead(data);
 
-        console.log("Contact form data:", data);
+        if (!success) {
+            toast.error(error || t('cta.modal.message.contact.error'), { id: toastId });
+            return;
+        }
+
+        toast.success(t('cta.modal.message.contact.success'), { id: toastId });
+
         setIsSubmitting(false);
         setIsSubmitted(true);
 
@@ -120,30 +129,30 @@ export default function AboutMeSectionContactButton() {
     };
 
     const projectTypes = [
-        { value: "web-development", label: t('cta.modal.project.type.options.web-development'), icon: "🌐" },
-        { value: "mobile-app", label: t('cta.modal.project.type.options.mobile-app'), icon: "📱" },
-        { value: "e-commerce", label: t('cta.modal.project.type.options.e-commerce'), icon: "🛒" },
-        { value: "saas-platform", label: t('cta.modal.project.type.options.saas-platform'), icon: "☁️" },
-        { value: "portfolio", label: t('cta.modal.project.type.options.portfolio'), icon: "🎨" },
-        { value: "consulting", label: t('cta.modal.project.type.options.consulting'), icon: "💡" },
-        { value: "other", label: t('cta.modal.project.type.options.other'), icon: "🔧" }
-    ];
+        { value: "WEB_DEVELOPMENT", label: t('cta.modal.project.type.options.web-development'), icon: "🌐" },
+        { value: "MOBILE_APP", label: t('cta.modal.project.type.options.mobile-app'), icon: "📱" },
+        { value: "E_COMMERCE", label: t('cta.modal.project.type.options.e-commerce'), icon: "🛒" },
+        { value: "SAAS_PLATFORM", label: t('cta.modal.project.type.options.saas-platform'), icon: "☁️" },
+        { value: "PORTFOLIO", label: t('cta.modal.project.type.options.portfolio'), icon: "🎨" },
+        { value: "CONSULTING", label: t('cta.modal.project.type.options.consulting'), icon: "💡" },
+        { value: "OTHER", label: t('cta.modal.project.type.options.other'), icon: "🔧" }
+    ] as const;
 
     const budgetRanges = [
-        { value: "under-5k", label: t('cta.modal.project.budget.options.under-5k'), color: "bg-blue-100 text-blue-800" },
-        { value: "5k-15k", label: t('cta.modal.project.budget.options.5k-15k'), color: "bg-green-100 text-green-800" },
-        { value: "15k-30k", label: t('cta.modal.project.budget.options.15k-30k'), color: "bg-yellow-100 text-yellow-800" },
-        { value: "30k-50k", label: t('cta.modal.project.budget.options.30k-50k'), color: "bg-orange-100 text-orange-800" },
-        { value: "50k+", label: t('cta.modal.project.budget.options.50k+'), color: "bg-purple-100 text-purple-800" }
-    ];
+        { value: "UNDER_5K", label: t('cta.modal.project.budget.options.under-5k'), color: "bg-blue-100 text-blue-800" },
+        { value: "RANGE_5K_15K", label: t('cta.modal.project.budget.options.5k-15k'), color: "bg-green-100 text-green-800" },
+        { value: "RANGE_15K_30K", label: t('cta.modal.project.budget.options.15k-30k'), color: "bg-yellow-100 text-yellow-800" },
+        { value: "RANGE_30K_50K", label: t('cta.modal.project.budget.options.30k-50k'), color: "bg-orange-100 text-orange-800" },
+        { value: "OVER_50K", label: t('cta.modal.project.budget.options.50k+'), color: "bg-purple-100 text-purple-800" }
+    ] as const;
 
     const priorities = [
-        { value: "design", label: t('cta.modal.project.priority.options.design'), icon: <Heart className="w-4 h-4" /> },
-        { value: "performance", label: t('cta.modal.project.priority.options.performance'), icon: <Star className="w-4 h-4" /> },
-        { value: "functionality", label: t('cta.modal.project.priority.options.functionality'), icon: <Briefcase className="w-4 h-4" /> },
-        { value: "seo", label: t('cta.modal.project.priority.options.seo'), icon: <MessageSquare className="w-4 h-4" /> },
-        { value: "user-experience", label: t('cta.modal.project.priority.options.user-experience'), icon: <User className="w-4 h-4" /> }
-    ];
+        { value: "DESIGN", label: t('cta.modal.project.priority.options.design'), icon: <Heart className="w-4 h-4" /> },
+        { value: "PERFORMANCE", label: t('cta.modal.project.priority.options.performance'), icon: <Star className="w-4 h-4" /> },
+        { value: "FUNCTIONALITY", label: t('cta.modal.project.priority.options.functionality'), icon: <Briefcase className="w-4 h-4" /> },
+        { value: "SEO", label: t('cta.modal.project.priority.options.seo'), icon: <MessageSquare className="w-4 h-4" /> },
+        { value: "USER_EXPERIENCE", label: t('cta.modal.project.priority.options.user-experience'), icon: <User className="w-4 h-4" /> }
+    ] as const;
 
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -153,7 +162,7 @@ export default function AboutMeSectionContactButton() {
                     {t('cta.contact')}
                 </Button>
             </DialogTrigger>
-            <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+            <DialogContent className="max-h-[90vh] overflow-y-auto !w-[95vw] !max-w-[900px]">
                 <DialogHeader className="space-y-4">
                     <DialogTitle className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                         {t('cta.modal.title')}
@@ -308,11 +317,11 @@ export default function AboutMeSectionContactButton() {
                                                         </SelectTrigger>
                                                     </FormControl>
                                                     <SelectContent>
-                                                        <SelectItem value="asap">{t('cta.modal.project.timeline.asap')}</SelectItem>
-                                                        <SelectItem value="1-month">{t('cta.modal.project.timeline.1-month')}</SelectItem>
-                                                        <SelectItem value="1-3-months">{t('cta.modal.project.timeline.1-3-months')}</SelectItem>
-                                                        <SelectItem value="3-6-months">{t('cta.modal.project.timeline.3-6-months')}</SelectItem>
-                                                        <SelectItem value="6-months+">{t('cta.modal.project.timeline.6-months+')}</SelectItem>
+                                                        <SelectItem value="ASAP">{t('cta.modal.project.timeline.asap')}</SelectItem>
+                                                        <SelectItem value="ONE_MONTH">{t('cta.modal.project.timeline.1-month')}</SelectItem>
+                                                        <SelectItem value="ONE_TO_THREE_MONTHS">{t('cta.modal.project.timeline.1-3-months')}</SelectItem>
+                                                        <SelectItem value="THREE_TO_SIX_MONTHS">{t('cta.modal.project.timeline.3-6-months')}</SelectItem>
+                                                        <SelectItem value="OVER_SIX_MONTHS">{t('cta.modal.project.timeline.6-months+')}</SelectItem>
                                                     </SelectContent>
                                                 </Select>
                                                 <FormMessage />
@@ -390,22 +399,22 @@ export default function AboutMeSectionContactButton() {
                                                     className="flex flex-col sm:flex-row gap-4"
                                                 >
                                                     <div className="flex items-center space-x-2">
-                                                        <RadioGroupItem value="email" id="email" />
-                                                        <Label htmlFor="email" className="flex items-center gap-2">
+                                                        <RadioGroupItem value="EMAIL" id="EMAIL" />
+                                                        <Label htmlFor="EMAIL" className="flex items-center gap-2">
                                                             <Mail className="w-4 h-4" />
                                                             {t('cta.modal.message.contact.email')}
                                                         </Label>
                                                     </div>
                                                     <div className="flex items-center space-x-2">
-                                                        <RadioGroupItem value="phone" id="phone" />
-                                                        <Label htmlFor="phone" className="flex items-center gap-2">
+                                                        <RadioGroupItem value="PHONE" id="PHONE" />
+                                                        <Label htmlFor="PHONE" className="flex items-center gap-2">
                                                             <MessageSquare className="w-4 h-4" />
                                                             {t('cta.modal.message.contact.phone')}
                                                         </Label>
                                                     </div>
                                                     <div className="flex items-center space-x-2">
-                                                        <RadioGroupItem value="video-call" id="video-call" />
-                                                        <Label htmlFor="video-call" className="flex items-center gap-2">
+                                                        <RadioGroupItem value="VIDEO_CALL" id="VIDEO_CALL" />
+                                                        <Label htmlFor="VIDEO_CALL" className="flex items-center gap-2">
                                                             <Calendar className="w-4 h-4" />
                                                             {t('cta.modal.message.contact.video')}
                                                         </Label>

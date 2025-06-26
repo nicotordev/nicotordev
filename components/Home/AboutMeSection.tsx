@@ -16,7 +16,7 @@ import { Suspense } from "react";
 import { Skeleton } from "../ui/skeleton";
 // import { useDialog } from "@/hooks/use-dialog";
 // import AboutMeSectionProjectsWrapper from "./AboutMeSectionProjects";
-import AboutMeSectionContactButton from "./AboutMeSectionContactButton";
+import AboutMeSectionContactButton from "../common/ContactButton";
 import { formatCurrency } from "@/lib/currency";
 import AboutMeSectionProjectsWrapper from "./AboutMeSectionProjects";
 import Link from "next/link";

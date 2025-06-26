@@ -153,7 +153,9 @@
             "video": "Video Call",
             "send": "Send Message",
             "sending": "Sending...",
-            "cancel": "Cancel"
+            "cancel": "Cancel",
+            "success": "Message sent successfully!",
+            "error": "Error sending message. Please try again."
           }
         },
         "validation": {

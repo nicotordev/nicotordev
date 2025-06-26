@@ -11,7 +11,7 @@ import {
 import LanguageSwitcher from "./Home/LanguageSwitcher";
 import { Download, Rocket, Zap } from "lucide-react";
 import HeroSectionScrollIndictor from "./Home/HeroSectionScrollIndictor";
-import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language";
+import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language.actions";
 import { Badge } from "./ui/badge";
 import HeroSectionAbout from "./HeroSectionAbout";
 

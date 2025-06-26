@@ -1,0 +1,138 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ProjectType {
+  WEB_DEVELOPMENT
+  MOBILE_APP
+  E_COMMERCE
+  SAAS_PLATFORM
+  PORTFOLIO
+  CONSULTING
+  OTHER
+}
+
+enum Budget {
+  UNDER_5K
+  RANGE_5K_15K
+  RANGE_15K_30K
+  RANGE_30K_50K
+  OVER_50K
+}
+
+enum Timeline {
+  ASAP
+  ONE_MONTH
+  ONE_TO_THREE_MONTHS
+  THREE_TO_SIX_MONTHS
+  OVER_SIX_MONTHS
+}
+
+enum Priority {
+  DESIGN
+  PERFORMANCE
+  FUNCTIONALITY
+  SEO
+  USER_EXPERIENCE
+}
+
+enum ContactPreference {
+  EMAIL
+  PHONE
+  VIDEO_CALL
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  PROPOSAL_SENT
+  NEGOTIATING
+  WON
+  LOST
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String   @db.VarChar(50)
+  email     String   @db.VarChar(255)
+  password  String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  leads    Lead[]
+  sessions Session[]
+
+  @@unique([email])
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  ip        String   @db.VarChar(50)
+  userAgent String   @db.VarChar(255)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  leads Lead[]
+
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id])
+
+  @@map("sessions")
+}
+
+model Lead {
+  id String @id @default(cuid())
+
+  // Personal Information
+  name    String @db.VarChar(50)
+  email   String @db.VarChar(255)
+  company String @db.VarChar(100)
+
+  // Project Details
+  projectType ProjectType
+  budget      Budget
+  timeline    Timeline
+  priority    Priority
+
+  // Message & Contact
+  message           String            @db.Text
+  contactPreference ContactPreference
+
+  // Lead Management
+  status LeadStatus @default(NEW)
+  source String?    @default("contact_form")
+
+  // Metadata
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Optional fields for lead management
+  notes        String?   @db.Text
+  followUpDate DateTime?
+  assignedTo   String?
+
+  sessionId String
+  session   Session @relation(fields: [sessionId], references: [id])
+  user      User?   @relation(fields: [userId], references: [id])
+  userId    String? @unique
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([email])
+  @@map("leads")
+}
