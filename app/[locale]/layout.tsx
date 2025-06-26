@@ -1,39 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Fira_Code, JetBrains_Mono, Source_Code_Pro } from "next/font/google";
+import { JetBrains_Mono, IBM_Plex_Mono, Fira_Code } from "next/font/google";
 import "../globals.css";
-import { ThemeModeScript } from "flowbite-react";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 const firaCode = Fira_Code({
-  variable: "--font-fira-code",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const sourceCodePro = Source_Code_Pro({
-  variable: "--font-source-code-pro",
+  variable: "--font-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -132,10 +120,20 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <ThemeModeScript />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark')
+              } else {
+                document.documentElement.classList.remove('dark')
+              }
+            `,
+          }}
+        />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${firaCode.variable} ${jetbrainsMono.variable} ${sourceCodePro.variable} antialiased`}
+        className={`${jetbrainsMono.variable} ${ibmPlexMono.variable} ${firaCode.variable} antialiased`}
       >
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

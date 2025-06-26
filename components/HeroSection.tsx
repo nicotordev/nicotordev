@@ -4,9 +4,16 @@ import Motion from "./Motion";
 import Image from "next/image";
 import { assets } from "@/app/assets";
 import AnimatedBackgroundBlobs from "./AnimatedBackgroundBlobs";
-import { Button, Dropdown, DropdownItem } from "flowbite-react";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from "./LanguageSwitcher";
+import { Download } from "lucide-react";
 
 export default function HeroSection() {
   const t = useTranslations('hero');
@@ -81,7 +88,9 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button color="pink">{t('cta.about')}</Button>
+                <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white border-0">
+                  {t('cta.about')}
+                </Button>
               </Motion>
 
               <Motion
@@ -89,28 +98,36 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Dropdown label={t('cta.resume')} dismissOnClick={false}>
-                  <DropdownItem>
-                    <a href={assets.resume.pdf} download>
-                      PDF
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a href={assets.resume.pptx} download>
-                      PPTX
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a href={assets.resume.csv} download>
-                      CSV
-                    </a>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <a href={assets.resume.json} download>
-                      JSON
-                    </a>
-                  </DropdownItem>
-                </Dropdown>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="flex items-center gap-2">
+                      <Download size={16} />
+                      {t('cta.resume')}
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center">
+                    <DropdownMenuItem asChild>
+                      <a href={assets.resume.pdf} download className="flex items-center w-full">
+                        PDF
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <a href={assets.resume.pptx} download className="flex items-center w-full">
+                        PPTX
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <a href={assets.resume.csv} download className="flex items-center w-full">
+                        CSV
+                      </a>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <a href={assets.resume.json} download className="flex items-center w-full">
+                        JSON
+                      </a>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </Motion>
             </Motion>
           </div>
