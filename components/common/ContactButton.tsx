@@ -19,8 +19,11 @@ import { Badge } from "../ui/badge";
 import { createLead } from "@/app/actions/leads.actions";
 import { toast } from "sonner";
 
+interface ContactButtonProps {
+    trigger?: React.ReactNode;
+}
 
-export default function ContactButton() {
+export default function ContactButton({ trigger }: ContactButtonProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -157,10 +160,14 @@ export default function ContactButton() {
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
-                <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
-                    <Mail className="w-5 h-5 mr-2" />
-                    {t('cta.contact')}
-                </Button>
+                {
+                    trigger ? <div>{trigger}</div> : (
+                        <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300">
+                            <Mail className="w-5 h-5 mr-2" />
+                            {t('cta.contact')}
+                        </Button>
+                    )
+                }
             </DialogTrigger>
             <DialogContent className="max-h-[90vh] overflow-y-auto !w-[95vw] !max-w-[900px]">
                 <DialogHeader className="space-y-4">

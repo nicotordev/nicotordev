@@ -8,14 +8,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import LanguageSwitcher from "./LanguageSwitcher";
 import { Download, Rocket, Zap } from "lucide-react";
 import HeroSectionScrollIndictor from "./HeroSectionScrollIndictor";
 import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language.actions";
 import { Badge } from "../ui/badge";
-import { ThemeToggle } from "./ThemeToggle";
-import HeroSectionAbout from "../HeroSectionAbout";
-import ContactButton from "../common/ContactButton";
+import HeroSectionAbout from "../HeroSectionAbout"; 
 
 export default async function HeroSection() {
   const [tHero, tResume] = await Promise.all([
@@ -30,13 +27,6 @@ export default async function HeroSection() {
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-tr from-accent/10 to-primary/10 rounded-full blur-3xl pointer-events-none" />
 
       <AnimatedBackgroundBlobs />
-
-      {/* Language Switcher - Fixed position */}
-      <div className="fixed top-4 right-4 z-50 flex items-center gap-4">
-        <LanguageSwitcher />
-        <ThemeToggle />
-        <ContactButton />
-      </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center space-y-12">

@@ -64,6 +64,21 @@ enum LeadStatus {
   LOST
 }
 
+enum Theme {
+  LIGHT
+  DARK
+  SYSTEM
+}
+
+enum Language {
+  EN
+  EN_GB
+  ES
+  ES_CL
+  ES_ES
+  DE
+}
+
 model User {
   id        String   @id @default(cuid())
   name      String   @db.VarChar(50)
@@ -84,6 +99,8 @@ model Session {
   ip        String   @db.VarChar(50)
   userAgent String   @db.VarChar(255)
   expiresAt DateTime
+  theme     Theme    @default(SYSTEM)
+  language  Language @default(EN)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ThemeProvider } from "@/components/Home/ThemeProvider"
 import { getLanguage, setLanguage } from "../actions/language.actions";
+import Header from "@/components/Layout/Header";
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-sans",
@@ -139,7 +140,10 @@ export default async function LocaleLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>
+            <Header />
+            {children}
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
