@@ -32,5 +32,11 @@
     "title": "Página No Encontrada",
     "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
     "goHome": "Ir al Inicio"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
   }
 } 

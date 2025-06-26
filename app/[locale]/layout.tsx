@@ -6,6 +6,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import { ThemeProvider } from "@/components/ThemeProvider"
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-sans",
@@ -118,25 +119,20 @@ export default async function LocaleLayout({
   }
 
   return (
-    <html lang={locale} suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                document.documentElement.classList.add('dark')
-              } else {
-                document.documentElement.classList.remove('dark')
-              }
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" suppressHydrationWarning>
+      <head />
       <body
         className={`${jetbrainsMono.variable} ${ibmPlexMono.variable} ${firaCode.variable} antialiased`}
       >
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

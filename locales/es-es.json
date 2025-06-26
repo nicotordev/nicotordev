@@ -17,6 +17,12 @@
     "language": "Idioma",
     "theme": "Tema"
   },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  },
   "common": {
     "loading": "Cargando...",
     "error": "Ha ocurrido un error",
