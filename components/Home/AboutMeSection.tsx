@@ -66,7 +66,7 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
     }
   ];
 
-  const aboutMeSectionProjects = await (<AboutMeSectionProjects />)   
+  const aboutMeSectionProjects = await (<AboutMeSectionProjects />)
 
   const skills = [
     { name: "Next.js/React", level: 95, color: "from-blue-500 to-cyan-500" },
@@ -464,7 +464,6 @@ async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
                     </Motion>
 
                     <p className="text-muted-foreground">
-                      {t('cta.alternative')}{" "}
                       <a href="https://www.linkedin.com/in/nicotordev/"
                         className="text-primary hover:text-accent font-medium hover:underline transition-colors">
                         {t('cta.alternative')}
