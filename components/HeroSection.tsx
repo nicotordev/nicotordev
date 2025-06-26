@@ -9,12 +9,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { getTranslations } from 'next-intl/server';
 import LanguageSwitcher from "./LanguageSwitcher";
 import { Download } from "lucide-react";
 
-export default async function HeroSection() {
-  const t = await getTranslations('hero');
+interface HeroSectionProps {
+  translations: (key: string) => string;
+}
+
+export default async function HeroSection({ translations }: HeroSectionProps) {
+  const t = (key: string) => translations(`hero.${key}`);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
@@ -58,7 +61,7 @@ export default async function HeroSection() {
             >
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-slate-100 leading-tight">
                 {t('greeting')}{" "}
-                <span className="gradient-text animate-shimmer">
+                <span className="animate-shimmer text-primary font-bold">
                   {t('name')}
                 </span>
               </h1>

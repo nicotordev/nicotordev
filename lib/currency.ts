@@ -27,6 +27,24 @@ export function formatCurrency({
     'es-es': 'es-ES',
   };
 
+  // Custom formatting for amounts >= 1000
+  if (amount >= 1000) {
+    const kAmount = amount / 1000;
+    const formattedK = kAmount.toFixed(0);
+    
+    try {
+      const currencySymbol = new Intl.NumberFormat(localeMap[locale], {
+        style: 'currency',
+        currency,
+      }).formatToParts(0).find(part => part.type === 'currency')?.value || currency;
+      
+      return `${currencySymbol}${formattedK}k`;
+    } catch (error) {
+      console.warn(`Currency formatting failed for locale ${locale}:`, error);
+      return `${currency} ${formattedK}k`;
+    }
+  }
+
   try {
     return new Intl.NumberFormat(localeMap[locale], {
       style: 'currency',

@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import HeroSection from '@/components/HeroSection';
-
+import AboutMeSection from '@/components/AboutMeSection';
+import { Locale } from '@/lib/locales';
 
 interface HomePageProps {
   params: Promise<{
@@ -86,12 +87,16 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   };
 }
 
-export default async function Home() { 
-  const heroSection = await HeroSection();
+export default async function Home({ params }: HomePageProps) {
+  const { locale } = await params;
+  const allTranslations = await getTranslations();
+  const heroSection = await HeroSection({ translations: allTranslations });
+  const aboutMeSection = await AboutMeSection({ translations: allTranslations, locale: locale as Locale });
 
   return (
     <main>
       {heroSection}
+      {aboutMeSection}
     </main>
   );
 }

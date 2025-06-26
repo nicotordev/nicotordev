@@ -31,7 +31,13 @@ export const assets = {
   reactQueryIcon: '/programming/react-query-icon.svg',
 
   // Illustrations
-  meProgramming: '/illustrations/me-programming.png',
+  meProgramming: '/illustrations/me-programming.webp',
+  meTypescript: '/illustrations/me-typescript.webp',
+  meColorScheme: '/illustrations/me-color-scheme.webp',
+  meSeriousLooking: '/illustrations/me-serious-looking.webp',
+  spiritory: '/illustrations/spiritory.webp',
+  quick10x: '/illustrations/quick10x.webp',
+  seguidoress: '/illustrations/seguidoress.webp',
 
   logo: '/logo.png',
 
@@ -41,5 +47,5 @@ export const assets = {
     pptx: '/documents/resume.pptx',
     csv: '/documents/resume.csv',
     json: '/documents/resume.json'
-  }
+  },
 };

@@ -3,25 +3,84 @@
     "greeting": "Hola, soy",
     "name": "Nicolas Torres",
     "title": "Desarrollador Full Stack",
-    "description": "Soy un Desarrollador Full Stack apasionado con experiencia en la construcción de aplicaciones web modernas que ofrecen experiencias de usuario excepcionales.",
+    "description": "Soy un Desarrollador Full Stack apasionado, con experiencia construyendo aplicaciones web modernas que entregan una experiencia de usuario excelente.",
     "cta": {
-      "about": "Sobre Mí",
+      "about": "Sobre mí",
       "resume": "Descargar CV"
+    }
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "Full-Stack Developer TypeScript-First 🚀",
+    "description": "Creo productos web de principio a fin con Node.js + Express en el servidor y Next.js 14 en el frontend, siempre priorizando TypeScript y una experiencia de usuario fluida.",
+    "role": {
+      "current": "Puesto actual",
+      "position": "Full-Stack Developer en spiritory GmbH",
+      "mode": "Modalidad",
+      "modeDetails": "100% remoto · Upwork Top Rated"
+    },
+    "metrics": {
+      "hours": "Horas trabajadas",
+      "earnings": "Ganancias",
+      "total_earnings_short": "Total Ganancias",
+      "total_earnings": "Total Ganancias",
+      "success": "Tasa de éxito",
+      "salary": "Salario",
+      "experienceValue": "2 años de experiencia",
+      "experience": "Experiencia"
+    },
+    "specialties": {
+      "title": "Especialidades"
+    },
+    "methodology": {
+      "title": "Metodología",
+      "description": "Práctica ágil ligera: commits atómicos, PR pequeños, CI/CD con GitHub Actions, documentación viva en MD y ciclos rápidos de «ship → learn → improve»."
+    },
+    "workStyle": {
+      "title": "Cómo trabajo",
+      "description": "Siempre con humor y respeto; aporto ideas útiles, comunico en ES/EN sin fricción y mantengo al equipo alineado."
+    },
+    "projects": {
+      "title": "Proyectos clave",
+      "subtitle": "Soluciones que han generado impacto real",
+      "seguidoress": "Plataforma SMM creada 100% por mí",
+      "spiritory": "E-commerce premium de bebidas espirituosas; mantenimiento full-stack y nuevas funcionalidades",
+      "quick10x": "Crypto screener en tiempo real con suscripciones y panel admin",
+      "spiritory_impact": "Plataforma de trading de whisky más grande de Europa y pronto del mundo!",
+      "quick10x_impact": "Crypto screener en tiempo real con suscripciones y panel admin",
+      "seguidoress_impact": "96 usuarios, 114 USD / semana pasivo",
+      "spiritory_ct": "Visitar Spiritory",
+      "quick10x_ct": "Visitar Quick10x",
+      "seguidoress_ct": "Visitar Seguidoress"
+    },
+    "personal": {
+      "title": "Un poco más sobre mí",
+      "description": "Fuera del código, grabo vídeos para YouTube, lanzo side-projects SaaS y comparto consejos de desarrollo en redes sociales. Programar es mi hobby número uno."
+    },
+    "cta": {
+      "title": "¿Preparado para crear algo increíble?",
+      "description": "Trabajemos juntos para convertir tu visión en una realidad digital que destaque.",
+      "contact": "Hablemos",
+      "alternative": "O conéctate conmigo en LinkedIn"
+    },
+    "testimonial": {
+      "title": "Testimonio destacado",
+      "quote": "Nicolas es un desarrollador excepcional con un profundo entendimiento de las tecnologías web modernas. Su capacidad para resolver problemas complejos y entregar código de alta calidad es impresionante.",
+      "author": "Cliente en spiritory GmbH"
+    },
+    "certifications": {
+      "title": "Certificaciones relevantes",
+      "postgresql": "Certificación PostgreSQL - Desarrollo Avanzado de Bases de Datos",
+      "java": "Certificación Java SE - Programación Orientada a Objetos"
     }
   },
   "navigation": {
     "home": "Inicio",
-    "about": "Sobre Mí",
+    "about": "Sobre mí",
     "projects": "Proyectos",
     "contact": "Contacto",
     "language": "Idioma",
     "theme": "Tema"
-  },
-  "theme": {
-    "toggle": "Cambiar tema",
-    "light": "Claro",
-    "dark": "Oscuro",
-    "system": "Sistema"
   },
   "common": {
     "loading": "Cargando...",
@@ -32,11 +91,17 @@
   "metadata": {
     "title": "NicoTordev - Sitio Personal",
     "description": "Bienvenido a mi sitio personal donde comparto mis pensamientos, proyectos y experiencias como desarrollador.",
-    "keywords": "Sitio Personal, Blog, Desarrollador, TypeScript, React, Next.js, Node.js, JavaScript, Desarrollo Web, Blog de Tecnología, Desarrollo de Software"
+    "keywords": "Sitio personal, Blog, Desarrollador, TypeScript, React, Next.js, Node.js, JavaScript, Desarrollo web, Blog de tecnología, Desarrollo de software"
   },
   "NotFound": {
-    "title": "Página No Encontrada",
+    "title": "Página no encontrada",
     "description": "Lo sentimos, la página que buscas no existe o ha sido movida.",
-    "goHome": "Ir al Inicio"
+    "goHome": "Ir al inicio"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
   }
-} 
+}
