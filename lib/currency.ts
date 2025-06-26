@@ -17,7 +17,7 @@ export function formatCurrency({
   maximumFractionDigits = 2,
 }: CurrencyFormatOptions): string {
   const currency = currencyMap[locale];
-  
+
   // Locale mapping for Intl.NumberFormat
   const localeMap: Record<Locale, string> = {
     'en': 'en-US',
@@ -25,19 +25,20 @@ export function formatCurrency({
     'es': 'es-US',
     'es-cl': 'es-CL',
     'es-es': 'es-ES',
+    'de': 'de-DE',
   };
 
   // Custom formatting for amounts >= 1000
   if (amount >= 1000) {
     const kAmount = amount / 1000;
     const formattedK = kAmount.toFixed(0);
-    
+
     try {
       const currencySymbol = new Intl.NumberFormat(localeMap[locale], {
         style: 'currency',
         currency,
       }).formatToParts(0).find(part => part.type === 'currency')?.value || currency;
-      
+
       return `${currencySymbol}${formattedK}k`;
     } catch (error) {
       console.warn(`Currency formatting failed for locale ${locale}:`, error);
@@ -64,7 +65,7 @@ export function formatCurrency({
  */
 export function getCurrencySymbol(locale: Locale): string {
   const currency = currencyMap[locale];
-  
+
   const symbolMap: Record<string, string> = {
     'USD': '$',
     'EUR': '€',
@@ -84,6 +85,7 @@ export function formatNumber(locale: Locale, amount: number): string {
     'es': 'es-US',
     'es-cl': 'es-CL',
     'es-es': 'es-ES',
+    'de': 'de-DE',
   };
 
   try {

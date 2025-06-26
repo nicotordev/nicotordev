@@ -15,6 +15,9 @@ import AboutMeSectionProjects from "./AboutMeSectionProjects";
 // import { CollapsibleTrigger } from "./ui/collapsible";
 // import { CollapsibleContent } from "@radix-ui/react-collapsible";
 
+import { Suspense } from "react";
+import { Skeleton } from "./ui/skeleton";
+
 interface AboutMetric {
   label: string;
   value: string;
@@ -30,7 +33,7 @@ interface AboutMeSectionProps {
   locale: Locale;
 }
 
-export default async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
+async function AboutMeSection({ translations, locale }: AboutMeSectionProps) {
   const t = (key: string) => translations(`about.${key}`);
 
   const metrics: AboutMetric[] = [
@@ -73,13 +76,13 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative overflow-hidden">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
       <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-tr from-accent/10 to-primary/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="space-y-20 relative z-10">
+      <div className="space-y-20 relative z-10 max-w-7xl mx-auto">
         {/* Hero Section */}
         <Motion
           initial={{ opacity: 0, y: 50 }}
@@ -115,7 +118,7 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 <h2 className="text-4xl sm:text-6xl font-bold">
-                  <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-x">
+                  <span className="text-white text-transparent animate-gradient-x">
                     {t('title')}
                   </span>
                   <br />
@@ -198,7 +201,7 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
           <div className="space-y-8">
             <div className="text-center">
               <h3 className="text-3xl font-bold text-foreground mb-4">
-                🚀 <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Achievement Metrics</span>
+                🚀 <span className="text-accent">Achievement Metrics</span>
               </h3>
               <p className="text-muted-foreground text-lg">Numbers that tell the story of dedication and success</p>
             </div>
@@ -226,7 +229,7 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
 
                         <div className="space-y-2">
                           <div className={`text - 3xl sm: text - 4xl font - bold transition - all duration - 300 ${metric.highlight
-                            ? 'bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent'
+                            ? 'text-accent'
                             : 'text-foreground group-hover:text-primary'
                             } `}>
                             {metric.value}
@@ -414,7 +417,7 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
             <div className="text-center space-y-4">
               <h3 className="text-3xl font-bold text-foreground flex items-center justify-center gap-3">
                 <Award className="w-8 h-8 text-primary" />
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                <span className="text-accent">
                   {t('projects.title')}
                 </span>
               </h3>
@@ -440,7 +443,7 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
                 <div className="space-y-8">
                   <div className="space-y-4">
                     <h3 className="text-3xl font-bold">
-                      <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                      <span className="text-accent">
                         {t('cta.title')}
                       </span>
                     </h3>
@@ -535,4 +538,206 @@ export default async function AboutMeSection({ translations, locale }: AboutMeSe
       </div>
     </section>
   );
+}
+
+
+
+function AboutMeSectionSkeleton() {
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+      <div className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-tr from-accent/10 to-primary/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="space-y-20 relative z-10 max-w-7xl mx-auto">
+        {/* Hero Section Skeleton */}
+        <div className="text-center space-y-8">
+          <div className="relative inline-block">
+            <Skeleton className="w-32 h-32 sm:w-40 sm:h-40 rounded-full mx-auto" />
+          </div>
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <Skeleton className="h-12 sm:h-16 w-3/4 mx-auto" />
+              <Skeleton className="h-8 sm:h-10 w-1/2 mx-auto" />
+            </div>
+            <Skeleton className="h-6 w-4/5 mx-auto" />
+          </div>
+        </div>
+
+        {/* Current Role Skeleton */}
+        <Card className="relative overflow-hidden border-2 border-primary/20">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent" />
+          <CardContent className="pt-8">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <Skeleton className="w-10 h-10 rounded-lg" />
+                  <div className="space-y-2 flex-1">
+                    <Skeleton className="h-4 w-24" />
+                    <Skeleton className="h-6 w-32" />
+                  </div>
+                </div>
+                <Separator className="bg-gradient-to-r from-transparent via-border to-transparent" />
+                <div className="flex items-center gap-3">
+                  <Skeleton className="w-5 h-5" />
+                  <div className="space-y-2 flex-1">
+                    <Skeleton className="h-5 w-28" />
+                    <Skeleton className="h-4 w-40" />
+                  </div>
+                </div>
+              </div>
+              <Skeleton className="w-full h-72 rounded-lg" />
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Metrics Grid Skeleton */}
+        <div className="space-y-8">
+          <div className="text-center space-y-4">
+            <Skeleton className="h-8 w-64 mx-auto" />
+            <Skeleton className="h-6 w-96 mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <Card key={index} className="relative overflow-hidden">
+                <CardContent className="pt-8 text-center">
+                  <div className="space-y-4">
+                    <Skeleton className="w-16 h-16 rounded-full mx-auto" />
+                    <div className="space-y-2">
+                      <Skeleton className="h-8 w-20 mx-auto" />
+                      <div className="space-y-2">
+                        <Skeleton className="h-2 w-full" />
+                        <Skeleton className="h-3 w-16 mx-auto" />
+                      </div>
+                    </div>
+                    <Skeleton className="h-4 w-24 mx-auto" />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Skills Skeleton */}
+        <Card className="relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+          <CardHeader>
+            <CardTitle className="flex items-center gap-3">
+              <Skeleton className="w-7 h-7" />
+              <Skeleton className="h-6 w-32" />
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                {Array.from({ length: 4 }).map((_, index) => (
+                  <div key={index} className="space-y-3">
+                    <div className="flex justify-between items-center">
+                      <Skeleton className="h-5 w-24" />
+                      <Skeleton className="h-4 w-8" />
+                    </div>
+                    <Skeleton className="h-3 w-full rounded-full" />
+                  </div>
+                ))}
+              </div>
+              <Skeleton className="w-full h-64 rounded-lg" />
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Tech Stack Skeleton */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {Array.from({ length: 2 }).map((_, index) => (
+            <Card key={index} className="relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500" />
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3">
+                  <Skeleton className="w-10 h-10 rounded-lg" />
+                  <Skeleton className="h-6 w-32" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="space-y-4">
+                  {Array.from({ length: 3 }).map((_, techIndex) => (
+                    <div key={techIndex}>
+                      <Skeleton className="h-4 w-20 mb-2" />
+                      <div className="flex flex-wrap gap-2">
+                        {Array.from({ length: 3 }).map((_, badgeIndex) => (
+                          <Skeleton key={badgeIndex} className="h-6 w-16 rounded-full" />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Projects Section Skeleton */}
+        <div className="space-y-8">
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <Skeleton className="w-8 h-8" />
+              <Skeleton className="h-8 w-48" />
+            </div>
+            <Skeleton className="h-6 w-64 mx-auto" />
+          </div>
+          <div className="space-y-6">
+            {Array.from({ length: 2 }).map((_, index) => (
+              <Card key={index} className="relative overflow-hidden">
+                <CardContent className="p-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center gap-3">
+                        <Skeleton className="w-12 h-12 rounded-lg" />
+                        <div className="space-y-2 flex-1">
+                          <Skeleton className="h-6 w-32" />
+                          <Skeleton className="h-4 w-24" />
+                        </div>
+                      </div>
+                      <Skeleton className="h-20 w-full" />
+                      <div className="flex flex-wrap gap-2">
+                        {Array.from({ length: 4 }).map((_, badgeIndex) => (
+                          <Skeleton key={badgeIndex} className="h-6 w-16 rounded-full" />
+                        ))}
+                      </div>
+                    </div>
+                    <Skeleton className="w-full h-48 rounded-lg" />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section Skeleton */}
+        <div className="text-center space-y-12">
+          <Card className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-card to-accent/5 border-2 border-primary/20">
+            <CardContent className="pt-12 pb-12">
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <Skeleton className="h-8 w-64 mx-auto" />
+                  <Skeleton className="h-6 w-96 mx-auto" />
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Skeleton className="h-12 w-40 rounded-lg" />
+                  <Skeleton className="h-5 w-48" />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default function AboutMeSectionWrapper({ translations, locale }: AboutMeSectionProps) {
+  return (
+    <Suspense fallback={<AboutMeSectionSkeleton />}>
+      <AboutMeSection translations={translations} locale={locale} />
+    </Suspense>
+  )
 }

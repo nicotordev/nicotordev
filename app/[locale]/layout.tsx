@@ -39,6 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     'es': 'es_ES',
     'es-cl': 'es_CL',
     'es-es': 'es_ES',
+    'de': 'de_DE',
   };
 
   return {
@@ -99,6 +100,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         'es': 'https://nicotordev.com/es',
         'es-cl': 'https://nicotordev.com/es-cl',
         'es-es': 'https://nicotordev.com/es-es',
+        'de': 'https://nicotordev.com/de',
       }
     },
     category: "Personal Site"

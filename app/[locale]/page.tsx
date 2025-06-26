@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import HeroSection from '@/components/HeroSection';
-import AboutMeSection from '@/components/AboutMeSection';
-import { Locale } from '@/lib/locales';
+import AboutMeSectionWrapper from '@/components/AboutMeSection';
+import { getAboutTranslations, getValidLocale } from '@/app/actions/language';
 
 interface HomePageProps {
   params: Promise<{
@@ -21,6 +21,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
     'es': 'es_ES',
     'es-cl': 'es_CL',
     'es-es': 'es_ES',
+    'de': 'de_DE',
   };
 
   return {
@@ -81,6 +82,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
         'es': 'https://nicotordev.com/es',
         'es-cl': 'https://nicotordev.com/es-cl',
         'es-es': 'https://nicotordev.com/es-es',
+        'de': 'https://nicotordev.com/de',
       }
     },
     category: "Personal Site"
@@ -89,14 +91,14 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
 
 export default async function Home({ params }: HomePageProps) {
   const { locale } = await params;
-  const allTranslations = await getTranslations();
-  const heroSection = await HeroSection({ translations: allTranslations });
-  const aboutMeSection = await AboutMeSection({ translations: allTranslations, locale: locale as Locale });
+  const validLocale = await getValidLocale(locale)
+  const translations = await getAboutTranslations(validLocale)
+  const heroSection = await HeroSection({ locale: validLocale });
 
   return (
     <main>
       {heroSection}
-      {aboutMeSection}
+      <AboutMeSectionWrapper locale={validLocale} translations={translations} />
     </main>
   );
 }

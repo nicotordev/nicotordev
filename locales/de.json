@@ -1,111 +1,119 @@
 {
   "hero": {
-    "greeting": "Hallo, ich bin",
+    "greeting": "Hallo, ich bin 👋",
     "name": "Nicolas Torres",
-    "title": "Full Stack Entwickler",
-    "description": "Ich bin ein leidenschaftlicher Full Stack Entwickler mit Erfahrung im Erstellen moderner Webanwendungen, die eine großartige Benutzererfahrung bieten.",
+    "title": "Full Stack Entwickler 🚀",
+    "description": "Ich bin ein leidenschaftlicher Full Stack Entwickler mit Erfahrung im Erstellen moderner Webanwendungen, die eine großartige Benutzererfahrung bieten. 💪✨",
     "cta": {
-      "about": "Über mich",
-      "resume": "Lebenslauf herunterladen"
-    }
+      "about": "Über mich 🤓",
+      "resume": "Lebenslauf herunterladen 📄"
+    },
+    "title_backend": "Backend & Datenbank 🗄️",
+    "title_frontend": "Mastería Frontend 🎨"
   },
   "about": {
-    "title": "Über mich",
-    "subtitle": "Full-Stack Developer TypeScript-First 🚀",
-    "description": "Ich erstelle Webprodukte von Grund auf mit Node.js + Express auf dem Server und Next.js 14 im Frontend, wobei ich immer TypeScript und eine reibungslose Benutzererfahrung priorisiere.",
+    "title": "Über mich 😎",
+    "subtitle": "Full-Stack Developer TypeScript-First 🚀💥",
+    "description": "Ich erstelle Webprodukte von Grund auf mit Node.js + Express auf dem Server und Next.js 14 im Frontend, wobei ich immer TypeScript und eine reibungslose Benutzererfahrung priorisiere. 🔥💻",
     "role": {
-      "current": "Aktuelle Position",
-      "position": "Full-Stack Developer bei spiritory GmbH",
-      "mode": "Arbeitsweise",
-      "modeDetails": "100% remote · Upwork Top Rated"
+      "current": "Aktuelle Position 💼",
+      "position": "Full-Stack Developer bei spiritory GmbH 🏢",
+      "mode": "Arbeitsweise 🌍",
+      "modeDetails": "100% remote · Upwork Top Rated ⭐"
     },
     "metrics": {
-      "hours": "Arbeitsstunden",
-      "earnings": "Verdienst",
-      "total_earnings_short": "Gesamtverdienst",
-      "total_earnings": "Gesamtverdienst",
-      "success": "Erfolgsrate",
-      "salary": "Gehalt",
-      "experienceValue": "2 Jahre Erfahrung",
-      "experience": "Erfahrung"
+      "hours": "Arbeitsstunden ⏰",
+      "earnings": "Verdienst 💰",
+      "total_earnings_short": "Gesamtverdienst 💎",
+      "total_earnings": "Gesamtverdienst 💸",
+      "success": "Erfolgsrate 📈",
+      "salary": "Gehalt 💵",
+      "experienceValue": "2 Jahre Erfahrung 🎯",
+      "experience": "Erfahrung 🏆"
     },
     "specialties": {
-      "title": "Meine Superkräfte",
-      "description": "Ideen in digitale Erlebnisse zu verwandeln, die sich beeindrucken"
+      "title": "Meine Superkräfte 🦸‍♂️",
+      "description": "Ideen in digitale Erlebnisse zu verwandeln, die sich beeindrucken ✨🎨"
     },
     "methodology": {
-      "title": "Methodik",
-      "title_frontend": "Frontend-Meisterschaft",
-      "title_backend": "Backend & Datenbank",
-      "title_styling": "Styling & UI",
-      "description": "Leichte agile Praxis: atomare Commits, kleine PRs, CI/CD mit GitHub Actions, lebende Dokumentation in MD und schnelle Zyklen von «ship → learn → improve»."
+      "title": "Methodik 🧠",
+      "title_frontend": "Frontend-Meisterschaft 🎨",
+      "title_backend": "Backend & Datenbank 🗄️",
+      "title_styling": "Styling & UI 💅",
+      "description": "Leichte agile Praxis: atomare Commits, kleine PRs, CI/CD mit GitHub Actions, lebende Dokumentation in MD und schnelle Zyklen von «ship → learn → improve». 🔄⚡"
     },
     "workStyle": {
-      "title": "Wie ich arbeite",
-      "description": "Immer mit Humor und Respekt; ich bringe nützliche Ideen ein, kommuniziere reibungslos auf DE/EN und halte das Team im Einklang."
+      "title": "Wie ich arbeite 🤝",
+      "description": "Immer mit Humor und Respekt; ich bringe nützliche Ideen ein, kommuniziere reibungslos auf DE/EN und halte das Team im Einklang. 😄🌟"
     },
     "projects": {
-      "title": "Schlüsselprojekte",
-      "subtitle": "Lösungen mit echtem Impact",
-      "seguidoress": "SMM-Plattform zu 100% von mir erstellt",
-      "spiritory": "Premium E-Commerce für Spirituosen; Full-Stack-Wartung und neue Funktionen",
-      "quick10x": "Echtzeit-Crypto-Screener mit Abonnements und Admin-Panel",
-      "spiritory_impact": "Europas größte Whisky-Trading-Plattform und bald weltweit!",
-      "quick10x_impact": "Echtzeit-Crypto-Screener mit Abonnements und Admin-Panel",
-      "seguidoress_impact": "96 Benutzer, 114 USD / Woche passiv",
-      "spiritory_ct": "Spiritory besuchen",
-      "quick10x_ct": "Quick10x besuchen",
-      "seguidoress_ct": "Seguidoress besuchen"
+      "title": "Schlüsselprojekte 🚀",
+      "subtitle": "Lösungen mit echtem Impact 💥",
+      "seguidoress": "SMM-Plattform zu 100% von mir erstellt 🔥",
+      "spiritory": "Premium E-Commerce für Spirituosen; Full-Stack-Wartung und neue Funktionen 🥃✨",
+      "quick10x": "Echtzeit-Crypto-Screener mit Abonnements und Admin-Panel ₿📊",
+      "spiritory_impact": "Europas größte Whisky-Trading-Plattform und bald weltweit! 🌍🥃",
+      "quick10x_impact": "Echtzeit-Crypto-Screener mit Abonnements und Admin-Panel 📈💎",
+      "seguidoress_impact": "96 Benutzer, 114 USD / Woche passiv 💰🎉",
+      "spiritory_ct": "Spiritory besuchen 👀",
+      "quick10x_ct": "Quick10x besuchen 🚀",
+      "seguidoress_ct": "Seguidoress besuchen 💥"
     },
     "personal": {
-      "title": "Etwas mehr über mich",
-      "description": "Außerhalb des Codes nehme ich Videos für YouTube auf, starte SaaS-Nebenprojekte und teile Entwicklertipps in sozialen Medien. Programmieren ist mein Hobby Nummer eins."
+      "title": "Etwas mehr über mich 🤠",
+      "description": "Außerhalb des Codes nehme ich Videos für YouTube auf, starte SaaS-Nebenprojekte und teile Entwicklertipps in sozialen Medien. Programmieren ist mein Hobby Nummer eins. 📺🎮💻"
     },
     "cta": {
-      "title": "Bereit, etwas Unglaubliches zu schaffen?",
-      "description": "Lassen Sie uns zusammenarbeiten, um Ihre Vision in eine digitale Realität zu verwandeln, die heraussticht.",
-      "contact": "Lass uns sprechen",
-      "alternative": "Oder verbinde dich mit mir auf LinkedIn"
+      "title": "Bereit, etwas Unglaubliches zu schaffen? 🚀✨",
+      "description": "Lassen Sie uns zusammenarbeiten, um Ihre Vision in eine digitale Realität zu verwandeln, die heraussticht. 🎯💫",
+      "contact": "Lass uns sprechen 💬",
+      "alternative": "Oder verbinde dich mit mir auf LinkedIn 🔗"
     },
     "testimonial": {
-      "title": "Herausragendes Testimonial",
-      "quote": "Nicolas ist ein außergewöhnlicher Entwickler mit einem tiefen Verständnis moderner Webtechnologien. Seine Fähigkeit, komplexe Probleme zu lösen und hochwertigen Code zu liefern, ist beeindruckend.",
-      "author": "Kunde bei spiritory GmbH"
+      "title": "Herausragendes Testimonial 🌟",
+      "quote": "Nicolas ist ein außergewöhnlicher Entwickler mit einem tiefen Verständnis moderner Webtechnologien. Seine Fähigkeit, komplexe Probleme zu lösen und hochwertigen Code zu liefern, ist beeindruckend. 🔥💪",
+      "author": "Kunde bei spiritory GmbH 👤"
     },
     "certifications": {
-      "title": "Relevante Zertifizierungen",
-      "postgresql": "PostgreSQL-Zertifizierung - Fortgeschrittene Datenbankentwicklung",
-      "java": "Java SE-Zertifizierung - Objektorientierte Programmierung"
+      "title": "Relevante Zertifizierungen 🏆",
+      "postgresql": "PostgreSQL-Zertifizierung - Fortgeschrittene Datenbankentwicklung 🗄️",
+      "java": "Java SE-Zertifizierung - Objektorientierte Programmierung ☕"
     }
   },
   "navigation": {
-    "home": "Startseite",
-    "about": "Über mich",
-    "projects": "Projekte",
-    "contact": "Kontakt",
-    "language": "Sprache",
-    "theme": "Theme"
+    "home": "Startseite 🏠",
+    "about": "Über mich 👤",
+    "projects": "Projekte 🚀",
+    "contact": "Kontakt 📞",
+    "language": "Sprache 🌍",
+    "theme": "Theme 🎨"
   },
   "common": {
-    "loading": "Lädt...",
-    "error": "Ein Fehler ist aufgetreten",
-    "currency": "EUR",
+    "loading": "Lädt... ⏳",
+    "error": "Ein Fehler ist aufgetreten 😱💥",
+    "currency": "EUR 💶",
     "locale": "de-DE"
   },
   "metadata": {
-    "title": "NicoTordev - Persönliche Website",
-    "description": "Willkommen auf meiner persönlichen Website, wo ich meine Gedanken, Projekte und Erfahrungen als Entwickler teile.",
+    "title": "NicoTordev - Persönliche Website 🚀",
+    "description": "Willkommen auf meiner persönlichen Website, wo ich meine Gedanken, Projekte und Erfahrungen als Entwickler teile. 💻✨",
     "keywords": "Persönliche Website, Blog, Entwickler, TypeScript, React, Next.js, Node.js, JavaScript, Webentwicklung, Technologie-Blog, Softwareentwicklung"
   },
   "NotFound": {
-    "title": "Seite nicht gefunden",
-    "description": "Entschuldigung, die Seite, die Sie suchen, existiert nicht oder wurde verschoben.",
-    "goHome": "Zur Startseite"
+    "title": "Seite nicht gefunden 🤔💀",
+    "description": "Entschuldigung, die Seite, die Sie suchen, existiert nicht oder wurde verschoben. 🕳️",
+    "goHome": "Zur Startseite 🏠"
   },
   "theme": {
-    "toggle": "Theme wechseln",
-    "light": "Hell",
-    "dark": "Dunkel",
-    "system": "System"
+    "toggle": "Theme wechseln 🔄",
+    "light": "Hell ☀️",
+    "dark": "Dunkel 🌙",
+    "system": "System 🖥️"
+  },
+  "resume": {
+    "pdf": "PDF",
+    "pptx": "PPTX",
+    "csv": "CSV",
+    "json": "JSON"
   }
 }
