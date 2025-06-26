@@ -1,6 +1,6 @@
-import Motion from "./Home/Motion";
+import Motion from "./common/Motion";
 import { assets } from "@/app/assets";
-import AnimatedBackgroundBlobs from "./Home/AnimatedBackgroundBlobs";
+import AnimatedBackgroundBlobs from "./common/AnimatedBackgroundBlobs";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -8,9 +8,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import LanguageSwitcher from "./Home/LanguageSwitcher";
+import LanguageSwitcher from "./common/LanguageSwitcher";
 import { Download, Rocket, Zap } from "lucide-react";
-import HeroSectionScrollIndictor from "./Home/HeroSectionScrollIndictor";
+import HeroSectionScrollIndictor from "./Home/HeroSection/HeroSectionScrollIndictor";
 import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language.actions";
 import { Badge } from "./ui/badge";
 import HeroSectionAbout from "./HeroSectionAbout";

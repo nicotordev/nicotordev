@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Motion from '@/components/Home/Motion';
-import AnimatedBackgroundBlobs from '@/components/Home/AnimatedBackgroundBlobs';
+import Motion from '@/components/common/Motion';
+import AnimatedBackgroundBlobs from '@/components/common/AnimatedBackgroundBlobs';
 
 export default function NotFound() {
     return (

@@ -6,7 +6,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import { ThemeProvider } from "@/components/Home/ThemeProvider"
+import { ThemeProvider } from "@/components/providers/ThemeProvider"
 import { getLanguage, setLanguage } from "../actions/language.actions";
 import Header from "@/components/Layout/Header";
 import Providers from "../providers";

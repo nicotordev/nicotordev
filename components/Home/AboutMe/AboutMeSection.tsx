@@ -1,4 +1,4 @@
-import Motion from "@/components/Home/Motion";
+import Motion from "@/components/common/Motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -13,10 +13,10 @@ import { Locale } from "@/lib/locales";
 // import { CollapsibleContent } from "@radix-ui/react-collapsible";
 
 import { Suspense } from "react";
-import { Skeleton } from "../ui/skeleton";
+import { Skeleton } from "../../ui/skeleton";
 // import { useDialog } from "@/hooks/use-dialog";
 // import AboutMeSectionProjectsWrapper from "./AboutMeSectionProjects";
-import AboutMeSectionContactButton from "../common/ContactButton";
+import AboutMeSectionContactButton from "../../common/ContactButton";
 import { formatCurrency } from "@/lib/currency";
 import AboutMeSectionProjectsWrapper from "./AboutMeSectionProjects";
 import Link from "next/link";

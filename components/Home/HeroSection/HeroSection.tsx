@@ -1,6 +1,6 @@
-import Motion from "./Motion";
+import Motion from "../../common/Motion";
 import { assets } from "@/app/assets";
-import AnimatedBackgroundBlobs from "./AnimatedBackgroundBlobs";
+import AnimatedBackgroundBlobs from "../../common/AnimatedBackgroundBlobs";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,8 +11,8 @@ import {
 import { Download, Rocket, Zap } from "lucide-react";
 import HeroSectionScrollIndictor from "./HeroSectionScrollIndictor";
 import { getHeroTranslations, getResumeTranslations } from "@/app/actions/language.actions";
-import { Badge } from "../ui/badge";
-import HeroSectionAbout from "../HeroSectionAbout"; 
+import { Badge } from "../../ui/badge";
+import HeroSectionAbout from "../../HeroSectionAbout";
 
 export default async function HeroSection() {
   const [tHero, tResume] = await Promise.all([

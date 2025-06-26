@@ -79,6 +79,13 @@ enum Language {
   DE
 }
 
+enum AssetType {
+  IMAGE
+  VIDEO
+  AUDIO
+  DOCUMENT
+}
+
 model User {
   id        String   @id @default(cuid())
   name      String   @db.VarChar(50)
@@ -152,4 +159,43 @@ model Lead {
   @@index([createdAt])
   @@index([email])
   @@map("leads")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  name        String   @db.VarChar(100)
+  cost        Float    @default(0)
+  description String   @db.Text
+  tech        String   @db.VarChar(255)
+  impact      String?  @db.Text
+  image       String   @db.VarChar(255)
+  link        String?  @db.VarChar(255)
+  linkText    String?  @db.VarChar(100)
+  isActive    Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  assets      Asset[]
+
+  @@index([isActive])
+  @@index([sortOrder])
+  @@map("projects")
+}
+
+model Asset {
+  id          String    @id @default(cuid())
+  priority    Int       @default(0)
+  name        String    @db.VarChar(100)
+  url         String    @db.VarChar(255)
+  alt         String?   @db.VarChar(255)
+  width       Int?
+  height      Int?
+  blurDataUrl String?   @db.VarChar(255)
+  projectId   String
+  project     Project   @relation(fields: [projectId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  type        AssetType @default(IMAGE)
+
+  @@map("assets")
 }

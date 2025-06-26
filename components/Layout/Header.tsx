@@ -1,6 +1,6 @@
 import ContactButton from "../common/ContactButton";
-import LanguageSwitcher from "../Home/LanguageSwitcher";
-import { ThemeToggle } from "../Home/ThemeToggle";
+import LanguageSwitcher from "../common/LanguageSwitcher";
+import { ThemeToggle } from "../common/ThemeToggle";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";

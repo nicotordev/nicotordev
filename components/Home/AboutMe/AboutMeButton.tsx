@@ -1,6 +1,6 @@
 'use client'
-import Motion from "../Home/Motion";
-import { Button } from "../ui/button";
+import Motion from "../../common/Motion";
+import { Button } from "../../ui/button";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
