@@ -143,7 +143,7 @@ mv -T "${BASE}/next_release" "${CURRENT}"
 ### ───────────── RELOAD DE PM2 ───────────── ###
 # Elegimos dinámicamente el archivo de PM2 según el entorno
 if [[ "$ENVIRONMENT" == "production" ]]; then
-  ECOSYSTEM_FILE="ecosystem.production.config.js"
+  ECOSYSTEM_FILE="ecosystem.config.js"
   APP_NAME="nicotordev"
 else
   ECOSYSTEM_FILE="ecosystem.stage.config.js"
