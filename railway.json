@@ -14,19 +14,19 @@
     ]
   },
   "deploy": {
-    "startCommand": "node_modules/.bin/next start -p $PORT",
+    "startCommand": "NEXT_TELEMETRY_DISABLED=1 node_modules/.bin/next start -p $PORT",
     "preDeployCommand": [
       "sh -lc \"if [ -n \\\"$DATABASE_URL\\\" ]; then node_modules/.bin/prisma migrate deploy; else echo Skipping migrations; fi\""
     ],
     "healthcheckPath": "/robots.txt",
     "restartPolicyType": "ALWAYS",
-    "overlapSeconds": "30",
-    "drainingSeconds": "10"
+    "overlapSeconds": 30,
+    "drainingSeconds": 10
   },
   "environments": {
     "pr": {
       "deploy": {
-        "startCommand": "bunx next start -p $PORT"
+        "startCommand": "NEXT_TELEMETRY_DISABLED=1 bunx next start -p $PORT"
       }
     }
   }
