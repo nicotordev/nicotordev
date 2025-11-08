@@ -19,6 +19,7 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
     "plugins": [
       {
         "name": "next"
