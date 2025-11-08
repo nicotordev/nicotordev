@@ -1,27 +1,33 @@
+# 🧩 **NicoTorDev — Full-Stack Problem Solver**
 
-# 🧩 NicoTorDev — Full‑Stack Problem Solver
+> **Next.js Specialist · TypeScript Artisan ❤️ · AI-Lover 🤖**
 
-> **Next.js Specialist · AI‑Enjoyer · Typescript Lover❤️**
-![3ace32e8-580a-45ef-b5e7-55a158ed5b95](https://github.com/user-attachments/assets/10c6c86d-bfa4-496e-8537-738e0d2ac626)
+![NicoTorDev banner](https://github.com/user-attachments/assets/10c6c86d-bfa4-496e-8537-738e0d2ac626)
 
-My superpower is **provider complex solutions to complex problems** and transforming them into simple, scalable flows or fast and ready solutions. I enjoy my comfort zone—it's built on solid practices—but I **push its edges whenever a new challenge calls**.
+I don’t just code — I *engineer clarity from chaos*.
+My craft is transforming complex systems into elegant, scalable realities.
+I live in the intersection between **art, logic, and rebellion**, where clean architecture meets restless curiosity.
 
-## 🎯 Solution Philosophy
+## 🎯 **Solution Philosophy**
 
-1. **🔍 Rapid prototyping** → Build fast, iterate faster.  
-2. **⚡ Brute force first** → Throw everything at it, then optimize.  
-3. **⚡ Scale by force** → Make it work now, fix it later if needed.  
-4. **📈 Sustainable growth** → Build foundations that last.
+1. **🚀 Prototype first, polish later** — speed reveals truth.
+2. **⚙️ Force meets finesse** — make it work, then make it sing.
+3. **🧱 Build like it’ll outlive you** — scale is a consequence of integrity.
+4. **💡 Learn until mastery** — ignorance is only a temporary state.
 
-## 🛠️ Favorite Bottleneck‑Busting Toolkit
+## 🛠️ **The Everyday Arsenal**
 
-⚡️ Next.js · 📘 TypeScript · 🗄️ Prisma · 🐘 PostgreSQL · 🎨 Tailwind · 🐳 Docker · ⚙️ GitHub Actions · 🤖 ChatGPT · 🧠 Claude · ✏️ Cursor
+⚡ Next.js · 📘 TypeScript · 🗄 Prisma · 🐘 PostgreSQL
+🎨 Tailwind · 🐳 Docker · 🤖 ChatGPT · 🧠 Claude · ✏️ Cursor
 
-## 🌄 Beyond Code?
+> Clean architecture, typed precision, and a touch of chaos — that’s my flow.
 
-That exists? 🤣
+## 🌄 **Beyond Code**
+
+Born in Concepción, raised between cables and cassette tapes.
+I’ve hacked, built, and dreamed my way through the web — now I write software that **balances ethics and efficiency**, for startups, AI platforms, and people who dare to think different.
 
 ---
 
-_"A well‑defined problem is already half solved."_  
-**– NicoTorDev**
+*“A well-defined problem is already half solved.”*
+**— NicoTorDev**
