@@ -1,0 +1,33 @@
+{
+  "$schema": "https://railway.com/railway.schema.json",
+  "build": {
+    "builder": "RAILPACK",
+    "watchPatterns": [
+      "app/**",
+      "components/**",
+      "lib/**",
+      "public/**",
+      "prisma/**",
+      "next.config.ts",
+      "package.json",
+      "bun.lock"
+    ]
+  },
+  "deploy": {
+    "startCommand": "node_modules/.bin/next start -p $PORT",
+    "preDeployCommand": [
+      "sh -lc 'if [ -n "$DATABASE_URL" ]; then node_modules/.bin/prisma migrate deploy; else echo Skipping migrations; fi'"
+    ],
+    "healthcheckPath": "/robots.txt",
+    "restartPolicyType": "ALWAYS",
+    "overlapSeconds": "30",
+    "drainingSeconds": "10"
+  },
+  "environments": {
+    "pr": {
+      "deploy": {
+        "startCommand": "bunx next start -p $PORT"
+      }
+    }
+  }
+}

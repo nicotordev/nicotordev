@@ -12,6 +12,20 @@ import Motion from './Motion';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 
+const currencyIconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+  'en': DollarSign,
+  'en-gb': PoundSterling,
+  'es': Euro,
+  'es-cl': DollarSign,
+  'es-es': Euro,
+  'de': Euro,
+};
+
+function LocaleCurrencyIcon({ locale, size, className }: { locale: string; size?: number; className?: string }) {
+  const Icon = currencyIconMap[locale] || DollarSign;
+  return <Icon size={size} className={className} />
+}
+
 export default function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
@@ -25,20 +39,7 @@ export default function LanguageSwitcher() {
     router.push(`/${newLocale}`);
   };
 
-  const getCurrencyIcon = (locale: string) => {
-    const currencyIconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-      'en': DollarSign,
-      'en-gb': PoundSterling,
-      'es': Euro,
-      'es-cl': DollarSign,
-      'es-es': Euro,
-      'de': Euro,
-    };
-    return currencyIconMap[locale] || DollarSign;
-  };
-
   const currentLocale = availableLocales.find(l => l.value === locale);
-  const CurrentCurrencyIcon = getCurrencyIcon(locale);
 
   return (
     <Motion
@@ -57,25 +58,22 @@ export default function LanguageSwitcher() {
             <span className="hidden sm:inline">
               {currentLocale?.label}
             </span>
-            <CurrentCurrencyIcon size={12} className="text-slate-500 dark:text-slate-400" />
+            <LocaleCurrencyIcon locale={locale} size={12} className="text-slate-500 dark:text-slate-400" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          {availableLocales.map((localeOption) => {
-            const CurrencyIcon = getCurrencyIcon(localeOption.value);
-            return (
-              <DropdownMenuItem
-                key={localeOption.value}
-                onClick={() => handleLocaleChange(localeOption.value)}
-                className={`flex items-center justify-between cursor-pointer ${
-                  localeOption.value === locale ? 'bg-accent' : ''
-                }`}
-              >
-                <span>{localeOption.label}</span>
-                <CurrencyIcon size={12} className="text-slate-500 dark:text-slate-400" />
-              </DropdownMenuItem>
-            );
-          })}
+          {availableLocales.map((localeOption) => (
+            <DropdownMenuItem
+              key={localeOption.value}
+              onClick={() => handleLocaleChange(localeOption.value)}
+              className={`flex items-center justify-between cursor-pointer ${
+                localeOption.value === locale ? 'bg-accent' : ''
+              }`}
+            >
+              <span>{localeOption.label}</span>
+              <LocaleCurrencyIcon locale={localeOption.value} size={12} className="text-slate-500 dark:text-slate-400" />
+            </DropdownMenuItem>
+          ))}
         </DropdownMenuContent>
       </DropdownMenu>
     </Motion>

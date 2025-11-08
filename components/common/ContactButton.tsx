@@ -43,54 +43,66 @@ export default function ContactButton({ trigger }: ContactButtonProps) {
             .min(1, t('cta.modal.validation.company.required'))
             .max(100, t('cta.modal.validation.company.max')),
 
-        projectType: z.enum([
-            "WEB_DEVELOPMENT",
-            "MOBILE_APP",
-            "E_COMMERCE",
-            "SAAS_PLATFORM",
-            "PORTFOLIO",
-            "CONSULTING",
-            "OTHER"
-        ], {
-            required_error: t('cta.modal.validation.projectType.required')
-        }),
+        projectType: z.enum(
+            [
+                "WEB_DEVELOPMENT",
+                "MOBILE_APP",
+                "E_COMMERCE",
+                "SAAS_PLATFORM",
+                "PORTFOLIO",
+                "CONSULTING",
+                "OTHER",
+            ] as const,
+            {
+                message: t('cta.modal.validation.projectType.required'),
+            }
+        ),
 
-        budget: z.enum([
-            "UNDER_5K",
-            "RANGE_5K_15K",
-            "RANGE_15K_30K",
-            "RANGE_30K_50K",
-            "OVER_50K"
-        ], {
-            required_error: t('cta.modal.validation.budget.required')
-        }),
+        budget: z.enum(
+            [
+                "UNDER_5K",
+                "RANGE_5K_15K",
+                "RANGE_15K_30K",
+                "RANGE_30K_50K",
+                "OVER_50K",
+            ] as const,
+            {
+                message: t('cta.modal.validation.budget.required'),
+            }
+        ),
 
-        timeline: z.enum([
-            "ASAP",
-            "ONE_MONTH",
-            "ONE_TO_THREE_MONTHS",
-            "THREE_TO_SIX_MONTHS",
-            "OVER_SIX_MONTHS"
-        ], {
-            required_error: t('cta.modal.validation.timeline.required')
-        }),
+        timeline: z.enum(
+            [
+                "ASAP",
+                "ONE_MONTH",
+                "ONE_TO_THREE_MONTHS",
+                "THREE_TO_SIX_MONTHS",
+                "OVER_SIX_MONTHS",
+            ] as const,
+            {
+                message: t('cta.modal.validation.timeline.required'),
+            }
+        ),
 
-        priority: z.enum([
-            "DESIGN",
-            "PERFORMANCE",
-            "FUNCTIONALITY",
-            "SEO",
-            "USER_EXPERIENCE"
-        ], {
-            required_error: t('cta.modal.validation.priority.required')
-        }),
+        priority: z.enum(
+            [
+                "DESIGN",
+                "PERFORMANCE",
+                "FUNCTIONALITY",
+                "SEO",
+                "USER_EXPERIENCE",
+            ] as const,
+            {
+                message: t('cta.modal.validation.priority.required'),
+            }
+        ),
 
         message: z.string()
             .min(20, t('cta.modal.validation.message.min'))
             .max(1000, t('cta.modal.validation.message.max')),
 
-        contactPreference: z.enum(["EMAIL", "PHONE", "VIDEO_CALL"], {
-            required_error: t('cta.modal.validation.contactPreference.required')
+        contactPreference: z.enum(["EMAIL", "PHONE", "VIDEO_CALL"] as const, {
+            message: t('cta.modal.validation.contactPreference.required'),
         })
     });
 

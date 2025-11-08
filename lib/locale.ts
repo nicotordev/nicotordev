@@ -49,7 +49,6 @@ export function getAvailableLocales(): Array<{ value: Locale; label: string }> {
 /**
  * Get locale direction (for RTL support if needed in the future)
  */
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function getLocaleDirection(_locale: Locale): 'ltr' | 'rtl' {
   // All current locales use left-to-right direction
   // This can be extended for RTL languages in the future
