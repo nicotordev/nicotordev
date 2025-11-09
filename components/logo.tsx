@@ -1,46 +1,45 @@
 "use client";
 
 import Image from "next/image";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
 
 type LogoProps = {
   width?: number;
+  height?: number;
   className?: string;
   priority?: boolean;
   alt?: string;
-  height?: number;
 };
 
 export default function Logo({
   width = 300,
-  height = 75,
+  height,
   className,
   priority,
   alt = "NicoTorDev logo",
 }: LogoProps) {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null;
-  }
-
-  const src =
-    resolvedTheme === "dark" ? "/logo/logo-light.png" : "/logo/logo-dark.png";
+  // Maintain ~4:1 aspect ratio by default if height not provided
+  const computedHeight = height ?? Math.round(width / 4);
 
   return (
-    <Image
-      src={src}
-      width={width}
-      height={height}
-      alt={alt}
-      {...(className ? { className } : {})}
-      {...(priority ? { priority: true } : {})}
-    />
+    <span className={className} style={{ display: "inline-block", lineHeight: 0 }}>
+      {/* Light theme logo (default) */}
+      <Image
+        src="/logo/logo-dark.png"
+        alt={alt}
+        width={width}
+        height={computedHeight}
+        className="dark:hidden"
+        {...(priority ? { priority: true } : {})}
+      />
+      {/* Dark theme logo */}
+      <Image
+        src="/logo/logo-light.png"
+        alt={alt}
+        width={width}
+        height={computedHeight}
+        className="hidden dark:block"
+        {...(priority ? { priority: true } : {})}
+      />
+    </span>
   );
 }
