@@ -599,16 +599,6 @@ function SidebarMenuBadge({
   )
 }
 
-function stablePercentFromString(input: string): string {
-  let hash = 0
-  for (let i = 0; i < input.length; i++) {
-    hash = (hash << 5) - hash + input.charCodeAt(i)
-    hash |= 0
-  }
-  const percent = 50 + Math.abs(hash % 41)
-  return `${percent}%`
-}
-
 function SidebarMenuSkeleton({
   className,
   showIcon = false,
@@ -616,8 +606,12 @@ function SidebarMenuSkeleton({
 }: React.ComponentProps<"div"> & {
   showIcon?: boolean
 }) {
-  // Deterministic width between 50% and 90% derived from className
-  const width = React.useMemo(() => stablePercentFromString(className || "sidebar-skeleton"), [className])
+  // Random width between 50 to 90%.
+  // Compute post-render to satisfy purity rules.
+  const [width, setWidth] = React.useState<string>("90%")
+  React.useEffect(() => {
+    setWidth(`${50 + Math.floor(Math.random() * 40)}%`)
+  }, [])
 
   return (
     <div
