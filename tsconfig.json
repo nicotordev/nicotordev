@@ -28,10 +28,16 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "./src/*"
+      ],
+      "@/i18n/*": [
+        "./i18n/*"
+      ],
+      "@/locales/*": [
+        "./locales/*"
       ],
       "@assets": [
-        "./app/assets.ts"
+        "./src/app/assets.ts"
       ]
     }
   },
@@ -44,6 +50,7 @@
   ],
   "exclude": [
     "node_modules",
-    "./lib/generated"
+    "./lib/generated",
+    "./src/lib/generated"
   ]
 }

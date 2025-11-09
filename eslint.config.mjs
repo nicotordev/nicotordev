@@ -35,6 +35,7 @@ const eslintConfig = [
       "build/",
       "dist/",
       "lib/generated/",
+      "src/lib/generated/",
       "*.config.js",
       "*.config.mjs",
       "ecosystem.config.js",
