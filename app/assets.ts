@@ -39,7 +39,10 @@ export const assets = {
   quick10x: '/illustrations/quick10x.webp',
   seguidoress: '/illustrations/seguidoress.webp',
 
-  logo: '/logo.png',
+  logo: {
+    light: '/logo/logo-light.png',
+    dark: '/logo/logo-dark.png',
+  },
 
 
   resume: {
