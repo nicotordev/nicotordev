@@ -1,11 +1,12 @@
 'use client'
 
-import { defaultTranslations, Translations } from '@/types/translations';
+import { defaultTranslations } from '@/types/translations';
+import type { Translations } from '@/types/translations';
 import { getLocaleFromCookie, getTranslationsFromCookie } from './actions/language.actions';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Header from '@/components/Layout/Header';
-import { Locale } from '@/lib/locales';
+import type { Locale } from '@/lib/locales';
 import { NextIntlClientProvider } from 'next-intl';
 import { SessionProvider } from '@/context/SessionContext';
 

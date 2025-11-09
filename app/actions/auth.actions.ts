@@ -1,7 +1,7 @@
 'use server'
 
 import { prisma } from '@/prisma/prisma';
-import { User, Session } from '@/lib/generated/prisma';
+import type { User, Session } from '@/lib/generated/prisma';
 import bcrypt from 'bcrypt';
 import { headers, cookies } from 'next/headers';
 import getCache from '@/lib/nodeCache';
@@ -130,7 +130,7 @@ export async function signOut(): Promise<{ success: boolean; error?: string }> {
                 ip,
                 userAgent,
                 expiresAt: new Date(Date.now() + 1000 * 60 * 60 * 24 * 30),
-                userId: session?.userId || undefined,
+                ...(session?.userId ? { userId: session.userId } : {}),
             },
         });
 
@@ -161,7 +161,7 @@ export async function getSession(): Promise<{ success: boolean; session?: Sessio
         const existingSessionId = cookieStore.get('sessionId')?.value;
 
         if (!existingSessionId) {
-            return { success: true, session: undefined };
+            return { success: true };
         }
 
         // Check cache first
@@ -218,7 +218,7 @@ export async function getSession(): Promise<{ success: boolean; session?: Sessio
             return { success: true, session: newSession as SessionWithUser };
         }
 
-        return { success: true, session: undefined };
+        return { success: true };
     } catch (error) {
         console.error('Error fetching session:', error);
         return { success: false, error: 'Failed to fetch session' };
@@ -310,7 +310,11 @@ export async function validateSession(sessionId: string): Promise<{
             return { success: false, error: 'Invalid or expired session' };
         }
 
-        return { success: true, session: session as SessionWithUser, user: session.user || undefined };
+        return {
+            success: true,
+            session: session as SessionWithUser,
+            ...(session.user ? { user: session.user } : {}),
+        };
     } catch (error) {
         console.error('Error validating session:', error);
         return { success: false, error: 'Failed to validate session' };

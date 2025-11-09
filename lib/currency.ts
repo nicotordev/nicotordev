@@ -1,4 +1,5 @@
-import { Locale, currencyMap } from '@/lib/locales';
+import type { Locale } from '@/lib/locales';
+import { currencyMap } from '@/lib/locales';
 
 export interface CurrencyFormatOptions {
   locale: Locale;

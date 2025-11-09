@@ -1,9 +1,10 @@
-import { Locale, localeNames, locales } from '@/lib/locales';
+import type { Locale } from '@/lib/locales';
+import { localeNames, locales } from '@/lib/locales';
 
 /**
  * Check if a locale is valid
  */
-export function isValidLocale(locale: string): locale is Locale {
+export function isValidLocale(locale: string | undefined): locale is Locale {
   return locales.includes(locale as Locale);
 }
 

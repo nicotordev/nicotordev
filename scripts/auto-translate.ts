@@ -34,7 +34,8 @@ async function translateText(text: string, targetLang: translate.DeeplLanguages)
       preserve_formatting: '1'
     });
     
-    return result.data.translations[0].text;
+    const first = result.data?.translations?.[0]?.text;
+    return first ?? text;
   } catch (error) {
     console.warn(`Failed to translate text: "${text}". Using original text.`, error);
     return text;

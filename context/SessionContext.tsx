@@ -1,7 +1,7 @@
 'use client'
 
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import { User } from '@/lib/generated/prisma'
+import type { User } from '@/lib/generated/prisma'
 import { getSession, signOut } from '@/app/actions/auth.actions'
 
 interface SessionWithUser {

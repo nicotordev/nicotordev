@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Award, TrendingUp, Play, FileText, Volume2 } from "lucide-react";
-import { Asset } from "@/lib/generated/prisma";
+import type { Asset } from "@/lib/generated/prisma";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
@@ -190,7 +190,7 @@ function ProjectAssetGallery({
 
     // Single asset - display directly
     if (assets.length === 1) {
-        const asset = assets[0];
+        const asset = assets[0]!;
         return <AssetDisplay asset={asset} projectName={projectName} />;
     }
 
@@ -198,7 +198,7 @@ function ProjectAssetGallery({
     return (
         <div className="relative">
             {/* Main asset display */}
-            <AssetDisplay asset={assets[0]} projectName={projectName} />
+            <AssetDisplay asset={assets[0]!} projectName={projectName} />
             
             {/* Asset count indicator */}
             <div className="absolute top-3 right-3 bg-black/70 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">
@@ -248,8 +248,8 @@ function AssetDisplay({ asset, projectName }: { asset: Asset, projectName: strin
                     width={asset.width || 400}
                     height={asset.height || 300}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                    placeholder={asset.blurDataUrl ? "blur" : undefined}
-                    blurDataURL={asset.blurDataUrl || ''}
+                    placeholder={asset.blurDataUrl ? 'blur' : 'empty'}
+                    {...(asset.blurDataUrl ? { blurDataURL: asset.blurDataUrl } : {})}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
             </div>
@@ -300,8 +300,8 @@ function AssetThumbnail({ asset, projectName }: { asset: Asset, projectName: str
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                     width={64}
                     height={64}
-                    placeholder={asset.blurDataUrl ? "blur" : undefined}
-                    blurDataURL={asset.blurDataUrl || ''}
+                    placeholder={asset.blurDataUrl ? 'blur' : 'empty'}
+                    {...(asset.blurDataUrl ? { blurDataURL: asset.blurDataUrl } : {})}
                 />
             </div>
         );

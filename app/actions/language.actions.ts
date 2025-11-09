@@ -1,6 +1,7 @@
 'use server'
 
-import { Locale, locales } from '@/lib/locales'
+import type { Locale } from '@/lib/locales'
+import { locales } from '@/lib/locales'
 import { getTranslations } from 'next-intl/server'
 import { cookies } from 'next/headers'
 import localeEn from '@/locales/en.json'

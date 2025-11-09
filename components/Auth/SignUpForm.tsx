@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { signUp } from '@/app/actions/auth.actions';
-import { createSignUpSchema, SignUpFormData } from '@/lib/schemas/auth.schemas';
+import { createSignUpSchema, type SignUpFormData } from '@/lib/schemas/auth.schemas';
 import { toast } from 'sonner';
 
 export default function SignUpForm() {

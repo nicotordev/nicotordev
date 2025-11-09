@@ -1,7 +1,7 @@
 'use server';
 
 import { prisma } from '@/prisma/prisma';
-import { Project, Asset } from '@/lib/generated/prisma';
+import type { Project, Asset } from '@/lib/generated/prisma';
 import { revalidatePath } from 'next/cache';
 
 // Types for form data
@@ -43,24 +43,28 @@ export async function createProject(data: CreateProjectData): Promise<{ success:
                 name: data.name.trim(),
                 description: data.description.trim(),
                 tech: data.tech.trim(),
-                impact: data.impact?.trim(),
+                impact: data.impact?.trim() ?? null,
                 image: data.image.trim(),
-                link: data.link?.trim(),
-                linkText: data.linkText?.trim(),
+                link: data.link?.trim() ?? null,
+                linkText: data.linkText?.trim() ?? null,
                 isActive: data.isActive ?? true,
                 sortOrder: data.sortOrder ?? 0,
-                assets: data.assets ? {
-                    create: data.assets.map((asset) => ({
-                        name: asset.name.trim(),
-                        url: asset.url.trim(),
-                        alt: asset.alt?.trim(),
-                        width: asset.width,
-                        height: asset.height,
-                        blurDataUrl: asset.blurDataUrl?.trim(),
-                        type: asset.type || 'IMAGE',
-                        priority: asset.priority ?? 0,
-                    }))
-                } : undefined,
+                ...(data.assets
+                    ? {
+                        assets: {
+                            create: data.assets.map((asset) => ({
+                                name: asset.name.trim(),
+                                url: asset.url.trim(),
+                                alt: asset.alt?.trim() ?? null,
+                                ...(asset.width !== undefined ? { width: asset.width } : {}),
+                                ...(asset.height !== undefined ? { height: asset.height } : {}),
+                                blurDataUrl: asset.blurDataUrl?.trim() ?? null,
+                                type: asset.type || 'IMAGE',
+                                priority: asset.priority ?? 0,
+                            })),
+                        },
+                    }
+                    : {}),
             },
             include: {
                 assets: true,
@@ -82,17 +86,18 @@ export async function getProjects(filters?: {
     offset?: number;
 }): Promise<{ success: boolean; projects?: ProjectWithAssets[]; error?: string }> {
     try {
-        const projects = await prisma.project.findMany({
-            where: filters?.isActive !== undefined ? { isActive: filters.isActive } : undefined,
+        const args: Parameters<typeof prisma.project.findMany>[0] = {
             orderBy: { sortOrder: 'asc' },
-            take: filters?.limit,
-            skip: filters?.offset,
             include: {
                 assets: {
                     orderBy: { priority: 'asc' },
                 },
             },
-        });
+            ...(filters?.isActive !== undefined ? { where: { isActive: filters.isActive } } : {}),
+            ...(typeof filters?.limit === 'number' ? { take: filters.limit } : {}),
+            ...(typeof filters?.offset === 'number' ? { skip: filters.offset } : {}),
+        };
+        const projects = (await prisma.project.findMany(args)) as unknown as ProjectWithAssets[];
 
         return { success: true, projects };
     } catch (error) {
@@ -104,7 +109,7 @@ export async function getProjects(filters?: {
 // Get active projects only (for public display)
 export async function getActiveProjects(): Promise<{ success: boolean; projects?: ProjectWithAssets[]; error?: string }> {
     try {
-        const projects = await prisma.project.findMany({
+        const projects = (await prisma.project.findMany({
             where: { isActive: true },
             orderBy: { sortOrder: 'asc' },
             include: {
@@ -112,7 +117,7 @@ export async function getActiveProjects(): Promise<{ success: boolean; projects?
                     orderBy: { priority: 'asc' },
                 },
             },
-        });
+        })) as unknown as ProjectWithAssets[];
 
         return { success: true, projects };
     } catch (error) {
@@ -124,14 +129,14 @@ export async function getActiveProjects(): Promise<{ success: boolean; projects?
 // Get a single project by ID
 export async function getProjectById(id: string): Promise<{ success: boolean; project?: ProjectWithAssets; error?: string }> {
     try {
-        const project = await prisma.project.findUnique({
+        const project = (await prisma.project.findUnique({
             where: { id },
             include: {
                 assets: {
                     orderBy: { priority: 'asc' },
                 },
             },
-        });
+        })) as unknown as ProjectWithAssets | null;
 
         if (!project) {
             return { success: false, error: 'Project not found' };
@@ -161,28 +166,31 @@ export async function updateProject(
         const project = await prisma.project.update({
             where: { id },
             data: {
-                ...data,
-                name: data.name ? data.name.trim() : undefined,
-                description: data.description ? data.description.trim() : undefined,
-                tech: data.tech ? data.tech.trim() : undefined,
-                impact: data.impact ? data.impact.trim() : undefined,
-                image: data.image ? data.image.trim() : undefined,
-                link: data.link ? data.link.trim() : undefined,
-                linkText: data.linkText ? data.linkText.trim() : undefined,
+                ...(data.name ? { name: data.name.trim() } : {}),
+                ...(data.description ? { description: data.description.trim() } : {}),
+                ...(data.tech ? { tech: data.tech.trim() } : {}),
+                ...(data.impact !== undefined ? { impact: data.impact?.trim() ?? null } : {}),
+                ...(data.image ? { image: data.image.trim() } : {}),
+                ...(data.link !== undefined ? { link: data.link?.trim() ?? null } : {}),
+                ...(data.linkText !== undefined ? { linkText: data.linkText?.trim() ?? null } : {}),
                 updatedAt: new Date(),
-                assets: data.assets ? {
-                    deleteMany: {},
-                    create: data.assets.map((asset) => ({
-                        name: asset.name.trim(),
-                        url: asset.url.trim(),
-                        alt: asset.alt?.trim(),
-                        width: asset.width,
-                        height: asset.height,
-                        blurDataUrl: asset.blurDataUrl?.trim(),
-                        type: asset.type || 'IMAGE',
-                        priority: asset.priority ?? 0,
-                    }))
-                } : undefined,
+                ...(data.assets
+                    ? {
+                        assets: {
+                            deleteMany: {},
+                            create: data.assets.map((asset) => ({
+                                name: asset.name.trim(),
+                                url: asset.url.trim(),
+                                alt: asset.alt?.trim() ?? null,
+                                ...(asset.width !== undefined ? { width: asset.width } : {}),
+                                ...(asset.height !== undefined ? { height: asset.height } : {}),
+                                blurDataUrl: asset.blurDataUrl?.trim() ?? null,
+                                type: asset.type || 'IMAGE',
+                                priority: asset.priority ?? 0,
+                            })),
+                        },
+                    }
+                    : {}),
             },
             include: {
                 assets: {
@@ -326,10 +334,10 @@ export async function createAsset(
             data: {
                 name: data.name.trim(),
                 url: data.url.trim(),
-                alt: data.alt?.trim(),
-                width: data.width,
-                height: data.height,
-                blurDataUrl: data.blurDataUrl?.trim(),
+                alt: data.alt?.trim() ?? null,
+                ...(data.width !== undefined ? { width: data.width } : {}),
+                ...(data.height !== undefined ? { height: data.height } : {}),
+                blurDataUrl: data.blurDataUrl?.trim() ?? null,
                 type: data.type || 'IMAGE',
                 priority: data.priority ?? 0,
                 projectId,
@@ -363,10 +371,10 @@ export async function updateAsset(
             where: { id },
             data: {
                 ...data,
-                name: data.name ? data.name.trim() : undefined,
-                url: data.url ? data.url.trim() : undefined,
-                alt: data.alt ? data.alt.trim() : undefined,
-                blurDataUrl: data.blurDataUrl ? data.blurDataUrl.trim() : undefined,
+                ...(data.name ? { name: data.name.trim() } : {}),
+                ...(data.url ? { url: data.url.trim() } : {}),
+                ...(data.alt !== undefined ? { alt: data.alt?.trim() ?? null } : {}),
+                ...(data.blurDataUrl !== undefined ? { blurDataUrl: data.blurDataUrl?.trim() ?? null } : {}),
                 updatedAt: new Date(),
             },
         });
@@ -419,10 +427,14 @@ export async function updateAssetPriority(
         await Promise.all(updatePromises);
 
         // Get project ID for revalidation
-        const firstAsset = await prisma.asset.findUnique({
-            where: { id: assetIds[0] },
-            select: { projectId: true },
-        });
+        const firstAssetId = assetIds[0];
+        let firstAsset: { projectId: string } | null = null;
+        if (firstAssetId) {
+            firstAsset = await prisma.asset.findUnique({
+                where: { id: firstAssetId },
+                select: { projectId: true },
+            });
+        }
 
         revalidatePath('/admin/projects');
         if (firstAsset) {

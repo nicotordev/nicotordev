@@ -1,6 +1,6 @@
 'use client'
-import { motion, MotionProps } from "framer-motion";
-import { ComponentProps, JSX } from "react";
+import { motion, type MotionProps } from "framer-motion";
+import type { ComponentProps, JSX } from "react";
 
 
 

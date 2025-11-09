@@ -23,7 +23,7 @@ const currencyIconMap: Record<string, React.ComponentType<{ size?: number; class
 
 function LocaleCurrencyIcon({ locale, size, className }: { locale: string; size?: number; className?: string }) {
   const Icon = currencyIconMap[locale] || DollarSign;
-  return <Icon size={size} className={className} />
+  return <Icon {...(size !== undefined ? { size } : {})} {...(className ? { className } : {})} />
 }
 
 export default function LanguageSwitcher() {

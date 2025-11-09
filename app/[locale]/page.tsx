@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import HeroSection from '@/components/Home/HeroSection/HeroSection';
 import AboutMeSectionWrapper from '@/components/Home/AboutMe/AboutMeSection';

@@ -6,7 +6,7 @@ import { Zap, MapPin, Briefcase, Code2, Calendar, Target, DollarSign, Clock, Roc
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { assets } from "@/app/assets";
-import { Locale } from "@/lib/locales";
+import type { Locale } from "@/lib/locales";
 // import AboutMeSectionProjects from "./AboutMeSectionProjects";
 // import { Collapsible } from "@/components/ui/collapsible";
 // import { CollapsibleTrigger } from "./ui/collapsible";

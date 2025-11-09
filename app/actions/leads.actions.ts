@@ -1,7 +1,8 @@
 'use server'
 
 import { prisma } from '@/prisma/prisma';
-import { Lead, LeadStatus, ProjectType, Budget, Timeline, Priority, ContactPreference } from '@/lib/generated/prisma';
+import type { Lead, ProjectType, Budget, Timeline, Priority, ContactPreference } from '@/lib/generated/prisma';
+import { LeadStatus } from '@/lib/generated/prisma';
 import { revalidatePath } from 'next/cache';
 import { getSession } from './auth.actions';
 
@@ -66,12 +67,13 @@ export async function getLeads(filters?: {
     offset?: number;
 }): Promise<{ success: boolean; leads?: Lead[]; error?: string }> {
     try {
-        const leads = await prisma.lead.findMany({
-            where: filters?.status ? { status: filters.status } : undefined,
+        const args: Parameters<typeof prisma.lead.findMany>[0] = {
             orderBy: { createdAt: 'desc' },
-            take: filters?.limit,
-            skip: filters?.offset,
-        });
+            ...(filters?.status ? { where: { status: filters.status } } : {}),
+            ...(typeof filters?.limit === 'number' ? { take: filters.limit } : {}),
+            ...(typeof filters?.offset === 'number' ? { skip: filters.offset } : {}),
+        };
+        const leads = await prisma.lead.findMany(args);
 
         return { success: true, leads };
     } catch (error) {
@@ -113,17 +115,18 @@ export async function updateLead(
             return { success: false, error: 'Lead not found' };
         }
 
+        const updateData = {
+            ...data,
+            ...(data.email ? { email: data.email.toLowerCase().trim() } : {}),
+            ...(data.name ? { name: data.name.trim() } : {}),
+            ...(data.company ? { company: data.company.trim() } : {}),
+            ...(data.message ? { message: data.message.trim() } : {}),
+            updatedAt: new Date(),
+            sessionId: sessionId,
+        };
         const lead = await prisma.lead.update({
             where: { id },
-            data: {
-                ...data,
-                email: data.email ? data.email.toLowerCase().trim() : undefined,
-                name: data.name ? data.name.trim() : undefined,
-                company: data.company ? data.company.trim() : undefined,
-                message: data.message ? data.message.trim() : undefined,
-                updatedAt: new Date(),
-                sessionId: sessionId,
-            },
+            data: updateData,
         });
 
         revalidatePath('/admin/leads');
