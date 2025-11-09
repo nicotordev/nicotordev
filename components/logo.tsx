@@ -9,37 +9,29 @@ type LogoProps = {
   className?: string;
   priority?: boolean;
   alt?: string;
+  height?: number;
 };
 
 export default function Logo({
   width = 300,
+  height = 75,
   className,
   priority,
   alt = "NicoTorDev logo",
 }: LogoProps) {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  useEffect(() => setMounted(true), []);
-
-  // Maintain the ~4:1 aspect ratio of the source assets
-  const height = Math.round(width / 4);
-
-  // Avoid hydration mismatch by rendering after mount
   if (!mounted) {
-    return (
-      <Image
-        src="/logo/logo-dark.png"
-        width={width}
-        height={height}
-        alt={alt}
-        className={className}
-        priority={priority}
-      />
-    );
+    return null;
   }
 
-  const src = resolvedTheme === "dark" ? "/logo/logo-light.png" : "/logo/logo-dark.png";
+  const src =
+    resolvedTheme === "dark" ? "/logo/logo-light.png" : "/logo/logo-dark.png";
 
   return (
     <Image
@@ -47,9 +39,8 @@ export default function Logo({
       width={width}
       height={height}
       alt={alt}
-      className={className}
-      priority={priority}
+      {...(className ? { className } : {})}
+      {...(priority ? { priority: true } : {})}
     />
   );
 }
-
