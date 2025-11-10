@@ -132,6 +132,16 @@ export const Language: {
 export type Language = (typeof Language)[keyof typeof Language]
 
 
+export const Currency: {
+  USD: 'USD',
+  EUR: 'EUR',
+  GBP: 'GBP',
+  CLP: 'CLP'
+};
+
+export type Currency = (typeof Currency)[keyof typeof Currency]
+
+
 export const AssetType: {
   IMAGE: 'IMAGE',
   VIDEO: 'VIDEO',
@@ -182,6 +192,10 @@ export const Theme: typeof $Enums.Theme
 export type Language = $Enums.Language
 
 export const Language: typeof $Enums.Language
+
+export type Currency = $Enums.Currency
+
+export const Currency: typeof $Enums.Currency
 
 export type AssetType = $Enums.AssetType
 
@@ -2619,6 +2633,8 @@ export namespace Prisma {
     expiresAt: Date | null
     theme: $Enums.Theme | null
     language: $Enums.Language | null
+    currency: $Enums.Currency | null
+    timezone: string | null
     createdAt: Date | null
     updatedAt: Date | null
     userId: string | null
@@ -2631,6 +2647,8 @@ export namespace Prisma {
     expiresAt: Date | null
     theme: $Enums.Theme | null
     language: $Enums.Language | null
+    currency: $Enums.Currency | null
+    timezone: string | null
     createdAt: Date | null
     updatedAt: Date | null
     userId: string | null
@@ -2643,6 +2661,8 @@ export namespace Prisma {
     expiresAt: number
     theme: number
     language: number
+    currency: number
+    timezone: number
     createdAt: number
     updatedAt: number
     userId: number
@@ -2657,6 +2677,8 @@ export namespace Prisma {
     expiresAt?: true
     theme?: true
     language?: true
+    currency?: true
+    timezone?: true
     createdAt?: true
     updatedAt?: true
     userId?: true
@@ -2669,6 +2691,8 @@ export namespace Prisma {
     expiresAt?: true
     theme?: true
     language?: true
+    currency?: true
+    timezone?: true
     createdAt?: true
     updatedAt?: true
     userId?: true
@@ -2681,6 +2705,8 @@ export namespace Prisma {
     expiresAt?: true
     theme?: true
     language?: true
+    currency?: true
+    timezone?: true
     createdAt?: true
     updatedAt?: true
     userId?: true
@@ -2766,6 +2792,8 @@ export namespace Prisma {
     expiresAt: Date
     theme: $Enums.Theme
     language: $Enums.Language
+    currency: $Enums.Currency
+    timezone: string
     createdAt: Date
     updatedAt: Date
     userId: string | null
@@ -2795,6 +2823,8 @@ export namespace Prisma {
     expiresAt?: boolean
     theme?: boolean
     language?: boolean
+    currency?: boolean
+    timezone?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
@@ -2810,6 +2840,8 @@ export namespace Prisma {
     expiresAt?: boolean
     theme?: boolean
     language?: boolean
+    currency?: boolean
+    timezone?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
@@ -2823,6 +2855,8 @@ export namespace Prisma {
     expiresAt?: boolean
     theme?: boolean
     language?: boolean
+    currency?: boolean
+    timezone?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
@@ -2836,12 +2870,14 @@ export namespace Prisma {
     expiresAt?: boolean
     theme?: boolean
     language?: boolean
+    currency?: boolean
+    timezone?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
   }
 
-  export type SessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ip" | "userAgent" | "expiresAt" | "theme" | "language" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["session"]>
+  export type SessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "ip" | "userAgent" | "expiresAt" | "theme" | "language" | "currency" | "timezone" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["session"]>
   export type SessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     leads?: boolean | Session$leadsArgs<ExtArgs>
     user?: boolean | Session$userArgs<ExtArgs>
@@ -2867,6 +2903,8 @@ export namespace Prisma {
       expiresAt: Date
       theme: $Enums.Theme
       language: $Enums.Language
+      currency: $Enums.Currency
+      timezone: string
       createdAt: Date
       updatedAt: Date
       userId: string | null
@@ -3301,6 +3339,8 @@ export namespace Prisma {
     readonly expiresAt: FieldRef<"Session", 'DateTime'>
     readonly theme: FieldRef<"Session", 'Theme'>
     readonly language: FieldRef<"Session", 'Language'>
+    readonly currency: FieldRef<"Session", 'Currency'>
+    readonly timezone: FieldRef<"Session", 'String'>
     readonly createdAt: FieldRef<"Session", 'DateTime'>
     readonly updatedAt: FieldRef<"Session", 'DateTime'>
     readonly userId: FieldRef<"Session", 'String'>
@@ -7465,6 +7505,8 @@ export namespace Prisma {
     expiresAt: 'expiresAt',
     theme: 'theme',
     language: 'language',
+    currency: 'currency',
+    timezone: 'timezone',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     userId: 'userId'
@@ -7631,6 +7673,20 @@ export namespace Prisma {
    * Reference to a field of type 'Language[]'
    */
   export type ListEnumLanguageFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Language[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Currency'
+   */
+  export type EnumCurrencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Currency'>
+    
+
+
+  /**
+   * Reference to a field of type 'Currency[]'
+   */
+  export type ListEnumCurrencyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Currency[]'>
     
 
 
@@ -7848,6 +7904,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFilter<"Session"> | Date | string
     theme?: EnumThemeFilter<"Session"> | $Enums.Theme
     language?: EnumLanguageFilter<"Session"> | $Enums.Language
+    currency?: EnumCurrencyFilter<"Session"> | $Enums.Currency
+    timezone?: StringFilter<"Session"> | string
     createdAt?: DateTimeFilter<"Session"> | Date | string
     updatedAt?: DateTimeFilter<"Session"> | Date | string
     userId?: StringNullableFilter<"Session"> | string | null
@@ -7862,6 +7920,8 @@ export namespace Prisma {
     expiresAt?: SortOrder
     theme?: SortOrder
     language?: SortOrder
+    currency?: SortOrder
+    timezone?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrderInput | SortOrder
@@ -7879,6 +7939,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFilter<"Session"> | Date | string
     theme?: EnumThemeFilter<"Session"> | $Enums.Theme
     language?: EnumLanguageFilter<"Session"> | $Enums.Language
+    currency?: EnumCurrencyFilter<"Session"> | $Enums.Currency
+    timezone?: StringFilter<"Session"> | string
     createdAt?: DateTimeFilter<"Session"> | Date | string
     updatedAt?: DateTimeFilter<"Session"> | Date | string
     userId?: StringNullableFilter<"Session"> | string | null
@@ -7893,6 +7955,8 @@ export namespace Prisma {
     expiresAt?: SortOrder
     theme?: SortOrder
     language?: SortOrder
+    currency?: SortOrder
+    timezone?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrderInput | SortOrder
@@ -7911,6 +7975,8 @@ export namespace Prisma {
     expiresAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
     theme?: EnumThemeWithAggregatesFilter<"Session"> | $Enums.Theme
     language?: EnumLanguageWithAggregatesFilter<"Session"> | $Enums.Language
+    currency?: EnumCurrencyWithAggregatesFilter<"Session"> | $Enums.Currency
+    timezone?: StringWithAggregatesFilter<"Session"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Session"> | Date | string
     userId?: StringNullableWithAggregatesFilter<"Session"> | string | null
@@ -8318,6 +8384,8 @@ export namespace Prisma {
     expiresAt: Date | string
     theme?: $Enums.Theme
     language?: $Enums.Language
+    currency?: $Enums.Currency
+    timezone?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     leads?: LeadCreateNestedManyWithoutSessionInput
@@ -8331,6 +8399,8 @@ export namespace Prisma {
     expiresAt: Date | string
     theme?: $Enums.Theme
     language?: $Enums.Language
+    currency?: $Enums.Currency
+    timezone?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     userId?: string | null
@@ -8344,6 +8414,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     leads?: LeadUpdateManyWithoutSessionNestedInput
@@ -8357,6 +8429,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8370,6 +8444,8 @@ export namespace Prisma {
     expiresAt: Date | string
     theme?: $Enums.Theme
     language?: $Enums.Language
+    currency?: $Enums.Currency
+    timezone?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     userId?: string | null
@@ -8382,6 +8458,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -8393,6 +8471,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8909,6 +8989,13 @@ export namespace Prisma {
     not?: NestedEnumLanguageFilter<$PrismaModel> | $Enums.Language
   }
 
+  export type EnumCurrencyFilter<$PrismaModel = never> = {
+    equals?: $Enums.Currency | EnumCurrencyFieldRefInput<$PrismaModel>
+    in?: $Enums.Currency[] | ListEnumCurrencyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Currency[] | ListEnumCurrencyFieldRefInput<$PrismaModel>
+    not?: NestedEnumCurrencyFilter<$PrismaModel> | $Enums.Currency
+  }
+
   export type StringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -8941,6 +9028,8 @@ export namespace Prisma {
     expiresAt?: SortOrder
     theme?: SortOrder
     language?: SortOrder
+    currency?: SortOrder
+    timezone?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
@@ -8953,6 +9042,8 @@ export namespace Prisma {
     expiresAt?: SortOrder
     theme?: SortOrder
     language?: SortOrder
+    currency?: SortOrder
+    timezone?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
@@ -8965,6 +9056,8 @@ export namespace Prisma {
     expiresAt?: SortOrder
     theme?: SortOrder
     language?: SortOrder
+    currency?: SortOrder
+    timezone?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     userId?: SortOrder
@@ -8988,6 +9081,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumLanguageFilter<$PrismaModel>
     _max?: NestedEnumLanguageFilter<$PrismaModel>
+  }
+
+  export type EnumCurrencyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Currency | EnumCurrencyFieldRefInput<$PrismaModel>
+    in?: $Enums.Currency[] | ListEnumCurrencyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Currency[] | ListEnumCurrencyFieldRefInput<$PrismaModel>
+    not?: NestedEnumCurrencyWithAggregatesFilter<$PrismaModel> | $Enums.Currency
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCurrencyFilter<$PrismaModel>
+    _max?: NestedEnumCurrencyFilter<$PrismaModel>
   }
 
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9571,6 +9674,10 @@ export namespace Prisma {
     set?: $Enums.Language
   }
 
+  export type EnumCurrencyFieldUpdateOperationsInput = {
+    set?: $Enums.Currency
+  }
+
   export type LeadUpdateManyWithoutSessionNestedInput = {
     create?: XOR<LeadCreateWithoutSessionInput, LeadUncheckedCreateWithoutSessionInput> | LeadCreateWithoutSessionInput[] | LeadUncheckedCreateWithoutSessionInput[]
     connectOrCreate?: LeadCreateOrConnectWithoutSessionInput | LeadCreateOrConnectWithoutSessionInput[]
@@ -9857,6 +9964,13 @@ export namespace Prisma {
     not?: NestedEnumLanguageFilter<$PrismaModel> | $Enums.Language
   }
 
+  export type NestedEnumCurrencyFilter<$PrismaModel = never> = {
+    equals?: $Enums.Currency | EnumCurrencyFieldRefInput<$PrismaModel>
+    in?: $Enums.Currency[] | ListEnumCurrencyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Currency[] | ListEnumCurrencyFieldRefInput<$PrismaModel>
+    not?: NestedEnumCurrencyFilter<$PrismaModel> | $Enums.Currency
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -9889,6 +10003,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumLanguageFilter<$PrismaModel>
     _max?: NestedEnumLanguageFilter<$PrismaModel>
+  }
+
+  export type NestedEnumCurrencyWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Currency | EnumCurrencyFieldRefInput<$PrismaModel>
+    in?: $Enums.Currency[] | ListEnumCurrencyFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Currency[] | ListEnumCurrencyFieldRefInput<$PrismaModel>
+    not?: NestedEnumCurrencyWithAggregatesFilter<$PrismaModel> | $Enums.Currency
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCurrencyFilter<$PrismaModel>
+    _max?: NestedEnumCurrencyFilter<$PrismaModel>
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -10205,6 +10329,8 @@ export namespace Prisma {
     expiresAt: Date | string
     theme?: $Enums.Theme
     language?: $Enums.Language
+    currency?: $Enums.Currency
+    timezone?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     leads?: LeadCreateNestedManyWithoutSessionInput
@@ -10217,6 +10343,8 @@ export namespace Prisma {
     expiresAt: Date | string
     theme?: $Enums.Theme
     language?: $Enums.Language
+    currency?: $Enums.Currency
+    timezone?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     leads?: LeadUncheckedCreateNestedManyWithoutSessionInput
@@ -10299,6 +10427,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFilter<"Session"> | Date | string
     theme?: EnumThemeFilter<"Session"> | $Enums.Theme
     language?: EnumLanguageFilter<"Session"> | $Enums.Language
+    currency?: EnumCurrencyFilter<"Session"> | $Enums.Currency
+    timezone?: StringFilter<"Session"> | string
     createdAt?: DateTimeFilter<"Session"> | Date | string
     updatedAt?: DateTimeFilter<"Session"> | Date | string
     userId?: StringNullableFilter<"Session"> | string | null
@@ -10439,6 +10569,8 @@ export namespace Prisma {
     expiresAt: Date | string
     theme?: $Enums.Theme
     language?: $Enums.Language
+    currency?: $Enums.Currency
+    timezone?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     user?: UserCreateNestedOneWithoutSessionsInput
@@ -10451,6 +10583,8 @@ export namespace Prisma {
     expiresAt: Date | string
     theme?: $Enums.Theme
     language?: $Enums.Language
+    currency?: $Enums.Currency
+    timezone?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     userId?: string | null
@@ -10506,6 +10640,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutSessionsNestedInput
@@ -10518,6 +10654,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -10736,6 +10874,8 @@ export namespace Prisma {
     expiresAt: Date | string
     theme?: $Enums.Theme
     language?: $Enums.Language
+    currency?: $Enums.Currency
+    timezone?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -10810,6 +10950,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     leads?: LeadUpdateManyWithoutSessionNestedInput
@@ -10822,6 +10964,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     leads?: LeadUncheckedUpdateManyWithoutSessionNestedInput
@@ -10834,6 +10978,8 @@ export namespace Prisma {
     expiresAt?: DateTimeFieldUpdateOperationsInput | Date | string
     theme?: EnumThemeFieldUpdateOperationsInput | $Enums.Theme
     language?: EnumLanguageFieldUpdateOperationsInput | $Enums.Language
+    currency?: EnumCurrencyFieldUpdateOperationsInput | $Enums.Currency
+    timezone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

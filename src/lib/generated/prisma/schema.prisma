@@ -79,6 +79,13 @@ enum Language {
   DE
 }
 
+enum Currency {
+  USD
+  EUR
+  GBP
+  CLP
+}
+
 enum AssetType {
   IMAGE
   VIDEO
@@ -114,6 +121,8 @@ model Session {
   expiresAt DateTime
   theme     Theme    @default(SYSTEM)
   language  Language @default(EN)
+  currency  Currency @default(USD)
+  timezone  String   @default("UTC") @db.VarChar(50)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

@@ -36,6 +36,12 @@
       "@/locales/*": [
         "./locales/*"
       ],
+      "@/prisma/*": [
+        "./prisma/*"
+      ],
+      "@public/*": [
+        "./public/*"
+      ],
       "@assets": [
         "./src/app/assets.ts"
       ]

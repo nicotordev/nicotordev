@@ -138,6 +138,8 @@ exports.Prisma.SessionScalarFieldEnum = {
   expiresAt: 'expiresAt',
   theme: 'theme',
   language: 'language',
+  currency: 'currency',
+  timezone: 'timezone',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   userId: 'userId'
@@ -228,6 +230,13 @@ exports.Language = exports.$Enums.Language = {
   ES_CL: 'ES_CL',
   ES_ES: 'ES_ES',
   DE: 'DE'
+};
+
+exports.Currency = exports.$Enums.Currency = {
+  USD: 'USD',
+  EUR: 'EUR',
+  GBP: 'GBP',
+  CLP: 'CLP'
 };
 
 exports.ProjectType = exports.$Enums.ProjectType = {

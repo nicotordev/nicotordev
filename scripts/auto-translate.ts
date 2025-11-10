@@ -1,4 +1,4 @@
-import { locales, type Locale } from '@/lib/locales';
+import { locales, type Locale } from '@/i18n/config';
 import chileanTranslation from '../locales/es-cl.json';
 import translate from 'deepl';
 import * as fs from 'fs';
