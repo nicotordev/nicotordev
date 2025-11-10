@@ -35,3 +35,12 @@ export function formatInTimeZone(
   return new Intl.DateTimeFormat(locale, { timeZone: tz, ...(options ?? {}) }).format(d);
 }
 
+export const TIMEZONE_LABELS: Record<Timezone, string> = {
+  UTC: "UTC",
+  "America/New_York": "Eastern Time (US)",
+  "Europe/London": "London",
+  "Europe/Berlin": "Berlin",
+  "Europe/Madrid": "Madrid",
+  "America/Santiago": "Santiago",
+};
+

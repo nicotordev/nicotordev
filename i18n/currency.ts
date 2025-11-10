@@ -36,3 +36,17 @@ export function formatCurrency(
   }).format(amount);
 }
 
+export const CURRENCY_LABELS: Record<Currency, string> = {
+  USD: "US Dollar",
+  EUR: "Euro",
+  GBP: "British Pound",
+  CLP: "Chilean Peso",
+};
+
+export const CURRENCY_SYMBOLS: Record<Currency, string> = {
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+  CLP: "$",
+};
+
