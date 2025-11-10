@@ -1,8 +1,10 @@
-import { ArrowRight } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/common/header";
+import ChileFlag from "../emojis/chile-flag";
+import Link from "next/link";
+import DownloadResumeButton from "@/components/download-resume-button";
 
 export interface HeroSectionProps {
   translations: {
@@ -25,7 +27,7 @@ export interface HeroSectionProps {
       description: string;
       cta: {
         about: string;
-        resume: string;
+        download_resume: string;
       };
     };
   };
@@ -71,21 +73,24 @@ export default function HeroSection({ translations }: HeroSectionProps) {
               <span className="block text-primary">
                 {translations.hero.name}
               </span>
-              <span className="block">{translations.hero.title}</span>
+              <span className="relative inline-block pr-6 align-middle">
+                {translations.hero.title}
+                <span className="absolute right-24 bottom-2">
+                  <ChileFlag width={60} />
+                </span>
+              </span>
             </h1>
             <p className="mt-8 text-pretty text-lg font-medium text-muted-foreground sm:text-xl">
               {translations.hero.description}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button className="[box-shadow:var(--shadow-xs)]">
-                {translations.hero.cta.about}
+              <Button className="[box-shadow:var(--shadow-xs)]" asChild>
+                <Link href="#about-section">{translations.hero.cta.about}</Link>
               </Button>
-              <Button asChild variant="link" className="text-foreground">
-                <a href="#" className="inline-flex items-center">
-                  {translations.hero.cta.resume}
-                  <ArrowRight className="ml-1 size-4" aria-hidden="true" />
-                </a>
-              </Button>
+              <DownloadResumeButton 
+                label={translations.hero.cta.download_resume}
+                className="text-foreground"
+              />
             </div>
           </div>
         </div>

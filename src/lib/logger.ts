@@ -4,13 +4,6 @@ import type { Logger, LoggerOptions, Level, Bindings } from "pino";
 const isBrowser = typeof window !== "undefined";
 const isEdge = !isBrowser && process.env.NEXT_RUNTIME === "edge";
 
-// Tipo para los métodos que reciben objeto + mensaje (usado en Edge)
-type ObjectMessageLogger = (
-  obj: Bindings,
-  msg?: string,
-  ...args: any[]
-) => void;
-
 let log: pino.Logger;
 
 if (isBrowser) {
