@@ -1,6 +1,4 @@
-// Client-safe auth helpers used by SessionContext
-// These are lightweight wrappers so the app can build/run
-// Adjust to your real auth API when available.
+"use server";
 
 export type GetSessionResult<T = unknown> = {
   success: boolean;
@@ -9,9 +7,10 @@ export type GetSessionResult<T = unknown> = {
 
 export async function getSession<T = any>(): Promise<GetSessionResult<T>> {
   try {
-    const res = await fetch('/api/session', {
-      method: 'GET',
-      credentials: 'include',
+    const res = await fetch("/api/session", {
+      method: "GET",
+      credentials: "include",
+      cache: "force-cache",
     });
     if (!res.ok) return { success: false, session: null };
     const data = await res.json().catch(() => null);
@@ -24,9 +23,9 @@ export async function getSession<T = any>(): Promise<GetSessionResult<T>> {
 
 export async function signOut(): Promise<void> {
   try {
-    await fetch('/api/signout', {
-      method: 'POST',
-      credentials: 'include',
+    await fetch("/api/signout", {
+      method: "POST",
+      credentials: "include",
     });
   } catch {
     // no-op: ignore network errors for signOut stub

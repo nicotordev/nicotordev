@@ -2,8 +2,11 @@
 
 import { cookies, headers } from "next/headers";
 import { revalidatePath } from "next/cache";
-import { prisma } from "@/prisma/prisma";
+import { z } from "zod";
+import { prisma } from "@/lib/prisma";
 import { isCurrency, type Currency } from "@/i18n/currency";
+
+const currencySchema = z.string().refine(isCurrency, "Invalid currency");
 
 async function updateSessionCurrency(currency: Currency) {
   try {
@@ -31,21 +34,25 @@ async function updateSessionCurrency(currency: Currency) {
 }
 
 export async function setCurrencyCookie(nextCurrency: string) {
-  const cookieStore = await cookies();
-  const maxAge = 60 * 60 * 24 * 365; // 365 days
-
-  if (!isCurrency(nextCurrency)) {
+  const parsed = currencySchema.safeParse(nextCurrency);
+  if (!parsed.success) {
     return { success: false as const, error: "Unsupported currency" };
   }
 
-  cookieStore.set("NEXT_CURRENCY", nextCurrency, {
+  const currency = parsed.data as Currency;
+  const cookieStore = await cookies();
+  const maxAge = 60 * 60 * 24 * 365; // 365 days
+
+  cookieStore.set("NEXT_CURRENCY", currency, {
     path: "/",
     maxAge,
     sameSite: "lax",
   });
 
-  await updateSessionCurrency(nextCurrency);
-  revalidatePath("/");
+  await updateSessionCurrency(currency);
+
+  // Revalidate both paths and currency-dependent cached data
+  revalidatePath("/", "layout");
 
   return { success: true as const };
 }

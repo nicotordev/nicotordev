@@ -2,13 +2,19 @@
 
 import { cookies, headers } from "next/headers";
 import { revalidatePath } from "next/cache";
-import type { Locale } from "@/i18n/config";
-import { prisma } from "@/prisma/prisma";
+import { z } from "zod";
+import { isLocale, type Locale } from "@/i18n/config";
+import { prisma } from "@/lib/prisma";
+
+const localeSchema = z.string().refine(isLocale, "Invalid locale");
 
 async function updateSessionLanguage(locale: Locale) {
   try {
     const hdrs = await headers();
-    const ip = (hdrs.get("x-forwarded-for") || "").split(",")[0] || hdrs.get("x-real-ip") || "";
+    const ip =
+      (hdrs.get("x-forwarded-for") || "").split(",")[0] ||
+      hdrs.get("x-real-ip") ||
+      "";
     const userAgent = hdrs.get("user-agent") || "";
     if (!ip || !userAgent) return;
 
@@ -41,10 +47,16 @@ async function updateSessionLanguage(locale: Locale) {
   }
 }
 
-export async function setLocaleCookie(locale: Locale) {
+export async function setLocaleCookie(nextLocale: string) {
+  const parsed = localeSchema.safeParse(nextLocale);
+  if (!parsed.success) {
+    return { success: false as const, error: "Invalid locale" };
+  }
+
+  const locale = parsed.data as Locale;
   const cookieStore = await cookies();
-  // 365 days
-  const maxAge = 60 * 60 * 24 * 365;
+  const maxAge = 60 * 60 * 24 * 365; // 365 days
+
   cookieStore.set("NEXT_LOCALE", locale, {
     path: "/",
     maxAge,
@@ -52,6 +64,9 @@ export async function setLocaleCookie(locale: Locale) {
   });
 
   await updateSessionLanguage(locale);
-  revalidatePath("/");
-  return { success: true } as const;
+
+  // Revalidate both paths and locale-dependent cached data
+  revalidatePath("/", "layout");
+
+  return { success: true as const };
 }

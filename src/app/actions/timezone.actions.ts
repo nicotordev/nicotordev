@@ -2,13 +2,19 @@
 
 import { cookies, headers } from "next/headers";
 import { revalidatePath } from "next/cache";
-import { prisma } from "@/prisma/prisma";
+import { z } from "zod";
+import { prisma } from "@/lib/prisma";
 import { isTimezone, type Timezone } from "@/i18n/timezone";
+
+const timezoneSchema = z.string().refine(isTimezone, "Invalid timezone");
 
 async function updateSessionTimezone(timezone: Timezone) {
   try {
     const hdrs = await headers();
-    const ip = (hdrs.get("x-forwarded-for") || "").split(",")[0] || hdrs.get("x-real-ip") || "";
+    const ip =
+      (hdrs.get("x-forwarded-for") || "").split(",")[0] ||
+      hdrs.get("x-real-ip") ||
+      "";
     const userAgent = hdrs.get("user-agent") || "";
     if (!ip || !userAgent) return;
 
@@ -28,21 +34,25 @@ async function updateSessionTimezone(timezone: Timezone) {
 }
 
 export async function setTimezoneCookie(nextTimezone: string) {
-  const cookieStore = await cookies();
-  const maxAge = 60 * 60 * 24 * 365; // 365 days
-
-  if (!isTimezone(nextTimezone)) {
+  const parsed = timezoneSchema.safeParse(nextTimezone);
+  if (!parsed.success) {
     return { success: false as const, error: "Unsupported timezone" };
   }
 
-  cookieStore.set("NEXT_TIMEZONE", nextTimezone, {
+  const timezone = parsed.data as Timezone;
+  const cookieStore = await cookies();
+  const maxAge = 60 * 60 * 24 * 365; // 365 days
+
+  cookieStore.set("NEXT_TIMEZONE", timezone, {
     path: "/",
     maxAge,
     sameSite: "lax",
   });
 
-  await updateSessionTimezone(nextTimezone);
-  revalidatePath("/");
+  await updateSessionTimezone(timezone);
+
+  // Revalidate both paths and timezone-dependent cached data
+  revalidatePath("/", "layout");
 
   return { success: true as const };
 }
