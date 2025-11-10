@@ -10,6 +10,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Logo from "@/components/logo";
+import LanguageSwitcher from "@/components/language-switcher";
+import CurrencySwitcher from "@/components/currency-switcher";
+import TimezoneSwitcher from "@/components/timezone-switcher";
 
 export interface HeaderProps {
   navigation: {
@@ -54,6 +57,18 @@ export default function Header({ navigation, login }: HeaderProps) {
               </SheetHeader>
               <div className="mt-6">
                 <div className="divide-y divide-border">
+                  <div className="space-y-3 py-6">
+                    <div className="px-3">
+                      <div className="text-xs font-semibold text-muted-foreground mb-2">
+                        Preferences
+                      </div>
+                      <div className="space-y-2">
+                        <LanguageSwitcher size="default" />
+                        <CurrencySwitcher />
+                        <TimezoneSwitcher />
+                      </div>
+                    </div>
+                  </div>
                   <div className="space-y-2 py-6">
                     {navItems.map((item) => (
                       <a
@@ -91,7 +106,10 @@ export default function Header({ navigation, login }: HeaderProps) {
             </a>
           ))}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-3">
+          <LanguageSwitcher size="icon-sm" />
+          <CurrencySwitcher />
+          <TimezoneSwitcher />
           <a href="#" className="text-sm font-semibold text-foreground">
             {login} <span aria-hidden="true">&rarr;</span>
           </a>
