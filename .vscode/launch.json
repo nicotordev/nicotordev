@@ -12,31 +12,53 @@
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
+            // Detecta el puerto del dev server automáticamente
             "serverReadyAction": {
-                // Actualizado para capturar varios formatos de salida de Next.js
                 "pattern": "started server on .*:(\\d+)|Local:.*http://localhost:(\\d+)",
                 "uriFormat": "http://localhost:%s",
-                "action": "debugWithEdge"
+                "action": "debugWithChrome"
             }
         },
         {
-            "name": "Edge Tools: Open Browser Preview",
+            "name": "Chrome: Open Browser",
+            "type": "chrome",
+            "request": "launch",
+            "runtimeExecutable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            // Perfil temporal = adiós problemas de adjuntar
+            "userDataDir": false,
+            // Permite sourcemaps correctos con Next (crucial)
+            "sourceMaps": true,
+            "sourceMapPathOverrides": {
+                "webpack:///./*": "${workspaceFolder}/*",
+                "webpack:///*": "${workspaceFolder}/*",
+                "/*": "${workspaceFolder}/*"
+            }
+        },
+        {
+            // Debug usando Edge Tools Extension (más completo que Chrome)
+            "name": "Edge: DevTools with Browser Preview",
             "type": "msedge",
             "request": "launch",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}",
-            // Esto sugiere intentar abrirlo en modo headless si la extensión lo permite
-            "presentation": {
-                "hidden": false
-            }
+            "userDataDir": false
         }
     ],
     "compounds": [
         {
-            "name": "Next.js + Edge (Editor Preview)",
+            "name": "Next.js + Chrome",
             "configurations": [
                 "Next.js Dev Server",
-                "Edge Tools: Open Browser Preview"
+                "Chrome: Open Browser"
+            ]
+        },
+        {
+            "name": "Next.js + Edge",
+            "configurations": [
+                "Next.js Dev Server",
+                "Edge: DevTools with Browser Preview"
             ]
         }
     ]
