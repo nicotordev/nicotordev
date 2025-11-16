@@ -1,3 +1,5 @@
+"use client";
+
 import type { AssetDTO } from "types/projects";
 import {
   Card,
@@ -7,9 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "../ui/card";
-import { ThumbsUp } from "lucide-react";
+import { Calendar, Share, ThumbsUp } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { useLocalizedPreferences } from "@/hooks/use-localized-preferences";
 
 interface ProjectCardProps {
   id: string;
@@ -44,6 +47,7 @@ export default function ProjectCard({
   updatedAt,
   assets,
 }: ProjectCardProps) {
+  const { } = useLocalizedPreferences();
   return (
     <Card className="pb-3">
       <CardHeader>
@@ -53,20 +57,31 @@ export default function ProjectCard({
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Image
-          src={image}
-          alt={name}
-          width={400}
-          height={225}
-          className="rounded-md object-cover"
-        />
+        <div className="rounded-md h-48 overflow-hidden">
+          <Image
+            src={image}
+            alt={name}
+            width={400}
+            height={225}
+            className="rounded-md object-contain w-full h-full"
+          />
+        </div>
       </CardContent>
       <CardFooter>
-        <div className="w-full border-t">
-          <div className="flex items-center gap-4 pt-2">
+        <div className="w-full border-t flex items-center justify-between pt-3">
+          <div className="flex items-center gap-2 pt-2">
             <Button variant="ghost" size="icon" className="group rounded-full">
-              <ThumbsUp className="h-4 w-4 text-muted-foreground font-semibold group-hover:text-primary-foreground" />
+              <ThumbsUp className="h-4 w-4 text-muted-foreground font-bold group-hover:text-primary-foreground stroke-muted-foreground stroke-2" />
             </Button>
+            <Button variant="ghost" size="icon" className="group rounded-full">
+              <Share className="h-4 w-4 text-muted-foreground font-bold group-hover:text-primary-foreground stroke-muted-foreground stroke-2" />
+            </Button>
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <Calendar className="h-4 w-4 text-muted-foreground font-bold group-hover:text-primary-foreground stroke-muted-foreground stroke-2" />
+              <span className="text-sm font-medium text-muted-foreground">{new Date(createdAt).toLocaleDateString()}</span>
+            </div>
           </div>
         </div>
       </CardFooter>
