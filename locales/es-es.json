@@ -10,15 +10,68 @@
     "login": "Iniciar sesión"
   },
   "hero": {
-    "greeting": "Hola, soy",
+    "greeting": "¡Hola, soy",
     "name": "Nicolás Torres",
     "title": "Desarrollador Full Stack",
     "title_frontend": "Frontend",
     "title_backend": "Backend",
-    "description": "Desarrollador de software, creador de contenido y entusiasta de la tecnología de España.",
+    "description": "Desarrollador de software, creador de contenido y entusiasta de la tecnología de Chile.",
     "cta": {
       "about": "Conóceme más",
-     "download_resume": "Descargar CV"
+      "download_resume": "Descargar CV",
+      "talk_about_project": "Hablemos de tu proyecto 🚀"
+    }
+  },
+  "projects": {
+    "section_title": "Mis Proyectos",
+    "section_subtitle": "Explora mi último trabajo y soluciones creativas."
+  },
+  "about": {
+    "title": "Sobre mí",
+    "subtitle": "Construyendo software con alma y precisión",
+    "description": "Soy Nicolás Richard Torres, un ingeniero full stack chileno que cree que el código no solo debe funcionar: debe tener propósito. Pasé de romper sistemas por curiosidad a diseñar estructuras con ética. Hoy transformo ideas en plataformas que combinan arte, ingeniería y una dosis de rebeldía bien dirigida.",
+    "role": {
+      "current": "Rol actual",
+      "position": "Desarrollador Full Stack Freelance",
+      "mode": "Modalidad",
+      "modeDetails": "Remoto / Híbrido"
+    },
+    "metrics": {
+      "title": "Métricas destacadas",
+      "subtitle": "Impacto real y resultados medibles",
+      "total_earnings": "Ganancias totales",
+      "hours": "Horas trabajadas",
+      "success": "Tasa de éxito",
+      "complete": "completado",
+      "experience": "Experiencia",
+      "experienceValue": "2+ años"
+    },
+    "methodology": {
+      "title": "Filosofía y metodología",
+      "description": "Mi forma de trabajar se basa en tres pilares: claridad en la arquitectura, autonomía para resolver, e impacto en cada línea de código. Me apoyo en tipado estricto, documentación viva y comunicación transparente.",
+      "title_frontend": "Frontend",
+      "title_backend": "Backend",
+      "title_styling": "Diseño y estilos"
+    },
+    "workStyle": {
+      "title": "Estilo de trabajo",
+      "description": "Ágil, autónomo y orientado al detalle. Propongo soluciones antes que esperar instrucciones."
+    },
+    "personal": {
+      "title": "Más allá del código",
+      "description": "Me inspiran Hofmann y Leary, pero también el silencio del bosque. Entre commits y café, estudio IA, exploro psicodelia responsable y creo contenido para otros desarrolladores. Creo que la justicia —incluso en el software— es una forma de amor."
+    },
+    "specialties": {
+      "description": "Next.js, React, TypeScript y sistemas donde la interfaz importa tanto como la lógica."
+    },
+    "stack": {
+      "description": "Node.js, Prisma ORM, tRPC, PostgreSQL y arquitecturas escalables con despliegues sin fricción."
+    },
+    "photos": {
+      "gallery_1_alt": "Logo de Conce AI",
+      "gallery_2_alt": "Foto de Nicolás Torres Henriquez sonriendo",
+      "gallery_3_alt": "Foto de Nicolás Torres Henriquez trabajando en su computadora",
+      "gallery_4_alt": "Foto de Nicolás Torres Henriquez en un entorno natural"
     }
   }
 }

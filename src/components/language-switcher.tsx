@@ -16,8 +16,10 @@ import { Button } from "@/components/ui/button";
 import UnitedStatesFlag from "@/components/emojis/united-states-flag";
 import UnitedKingdomFlag from "@/components/emojis/united-kingdom-flag";
 import SpainFlag from "@/components/emojis/spain-flag";
+import MexicoFlag from "@/components/emojis/mexico-flag";
 import ChileFlag from "@/components/emojis/chile-flag";
 import GermanyFlag from "@/components/emojis/germany-flag";
+
 
 function Flag({ locale, size = 16 }: { locale: Locale; size?: number }) {
   switch (locale) {
@@ -26,7 +28,7 @@ function Flag({ locale, size = 16 }: { locale: Locale; size?: number }) {
     case "en-gb":
       return <UnitedKingdomFlag width={size} alt="United Kingdom flag" />;
     case "es":
-      return <SpainFlag width={size} alt="Spain flag" />;
+      return <MexicoFlag width={size} alt="Mexico flag" />;
     case "es-es":
       return <SpainFlag width={size} alt="Spain flag" />;
     case "es-cl":
@@ -55,12 +57,16 @@ export default function LanguageSwitcher({
     });
   };
 
+  const isIconSize = size?.includes("icon");
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" size={size} disabled={isPending}>
           <Flag locale={locale} />
-          <span className="ml-1 hidden sm:inline">{localeNames[locale]}</span>
+          {!isIconSize && (
+            <span className="ml-1 hidden sm:inline">{localeNames[locale]}</span>
+          )}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

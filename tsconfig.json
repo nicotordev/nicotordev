@@ -20,6 +20,7 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
     "verbatimModuleSyntax": true,
+    "allowArbitraryExtensions": true,
     "plugins": [
       {
         "name": "next"
@@ -49,10 +50,12 @@
   },
   "include": [
     "next-env.d.ts",
+    "src/global.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
+    ".next/dev/types/**/*.ts",
+    ".next/dev/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",

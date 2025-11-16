@@ -24,7 +24,7 @@ export default function Logo({
     <span className={className} style={{ display: "inline-block", lineHeight: 0 }}>
       {/* Light theme logo (default) */}
       <Image
-        src="/logo/logo-dark.png"
+        src="/logo/logo-dark.svg"
         alt={alt}
         width={width}
         height={computedHeight}
@@ -33,7 +33,7 @@ export default function Logo({
       />
       {/* Dark theme logo */}
       <Image
-        src="/logo/logo-light.png"
+        src="/logo/logo-light.svg"
         alt={alt}
         width={width}
         height={computedHeight}

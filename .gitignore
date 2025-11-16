@@ -40,4 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# next-intl generated types
+locales/*.d.json.ts
+
 /lib/generated/prisma

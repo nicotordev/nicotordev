@@ -1,6 +1,6 @@
-import HeroSection, {
-  type HeroSectionProps,
-} from "@/components/home/hero-section";
+import AboutMeSection from "@/components/home/about-me-section";
+import HeroSection from "@/components/home/hero-section";
+import ProjectsSection from "@/components/home/projects-section";
 import { getMessages } from "next-intl/server";
 
 export default async function HomePage() {
@@ -9,7 +9,15 @@ export default async function HomePage() {
     navigation: messages.navigation,
     common: messages.common,
     hero: messages.hero,
-  } as HeroSectionProps["translations"];
+    about: messages.about,
+    projects: messages.projects,
+  };
 
-  return <HeroSection translations={translations} />;
+  return (
+    <main>
+      <HeroSection translations={translations} />
+      <ProjectsSection translations={translations.projects} />
+      <AboutMeSection translations={translations.about} />
+    </main>
+  );
 }

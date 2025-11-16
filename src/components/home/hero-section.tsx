@@ -28,6 +28,7 @@ export interface HeroSectionProps {
       cta: {
         about: string;
         download_resume: string;
+        talk_about_project: string;
       };
     };
   };
@@ -83,9 +84,12 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             <p className="mt-8 text-pretty text-lg font-medium text-muted-foreground sm:text-xl">
               {translations.hero.description}
             </p>
+
+
+            
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button className="[box-shadow:var(--shadow-xs)]" asChild>
-                <Link href="#about-section">{translations.hero.cta.about}</Link>
+                <Link href="#about-section">{translations.hero.cta.talk_about_project}</Link> 
               </Button>
               <DownloadResumeButton 
                 label={translations.hero.cta.download_resume}

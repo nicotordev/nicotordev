@@ -1,11 +1,17 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import Providers from "./providers";
-import { localInter, localSora, localSourceSerif4, localFiraCode } from "./fonts";
+import {
+  localInter,
+  localSora,
+  localSourceSerif4,
+  localFiraCode,
+} from "./fonts";
 import "./globals.css";
 import { defaultCurrencyByLocale, isCurrency } from "@/i18n/currency";
 import { defaultTimezoneByLocale, isTimezone } from "@/i18n/timezone";
@@ -24,7 +30,7 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
-export default async function RootLayout({ children }: RootLayoutProps) {
+async function LocalizedContent({ children }: { children: ReactNode }) {
   const cookieStore = await cookies();
   const cookieLocale = cookieStore.get("NEXT_LOCALE")?.value;
   const cookieCurrency = cookieStore.get("NEXT_CURRENCY")?.value;
@@ -50,17 +56,28 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     : defaultTimezoneByLocale[locale];
 
   return (
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <Providers
+        initialCurrency={initialCurrency}
+        initialTimezone={initialTimezone}
+      >
+        {children}
+      </Providers>
+    </NextIntlClientProvider>
+  );
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
+  return (
     <html
-      lang={locale}
+      lang={routing.defaultLocale}
       suppressHydrationWarning
-      className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable}`} 
+      className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable}`}
     >
       <body className="antialiased">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Providers initialCurrency={initialCurrency} initialTimezone={initialTimezone}>
-            {children}
-          </Providers>
-        </NextIntlClientProvider>
+        <Suspense fallback={null}>
+          <LocalizedContent>{children}</LocalizedContent>
+        </Suspense>
       </body>
     </html>
   );

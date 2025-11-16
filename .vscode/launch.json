@@ -1,0 +1,43 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Next.js Dev Server",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "bun",
+            "runtimeArgs": [
+                "run",
+                "dev"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "serverReadyAction": {
+                // Actualizado para capturar varios formatos de salida de Next.js
+                "pattern": "started server on .*:(\\d+)|Local:.*http://localhost:(\\d+)",
+                "uriFormat": "http://localhost:%s",
+                "action": "debugWithEdge"
+            }
+        },
+        {
+            "name": "Edge Tools: Open Browser Preview",
+            "type": "msedge",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            // Esto sugiere intentar abrirlo en modo headless si la extensión lo permite
+            "presentation": {
+                "hidden": false
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Next.js + Edge (Editor Preview)",
+            "configurations": [
+                "Next.js Dev Server",
+                "Edge Tools: Open Browser Preview"
+            ]
+        }
+    ]
+}
