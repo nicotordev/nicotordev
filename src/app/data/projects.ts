@@ -4,7 +4,7 @@ export const staticProjects: ProjectDTO[] = [
   // --- 2025 ---
   {
     id: "proj_1",
-    name: "Regulex (regulex.com.au)",
+    name: "Regulex: AI-Powered Legal Compliance & Auditing Platform",
     cost: 0,
     description:
       "Private AI-driven MVP for automated legislative reference detection, jurisdiction validation, and compliance review of legal documents. Enables real-time analysis and compliance automation for legal firms.",
@@ -86,7 +86,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_2",
-    name: "V0.dev MCP",
+    name: "V0.dev MCP: AI Agent Context Protocol Integration",
     cost: 0,
     description:
       "Model Context Protocol (MCP) integration for V0.dev, enabling AI agents to interact with external systems via TypeScript-based context servers.",
@@ -112,7 +112,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_3",
-    name: "Conexus Space Planner",
+    name: "Conexus: AI-Assisted Workspace Planning Calculator",
     cost: 0,
     description:
       "AI-assisted calculator for workspace design and area planning. Built with Supabase backend, Next.js 15 frontend, and serverless edge functions.",
@@ -130,7 +130,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_4",
-    name: "Seguidoress (seguidoress.cl)",
+    name: "Seguidoress: Full-Stack SaaS for Social Media Services",
     cost: 0,
     description:
       "An e-commerce platform for social media growth services targeting influencers and brands in Latin America.",
@@ -221,7 +221,7 @@ export const staticProjects: ProjectDTO[] = [
   // --- 2024 ---
   {
     id: "proj_5",
-    name: "SexyConce",
+    name: "SexyConce: Telegram Community Automation Bot",
     cost: 0,
     description:
       "Telegram bot architecture for community automation in Concepción, Chile. Designed with modular commands, AI integrations, and real-time admin dashboards.",
@@ -247,7 +247,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_6",
-    name: "FlowCL Pagos SDK",
+    name: "FlowCL Pagos: TypeScript SDK for Payment Integration",
     cost: 0,
     description:
       "SDK en TypeScript para integrar pagos con la API de Flow.cl. Facilita la generación de órdenes de pago, validación de transacciones y gestión de reembolsos.",
@@ -274,7 +274,7 @@ export const staticProjects: ProjectDTO[] = [
   // --- 2023 ---
   {
     id: "proj_8",
-    name: "Spiritory Marketplace",
+    name: "Spiritory: Collectible Whisky & Spirits E-commerce Platform",
     cost: 0,
     description:
       "A B2B/B2C marketplace for high-value spirits. Engineered a modular frontend for inventory management and secure payments.",
@@ -348,7 +348,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_9",
-    name: "FunpicAI",
+    name: "FunpicAI: AI-Powered Creative Image Generator",
     cost: 0,
     description:
       "AI app allowing users to generate creative images using natural language prompts. Integrates OpenAI API and Next.js.",
@@ -395,7 +395,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_10",
-    name: "Crypto Asset Screener",
+    name: "Crypto Asset Screener: Real-Time Market Analytics Platform",
     cost: 0,
     description:
       "A financial analytics tool designed to analyze cryptocurrency market data in real time with advanced filters and visualizations.",
@@ -470,7 +470,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_11",
-    name: "Classpro",
+    name: "Classpro: Real-Time Education Management Platform",
     cost: 0,
     description:
       "Education management platform with real-time tools for classrooms and teachers. Focused on low-latency data sync and intuitive UX.",
