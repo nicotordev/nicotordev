@@ -13,13 +13,13 @@
     "greeting": "¡Hola, soy",
     "name": "Nicolás Torres",
     "title": "Desarrollador Full Stack",
-    "title_frontend": "Frontend",
-    "title_backend": "Backend",
+    "available_for_hire": "Disponible para contratación",
+
     "description": "Desarrollador de software, creador de contenido y entusiasta de la tecnología de Chile.",
     "cta": {
       "about": "Conóceme más",
       "download_resume": "Descargar CV",
-      "talk_about_project": "Hablemos de tu proyecto 🚀"
+      "lets_talk": "Hablemos 🚀"
     }
   },
   "projects": {

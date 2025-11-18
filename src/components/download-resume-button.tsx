@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 interface DownloadResumeButtonProps {
-  label: string;
+  label: string 
   className?: string;
 }
 
@@ -46,7 +46,7 @@ export default function DownloadResumeButton({ label, className }: DownloadResum
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="link" className={className}>
+        <Button variant="outline" className={className}>
           <span className="inline-flex items-center">
             {label}
             <ArrowRight className="ml-1 size-4" aria-hidden="true" />

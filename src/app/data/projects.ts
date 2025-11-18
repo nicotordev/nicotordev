@@ -500,3 +500,11 @@ export const staticProjects: ProjectDTO[] = [
     ],
   },
 ];
+
+export const featuredProject: ProjectDTO = staticProjects[0]!;
+
+
+export const featuredProjects: ProjectDTO[] = [
+  staticProjects[3]!,
+  staticProjects[6]!,
+]

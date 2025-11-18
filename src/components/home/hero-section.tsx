@@ -1,10 +1,16 @@
-import React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/common/header";
 import ChileFlag from "../emojis/chile-flag";
 import Link from "next/link";
 import DownloadResumeButton from "@/components/download-resume-button";
+import { Badge } from "../ui/badge";
+import { Dot } from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "../../components/ui/tooltip";
 
 export interface HeroSectionProps {
   translations: {
@@ -22,13 +28,12 @@ export interface HeroSectionProps {
       greeting: string;
       name: string;
       title: string;
-      title_frontend: string;
-      title_backend: string;
+      available_for_hire: string;
       description: string;
       cta: {
         about: string;
         download_resume: string;
-        talk_about_project: string;
+        lets_talk: string;
       };
     };
   };
@@ -61,37 +66,52 @@ export default function HeroSection({ translations }: HeroSectionProps) {
           />
         </div>
 
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm text-muted-foreground ring-1 ring-border/60 hover:ring-border">
-              {translations.hero.title_frontend} ·{" "}
-              {translations.hero.title_backend}
-            </div>
+        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 flex flex-col items-center text-center">
+          <div className="mb-4 flex justify-center">
+            <Badge
+              variant="success"
+              className="relative flex items-center justify-center gap-2 capitalize pl-8 pr-4 py-2"
+            >
+              <Dot className="w-16! h-16! absolute -left-3 top-1/2 -translate-y-1/2" />
+              {translations.hero.available_for_hire}
+            </Badge>
+          </div>
+          <div className="mb-2 text-center text-muted-foreground font-medium">
+            <p className="font-display text-balance tracking-tight pb-0">
+              ¡Hola, soy{" "}
+              <span className="font-bold text-primary">Nicolas Torres</span>, un
+              ingeniero web full-stack de{" "}
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="link" className="px-2">
+                    <span className="underline cursor-pointer font-bold text-foreground relative top-1">
+                      <ChileFlag />
+                    </span>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>
+                    Desde Concepción, Chile. Me alegro de que estés aquí!
+                  </p>
+                </TooltipContent>
+              </Tooltip>
+              y mi trabajo consiste en...
+            </p>
           </div>
           <div className="text-center">
             <h1 className="font-display text-balance text-5xl font-extrabold tracking-tight text-foreground sm:text-7xl">
-              <span className="block">{translations.hero.greeting}</span>
-              <span className="block text-primary">
-                {translations.hero.name}
-              </span>
-              <span className="relative inline-block pr-6 align-middle">
-                {translations.hero.title}
-                <span className="absolute right-24 bottom-2">
-                  <ChileFlag width={60} />
-                </span>
-              </span>
+              Transformar palabras e ideas en{" "}
+              <span className="gradient-text">aplicaciones web</span>{" "}
+              impactantes.
             </h1>
-            <p className="mt-8 text-pretty text-lg font-medium text-muted-foreground sm:text-xl">
-              {translations.hero.description}
-            </p>
 
-
-            
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button className="[box-shadow:var(--shadow-xs)]" asChild>
-                <Link href="#about-section">{translations.hero.cta.talk_about_project}</Link> 
+                <Link href="#about-section">
+                  {translations.hero.cta.lets_talk}
+                </Link>
               </Button>
-              <DownloadResumeButton 
+              <DownloadResumeButton
                 label={translations.hero.cta.download_resume}
                 className="text-foreground"
               />
