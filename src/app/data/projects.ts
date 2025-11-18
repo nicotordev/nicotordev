@@ -470,10 +470,10 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_11",
-    name: "Classpro: Real-Time Education Management Platform",
+    name: "Classpro: Education Management Platform",
     cost: 0,
     description:
-      "Education management platform with real-time tools for classrooms and teachers. Focused on low-latency data sync and intuitive UX.",
+      "A test project focused on education management and intuitive UX.",
     tech: "React, Node.js, WebSocket, PostgreSQL, UX/UI Design",
     image: "/images/projects/classpro/home-1.webp",
     link: "#",

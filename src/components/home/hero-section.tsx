@@ -36,7 +36,7 @@ export interface HeroSectionProps {
 
 export default function HeroSection({ translations }: HeroSectionProps) {
   return (
-    <div className="bg-background">
+    <div className="bg-background min-h-screen">
       <Header
         navigation={translations.navigation}
         login={translations.common.login}

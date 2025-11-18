@@ -1,6 +1,7 @@
 import AboutMeSection from "@/components/home/about-me-section";
 import HeroSection from "@/components/home/hero-section";
 import ProjectsSection from "@/components/home/projects-section";
+import SocialProofSection from "@/components/home/social-proof";
 import { getMessages } from "next-intl/server";
 
 export default async function HomePage() {
@@ -16,6 +17,7 @@ export default async function HomePage() {
   return (
     <main>
       <HeroSection translations={translations} />
+      <SocialProofSection />
       <ProjectsSection translations={translations.projects} />
       <AboutMeSection translations={translations.about} />
     </main>
