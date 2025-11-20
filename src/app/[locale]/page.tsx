@@ -3,6 +3,8 @@ import HeroSection from "@/components/home/hero-section";
 import ProjectsSection from "@/components/home/projects-section";
 import SocialProofSection from "@/components/home/social-proof";
 import { getMessages } from "next-intl/server";
+import ProblemSolutionSection from "@/components/home/problem-solution/problem-solution-section";
+import RegulexCaseStudy from "@/components/home/regulex-case-study";
 
 export default async function HomePage() {
   const messages = await getMessages();
@@ -18,6 +20,8 @@ export default async function HomePage() {
     <main>
       <HeroSection translations={translations} />
       <SocialProofSection />
+      <ProblemSolutionSection />
+      <RegulexCaseStudy />
       <ProjectsSection translations={translations.projects} />
       <AboutMeSection translations={translations.about} />
     </main>

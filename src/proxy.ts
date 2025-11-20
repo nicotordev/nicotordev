@@ -16,7 +16,7 @@ export const config = {
      */
     {
       source:
-        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.webmanifest|.*\\.ico|.*\\.png|.*\\.xml|.*\\.jpeg|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.webp|.*\\.css|.*\\.js|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)",
+        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.webmanifest|.*\\.ico|.*\\.png|.*\\.xml|.*\\.jpeg|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.mp4|.*\\.webp|.*\\.css|.*\\.js|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)",
       missing: [
         { type: "header", key: "next-router-prefetch" },
         { type: "header", key: "purpose", value: "prefetch" },
@@ -25,7 +25,7 @@ export const config = {
 
     {
       source:
-        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.webmanifest|.*\\.ico|.*\\.png|.*\\.xml|.*\\.jpeg|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.webp|.*\\.css|.*\\.js|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)",
+        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.webmanifest|.*\\.ico|.*\\.png|.*\\.xml|.*\\.jpeg|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.mp4|.*\\.webp|.*\\.css|.*\\.js|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)",
       has: [
         { type: "header", key: "next-router-prefetch" },
         { type: "header", key: "purpose", value: "prefetch" },
@@ -34,7 +34,7 @@ export const config = {
 
     {
       source:
-        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.webmanifest|.*\\.ico|.*\\.png|.*\\.xml|.*\\.jpeg|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.webp|.*\\.css|.*\\.js|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)",
+        "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|.*\\.webmanifest|.*\\.ico|.*\\.png|.*\\.xml|.*\\.jpeg|.*\\.jpg|.*\\.svg|.*\\.gif|.*\\.mp4|.*\\.webp|.*\\.css|.*\\.js|.*\\.woff|.*\\.woff2|.*\\.ttf|.*\\.eot).*)",
       has: [{ type: "header", key: "x-present" }],
       missing: [{ type: "header", key: "x-missing", value: "prefetch" }],
     },

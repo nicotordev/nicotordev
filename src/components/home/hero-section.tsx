@@ -11,6 +11,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "../../components/ui/tooltip";
+import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
+import Image from "next/image";
 
 export interface HeroSectionProps {
   translations: {
@@ -60,13 +62,13 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             className={cn(
               "relative left-[calc(50%-11rem)] -translate-x-1/2",
               "aspect-1155/678 w-144.5 rotate-30",
-              "bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30",
+              "bg-linear-to-tr from-primary to-secondary opacity-30",
               "sm:left-[calc(50%-30rem)] sm:w-288.75"
             )}
           />
         </div>
 
-        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 flex flex-col items-center text-center">
+        <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56 flex flex-col items-center text-center">
           <div className="mb-4 flex justify-center">
             <Badge
               variant="success"
@@ -90,19 +92,75 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>
-                    Desde Concepción, Chile. Me alegro de que estés aquí!
-                  </p>
+                  <p>Desde Concepción, Chile. Me alegro de que estés aquí!</p>
                 </TooltipContent>
               </Tooltip>
               y mi trabajo consiste en...
             </p>
           </div>
           <div className="text-center">
-            <h1 className="font-display text-balance text-5xl font-extrabold tracking-tight text-foreground sm:text-7xl">
-              Transformar palabras e ideas en{" "}
-              <span className="gradient-text">aplicaciones web</span>{" "}
-              impactantes.
+            <h1 className="font-display text-balance text-5xl font-extrabold tracking-tight text-foreground sm:text-7xl leading-[1.2]">
+              Transformar{" "}
+              <span className="inline-flex -rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl">
+                palabras{" "}
+                <picture className="relative top-2">
+                  <source
+                    srcSet="/illustrations/writing.webp"
+                    type="image/webp"
+                    width="50"
+                    height="50"
+                  />
+                  <Image
+                    src="/illustrations/writing.webp"
+                    alt="✍️"
+                    width="100"
+                    height="100"
+                  />
+                </picture>
+              </span>{" "}
+              e <br />
+              <div className="inline-block">
+                <span className="inline-flex rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl">
+                  ideas{" "}
+                  <picture className="relative top-2">
+                    <source
+                      srcSet="/illustrations/lightbulb.webp"
+                      type="image/webp"
+                      width="50"
+                      height="50"
+                    />
+                    <Image
+                      src="/illustrations/lightbulb.webp"
+                      alt="💡"
+                      width="100"
+                      height="100"
+                    />
+                  </picture>
+                </span>{" "}
+                en{" "}
+                <span className="gradient-text relative">
+                  aplicaciones
+                  <br />
+                  <span className="relative right-16 gradient-text">web</span>
+                </span>{" "}
+                <div className="inline-block relative right-16">
+                  impactantes
+                  <picture className="absolute -right-32 bottom-0">
+                    <source
+                      srcSet="/illustrations/mechanic-arm.webp"
+                      type="image/webp"
+                      width="100"
+                      height="100"
+                    />
+                    <Image
+                      src="/illustrations/mechanic-arm.webp"
+                      alt="🦾"
+                      width="100"
+                      height="100"
+                    />
+                  </picture>
+                </div>
+              </div>
             </h1>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -118,7 +176,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             </div>
           </div>
         </div>
-
+        <HeroSectionTechStackCarousel />
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
@@ -131,7 +189,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             className={cn(
               "relative left-[calc(50%+3rem)] -translate-x-1/2",
               "aspect-1155/678 w-144.5",
-              "bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30",
+              "bg-linear-to-tr from-primary to-secondary opacity-30",
               "sm:left-[calc(50%+36rem)] sm:w-288.75"
             )}
           />

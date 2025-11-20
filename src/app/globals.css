@@ -7,6 +7,7 @@
 :root {
   /* Fondo casi blanco con un toque muy leve de calor para que no sea frío */
   --background: oklch(98.5% 0.008 320);
+  --background-secondary: oklch(96% 0.01 320);
   --foreground: oklch(18% 0.03 280);
   --card: oklch(97.5% 0.015 330);
   --card-foreground: oklch(18% 0.03 280);
@@ -67,6 +68,7 @@
 
 .dark {
   --background: oklch(14% 0.02 300);
+  --background-secondary: oklch(18% 0.06 310);
   --foreground: oklch(94% 0.03 320);
   --card: oklch(18% 0.06 310);
   --card-foreground: oklch(96% 0.02 320);
@@ -122,6 +124,7 @@
 }
 
 @theme inline {
+  --color-background-secondary: var(--background-secondary);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
