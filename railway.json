@@ -15,8 +15,9 @@
     ]
   },
   "deploy": {
-    "startCommand": "sh -lc 'ls -l /mise/installs/node/20.19.5/bin || true; ls -l /mise/shims || true; which node || true; /mise/installs/node/20.19.5/bin/node -v; NEXT_TELEMETRY_DISABLED=1 /mise/installs/node/20.19.5/bin/node node_modules/.bin/next start -p $PORT'",
+    "startCommand": "NEXT_TELEMETRY_DISABLED=1 node_modules/.bin/next start -p $PORT",
     "preDeployCommand": [
+      "ln -sf /mise/installs/node/20.19.5/bin/node /usr/bin/node || true",
       "sh -lc \"if [ -n \\\"$DATABASE_URL\\\" ]; then node_modules/.bin/prisma migrate deploy; else echo Skipping migrations; fi\""
     ],
     "healthcheckPath": "/robots.txt",
@@ -27,7 +28,7 @@
   "environments": {
     "pr": {
       "deploy": {
-        "startCommand": "sh -lc 'ls -l /mise/installs/node/20.19.5/bin || true; ls -l /mise/shims || true; which node || true; /mise/installs/node/20.19.5/bin/node -v; NEXT_TELEMETRY_DISABLED=1 /mise/installs/node/20.19.5/bin/node node_modules/.bin/next start -p $PORT'"
+        "startCommand": "NEXT_TELEMETRY_DISABLED=1 node_modules/.bin/next start -p $PORT"
       }
     }
   }
