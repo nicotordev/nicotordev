@@ -1,25 +1,37 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LeadMagnetContactFormMinimal, {
   LeadMagnetContactFormFull,
 } from "@/components/glassmorphism/lead-magnet-contact-forms";
 import NoiseOverlay from "@/components/common/noise-overlay";
 import PsychedelicBackground from "@/components/backgrounds/psychedelic-background";
 import LeadMagnetGift from "./lead-magnet-gift";
+import { useInView } from "react-intersection-observer";
+import { cn } from "@/lib/utils";
+import LeadMagnetGiftDialog from "./lead-magnet-gift-dialog";
 
 export default function LeadMagnet() {
-  // Logic inverted for clarity: "Is the card visible?" defaults to true
+  const [optionSelected, setOptionSelected] = useState<"GIFT" | "FORM" | null>(
+    null
+  );
+  const { ref, inView: isContactFormInView } = useInView({
+    threshold: 0.1,
+    rootMargin: "-20% 0%",
+  });
   const [isTestimonialVisible, setIsTestimonialVisible] = useState(true);
   const [keepFormMinimal, setKeepFormMinimal] = useState(false);
 
   return (
     <section
-      className="relative overflow-hidden bg-primary bg-blend-overlay min-h-[80vh] py-24 sm:py-32"
+      className={cn(
+        "overflow-hidden bg-primary bg-blend-overlay min-h-[80vh] py-24 sm:py-32",
+        "relative"
+      )}
       style={{ transform: "translateZ(100%)" }}
+      aria-label="Lead Magnet Section"
     >
       {/* --- Background Layer --- */}
       <PsychedelicBackground />
@@ -29,7 +41,10 @@ export default function LeadMagnet() {
 
       {/* --- Content Layer --- */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center">
-        <LeadMagnetGift />
+        <LeadMagnetGift
+          show={isContactFormInView && optionSelected === null}
+          setOptionSelected={setOptionSelected}
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -37,6 +52,7 @@ export default function LeadMagnet() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
           className="w-full relative"
+          ref={ref}
         >
           {/* Glassmorphism Container */}
           <div className="relative rounded-3xl overflow-hidden">
@@ -71,24 +87,39 @@ export default function LeadMagnet() {
                     >
                       {keepFormMinimal ? (
                         <>
-                          <span className="mr-1">📋</span> Full Form
+                          <span className="mr-1" aria-hidden="true">
+                            📋
+                          </span>{" "}
+                          Full Form
                         </>
                       ) : (
                         <>
-                          <span className="mr-1">✉️</span> Quick Message
+                          <span className="mr-1" aria-hidden="true">
+                            ✉️
+                          </span>{" "}
+                          Quick Message
                         </>
                       )}
                     </Button>
                   </div>
 
                   <AnimatePresence mode="wait">
-                    {keepFormMinimal ? (
-                      /* MINIMAL FORM - Single Textarea */
-                      <LeadMagnetContactFormMinimal />
-                    ) : (
-                      /* FULL FORM - Individual Fields */
-                      <LeadMagnetContactFormFull />
-                    )}
+                    {optionSelected === "FORM" ? (
+                      <>
+                        {keepFormMinimal ? (
+                          /* MINIMAL FORM - Single Textarea */
+                          <LeadMagnetContactFormMinimal />
+                        ) : (
+                          /* FULL FORM - Individual Fields */
+                          <LeadMagnetContactFormFull />
+                        )}
+                      </>
+                    ) : optionSelected === "GIFT" ? (
+                      <LeadMagnetGiftDialog
+                        open={optionSelected === "GIFT"}
+                        onOpenChange={setOptionSelected}
+                      />
+                    ) : null}
                   </AnimatePresence>
                 </motion.div>
 
@@ -118,7 +149,7 @@ export default function LeadMagnet() {
                             onClick={() => setIsTestimonialVisible(false)}
                             aria-label="Close testimonial"
                           >
-                            <X className="w-4 h-4" />
+                            <X className="w-4 h-4" aria-hidden="true" />
                           </Button>
 
                           <blockquote className="text-sm leading-relaxed text-foreground/90">

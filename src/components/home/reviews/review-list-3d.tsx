@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+ 
 import { Marquee } from "@/components/ui/marquee";
 import ReviewCard from "./review-card";
 import { firstRow, secondRow, thirdRow, fourthRow } from "@/app/data/reviews";
