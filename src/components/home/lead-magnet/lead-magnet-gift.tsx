@@ -95,7 +95,7 @@ export default function LeadMagnetGift({
             id="gift-title"
             className={cn(
               "text-center text-4xl sm:text-5xl font-black gradient-text leading-tight relative z-30",
-              showTutorial ? "text-primary/90 text-shadow-glow" : "text-primary"
+              showTutorial ? "text-primary/90 text-shadow-glow" : "text-background"
             )}
           >
             Antes de contactarme… desbloquea tu regalo exclusivo{" "}

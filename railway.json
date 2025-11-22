@@ -15,7 +15,7 @@
     ]
   },
   "deploy": {
-    "startCommand": "PATH=/root/.local/share/mise/installs/node/20.19.5/bin:/root/.local/share/mise/shims:/mise/shims:$PATH NEXT_TELEMETRY_DISABLED=1 node_modules/.bin/next start -p $PORT",
+    "startCommand": "PATH=/mise/installs/node/20.19.5/bin:/root/.local/share/mise/installs/node/20.19.5/bin:/mise/shims:/root/.local/share/mise/shims:$PATH NEXT_TELEMETRY_DISABLED=1 node_modules/.bin/next start -p $PORT",
     "preDeployCommand": [
       "sh -lc \"if [ -n \\\"$DATABASE_URL\\\" ]; then node_modules/.bin/prisma migrate deploy; else echo Skipping migrations; fi\""
     ],
@@ -27,7 +27,7 @@
   "environments": {
     "pr": {
       "deploy": {
-        "startCommand": "PATH=/root/.local/share/mise/installs/node/20.19.5/bin:/root/.local/share/mise/shims:/mise/shims:$PATH NEXT_TELEMETRY_DISABLED=1 bunx next start -p $PORT"
+        "startCommand": "PATH=/mise/installs/node/20.19.5/bin:/root/.local/share/mise/installs/node/20.19.5/bin:/mise/shims:/root/.local/share/mise/shims:$PATH NEXT_TELEMETRY_DISABLED=1 bunx next start -p $PORT"
       }
     }
   }
