@@ -22,9 +22,16 @@ const stats = [
 
 export default function SocialProofSection() {
   return (
-    <section className="flex items-center justify-center bg-background-secondary px-6 sm:px-12 lg:px-24 py-24 sm:py-32">
+    <section className="relative flex items-center justify-center bg-background-secondary px-6 sm:px-12 lg:px-24 py-24 sm:py-32">
+      <Image
+        width={1920}
+        height={1080}
+        src="/images/background/texture-1.webp"
+        alt="Animated texture"
+        className="h-full w-full object-cover z-1 absolute inset-0 aspect-video mix-blend-overlay opacity-30"
+      />
       <div className="mx-auto max-w-7xl flex items-stretch justify-between">
-        <div className="w-2/4 h-auto rounded-2xl shadow-2xl ring-4 ring-primary/30 hover:ring-primary/60 overflow-clip hover-lift">
+        <div className="w-2/4 h-auto rounded-2xl shadow-2xl ring-4 ring-accent/30 hover:ring-accent/60 overflow-clip hover-lift">
           <Image
             alt="Nicolas working on his computer"
             src="/nicolas/me_pc.jpg"
@@ -37,7 +44,7 @@ export default function SocialProofSection() {
         <div className="px-6 pt-16 pb-24 sm:pt-20 sm:pb-32 lg:col-start-2 lg:px-8 lg:pt-32">
           <div className="mx-auto max-w-2xl lg:mr-0 lg:max-w-lg">
             {/* Proven Experience → ahora con fondo rosa suave */}
-            <h2 className="inline-block rounded-full bg-primary/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-primary ring-2 ring-primary/30 font-display">
+            <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display">
               Proven Experience
             </h2>
 

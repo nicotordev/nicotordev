@@ -7,14 +7,14 @@ export default function SolutionSection() {
   return (
     <div className="relative pb-24 pt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mt-2 flex items-stretch justify-between">
+        <div className="mt-2 flex items-sIngeniería de Software contretch justify-between">
           {/* Left Column: Content */}
           <div className="w-1/2 flex flex-col justify-center pr-12 order-2 lg:order-1">
             <div className="max-w-2xl mx-auto lg:mx-0">
               <div className="max-w-2xl">
                 {/* Título más impactante */}
-                <h2 className="text-6xl font-display font-black tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start">
-                  <b className="text-2xl">Ingeniería de Software con</b>
+                <h2 className="text-6xl font-display font-bold tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start">
+                  <b className="text-2xl text-foreground">Ingeniería de Software con</b>
                   <SolutionSectionTitles />
                 </h2>
                 <p className="mt-4 text-xl leading-9 text-muted-foreground">
@@ -68,12 +68,10 @@ export default function SolutionSection() {
               {/* Sombra decorativa: Ajustada para que no se corte */}
               <div className="absolute -inset-1 translate-x-4 translate-y-4 rounded-2xl bg-primary/20 blur-3xl -z-10" />
 
-              <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 bg-background-secondary">
+              <div className="relative h-full w-full">
                 {/* VIDEO: Añadido playsInline y pointer-events-none */}
                 <SolutionSectionVideo />
 
-                {/* Overlay: Mejorado con pointer-events-none para no bloquear clicks */}
-                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-20 pointer-events-none" />
               </div>
             </div>
           </div>

@@ -1,20 +1,14 @@
 import { problemSectionProblems } from "@/app/data/home";
-import ProblemSectionAnimatedText from "./problem-section-animated-text";
 
 export default function ProblemSection() {
   return (
-    <div className="pt-24 sm:pt-32">
+    <div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl lg:text-center">
-          <h2 className="text-4xl lg:text-5xl font-display font-black tracking-tight text-foreground leading-tight text-center">
-            ¿Cansado de desarrolladores que solo{" "}
-            <span className="relative inline-block mx-1">
-              {/* Fondo con Blur y Borde Brillante */}
-
-              {/* Texto Principal */}
-              <ProblemSectionAnimatedText />
+          <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight text-center">
+            <span className="relative inline-block mx-1 text-foreground">
+              ¿Cansado de Desarrolladores <b>Que no entienden tu negocio</b>?
             </span>
-            ?
           </h2>
 
           <p className="mt-4 text-xl leading-9 text-muted-foreground text-center">

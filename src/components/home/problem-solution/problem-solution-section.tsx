@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 export default function ProblemSolutionSection() {
   return (
-    <section id="problem-solution" className="relative z-10">
+    <section id="problem-solution" className="relative z-10 py-32 sm:pb-42">
       <div
         aria-hidden="true"
         className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -17,7 +17,7 @@ export default function ProblemSolutionSection() {
           className={cn(
             "relative left-[calc(50%-15rem)] -translate-x-1/2",
             "aspect-1155/678 w-96 rotate-45",
-            "bg-linear-to-tr from-primary to-secondary opacity-30",
+            "bg-linear-to-tr from-accent to-secondary opacity-30",
             "sm:left-[calc(50%-25rem)] sm:w-3xl"
           )}
         />
@@ -34,7 +34,7 @@ export default function ProblemSolutionSection() {
           className={cn(
             "relative right-[calc(50%-15rem)] translate-x-1/2",
             "aspect-1155/678 w-96 -rotate-135",
-            "bg-linear-to-bl from-secondary to-primary opacity-30",
+            "bg-linear-to-bl from-secondary to-accent opacity-30",
             "sm:right-[calc(50%-25rem)] sm:w-3xl"
           )}
         />
@@ -51,7 +51,7 @@ export default function ProblemSolutionSection() {
           className={cn(
             "relative left-[calc(50%+8rem)] -translate-x-1/2",
             "aspect-square w-72 -rotate-12",
-            "bg-linear-to-br from-secondary to-primary opacity-30",
+            "bg-linear-to-br from-accent to-primary opacity-30",
             "sm:left-[calc(50%+20rem)] sm:w-xl"
           )}
         />
@@ -68,7 +68,7 @@ export default function ProblemSolutionSection() {
           className={cn(
             "relative left-[calc(50%+5rem)] -translate-x-1/2",
             "aspect-1155/678 w-lg rotate-180",
-            "bg-linear-to-tl from-primary to-secondary opacity-30",
+            "bg-linear-to-tl from-primary to-accent opacity-30",
             "sm:left-[calc(50%+32rem)] sm:w-5xl"
           )}
         />
@@ -85,7 +85,7 @@ export default function ProblemSolutionSection() {
           className={cn(
             "relative left-[calc(50%-20rem)] -translate-x-1/2",
             "aspect-square w-56 rotate-90",
-            "bg-linear-to-r from-secondary to-primary opacity-30",
+            "bg-linear-to-r from-accent to-primary opacity-30",
             "sm:left-[calc(50%-40rem)] sm:w-md"
           )}
         />
