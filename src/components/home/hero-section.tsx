@@ -49,10 +49,10 @@ export default function HeroSection({ translations }: HeroSectionProps) {
         login={translations.common.login}
       />
 
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
         >
           <div
             style={{
@@ -62,7 +62,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             className={cn(
               "relative left-[calc(50%-11rem)] -translate-x-1/2",
               "aspect-1155/678 w-144.5 rotate-30",
-              "bg-linear-to-tr from-primary to-secondary opacity-30",
+              "bg-linear-to-tr from-accent to-primary opacity-80",
               "sm:left-[calc(50%-30rem)] sm:w-288.75"
             )}
           />
@@ -81,7 +81,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
           <div className="mb-2 text-center text-muted-foreground font-medium">
             <p className="font-display text-balance tracking-tight pb-0">
               ¡Hola, soy{" "}
-              <span className="font-bold text-primary">Nicolas Torres</span>, un
+              <span className="font-bold text-accent">Nicolas Torres</span>, un
               ingeniero web full-stack de{" "}
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -101,8 +101,14 @@ export default function HeroSection({ translations }: HeroSectionProps) {
           <div className="text-center">
             <h1 className="font-display text-balance text-5xl font-extrabold tracking-tight text-foreground sm:text-7xl leading-[1.2]">
               Transformar{" "}
-              <span className="inline-flex -rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl">
-                palabras{" "}
+              <span
+                className={cn(
+                  "inline-flex -rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl"
+                )}
+              >
+                <span className="nicotordev-outlined-text text-background font-bold font-mono transform-gpu">
+                  palabras
+                </span>{" "}
                 <picture className="relative top-2">
                   <source
                     srcSet="/illustrations/writing.webp"
@@ -120,8 +126,10 @@ export default function HeroSection({ translations }: HeroSectionProps) {
               </span>{" "}
               e <br />
               <div className="inline-block">
-                <span className="inline-flex rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl">
-                  ideas{" "}
+                <span className="inline-flex rotate-2 rounded-lg bg-card text-background nicotordev-outlined-text px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl">
+                  <span className="nicotordev-outlined-text text-background font-bold font-mono transform-gpu">
+                    ideas
+                  </span>{" "}
                   <picture className="relative top-2">
                     <source
                       srcSet="/illustrations/lightbulb.webp"
@@ -179,7 +187,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
         <HeroSectionTechStackCarousel />
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+          className="absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
         >
           <div
             style={{
@@ -189,7 +197,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             className={cn(
               "relative left-[calc(50%+3rem)] -translate-x-1/2",
               "aspect-1155/678 w-144.5",
-              "bg-linear-to-tr from-primary to-secondary opacity-30",
+              "bg-linear-to-tr from-accent to-secondary opacity-30",
               "sm:left-[calc(50%+36rem)] sm:w-288.75"
             )}
           />
