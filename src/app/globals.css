@@ -67,10 +67,10 @@
 }
 
 .dark {
-  --background: oklch(14% 0.02 300);
-  --background-secondary: oklch(18% 0.06 310);
+  --background: oklch(20% 0.02 300);
+  --background-secondary: oklch(24% 0.06 310);
   --foreground: oklch(94% 0.03 320);
-  --card: oklch(18% 0.06 310);
+  --card: oklch(24% 0.06 310);
   --card-foreground: oklch(96% 0.02 320);
   --popover: oklch(0.6726 0.2904 341.4084);
   --popover-foreground: oklch(1 0 0);
@@ -177,6 +177,24 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
 }
 
 @layer base {
@@ -277,4 +295,22 @@
 /* Utility to force the display font when needed */
 .font-display {
   font-family: var(--font-display) !important;
+}
+.nicotordev-outlined-text {
+  /* A more robust and consistent outline using text-shadow for broad compatibility */
+  text-shadow: -1px -1px 0 #1f1f1f, 1px -1px 0 #1f1f1f, -1px 1px 0 #1f1f1f,
+    1px 1px 0 #1f1f1f;
+  /* For Webkit browsers, use -webkit-text-stroke for a sharper outline */
+  -webkit-text-stroke: 1px #1f1f1f; /* Combines width and color */
+  -webkit-text-stroke-linejoin: round;
+  -webkit-text-stroke-linecap: round;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
