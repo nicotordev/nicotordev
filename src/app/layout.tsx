@@ -11,6 +11,11 @@ import {
   localSora,
   localSourceSerif4,
   localFiraCode,
+  localJetBrainsMono,
+  localIBMPlexMono,
+  localFontdinerSwanky,
+  localLoveLight,
+  localPermanentMarker,
 } from "./fonts";
 import "./globals.css";
 import { defaultCurrencyByLocale, isCurrency } from "@/i18n/currency";
@@ -72,7 +77,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang={routing.defaultLocale}
       suppressHydrationWarning
-      className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable}`}
+      className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable} ${localJetBrainsMono.variable} ${localIBMPlexMono.variable} ${localFontdinerSwanky.variable} ${localLoveLight.variable} ${localPermanentMarker.variable}`}
     >
       <body className="antialiased">
         <Suspense fallback={null}>
