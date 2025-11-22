@@ -77,7 +77,7 @@ export default function AboutMeSection({
   ];
 
   return (
-    <div className="overflow-hidden bg-background py-24 sm:py-32">
+    <div className="overflow-x-clip bg-background py-24 sm:py-32">
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
         <div className="max-w-4xl">
           <p className="text-base/7 font-semibold text-accent">
@@ -108,7 +108,7 @@ export default function AboutMeSection({
                 <div
                   key={index}
                   className={cn(
-                    "aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-border hover:outline-accent transition-colors duration-300",
+                    "aspect-square overflow-x-clip rounded-xl shadow-xl outline-1 -outline-offset-1 outline-border hover:outline-accent transition-colors duration-300",
                     item.offset === "raise" && "-mt-8 lg:-mt-40"
                   )}
                 >

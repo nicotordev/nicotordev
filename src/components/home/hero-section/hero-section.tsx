@@ -1,16 +1,12 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/common/header";
-import ChileFlag from "../emojis/chile-flag";
+import ChileFlag from "../../emojis/chile-flag";
 import Link from "next/link";
 import DownloadResumeButton from "@/components/download-resume-button";
-import { Badge } from "../ui/badge";
+import { Badge } from "../../ui/badge";
 import { Dot } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "../../components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
 import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
 import Image from "next/image";
 
@@ -52,7 +48,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
       <div className="relative px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
         >
           <div
             style={{
@@ -187,7 +183,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
         <HeroSectionTechStackCarousel />
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+          className="absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-x-clip blur-3xl sm:top-[calc(100%-30rem)]"
         >
           <div
             style={{

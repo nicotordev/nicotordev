@@ -7,7 +7,7 @@ export default function ProblemSolutionSection() {
     <section id="problem-solution" className="relative z-10 py-32 sm:pb-42">
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
       >
         <div
           style={{
@@ -24,7 +24,7 @@ export default function ProblemSolutionSection() {
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
       >
         <div
           style={{
@@ -41,7 +41,7 @@ export default function ProblemSolutionSection() {
       </div>
       <div
         aria-hidden="true"
-        className="absolute top-20 right-0 -z-10 transform-gpu overflow-hidden blur-2xl sm:top-40"
+        className="absolute top-20 right-0 -z-10 transform-gpu overflow-x-clip blur-2xl sm:top-40"
       >
         <div
           style={{
@@ -58,7 +58,7 @@ export default function ProblemSolutionSection() {
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-x-clip blur-3xl sm:top-[calc(100%-30rem)]"
       >
         <div
           style={{
@@ -75,7 +75,7 @@ export default function ProblemSolutionSection() {
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-[calc(50%)] -z-10 transform-gpu overflow-hidden blur-3xl"
+        className="absolute inset-x-0 top-[calc(50%)] -z-10 transform-gpu overflow-x-clip blur-3xl"
       >
         <div
           style={{

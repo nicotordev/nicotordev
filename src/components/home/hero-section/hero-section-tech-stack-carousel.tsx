@@ -37,7 +37,7 @@ const TECH_STACK_BOTTOM = [
 
 export default function HeroSectionTechStackCarousel() {
   return (
-    <div className="w-full max-w-[100vw] overflow-hidden mx-auto px-4 pb-32 flex flex-col gap-4 mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+    <div className="w-full max-w-[100vw] overflow-x-clip mx-auto px-4 pb-32 flex flex-col gap-4 mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
       {/* Top Carousel - Runs to Right */}
       <Swiper
         modules={[Autoplay]}

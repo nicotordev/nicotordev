@@ -14,31 +14,7 @@ import {
 } from "@/components/ui/carousel";
 
 import { staticProjects } from "@/app/data/projects";
-
-interface ProjectsTitleOverlayProps {
-  className: string;
-  text: string;
-}
-
-const ProjectsTitleOverlay = ({
-  className,
-  text,
-}: ProjectsTitleOverlayProps) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: 0.2, duration: 0.6 }}
-    className={`${className} pointer-events-none select-none`}
-  >
-    <h2
-      className="text-center font-stretch-ultra-expanded font-bold w-fit text-white opacity-40 drop-shadow-lg"
-      style={{ fontSize: "12rem" }}
-    >
-      {text}
-    </h2>
-  </motion.div>
-);
+import ProjectsTitleOverlay from "./projects-title-overlay";
 
 const ProjectsCarousel = () => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
@@ -60,16 +36,14 @@ const ProjectsCarousel = () => {
     };
   }, [carouselApi]);
 
-  const projectsTitleText = "Projects I&apos;ve Built";
-
   return (
-    <section className="relative py-64 bg-primary text-foreground overflow-clip w-full min-h-[80vh]">
+    <section className="relative py-64 bg-primary text-foreground overflow-clip w-full h-fit">
       <Image
         width={1920}
         height={1080}
         src="/images/background/texture-1.webp"
         alt="Animated texture"
-        className="h-full w-full object-cover z-1 absolute inset-0 aspect-video mix-blend-multiply opacity-30"
+        className="h-full w-full object-cover z-1 absolute inset-0 mix-blend-multiply opacity-30"
       />
       <motion.div
         animate={{
@@ -115,12 +89,12 @@ const ProjectsCarousel = () => {
       />
 
       <ProjectsTitleOverlay
-        className="absolute -top-0 z-10"
-        text={projectsTitleText}
+        className="absolute top-0 z-10"
+        text="Projects I've Built"
       />
       <ProjectsTitleOverlay
         className="absolute bottom-0 right-0 rotate-180 z-10"
-        text={projectsTitleText}
+        text="Projects I've Built"
       />
 
       <motion.div
@@ -128,7 +102,7 @@ const ProjectsCarousel = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="absolute top-32 right-8 z-30"
+        className="absolute bottom-32 left-8 z-30"
       >
         <Button
           size="icon"
@@ -148,7 +122,7 @@ const ProjectsCarousel = () => {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="absolute bottom-32 left-8 z-30"
+        className="absolute top-32 right-8 z-30"
       >
         <Button
           size="icon"
@@ -185,7 +159,7 @@ const ProjectsCarousel = () => {
                   className="group flex flex-col justify-between h-full p-6 transition-all bg-gray-900/30 backdrop-blur-xl border border-white/20 hover:border-accent/50 hover:shadow-2xl hover:-translate-y-1 rounded-xl shadow-xl"
                 >
                   <div>
-                    <div className="aspect-3/2 flex overflow-hidden rounded-2xl border border-border/20 bg-muted/50">
+                    <div className="aspect-3/2 flex overflow-x-clip rounded-2xl border border-border/20 bg-muted/50">
                       <div className="flex-1">
                         <div className="relative h-full w-full origin-bottom transition duration-500 group-hover:scale-105">
                           <Image

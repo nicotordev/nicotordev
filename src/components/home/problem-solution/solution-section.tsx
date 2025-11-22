@@ -7,7 +7,7 @@ export default function SolutionSection() {
   return (
     <div className="relative pb-24 pt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mt-2 flex items-sIngeniería de Software contretch justify-between">
+        <div className="mt-2 flex items-stretch justify-between">
           {/* Left Column: Content */}
           <div className="w-1/2 flex flex-col justify-center pr-12 order-2 lg:order-1">
             <div className="max-w-2xl mx-auto lg:mx-0">

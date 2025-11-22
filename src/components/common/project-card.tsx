@@ -47,7 +47,7 @@ export default function ProjectCard({
   updatedAt,
   assets,
 }: ProjectCardProps) {
-  const { } = useLocalizedPreferences();
+  const {} = useLocalizedPreferences();
   return (
     <Card className="pb-3">
       <CardHeader>
@@ -57,7 +57,7 @@ export default function ProjectCard({
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="rounded-md h-48 overflow-hidden">
+        <div className="rounded-md h-48 overflow-x-clip">
           <Image
             src={image}
             alt={name}
@@ -80,7 +80,9 @@ export default function ProjectCard({
           <div>
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4 text-muted-foreground font-bold group-hover:text-primary-foreground stroke-muted-foreground stroke-2" />
-              <span className="text-sm font-medium text-muted-foreground">{new Date(createdAt).toLocaleDateString()}</span>
+              <span className="text-sm font-medium text-muted-foreground">
+                {new Date(createdAt).toLocaleDateString()}
+              </span>
             </div>
           </div>
         </div>

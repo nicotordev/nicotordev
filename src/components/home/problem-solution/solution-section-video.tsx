@@ -8,7 +8,7 @@ export default function SolutionSectionVideo() {
         height={1080}
         src="/animated/coding-no-bg.gif"
         alt="Animated illustration of coding"
-        preload={true}
+        priority
         className="h-full w-full object-contain pointer-events-none bg-transparent drop-shadow-2xl"
       />
     </>
