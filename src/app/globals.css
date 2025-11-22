@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "../styles/fonts.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -51,6 +50,15 @@
   /* Developer-friendly mono for code */
   --font-mono: var(--font-fira-code), ui-monospace, SFMono-Regular, "SF Mono",
     Menlo, Monaco, Consolas, "Courier New", monospace;
+  /* Alternative monospace fonts */
+  --font-jetbrains-mono: var(--font-jetbrains-mono), ui-monospace,
+    SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  --font-ibm-plex-mono: var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular,
+    "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  /* Fun and decorative fonts */
+  --font-fontdiner-swanky: var(--font-fontdiner-swanky), cursive, fantasy;
+  --font-love-light: var(--font-love-light), cursive, fantasy;
+  --font-permanent-marker: var(--font-permanent-marker), cursive, fantasy;
   --radius: 0.625rem;
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
   --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
@@ -108,6 +116,15 @@
     Times, ui-serif, serif;
   --font-mono: var(--font-fira-code), ui-monospace, SFMono-Regular, "SF Mono",
     Menlo, Monaco, Consolas, "Courier New", monospace;
+  /* Alternative monospace fonts */
+  --font-jetbrains-mono: var(--font-jetbrains-mono), ui-monospace,
+    SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  --font-ibm-plex-mono: var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular,
+    "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  /* Fun and decorative fonts */
+  --font-fontdiner-swanky: var(--font-fontdiner-swanky), cursive, fantasy;
+  --font-love-light: var(--font-love-light), cursive, fantasy;
+  --font-permanent-marker: var(--font-permanent-marker), cursive, fantasy;
   --radius: 0.625rem;
   --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
   --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
@@ -163,6 +180,13 @@
   --font-serif: var(--font-serif);
   /* Not a Tailwind token, but handy utility var for headings */
   --font-display: var(--font-display);
+  /* Alternative monospace fonts */
+  --font-jetbrains-mono: var(--font-jetbrains-mono);
+  --font-ibm-plex-mono: var(--font-ibm-plex-mono);
+  /* Fun and decorative fonts */
+  --font-fontdiner-swanky: var(--font-fontdiner-swanky);
+  --font-love-light: var(--font-love-light);
+  --font-permanent-marker: var(--font-permanent-marker);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -180,19 +204,19 @@
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
 }
@@ -252,6 +276,23 @@
   animation: float 3s ease-in-out infinite;
 }
 
+@keyframes morph {
+  0%,
+  100% {
+    border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+  }
+  34% {
+    border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+  }
+  67% {
+    border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+  }
+}
+
+.animate-morph {
+  animation: morph 8s linear infinite;
+}
+
 /* Custom gradient text */
 .gradient-text {
   background: linear-gradient(
@@ -295,6 +336,21 @@
 /* Utility to force the display font when needed */
 .font-display {
   font-family: var(--font-display) !important;
+}
+.font-jetbrains-mono {
+  font-family: var(--font-jetbrains-mono) !important;
+}
+.font-ibm-plex-mono {
+  font-family: var(--font-ibm-plex-mono) !important;
+}
+.font-fontdiner-swanky {
+  font-family: var(--font-fontdiner-swanky) !important;
+}
+.font-love-light {
+  font-family: var(--font-love-light) !important;
+}
+.font-permanent-marker {
+  font-family: var(--font-permanent-marker) !important;
 }
 .nicotordev-outlined-text {
   /* A more robust and consistent outline using text-shadow for broad compatibility */
