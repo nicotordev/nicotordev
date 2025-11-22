@@ -1,10 +1,9 @@
 import AboutMeSection from "@/components/home/about-me-section";
 import HeroSection from "@/components/home/hero-section";
-import ProjectsSection from "@/components/home/projects-section";
 import SocialProofSection from "@/components/home/social-proof";
 import { getMessages } from "next-intl/server";
 import ProblemSolutionSection from "@/components/home/problem-solution/problem-solution-section";
-import RegulexCaseStudy from "@/components/home/regulex-case-study";
+import ProjectsCarousel from "@/components/home/projects-carousel";
 
 export default async function HomePage() {
   const messages = await getMessages();
@@ -21,8 +20,7 @@ export default async function HomePage() {
       <HeroSection translations={translations} />
       <SocialProofSection />
       <ProblemSolutionSection />
-      <RegulexCaseStudy />
-      <ProjectsSection translations={translations.projects} />
+      <ProjectsCarousel />
       <AboutMeSection translations={translations.about} />
     </main>
   );
