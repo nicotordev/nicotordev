@@ -5,7 +5,7 @@ import { firstRow, secondRow, thirdRow, fourthRow } from "@/app/data/reviews";
 
 export default function ReviewList3D() {
   return (
-    <div className="flex items-center justify-center w-full overflow-clip">
+    <div className="flex items-center justify-center w-full h-fit overflow-hidden rounded-full">
       <div className="flex items-center justify-between gap-4 w-fit mx-auto h-[1200px]">
         <Marquee pauseOnHover vertical className="[--duration:40s]">
           {firstRow.map((review, idx) => (

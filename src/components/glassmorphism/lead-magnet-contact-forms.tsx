@@ -3,8 +3,17 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import type messages from "@/locales/es-cl.json";
 
-export default function LeadMagnetContactFormMinimal() {
+type LeadMagnetFormTranslations = (typeof messages)["leadMagnet"]["form"];
+
+interface LeadMagnetContactFormProps {
+  translations?: LeadMagnetFormTranslations;
+}
+
+export default function LeadMagnetContactFormMinimal({
+  translations,
+}: LeadMagnetContactFormProps) {
   return (
     <motion.form
       key="full-form"
@@ -16,53 +25,59 @@ export default function LeadMagnetContactFormMinimal() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="first-name">First name</Label>
+          <Label htmlFor="first-name">
+            {translations?.firstName || "First name"}
+          </Label>
           <Input
             id="first-name"
             name="first-name"
             autoComplete="given-name"
-            placeholder="John"
+            placeholder={translations?.firstName || "John"}
             className="bg-background/20 border-border/50 focus:bg-background/40 transition-all"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="last-name">Last name</Label>
+          <Label htmlFor="last-name">
+            {translations?.lastName || "Last name"}
+          </Label>
           <Input
             id="last-name"
             name="last-name"
             autoComplete="family-name"
-            placeholder="Doe"
+            placeholder={translations?.lastName || "Doe"}
             className="bg-background/20 border-border/50 focus:bg-background/40 transition-all"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{translations?.email || "Email"}</Label>
           <Input
             id="email"
             name="email"
             type="email"
             autoComplete="email"
-            placeholder="john@example.com"
+            placeholder={translations?.email || "john@example.com"}
             className="bg-background/20 border-border/50 focus:bg-background/40 transition-all"
           />
         </div>
 
         <div className="space-y-2">
-          <Label htmlFor="budget">Budget</Label>
+          <Label htmlFor="budget">{translations?.budget || "Budget"}</Label>
           <Input
             id="budget"
             name="budget"
-            placeholder="$28/hour or fixed-amount/project"
+            placeholder={translations?.budget || "$28/hour or fixed-amount/project"}
             className="bg-background/20 border-border/50 focus:bg-background/40 transition-all"
           />
         </div>
 
         <div className="sm:col-span-2 space-y-2">
           <Label htmlFor="website">
-            Website{" "}
-            <span className="text-muted-foreground text-xs">(optional)</span>
+            {translations?.website || "Website"} {" "}
+            <span className="text-muted-foreground text-xs">
+              {translations?.websiteOptionalHint || "(optional)"}
+            </span>
           </Label>
           <Input
             id="website"
@@ -74,12 +89,16 @@ export default function LeadMagnetContactFormMinimal() {
         </div>
 
         <div className="sm:col-span-2 space-y-2">
-          <Label htmlFor="message">Project Details</Label>
+          <Label htmlFor="message">
+            {translations?.projectDetails || "Project Details"}
+          </Label>
           <Textarea
             id="message"
             name="message"
             rows={4}
-            placeholder="Tell me about your project..."
+            placeholder={
+              translations?.projectPlaceholder || "Tell me about your project..."
+            }
             className="bg-background/20 border-border/50 focus:bg-background/40 transition-all resize-none"
           />
         </div>
@@ -91,13 +110,13 @@ export default function LeadMagnetContactFormMinimal() {
           size="lg"
           className="w-full sm:w-auto bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all hover:shadow-primary/40"
         >
-          Let&apos;s talk
+          {translations?.submitFull || translations?.submit || "Let's talk"}
         </Button>
 
         <p className="text-xs text-muted-foreground">
-          By submitting this form, I agree to the{" "}
+          {translations?.privacyCopy || "By submitting this form, I agree to the"}{" "}
           <a href="#" className="text-primary hover:underline">
-            privacy policy
+            {translations?.privacyPolicy || "privacy policy"}
           </a>
           .
         </p>
@@ -106,7 +125,9 @@ export default function LeadMagnetContactFormMinimal() {
   );
 }
 
-export function LeadMagnetContactFormFull() {
+export function LeadMagnetContactFormFull({
+  translations,
+}: LeadMagnetContactFormProps) {
   return (
     <motion.form
       key="minimal-form"
@@ -118,16 +139,19 @@ export function LeadMagnetContactFormFull() {
     >
       <div className="space-y-3">
         <Label htmlFor="quick-message" className="text-lg font-semibold">
-          Quick Message
+          {translations?.quickMessageTitle || "Quick Message"}
         </Label>
         <p className="text-sm text-muted-foreground">
-          Share your name, contact info, and project details all in one message.
+          {translations?.quickMessageDescription ||
+            "Share your name, contact info, and project details all in one message."}
         </p>
         <Textarea
           id="quick-message"
           name="quick-message"
           rows={12}
-          placeholder={`Hi Nico! 👋
+          placeholder={
+            translations?.quickMessagePlaceholder ||
+            `Hi Nico! 👋
 
 My name is [Your Name]
 Email: [your.email@example.com]
@@ -136,7 +160,8 @@ Budget: [$amount or hourly rate]
 I'm looking for help with:
 [Describe your project here...]
 
-Looking forward to hearing from you!`}
+Looking forward to hearing from you!`
+          }
           className="bg-background/20 border-border/50 focus:bg-background/40 transition-all resize-none font-mono text-sm leading-relaxed"
         />
       </div>
@@ -147,13 +172,13 @@ Looking forward to hearing from you!`}
           size="lg"
           className="w-full sm:w-auto bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25 transition-all hover:shadow-primary/40"
         >
-          Send Message
+          {translations?.submitQuick || translations?.submit || "Send Message"}
         </Button>
 
         <p className="text-xs text-muted-foreground">
-          By submitting this form, I agree to the{" "}
+          {translations?.privacyCopy || "By submitting this form, I agree to the"}{" "}
           <a href="#" className="text-primary hover:underline">
-            privacy policy
+            {translations?.privacyPolicy || "privacy policy"}
           </a>
           .
         </p>

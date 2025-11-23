@@ -1,19 +1,21 @@
 "use client";
 import { useEffect, useState } from "react";
-import { solutionSectionSolutionTitles } from "@/app/data/home";
 import { motion, AnimatePresence } from "framer-motion";
+import { useMessages } from "next-intl";
 
 export default function SolutionSectionTitles() {
+  const messages = useMessages();
+  const t = messages.problemSolution?.solution as any;
+  const titles = t?.rotatingTitles || [];
+
   const [randomIndex, setRandomIndex] = useState(0);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setRandomIndex(
-        (prevIndex) => (prevIndex + 1) % solutionSectionSolutionTitles.length
-      );
+      setRandomIndex((prevIndex) => (prevIndex + 1) % titles.length);
     }, 3000);
     return () => clearInterval(intervalId);
-  }, []);
+  }, [titles.length]);
 
   const formatTitle = (title: string) => {
     const words = title.split(" ");
@@ -41,7 +43,7 @@ export default function SolutionSectionTitles() {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
         >
-          {formatTitle(solutionSectionSolutionTitles[randomIndex] || "")}
+          {formatTitle(titles[randomIndex] || "")}
         </motion.span>
       </AnimatePresence>
     </span>

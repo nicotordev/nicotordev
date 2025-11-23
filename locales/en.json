@@ -15,6 +15,21 @@
     "title": "Full Stack Developer",
     "available_for_hire": "Available for hire",
     "description": "Software developer, content creator, and technology enthusiast from Chile.",
+    "location": {
+      "from": "a full-stack web engineer from",
+      "tooltip": "From Concepción, Chile. Glad you're here!"
+    },
+    "closing": "and my craft is to",
+    "headline": {
+      "transform": "Turning",
+      "words": "words",
+      "and": "and",
+      "ideas": "ideas",
+      "into": "into",
+      "applications": "impactful",
+      "web": "web applications",
+      "impact": "that matter"
+    },
     "cta": {
       "about": "Learn more about me",
       "download_resume": "Download Resume",
@@ -141,7 +156,20 @@
       "message": "Message",
       "budget": "Budget",
       "timeline": "Timeline",
-      "submit": "Send Message"
+      "firstName": "First name",
+      "lastName": "Last name",
+      "website": "Website",
+      "websiteOptionalHint": "(optional)",
+      "projectDetails": "Project Details",
+      "projectPlaceholder": "Tell me about your project...",
+      "quickMessageTitle": "Quick Message",
+      "quickMessageDescription": "Share your name, contact info, and project details all in one message.",
+      "quickMessagePlaceholder": "Hi Nico! 👋\n\nMy name is [Your Name]\nEmail: [your.email@example.com]\nBudget: [$amount or hourly rate]\n\nI'm looking for help with:\n[Describe your project here...]\n\nLooking forward to hearing from you!",
+      "privacyCopy": "By submitting this form, I agree to the",
+      "privacyPolicy": "privacy policy",
+      "submit": "Send Message",
+      "submitFull": "Let's talk",
+      "submitQuick": "Send Message"
     },
     "testimonial": {
       "quote": "While I was working as a CTO at",
@@ -162,7 +190,54 @@
           "title": "Get a Gift",
           "description": "Claim your free resource"
         }
+      },
+      "experience": {
+        "title": "Before seeing this section, unlock your exclusive gift",
+        "subtitle": "Complete each step to release your gift and unlock the form. Don't worry: it's 100% fun.",
+        "steps": [
+          {
+            "title": "Step 1",
+            "description": "Imagine the triumphant sound of your project doing exactly what you dream."
+          },
+          {
+            "title": "Step 2",
+            "description": "Visualize your idea running perfectly. Yes, that clean."
+          },
+          {
+            "title": "Step 3",
+            "description": "Tap to unlock the gift and the form. Promise: zero explosions."
+          }
+        ],
+        "actions": {
+          "close": "Close forever",
+          "claim": "Claim my gift",
+          "claimAria": "Claim my exclusive gift",
+          "progress": "Progress: {completed} of 3 steps completed.",
+          "complete": "Congrats! You've completed all the steps. Now you can unlock the form or claim your gift.",
+          "stepLabel": "Step",
+          "status": {
+            "completed": "Completed",
+            "pending": "Pending, click to complete",
+            "locked": "Locked"
+          }
+        }
       }
+    },
+    "giftDialog": {
+      "title": "Claim my gift",
+      "description": "Verify you're human and get exclusive access to your gift. No spam, just real value.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "me@nicotordev.com",
+      "securityLabel": "Security verification",
+      "protectedBy": "Protected by Turnstile",
+      "cancel": "Cancel",
+      "processing": "Processing...",
+      "claim": "Claim gift",
+      "successTitle": "Gift claimed!",
+      "successMessage": "Check your email. If you don't see it, look in spam or promotions.",
+      "successNote": "In a few seconds this window will close automatically ✨",
+      "verificationComplete": "Verification complete · ready to claim",
+      "error": "Error claiming the gift. Please try again."
     }
   },
   "reviews": {
@@ -187,7 +262,7 @@
       "success": "Success Rate",
       "complete": "complete",
       "experience": "Experience",
-      "experienceValue": "2+ years"
+      "experienceValue": "2.5+ years"
     },
     "methodology": {
       "title": "Philosophy and Methodology",
@@ -215,6 +290,7 @@
       "gallery_2_alt": "Photo of Nicolás Torres Henriquez smiling",
       "gallery_3_alt": "Photo of Nicolás Torres Henriquez working on his computer",
       "gallery_4_alt": "Photo of Nicolás Torres Henriquez in a natural environment"
-    }
+    },
+    "galleryTitle": "Gallery"
   }
 }

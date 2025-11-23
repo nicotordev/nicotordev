@@ -1,77 +1,296 @@
 {
   "navigation": {
-    "home": "Inicio",
-    "about": "Acerca de",
-    "projects": "Proyectos",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
     "blog": "Blog",
-    "contact": "Contacto"
+    "contact": "Contact"
   },
   "common": {
-    "login": "Iniciar sesión"
+    "login": "Log in"
   },
   "hero": {
-    "greeting": "¡Hola, soy",
+    "greeting": "Hi, I'm",
     "name": "Nicolás Torres",
-    "title": "Desarrollador Full Stack",
-    "available_for_hire": "Disponible para contratación",
-
-    "description": "Desarrollador de software, creador de contenido y entusiasta de la tecnología de Chile.",
+    "title": "Full Stack Developer",
+    "available_for_hire": "Available for hire",
+    "description": "Software developer, content creator, and technology enthusiast from Chile.",
+    "location": {
+      "from": "a full-stack web engineer from",
+      "tooltip": "From Concepción, Chile. Glad you're here!"
+    },
+    "closing": "and my craft is to",
+    "headline": {
+      "transform": "Turning",
+      "words": "words",
+      "and": "and",
+      "ideas": "ideas",
+      "into": "into",
+      "applications": "impactful",
+      "web": "web applications",
+      "impact": "that matter"
+    },
     "cta": {
-      "about": "Conóceme más",
-      "download_resume": "Descargar CV",
-      "lets_talk": "Hablemos 🚀"
+      "about": "Learn more about me",
+      "download_resume": "Download Resume",
+      "lets_talk": "Let's talk 🚀"
+    }
+  },
+  "socialProof": {
+    "badge": "Proven Experience",
+    "title": "Trusted by",
+    "titleHighlight": "international teams",
+    "titleEnd": "& founders",
+    "description": {
+      "intro": "I'm",
+      "name": "Nicolas Torres",
+      "text": ", a Full-Stack Web Engineer specialized in TypeScript, Next.js, React, Node.js, and AI-augmented systems. I've delivered scalable software to clients across Germany, Singapore, the U.S., and Chile—maintaining a 100% Job Success Score as a Top Rated talent on Upwork.",
+      "focus": "My focus is building clean, fast, and purposeful products that elevate how teams operate."
+    },
+    "stats": {
+      "jobSuccess": "Job Success",
+      "projectsDelivered": "Projects Delivered",
+      "activeEngagements": "Active Engagements",
+      "rate": "Rate"
+    },
+    "imageAlt": "Nicolas working on his computer"
+  },
+  "problemSolution": {
+    "problem": {
+      "title": "Tired of Developers",
+      "titleBold": "Who don't understand your business",
+      "subtitle": "You need a",
+      "subtitleHighlight": "real engineer",
+      "subtitleEnd": ", not a robot. Someone who understands your business, thinks like an owner, and delivers code that truly moves the needle.",
+      "sectionTitle": "Most common problems I see in development teams:",
+      "problems": {
+        "technicalDebt": {
+          "name": "Technical Debt (Spaghetti Code)",
+          "description": "Fragile systems where fixing one bug creates three new ones. Scaling becomes expensive and risky."
+        },
+        "noVision": {
+          "name": "Executors without Vision",
+          "description": "Developers who act like robots: they wait for exact orders and don't warn about UX or business mistakes."
+        },
+        "ghostDeadlines": {
+          "name": "Ghost Deadlines",
+          "description": "Estimates that are never met. Tickets drag on week after week without a real delivery date."
+        },
+        "excuses": {
+          "name": "Excuses, not Results",
+          "description": "The classic 'it works on my machine' mentality. When there's a fire in production, nobody takes control."
+        }
+      }
+    },
+    "solution": {
+      "titlePrefix": "Software Engineering with",
+      "subtitle": "Beyond writing lines of code,",
+      "subtitleBold1": "I build digital assets.",
+      "subtitleText": "My approach combines",
+      "subtitleBold2": "technical excellence",
+      "subtitleWith": "with",
+      "subtitleBold3": "business vision",
+      "subtitleTo": "to",
+      "subtitleBold4": "deliver lasting results",
+      "sectionTitle": "How I transform your project:",
+      "solutions": {
+        "scalableArchitecture": {
+          "name": "Scalable Architecture",
+          "description": "I write clean, modular, and documented code. Your project will be easy to maintain today and scale tomorrow."
+        },
+        "productPartner": {
+          "name": "Product Partner",
+          "description": "I don't just code; I understand your business. I propose strategic improvements to maximize product value."
+        },
+        "totalOwnership": {
+          "name": "Total Ownership",
+          "description": "I treat your project as if it were mine. If a problem arises, I take responsibility and lead the solution to the end."
+        },
+        "radicalTransparency": {
+          "name": "Radical Transparency",
+          "description": "No confusing jargon. I maintain constant communication so you always know the real state of development."
+        }
+      },
+      "rotatingTitles": [
+        "Product Mindset",
+        "Business Vision",
+        "Results Focus",
+        "Clear Communication",
+        "Radical Transparency",
+        "Total Ownership",
+        "Scalable Architecture",
+        "Clean and Modular Code",
+        "Strategic Proposals",
+        "Solution Leadership",
+        "Sustainable Value",
+        "Technical Excellence",
+        "Guaranteed Quality",
+        "Simple Maintenance",
+        "Future Scalability",
+        "Constant Innovation",
+        "Continuous Improvement",
+        "Optimal Efficiency",
+        "Measurable Results",
+        "Lasting Impact",
+        "User Satisfaction"
+      ]
     }
   },
   "projects": {
-    "section_title": "Mis Proyectos",
-    "section_subtitle": "Explora mi último trabajo y soluciones creativas."
+    "section_title": "My Projects",
+    "section_subtitle": "Explore my latest work and creative solutions.",
+    "carousel": {
+      "title": "Projects I've Built",
+      "viewProject": "View Project"
+    }
+  },
+  "leadMagnet": {
+    "title": "Let's talk about your",
+    "titleHighlight": "project",
+    "subtitle": "Ready to turn that story into reality? Fill out the form below.",
+    "form": {
+      "toggleMinimal": "Quick Message",
+      "toggleFull": "Full Form",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "budget": "Budget",
+      "timeline": "Timeline",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "website": "Website",
+      "websiteOptionalHint": "(optional)",
+      "projectDetails": "Project Details",
+      "projectPlaceholder": "Tell me about your project...",
+      "quickMessageTitle": "Quick Message",
+      "quickMessageDescription": "Share your name, contact info, and project details all in one message.",
+      "quickMessagePlaceholder": "Hi Nico! 👋\n\nMy name is [Your Name]\nEmail: [your.email@example.com]\nBudget: [$amount or hourly rate]\n\nI'm looking for help with:\n[Describe your project here...]\n\nLooking forward to hearing from you!",
+      "privacyCopy": "By submitting this form, I agree to the",
+      "privacyPolicy": "privacy policy",
+      "submit": "Send Message",
+      "submitFull": "Let's talk",
+      "submitQuick": "Send Message"
+    },
+    "testimonial": {
+      "quote": "While I was working as a CTO at",
+      "company": "Spiritory GmbH",
+      "quoteEnd": ", we hired Nicolas as a Full Stack Developer... He was reliable, keeping projects on schedule with the quality needed. I highly recommend him.",
+      "author": "Goce S.",
+      "role": "ex. CTO Spiritory GmbH"
+    },
+    "gift": {
+      "title": "Choose Your Path",
+      "subtitle": "How would you like to proceed?",
+      "options": {
+        "form": {
+          "title": "Let's Talk",
+          "description": "Share your project details"
+        },
+        "gift": {
+          "title": "Get a Gift",
+          "description": "Claim your free resource"
+        }
+      },
+      "experience": {
+        "title": "Before seeing this section, unlock your exclusive gift",
+        "subtitle": "Complete each step to release your gift and unlock the form. Don't worry: it's 100% fun.",
+        "steps": [
+          {
+            "title": "Step 1",
+            "description": "Imagine the triumphant sound of your project doing exactly what you dream."
+          },
+          {
+            "title": "Step 2",
+            "description": "Visualize your idea running perfectly. Yes, that clean."
+          },
+          {
+            "title": "Step 3",
+            "description": "Tap to unlock the gift and the form. Promise: zero explosions."
+          }
+        ],
+        "actions": {
+          "close": "Close forever",
+          "claim": "Claim my gift",
+          "claimAria": "Claim my exclusive gift",
+          "progress": "Progress: {completed} of 3 steps completed.",
+          "complete": "Congrats! You've completed all the steps. Now you can unlock the form or claim your gift.",
+          "stepLabel": "Step",
+          "status": {
+            "completed": "Completed",
+            "pending": "Pending, click to complete",
+            "locked": "Locked"
+          }
+        }
+      }
+    },
+    "giftDialog": {
+      "title": "Claim my gift",
+      "description": "Verify you're human and get exclusive access to your gift. No spam, just real value.",
+      "emailLabel": "Email",
+      "emailPlaceholder": "me@nicotordev.com",
+      "securityLabel": "Security verification",
+      "protectedBy": "Protected by Turnstile",
+      "cancel": "Cancel",
+      "processing": "Processing...",
+      "claim": "Claim gift",
+      "successTitle": "Gift claimed!",
+      "successMessage": "Check your email. If you don't see it, look in spam or promotions.",
+      "successNote": "In a few seconds this window will close automatically ✨",
+      "verificationComplete": "Verification complete · ready to claim",
+      "error": "Error claiming the gift. Please try again."
+    }
+  },
+  "reviews": {
+    "title": "What Clients Say",
+    "subtitle": "Real feedback from real projects"
   },
   "about": {
-    "title": "Sobre mí",
-    "subtitle": "Construyendo software con alma y precisión",
-    "description": "Soy Nicolás Richard Torres, un ingeniero full stack chileno que cree que el código no solo debe funcionar: debe tener propósito. Pasé de romper sistemas por curiosidad a diseñar estructuras con ética. Hoy transformo ideas en plataformas que combinan arte, ingeniería y una dosis de rebeldía bien dirigida.",
+    "title": "About Me",
+    "subtitle": "Building software with soul and precision",
+    "description": "I'm Nicolás Richard Torres, a Chilean full-stack engineer who believes code shouldn't just work: it should have purpose. I went from breaking systems out of curiosity to designing structures with ethics. Today I transform ideas into platforms that combine art, engineering, and a dose of well-directed rebellion.",
     "role": {
-      "current": "Rol actual",
-      "position": "Desarrollador Full Stack Freelance",
-      "mode": "Modalidad",
-      "modeDetails": "Remoto / Híbrido"
+      "current": "Current Role",
+      "position": "Freelance Full Stack Developer",
+      "mode": "Mode",
+      "modeDetails": "Remote / Hybrid"
     },
     "metrics": {
-      "title": "Métricas destacadas",
-      "subtitle": "Impacto real y resultados medibles",
-      "total_earnings": "Ganancias totales",
-      "hours": "Horas trabajadas",
-      "success": "Tasa de éxito",
-      "complete": "completado",
-      "experience": "Experiencia",
-      "experienceValue": "2+ años"
+      "title": "Key Metrics",
+      "subtitle": "Real impact and measurable results",
+      "total_earnings": "Total Earnings",
+      "hours": "Hours Worked",
+      "success": "Success Rate",
+      "complete": "complete",
+      "experience": "Experience",
+      "experienceValue": "2.5+ years"
     },
     "methodology": {
-      "title": "Filosofía y metodología",
-      "description": "Mi forma de trabajar se basa en tres pilares: claridad en la arquitectura, autonomía para resolver, e impacto en cada línea de código. Me apoyo en tipado estricto, documentación viva y comunicación transparente.",
+      "title": "Philosophy and Methodology",
+      "description": "My way of working is based on three pillars: clarity in architecture, autonomy to solve, and impact in every line of code. I rely on strict typing, living documentation, and transparent communication.",
       "title_frontend": "Frontend",
       "title_backend": "Backend",
-      "title_styling": "Diseño y estilos"
+      "title_styling": "Design and Styling"
     },
     "workStyle": {
-      "title": "Estilo de trabajo",
-      "description": "Ágil, autónomo y orientado al detalle. Propongo soluciones antes que esperar instrucciones."
+      "title": "Work Style",
+      "description": "Agile, autonomous, and detail-oriented. I propose solutions rather than wait for instructions."
     },
     "personal": {
-      "title": "Más allá del código",
-      "description": "Me inspiran Hofmann y Leary, pero también el silencio del bosque. Entre commits y café, estudio IA, exploro psicodelia responsable y creo contenido para otros desarrolladores. Creo que la justicia —incluso en el software— es una forma de amor."
+      "title": "Beyond the Code",
+      "description": "I'm inspired by Hofmann and Leary, but also by the silence of the forest. Between commits and coffee, I study AI, explore responsible psychedelics, and create content for other developers. I believe that justice—even in software—is a form of love."
     },
     "specialties": {
-      "description": "Next.js, React, TypeScript y sistemas donde la interfaz importa tanto como la lógica."
+      "description": "Next.js, React, TypeScript, and systems where the interface matters as much as the logic."
     },
     "stack": {
-      "description": "Node.js, Prisma ORM, tRPC, PostgreSQL y arquitecturas escalables con despliegues sin fricción."
+      "description": "Node.js, Prisma ORM, tRPC, PostgreSQL, and scalable architectures with frictionless deployments."
     },
     "photos": {
-      "gallery_1_alt": "Logo de Conce AI",
-      "gallery_2_alt": "Foto de Nicolás Torres Henriquez sonriendo",
-      "gallery_3_alt": "Foto de Nicolás Torres Henriquez trabajando en su computadora",
-      "gallery_4_alt": "Foto de Nicolás Torres Henriquez en un entorno natural"
-    }
+      "gallery_1_alt": "Conce AI Logo",
+      "gallery_2_alt": "Photo of Nicolás Torres Henriquez smiling",
+      "gallery_3_alt": "Photo of Nicolás Torres Henriquez working on his computer",
+      "gallery_4_alt": "Photo of Nicolás Torres Henriquez in a natural environment"
+    },
+    "galleryTitle": "Gallery"
   }
 }

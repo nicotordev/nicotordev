@@ -1,5 +1,5 @@
 import Image from "next/image";
-import UnitedStatesFlagPng from "../../../public/emojis/united-states-flag.png";
+import UnitedStatesFlagPng from "../../../public/emojis/united-states-flag.webp";
 
 type UnitedStatesFlagProps = {
   width?: number;

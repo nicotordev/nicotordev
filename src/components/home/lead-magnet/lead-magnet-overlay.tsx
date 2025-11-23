@@ -67,7 +67,7 @@ export function LeadMagnetOverlay({
       aria-labelledby={ariaLabelledBy}
       aria-describedby={ariaDescribedBy}
       key="lead-magnet-gift-overlay"
-      className="fixed inset-0 w-full h-full flex items-center justify-center backdrop-blur-sm z-50"
+      className="fixed inset-0 w-full h-full flex items-center justify-center backdrop-blur-sm z-99999"
       initial={{ opacity: 0, y: 12, scale: 0.98 }}
       animate={{
         opacity: 1,

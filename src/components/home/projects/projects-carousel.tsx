@@ -1,5 +1,4 @@
 "use client";
-
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -15,8 +14,12 @@ import {
 
 import { staticProjects } from "@/app/data/projects";
 import ProjectsTitleOverlay from "./projects-title-overlay";
+import { useMessages } from "next-intl";
 
 const ProjectsCarousel = () => {
+  const messages = useMessages();
+  const t = messages.projects?.carousel as any;
+
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(false);
@@ -90,11 +93,11 @@ const ProjectsCarousel = () => {
 
       <ProjectsTitleOverlay
         className="absolute top-0 z-10"
-        text="Projects I've Built"
+        text={t?.title || "Projects I've Built"}
       />
       <ProjectsTitleOverlay
         className="absolute bottom-0 right-0 rotate-180 z-10"
-        text="Projects I've Built"
+        text={t?.title || "Projects I've Built"}
       />
 
       <motion.div
@@ -183,7 +186,7 @@ const ProjectsCarousel = () => {
                     </div>
                     <div className="mt-auto pt-4 flex items-center text-sm font-medium text-white group-hover:text-accent transition-colors group/btn w-fit">
                       <span className="underline decoration-white/50 group-hover:decoration-accent underline-offset-4 transition-all">
-                        View Project
+                        {t?.viewProject || "View Project"}
                       </span>
                       <ArrowRight className="ml-2 size-4 transition-transform group-hover/btn:translate-x-1" />
                     </div>

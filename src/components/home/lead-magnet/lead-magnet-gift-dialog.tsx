@@ -21,15 +21,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, CheckCircle, Gift } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useUIStore } from "@/stores/ui-store";
+import type messages from "@/locales/es-cl.json";
 
 interface LeadMagnetGiftDialogProps {
   open: boolean;
   onOpenChange: Dispatch<SetStateAction<"GIFT" | "FORM" | null>>;
+  translations?: (typeof messages)["leadMagnet"]["giftDialog"];
 }
 
 const LeadMagnetGiftDialog = ({
   open,
   onOpenChange,
+  translations,
 }: LeadMagnetGiftDialogProps) => {
   const { claimedGift, setClaimedGift } = useUIStore();
 
@@ -96,7 +99,8 @@ const LeadMagnetGiftDialog = ({
       alert(
         error instanceof Error
           ? error.message
-          : "Error al reclamar el regalo. Por favor, intenta de nuevo."
+          : translations?.error ||
+              "Error claiming the gift. Please try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -138,12 +142,14 @@ const LeadMagnetGiftDialog = ({
               <span className="flex h-9 w-9 items-center justify-center rounded-2xl bg-primary/20 text-primary shadow-sm shadow-primary/30">
                 <Gift className="h-5 w-5" />
               </span>
-              <span className="gradient-text">Reclamar mi regalo</span>
+              <span className="gradient-text">
+                {translations?.title || "Claim my gift"}
+              </span>
             </DialogTitle>
 
             <DialogDescription className="max-w-md text-sm text-foreground/70">
-              Verifica tu humanidad y recibe acceso exclusivo a tu regalo. Sin
-              spam, solo valor real.
+              {translations?.description ||
+                "Verify you're human and get exclusive access to your gift. No spam, just real value."}
             </DialogDescription>
           </DialogHeader>
 
@@ -163,7 +169,7 @@ const LeadMagnetGiftDialog = ({
                     htmlFor="email"
                     className="text-xs font-medium uppercase tracking-[0.18em] text-foreground/60"
                   >
-                    Correo electrónico
+                    {translations?.emailLabel || "Email"}
                   </Label>
                   <div className="relative">
                     <motion.div
@@ -174,7 +180,9 @@ const LeadMagnetGiftDialog = ({
                     />
                     <Input
                       id="email"
-                      placeholder="me@nicotordev.com"
+                      placeholder={
+                        translations?.emailPlaceholder || "me@nicotordev.com"
+                      }
                       type="email"
                       className={cn(
                         errors.email &&
@@ -201,14 +209,16 @@ const LeadMagnetGiftDialog = ({
                 {/* Turnstile Widget */}
                 <div className="space-y-2">
                   <Label className="text-xs font-medium uppercase tracking-[0.18em] text-foreground/60">
-                    Verificación de seguridad
+                    {translations?.securityLabel || "Security verification"}
                   </Label>
                   <div className="relative overflow-hidden rounded-2xl border border-white/18 bg-linear-to-br from-background/40 via-background-secondary/40 to-background/15 p-px backdrop-blur-xl">
                     <div className="rounded-2xl bg-background/60 p-4 shadow-inner shadow-black/20">
                       <div className="flex flex-col items-center gap-3 text-xs text-foreground/70">
                         <div className="flex items-center gap-2 rounded-full bg-white/5 px-3 py-1 backdrop-blur-xl">
                           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
-                          <span>Protegido por Turnstile</span>
+                          <span>
+                            {translations?.protectedBy || "Protected by Turnstile"}
+                          </span>
                         </div>
 
                         <Turnstile
@@ -244,7 +254,7 @@ const LeadMagnetGiftDialog = ({
                     onClick={handleClose}
                     disabled={isSubmitting}
                   >
-                    Cancelar
+                    {translations?.cancel || "Cancel"}
                   </Button>
                   <Button
                     type="submit"
@@ -257,12 +267,12 @@ const LeadMagnetGiftDialog = ({
                           className="mr-2 h-4 w-4 animate-spin"
                           aria-hidden="true"
                         />
-                        Procesando...
+                        {translations?.processing || "Processing..."}
                       </>
                     ) : (
                       <>
                         <Gift className="mr-2 h-4 w-4" aria-hidden="true" />
-                        Reclamar regalo
+                        {translations?.claim || "Claim gift"}
                       </>
                     )}
                   </Button>
@@ -291,16 +301,17 @@ const LeadMagnetGiftDialog = ({
 
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold gradient-text">
-                    ¡Regalo reclamado!
+                    {translations?.successTitle || "Gift claimed!"}
                   </h3>
                   <p className="text-sm text-foreground/75">
-                    Revisa tu correo electrónico. Si no lo ves, mira también en
-                    la carpeta de spam o promociones.
+                    {translations?.successMessage ||
+                      "Check your email. If you don't see it, look in spam or promotions."}
                   </p>
                 </div>
 
                 <div className="rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] text-foreground/70 backdrop-blur-xl">
-                  En unos segundos este cuadro se cerrará automáticamente ✨
+                  {translations?.successNote ||
+                    "In a few seconds this window will close automatically ✨"}
                 </div>
               </motion.div>
             )}
@@ -314,7 +325,8 @@ const LeadMagnetGiftDialog = ({
               className="mt-1 flex items-center justify-center gap-2 text-[11px] text-primary/80"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              Verificación completada · listo para reclamar
+              {translations?.verificationComplete ||
+                "Verification complete · ready to claim"}
             </motion.div>
           )}
         </form>

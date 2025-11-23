@@ -25,6 +25,12 @@
   --border: oklch(90% 0.04 310);
   --input: oklch(90% 0.04 310);
   --ring: var(--primary);
+  --success: oklch(65% 0.22 145);
+  --success-foreground: oklch(98% 0.02 145);
+  --warning: oklch(75% 0.2 70);
+  --warning-foreground: oklch(15% 0.05 70);
+  --info: oklch(65% 0.22 260);
+  --info-foreground: oklch(98% 0.02 260);
   --chart-1: oklch(70% 0.28 340);
   --chart-2: oklch(68% 0.3 320);
   --chart-3: oklch(66% 0.3 300);
@@ -95,6 +101,12 @@
   --border: oklch(30% 0.14 305);
   --input: oklch(30% 0.14 305);
   --ring: var(--primary);
+  --success: oklch(70% 0.22 145);
+  --success-foreground: oklch(15% 0.05 145);
+  --warning: oklch(80% 0.2 70);
+  --warning-foreground: oklch(15% 0.05 70);
+  --info: oklch(70% 0.22 260);
+  --info-foreground: oklch(98% 0.02 260);
   --chart-1: oklch(0.8238 0.1642 329.1141);
   --chart-2: oklch(0.6372 0.3087 318.1667);
   --chart-3: oklch(0.5636 0.2557 330.9144);
@@ -161,6 +173,12 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -352,7 +370,7 @@
 .font-permanent-marker {
   font-family: var(--font-permanent-marker) !important;
 }
-.nicotordev-outlined-text {
+. {
   /* A more robust and consistent outline using text-shadow for broad compatibility */
   text-shadow: -1px -1px 0 #1f1f1f, 1px -1px 0 #1f1f1f, -1px 1px 0 #1f1f1f,
     1px 1px 0 #1f1f1f;

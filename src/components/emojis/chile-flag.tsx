@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ChileFlagPng from "../../../public/emojis/chile-flag.png";
+import ChileFlagPng from "../../../public/emojis/chile-flag.webp";
 
 type ChileFlagProps = {
   width?: number;

@@ -28,6 +28,21 @@ export interface HeroSectionProps {
       title: string;
       available_for_hire: string;
       description: string;
+      location: {
+        from: string;
+        tooltip: string;
+      };
+      closing: string;
+      headline: {
+        transform: string;
+        words: string;
+        and: string;
+        ideas: string;
+        into: string;
+        applications: string;
+        web: string;
+        impact: string;
+      };
       cta: {
         about: string;
         download_resume: string;
@@ -59,7 +74,7 @@ export default function HeroSection({ translations }: HeroSectionProps) {
           />
         </div>
 
-        <div className="relative z-60 mx-auto max-w-4xl py-22 sm:py-28 lg:py-32 flex flex-col items-center text-center">
+        <div className="relative z-60 mx-auto max-w-5xl py-22 sm:py-28 lg:py-32 flex flex-col items-center text-center">
           <div className="mb-4 flex justify-center">
             <Badge
               variant="success"
@@ -71,9 +86,11 @@ export default function HeroSection({ translations }: HeroSectionProps) {
           </div>
           <div className="mb-2 text-center text-muted-foreground font-medium">
             <p className="font-display text-balance tracking-tight pb-0">
-              ¡Hola, soy{" "}
-              <span className="font-bold text-accent">Nicolas Torres</span>, un
-              ingeniero web full-stack de{" "}
+              {translations.hero.greeting}{" "}
+              <span className="font-bold text-accent">
+                {translations.hero.name}
+              </span>
+              , {translations.hero.location.from}{" "}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button variant="link" className="px-2">
@@ -83,22 +100,22 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Desde Concepción, Chile. Me alegro de que estés aquí!</p>
+                  <p>{translations.hero.location.tooltip}</p>
                 </TooltipContent>
               </Tooltip>
-              y mi trabajo consiste en...
+              , {translations.hero.closing}
             </p>
           </div>
           <div className="text-center">
             <h1 className="font-display text-balance text-5xl font-extrabold tracking-tight text-foreground sm:text-7xl leading-[1.2]">
-              Transformar{" "}
+              {translations.hero.headline.transform}{" "}
               <span
                 className={cn(
                   "inline-flex -rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl"
                 )}
               >
-                <span className="nicotordev-outlined-text text-background font-bold font-mono transform-gpu">
-                  palabras
+                <span className="text-secondary font-bold font-mono transform-gpu">
+                  {translations.hero.headline.words}
                 </span>{" "}
                 <picture className="relative top-2">
                   <source
@@ -115,11 +132,14 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                   />
                 </picture>
               </span>{" "}
-              e <br />
+              <br />
               <div className="inline-block">
-                <span className="inline-flex rotate-2 rounded-lg bg-card text-background nicotordev-outlined-text px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl">
-                  <span className="nicotordev-outlined-text text-background font-bold font-mono transform-gpu">
-                    ideas
+                <span className="inline-block">
+                  {translations.hero.headline.and}
+                </span>{" "}
+                <span className="inline-flex rotate-2 rounded-lg bg-card text-background  px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl">
+                  <span className="text-secondary font-bold font-mono transform-gpu">
+                    {translations.hero.headline.ideas}
                   </span>{" "}
                   <picture className="relative top-2">
                     <source
@@ -136,14 +156,16 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                     />
                   </picture>
                 </span>{" "}
-                en{" "}
+                {translations.hero.headline.into}{" "}
                 <span className="gradient-text relative">
-                  aplicaciones
+                  {translations.hero.headline.applications}
                   <br />
-                  <span className="relative right-16 gradient-text">web</span>
+                  <span className="relative right-16 gradient-text">
+                    {translations.hero.headline.web}
+                  </span>
                 </span>{" "}
                 <div className="inline-block relative right-16">
-                  impactantes
+                  {translations.hero.headline.impact}
                   <picture className="absolute -right-32 bottom-0">
                     <source
                       srcSet="/illustrations/mechanic-arm.webp"

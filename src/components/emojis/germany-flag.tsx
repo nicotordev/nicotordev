@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GermanyFlagPng from "../../../public/emojis/germany-flag.png";
+import GermanyFlagPng from "../../../public/emojis/germany-flag.webp";
 
 type GermanyFlagProps = {
   width?: number;

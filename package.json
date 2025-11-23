@@ -42,6 +42,7 @@
     "start": "NEXT_TELEMETRY_DISABLED=1 next start -p 3090",
     "lint": "eslint .",
     "check-locales": "bun scripts/check-locales.ts",
+    "sync-locales": "bun scripts/sync-locale-structure.ts",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "check": "bun run lint && bun run type-check"

@@ -2,7 +2,6 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { MousePointerClick } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,15 +12,18 @@ import { StepCard } from "./step-card";
 import { LeadMagnetOverlay } from "./lead-magnet-overlay";
 import Image from "next/image";
 import { useUIStore } from "@/stores/ui-store";
+import type messages from "@/locales/es-cl.json";
 
 export interface LeadMagnetGiftProps {
   show: boolean;
   setOptionSelected: (option: "GIFT" | "FORM" | null) => void;
+  translations?: (typeof messages)["leadMagnet"]["gift"]["experience"];
 }
 
 export default function LeadMagnetGift({
   show: showParam,
   setOptionSelected,
+  translations,
 }: LeadMagnetGiftProps) {
   const { claimedGift, setClaimedGift } = useUIStore();
   const [isGiftVisible, setIsGiftVisible] = useState(false);
@@ -40,6 +42,7 @@ export default function LeadMagnetGift({
     canInteractWithStep,
     allDone,
   } = useLeadMagnetSteps();
+  const labels = translations?.actions;
 
   // Control visibility based on show prop with smooth timing
   useEffect(() => {
@@ -104,10 +107,11 @@ export default function LeadMagnetGift({
               "text-center text-4xl sm:text-5xl font-black leading-tight relative z-30",
               showTutorial
                 ? "text-background/90 text-shadow-glow"
-                : "text-background"
+                : "text-primary text-shadow-glow "
             )}
           >
-            Antes de ver esta sección, desbloquea tu regalo exclusivo{" "}
+            {translations?.title ||
+              "Before seeing this section, unlock your exclusive gift"}{" "}
             <picture>
               <source srcSet="/animated/gift.webp" type="image/webp" />
               <Image
@@ -132,8 +136,8 @@ export default function LeadMagnetGift({
                 : "text-foreground/70"
             )}
           >
-            Completa cada paso para liberar tu regalo y desbloquear el
-            formulario. No te preocupes: todo es 100% diversión.
+            {translations?.subtitle ||
+              "Complete each step to release your gift and unlock the form. Don't worry: it's 100% fun."}
           </p>
 
           {/* GRID WITH CONNECTED STEPS */}
@@ -163,8 +167,11 @@ export default function LeadMagnetGift({
             {/* Step 1 */}
             <StepCard
               stepNumber={1}
-              title="Paso 1"
-              description="Imagina el sonido triunfal de tu proyecto logrando exactamente lo que sueñas."
+              title={translations?.steps?.[0]?.title || "Step 1"}
+              description={
+                translations?.steps?.[0]?.description ||
+                "Imagine the triumphant sound of your project doing exactly what you dream."
+              }
               isCompleted={isStepCompleted(LeadMagnetStep.Step1Completed)}
               isActive={canInteractWithStep(1)}
               onClick={() => handleStepClick(1, "intro1")}
@@ -172,53 +179,67 @@ export default function LeadMagnetGift({
               activeBorderColor="border-secondary/60"
               activeShadowClass="shadow-[0_0_20px_rgba(160,51,255,0.15)]"
               showTutorial={showTutorial}
+              {...(labels ? { labels } : {})}
             />
 
             {/* Step 2 */}
             <StepCard
               stepNumber={2}
-              title="Paso 2"
-              description="Visualiza tu idea funcionando a la perfección. Sí, así de limpio."
+              title={translations?.steps?.[1]?.title || "Step 2"}
+              description={
+                translations?.steps?.[1]?.description ||
+                "Visualize your idea running perfectly. Yes, that clean."
+              }
               isCompleted={isStepCompleted(LeadMagnetStep.Step2Completed)}
               isActive={canInteractWithStep(2)}
               onClick={() => handleStepClick(2, "intro2")}
               colorClass="text-secondary"
               activeBorderColor="border-secondary/60"
               activeShadowClass="shadow-[0_0_20px_rgba(160,51,255,0.15)]"
+              {...(labels ? { labels } : {})}
             />
 
             {/* Step 3 */}
             <StepCard
               stepNumber={3}
-              title="Paso 3"
-              description="Toca para desbloquear el regalo y el formulario. (Promesa: cero explosiones.)"
+              title={translations?.steps?.[2]?.title || "Step 3"}
+              description={
+                translations?.steps?.[2]?.description ||
+                "Tap to unlock the gift and the form. Promise: zero explosions."
+              }
               isCompleted={isStepCompleted(LeadMagnetStep.Step3Completed)}
               isActive={canInteractWithStep(3)}
               onClick={() => handleStepClick(3, "notification")}
               colorClass="text-accent"
               activeBorderColor="border-accent/60"
               activeShadowClass="shadow-[0_0_20px_rgba(234,88,165,0.15)]"
+              {...(labels ? { labels } : {})}
             />
           </div>
 
           {/* BUTTONS — only unlocked after all steps */}
           <div className="mt-12 flex flex-wrap justify-center gap-3 text-sm z-30 relative">
             <Button
-              variant="default"
-              disabled={!allDone}
-              aria-disabled={!allDone}
+              variant="destructive"
               onClick={() => {
                 setIsGiftVisible(false);
-                setOptionSelected("FORM");
+                setClaimedGift();
               }}
-              className={!allDone ? "opacity-40 cursor-not-allowed" : ""}
-              aria-label="Desbloquear formulario de contacto"
             >
-              <MousePointerClick
-                className="w-4 h-4 animate-pulse"
-                aria-hidden="true"
-              />
-              Desbloquear formulario
+              {translations?.actions?.close || "Close forever"}{" "}
+              <picture>
+                <source
+                  srcSet="/animated/emoji-crying.webp"
+                  type="image/webp"
+                />
+                <Image
+                  src="/animated/emoji-crying.webp"
+                  alt="😭"
+                  width="32"
+                  height="32"
+                  className="inline-block"
+                />
+              </picture>
             </Button>
 
             <Button
@@ -230,9 +251,11 @@ export default function LeadMagnetGift({
                 setOptionSelected("GIFT");
               }}
               className={!allDone ? "opacity-40 cursor-not-allowed" : ""}
-              aria-label="Reclamar mi regalo exclusivo"
+              aria-label={
+                translations?.actions?.claimAria || "Claim my exclusive gift"
+              }
             >
-              Reclamar mi regalo{" "}
+              {translations?.actions?.claim || "Claim my gift"}{" "}
               <picture>
                 <source srcSet="/animated/gift-heart.webp" type="image/webp" />
                 <Image
@@ -251,41 +274,18 @@ export default function LeadMagnetGift({
           {/* Live Region for Screen Readers */}
           <div className="sr-only" aria-live="polite" aria-atomic="true">
             {allDone
-              ? "¡Felicidades! Has completado todos los pasos. Ahora puedes desbloquear el formulario o reclamar tu regalo."
-              : `Progreso: ${
-                  [
-                    isStepCompleted(LeadMagnetStep.Step1Completed),
-                    isStepCompleted(LeadMagnetStep.Step2Completed),
-                    isStepCompleted(LeadMagnetStep.Step3Completed),
-                  ].filter(Boolean).length
-                } de 3 pasos completados.`}
-          </div>
-
-          {/* STATUS */}
-          <div className="flex items-center justify-center relative z-60">
-            <Button
-              variant="destructive"
-              onClick={() => {
-                setIsGiftVisible(false);
-                setClaimedGift();
-              }}
-              className="mt-6"
-            >
-              Cerrar para Siempre{" "}
-              <picture>
-                <source
-                  srcSet="/animated/emoji-crying.webp"
-                  type="image/webp"
-                />
-                <Image
-                  src="/animated/emoji-crying.webp"
-                  alt="😭"
-                  width="32"
-                  height="32"
-                  className="inline-block"
-                />
-              </picture>
-            </Button>
+              ? translations?.actions?.complete ||
+                "Congrats! You've completed all the steps. Now you can unlock the form or claim your gift."
+              : (translations?.actions?.progress ||
+                  "Progress: {completed} of 3 steps completed.")
+                  .replace(
+                    "{completed}",
+                    [
+                      isStepCompleted(LeadMagnetStep.Step1Completed),
+                      isStepCompleted(LeadMagnetStep.Step2Completed),
+                      isStepCompleted(LeadMagnetStep.Step3Completed),
+                    ].filter(Boolean).length.toString()
+                  )}
           </div>
         </LeadMagnetOverlay>
       )}

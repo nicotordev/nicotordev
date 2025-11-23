@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SpainFlagPng from "../../../public/emojis/spain-flag.png";
+import SpainFlagPng from "../../../public/emojis/spain-flag.webp";
 
 type SpainFlagProps = {
   width?: number;

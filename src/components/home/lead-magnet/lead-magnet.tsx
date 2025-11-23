@@ -2,7 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import LeadMagnetContactFormMinimal, {
   LeadMagnetContactFormFull,
 } from "@/components/glassmorphism/lead-magnet-contact-forms";
@@ -12,8 +12,12 @@ import LeadMagnetGift from "./lead-magnet-gift";
 import { useInView } from "react-intersection-observer";
 import { cn } from "@/lib/utils";
 import LeadMagnetGiftDialog from "./lead-magnet-gift-dialog";
+import { useMessages } from "next-intl";
 
 export default function LeadMagnet() {
+  const messages = useMessages();
+  const t = messages.leadMagnet as any;
+
   const [optionSelected, setOptionSelected] = useState<"GIFT" | "FORM" | null>(
     null
   );
@@ -40,10 +44,11 @@ export default function LeadMagnet() {
       <NoiseOverlay />
 
       {/* --- Content Layer --- */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex items-center">
+      <div className="relative z-10 mx-auto max-w-7xl h-full flex items-center">
         <LeadMagnetGift
           show={isContactFormInView && optionSelected === null}
           setOptionSelected={setOptionSelected}
+          translations={t?.gift?.experience}
         />
 
         <motion.div
@@ -62,14 +67,13 @@ export default function LeadMagnet() {
             <div className="p-8 sm:p-12 lg:p-16">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-foreground gradient-text">
-                  Let&apos;s talk about your{" "}
+                  {t?.title}{" "}
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary/40 animate-gradient">
-                    project
+                    {t?.titleHighlight}
                   </span>
                 </h2>
                 <p className="mt-4 text-lg leading-8 text-muted-foreground">
-                  Ready to turn that story into reality? Fill out the form
-                  below.
+                  {t?.subtitle}
                 </p>
               </div>
 
@@ -90,14 +94,14 @@ export default function LeadMagnet() {
                           <span className="mr-1" aria-hidden="true">
                             📋
                           </span>{" "}
-                          Full Form
+                          {t?.form?.toggleFull || "Full Form"}
                         </>
                       ) : (
                         <>
                           <span className="mr-1" aria-hidden="true">
                             ✉️
                           </span>{" "}
-                          Quick Message
+                          {t?.form?.toggleMinimal || "Quick Message"}
                         </>
                       )}
                     </Button>
@@ -108,16 +112,17 @@ export default function LeadMagnet() {
                       <>
                         {keepFormMinimal ? (
                           /* MINIMAL FORM - Single Textarea */
-                          <LeadMagnetContactFormMinimal />
+                          <LeadMagnetContactFormMinimal translations={t?.form} />
                         ) : (
                           /* FULL FORM - Individual Fields */
-                          <LeadMagnetContactFormFull />
+                          <LeadMagnetContactFormFull translations={t?.form} />
                         )}
                       </>
                     ) : optionSelected === "GIFT" ? (
                       <LeadMagnetGiftDialog
                         open={optionSelected === "GIFT"}
                         onOpenChange={setOptionSelected}
+                        translations={t?.giftDialog}
                       />
                     ) : null}
                   </AnimatePresence>
@@ -153,13 +158,11 @@ export default function LeadMagnet() {
                           </Button>
 
                           <blockquote className="text-sm leading-relaxed text-foreground/90">
-                            &quot;While I was working as a CTO at{" "}
+                            &quot;{t?.testimonial?.quote}{" "}
                             <strong className="text-blue-400">
-                              Spiritory GmbH
+                              {t?.testimonial?.company}
                             </strong>
-                            , we hired Nicolas as a Full Stack Developer... He
-                            was reliable, keeping projects on schedule with the
-                            quality needed. I highly recommend him.&quot;
+                            {t?.testimonial?.quoteEnd}&quot;
                           </blockquote>
 
                           <figcaption className="mt-8 flex items-center gap-4 border-t border-white/10 pt-4">
@@ -168,10 +171,10 @@ export default function LeadMagnet() {
                             </div>
                             <div>
                               <div className="font-semibold text-sm text-foreground">
-                                Goce S.
+                                {t?.testimonial?.author}
                               </div>
                               <div className="text-xs text-muted-foreground">
-                                ex. CTO Spiritory GmbH
+                                {t?.testimonial?.role}
                               </div>
                             </div>
                           </figcaption>

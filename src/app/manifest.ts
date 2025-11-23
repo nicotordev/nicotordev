@@ -5,9 +5,8 @@ export default async function manifest() {
     start_url: "/",
     display: "standalone",
     icons: [
-      { src: "/web-app-manifest-192x192.png", sizes: "192x192", type: "image/png" },
-      { src: "/web-app-manifest-512x512.png", sizes: "512x512", type: "image/png" },
+      { src: "/web-app-manifest-192x192.webp", sizes: "192x192", type: "image/webp" },
+      { src: "/web-app-manifest-512x512.webp", sizes: "512x512", type: "image/webp" },
     ],
   };
 }
-

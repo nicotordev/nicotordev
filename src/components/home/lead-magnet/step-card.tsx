@@ -13,6 +13,14 @@ interface StepCardProps {
   activeBorderColor: string;
   activeShadowClass: string;
   showTutorial?: boolean;
+  labels?: {
+    stepLabel: string;
+    status: {
+      completed: string;
+      pending: string;
+      locked: string;
+    };
+  };
 }
 
 export function StepCard({
@@ -26,6 +34,7 @@ export function StepCard({
   activeBorderColor,
   activeShadowClass,
   showTutorial = false,
+  labels,
 }: StepCardProps) {
   // Pulse if it's the active step and tutorial is showing
   const shouldPulse = showTutorial && isActive;
@@ -68,12 +77,12 @@ export function StepCard({
         // Disabled state for future steps
         !isActive && !isCompleted && "opacity-50 cursor-not-allowed"
       )}
-      aria-label={`Paso ${stepNumber}: ${title}. ${
+      aria-label={`${labels?.stepLabel || "Step"} ${stepNumber}: ${title}. ${
         isCompleted
-          ? "Completado"
+          ? labels?.status.completed || "Completed"
           : isActive
-          ? "Pendiente, haz clic para completar"
-          : "Bloqueado"
+          ? labels?.status.pending || "Pending, click to complete"
+          : labels?.status.locked || "Locked"
       }`}
       aria-pressed={isCompleted}
       aria-current={isActive ? "step" : undefined}
@@ -84,7 +93,7 @@ export function StepCard({
           colorClass
         )}
       >
-        Paso {stepNumber}{" "}
+        {labels?.stepLabel || "Step"} {stepNumber}{" "}
         {isCompleted && <CheckCircle className={cn("w-5 h-5", colorClass)} />}
       </div>
       <p className="mt-2 text-sm text-foreground/80">{description}</p>

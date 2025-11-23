@@ -1,10 +1,10 @@
 import type { StaticImageData } from "next/image";
 
-import UnitedStatesFlagPng from "@public/emojis/united-states-flag.png";
-import UnitedKingdomFlagPng from "@public/emojis/united-kingdom-flag.png";
-import SpainFlagPng from "@public/emojis/spain-flag.png";
-import ChileFlagPng from "@public/emojis/chile-flag.png";
-import GermanyFlagPng from "@public/emojis/germany-flag.png";
+import UnitedStatesFlagPng from "@public/emojis/united-states-flag.webp";
+import UnitedKingdomFlagPng from "@public/emojis/united-kingdom-flag.webp";
+import SpainFlagPng from "@public/emojis/spain-flag.webp";
+import ChileFlagPng from "@public/emojis/chile-flag.webp";
+import GermanyFlagPng from "@public/emojis/germany-flag.webp";
 
 export const locales = [
   "en",
@@ -41,7 +41,7 @@ export const localeFlags = Object.fromEntries(
   Object.entries(baseFlags).map(([k]) => [k, `/emojis/${k === "en" ? "united-states" :
   k === "en-gb" ? "united-kingdom" :
   k === "es" || k === "es-es" ? "spain" :
-  k === "es-cl" ? "chile" : "germany"}-flag.png`])
+  k === "es-cl" ? "chile" : "germany"}-flag.webp`])
 ) as Record<Locale, string>;
 
 export const localesJson = Object.fromEntries(

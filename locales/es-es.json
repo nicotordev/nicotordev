@@ -14,17 +14,235 @@
     "name": "Nicolás Torres",
     "title": "Desarrollador Full Stack",
     "available_for_hire": "Disponible para contratación",
-
     "description": "Desarrollador de software, creador de contenido y entusiasta de la tecnología de Chile.",
+    "location": {
+      "from": "un ingeniero web full-stack de",
+      "tooltip": "Desde Concepción, Chile. ¡Me alegra que estés aquí!"
+    },
+    "closing": "y mi trabajo consiste en",
+    "headline": {
+      "transform": "Transformar",
+      "words": "palabras",
+      "and": "y",
+      "ideas": "ideas",
+      "into": "en",
+      "applications": "aplicaciones",
+      "web": "web",
+      "impact": "impactantes"
+    },
     "cta": {
       "about": "Conóceme más",
       "download_resume": "Descargar CV",
       "lets_talk": "Hablemos 🚀"
     }
   },
+  "socialProof": {
+    "badge": "Experiencia Comprobada",
+    "title": "Confiado por",
+    "titleHighlight": "equipos internacionales",
+    "titleEnd": "y fundadores",
+    "description": {
+      "intro": "Soy",
+      "name": "Nicolas Torres",
+      "text": ", un Ingeniero Web Full-Stack especializado en TypeScript, Next.js, React, Node.js y sistemas aumentados con IA. He entregado software escalable a clientes en Alemania, Singapur, EE.UU. y Chile—manteniendo un 100% de Job Success Score como talento Top Rated en Upwork.",
+      "focus": "Mi enfoque es construir productos limpios, rápidos y con propósito que eleven cómo operan los equipos."
+    },
+    "stats": {
+      "jobSuccess": "Éxito Laboral",
+      "projectsDelivered": "Proyectos Entregados",
+      "activeEngagements": "Compromisos Activos",
+      "rate": "Tarifa"
+    },
+    "imageAlt": "Nicolas trabajando en su computadora"
+  },
+  "problemSolution": {
+    "problem": {
+      "title": "¿Cansado de Desarrolladores",
+      "titleBold": "Que no entienden tu negocio",
+      "subtitle": "Necesitas un",
+      "subtitleHighlight": "ingeniero de verdad",
+      "subtitleEnd": ", no un robot. Alguien que entienda tu negocio, piense como dueño y entregue código que de verdad mueva la aguja.",
+      "sectionTitle": "Problemas más comunes que veo en equipos de desarrollo:",
+      "problems": {
+        "technicalDebt": {
+          "name": "Deuda Técnica (Código Espagueti)",
+          "description": "Sistemas frágiles donde corregir un error crea tres nuevos. Escalar se vuelve costoso y arriesgado."
+        },
+        "noVision": {
+          "name": "Ejecutores sin Visión",
+          "description": "Desarrolladores que actúan como robots: esperan órdenes exactas y no advierten sobre errores de UX o negocio."
+        },
+        "ghostDeadlines": {
+          "name": "Plazos Fantasma",
+          "description": "Estimaciones que nunca se cumplen. Los tickets se arrastran semana tras semana sin una fecha de entrega real."
+        },
+        "excuses": {
+          "name": "Excusas, no Resultados",
+          "description": "La clásica mentalidad de 'en mi máquina funciona'. Cuando hay fuego en producción, nadie toma el control."
+        }
+      }
+    },
+    "solution": {
+      "titlePrefix": "Ingeniería de Software con",
+      "subtitle": "Más allá de escribir líneas de código,",
+      "subtitleBold1": "construyo activos digitales.",
+      "subtitleText": "Mi enfoque combina",
+      "subtitleBold2": "excelencia técnica",
+      "subtitleWith": "con",
+      "subtitleBold3": "visión de negocio",
+      "subtitleTo": "para",
+      "subtitleBold4": "entregar resultados que perduran",
+      "sectionTitle": "Cómo transformo tu proyecto:",
+      "solutions": {
+        "scalableArchitecture": {
+          "name": "Arquitectura Escalable",
+          "description": "Escribo código limpio, modular y documentado. Tu proyecto será fácil de mantener hoy y de escalar mañana."
+        },
+        "productPartner": {
+          "name": "Socio de Producto",
+          "description": "No solo pico código; entiendo tu negocio. Propongo mejoras estratégicas para maximizar el valor del producto."
+        },
+        "totalOwnership": {
+          "name": "Ownership Total",
+          "description": "Trato tu proyecto como si fuera mío. Si surge un problema, asumo la responsabilidad y lidero la solución hasta el final."
+        },
+        "radicalTransparency": {
+          "name": "Transparencia Radical",
+          "description": "Sin tecnicismos confusos. Mantengo una comunicación constante para que siempre sepas el estado real del desarrollo."
+        }
+      },
+      "rotatingTitles": [
+        "Mentalidad de Producto",
+        "Visión de Negocio",
+        "Enfoque en Resultados",
+        "Comunicación Clara",
+        "Transparencia Radical",
+        "Ownership Total",
+        "Arquitectura Escalable",
+        "Código Limpio y Modular",
+        "Propuestas Estratégicas",
+        "Liderazgo en Soluciones",
+        "Valor Sostenible",
+        "Excelencia Técnica",
+        "Calidad Garantizada",
+        "Mantenimiento Sencillo",
+        "Escalabilidad Futura",
+        "Innovación Constante",
+        "Mejora Continua",
+        "Eficiencia Óptima",
+        "Resultados Medibles",
+        "Impacto Duradero",
+        "Satisfacción del Usuario"
+      ]
+    }
+  },
   "projects": {
     "section_title": "Mis Proyectos",
-    "section_subtitle": "Explora mi último trabajo y soluciones creativas."
+    "section_subtitle": "Explora mi último trabajo y soluciones creativas.",
+    "carousel": {
+      "title": "Proyectos que he Construido",
+      "viewProject": "Ver Proyecto"
+    }
+  },
+  "leadMagnet": {
+    "title": "Hablemos sobre tu",
+    "titleHighlight": "proyecto",
+    "subtitle": "¿Listo para convertir esa historia en realidad? Completa el formulario a continuación.",
+    "form": {
+      "toggleMinimal": "Mensaje Rápido",
+      "toggleFull": "Formulario Completo",
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "budget": "Presupuesto",
+      "timeline": "Plazo",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "website": "Sitio web",
+      "websiteOptionalHint": "(opcional)",
+      "projectDetails": "Detalles del proyecto",
+      "projectPlaceholder": "Cuéntame sobre tu proyecto...",
+      "quickMessageTitle": "Mensaje rápido",
+      "quickMessageDescription": "Comparte tu nombre, contacto y detalles del proyecto en un solo mensaje.",
+      "quickMessagePlaceholder": "¡Hola Nico! 👋\n\nMi nombre es [Tu Nombre]\nEmail: [tu.email@ejemplo.com]\nPresupuesto: [$monto o tarifa por hora]\n\nBusco ayuda con:\n[Describe tu proyecto aquí...]\n\n¡Quedo atento!",
+      "privacyCopy": "Al enviar este formulario, acepto la",
+      "privacyPolicy": "política de privacidad",
+      "submit": "Enviar Mensaje",
+      "submitFull": "Hablemos",
+      "submitQuick": "Enviar Mensaje"
+    },
+    "testimonial": {
+      "quote": "Mientras trabajaba como CTO en",
+      "company": "Spiritory GmbH",
+      "quoteEnd": ", contratamos a Nicolas como Desarrollador Full Stack... Fue confiable, manteniendo los proyectos a tiempo con la calidad necesaria. Lo recomiendo ampliamente.",
+      "author": "Goce S.",
+      "role": "ex. CTO Spiritory GmbH"
+    },
+    "gift": {
+      "title": "Elige tu Camino",
+      "subtitle": "¿Cómo te gustaría proceder?",
+      "options": {
+        "form": {
+          "title": "Hablemos",
+          "description": "Comparte los detalles de tu proyecto"
+        },
+        "gift": {
+          "title": "Obtén un Regalo",
+          "description": "Reclama tu recurso gratuito"
+        }
+      },
+      "experience": {
+        "title": "Antes de ver esta sección, desbloquea tu regalo exclusivo",
+        "subtitle": "Completa cada paso para liberar tu regalo y desbloquear el formulario. No te preocupes: todo es 100% diversión.",
+        "steps": [
+          {
+            "title": "Paso 1",
+            "description": "Imagina el sonido triunfal de tu proyecto logrando exactamente lo que sueñas."
+          },
+          {
+            "title": "Paso 2",
+            "description": "Visualiza tu idea funcionando a la perfección. Sí, así de limpio."
+          },
+          {
+            "title": "Paso 3",
+            "description": "Toca para desbloquear el regalo y el formulario. (Promesa: cero explosiones.)"
+          }
+        ],
+        "actions": {
+          "close": "Cerrar para siempre",
+          "claim": "Reclamar mi regalo",
+          "claimAria": "Reclamar mi regalo exclusivo",
+          "progress": "Progreso: {completed} de 3 pasos completados.",
+          "complete": "¡Felicidades! Has completado todos los pasos. Ahora puedes desbloquear el formulario o reclamar tu regalo.",
+          "stepLabel": "Paso",
+          "status": {
+            "completed": "Completado",
+            "pending": "Pendiente, haz clic para completar",
+            "locked": "Bloqueado"
+          }
+        }
+      }
+    },
+    "giftDialog": {
+      "title": "Reclamar mi regalo",
+      "description": "Verifica tu humanidad y recibe acceso exclusivo a tu regalo. Sin spam, solo valor real.",
+      "emailLabel": "Correo electrónico",
+      "emailPlaceholder": "me@nicotordev.com",
+      "securityLabel": "Verificación de seguridad",
+      "protectedBy": "Protegido por Turnstile",
+      "cancel": "Cancelar",
+      "processing": "Procesando...",
+      "claim": "Reclamar regalo",
+      "successTitle": "¡Regalo reclamado!",
+      "successMessage": "Revisa tu correo electrónico. Si no lo ves, mira también en la carpeta de spam o promociones.",
+      "successNote": "En unos segundos este cuadro se cerrará automáticamente ✨",
+      "verificationComplete": "Verificación completada · listo para reclamar",
+      "error": "Error al reclamar el regalo. Por favor, intenta de nuevo."
+    }
+  },
+  "reviews": {
+    "title": "Lo que Dicen los Clientes",
+    "subtitle": "Feedback real de proyectos reales"
   },
   "about": {
     "title": "Sobre mí",
@@ -44,7 +262,7 @@
       "success": "Tasa de éxito",
       "complete": "completado",
       "experience": "Experiencia",
-      "experienceValue": "2+ años"
+      "experienceValue": "2.5+ años"
     },
     "methodology": {
       "title": "Filosofía y metodología",
@@ -72,6 +290,7 @@
       "gallery_2_alt": "Foto de Nicolás Torres Henriquez sonriendo",
       "gallery_3_alt": "Foto de Nicolás Torres Henriquez trabajando en su computadora",
       "gallery_4_alt": "Foto de Nicolás Torres Henriquez en un entorno natural"
-    }
+    },
+    "galleryTitle": "Galería"
   }
 }

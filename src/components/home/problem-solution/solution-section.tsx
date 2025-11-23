@@ -2,8 +2,19 @@ import Image from "next/image";
 import { solutionSectionSolutions } from "@/app/data/home";
 import SolutionSectionTitles from "./solution-section-titles";
 import SolutionSectionVideo from "./solution-section-video";
+import { getMessages } from "next-intl/server";
 
-export default function SolutionSection() {
+export default async function SolutionSection() {
+  const messages = await getMessages();
+  const t = messages.problemSolution?.solution as any;
+
+  const solutionsWithTranslations = [
+    { ...solutionSectionSolutions[0], ...t.solutions.scalableArchitecture },
+    { ...solutionSectionSolutions[1], ...t.solutions.productPartner },
+    { ...solutionSectionSolutions[2], ...t.solutions.totalOwnership },
+    { ...solutionSectionSolutions[3], ...t.solutions.radicalTransparency },
+  ];
+
   return (
     <div className="relative pb-24 pt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -12,52 +23,60 @@ export default function SolutionSection() {
           <div className="w-1/2 flex flex-col justify-center pr-12 order-2 lg:order-1">
             <div className="max-w-2xl mx-auto lg:mx-0">
               <div className="max-w-2xl">
-                {/* Título más impactante */}
+                {/* Title */}
                 <h2 className="text-6xl font-display font-bold tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start">
-                  <b className="text-2xl text-foreground">Ingeniería de Software con</b>
+                  <b className="text-2xl text-foreground">{t.titlePrefix}</b>
                   <SolutionSectionTitles />
                 </h2>
                 <p className="mt-4 text-xl leading-9 text-muted-foreground">
-                  Más allá de escribir líneas de código,{" "}
+                  {t.subtitle}{" "}
                   <b className="font-semibold text-foreground">
-                    construyo activos digitales.{" "}
+                    {t.subtitleBold1}{" "}
                   </b>
-                  Mi enfoque combina{" "}
+                  {t.subtitleText}{" "}
                   <b className="font-semibold text-foreground">
-                    excelencia técnica
+                    {t.subtitleBold2}
                   </b>{" "}
-                  con{" "}
+                  {t.subtitleWith}{" "}
                   <b className="font-semibold text-foreground">
-                    visión de negocio
+                    {t.subtitleBold3}
                   </b>{" "}
-                  para{" "}
+                  {t.subtitleTo}{" "}
                   <b className="font-semibold text-primary">
-                    entregar resultados que perduran
+                    {t.subtitleBold4}
                   </b>
                   .
                 </p>
                 <aside className="italic text-3xl text-muted-foreground font-light mt-2 mb-4">
-                  Cómo transformo tu proyecto:
+                  {t.sectionTitle}
                 </aside>
               </div>
 
               <dl className="space-y-5">
-                {solutionSectionSolutions.map((solution) => (
-                  <div key={solution.name} className="relative pl-12">
-                    <dt className="text-base font-semibold leading-7 text-foreground">
-                      <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-lg bg-primary shadow-md">
-                        <solution.icon
-                          className="h-5 w-5 text-primary-foreground"
-                          aria-hidden="true"
-                        />
-                      </div>
-                      {solution.name}
-                    </dt>
-                    <dd className="text-sm leading-7 text-muted-foreground">
-                      {solution.description}
-                    </dd>
-                  </div>
-                ))}
+                {solutionsWithTranslations.map((solution, index) => {
+                  const IconComponent =
+                    solutionSectionSolutions[index]?.icon || null;
+                  return (
+                    <div key={solution.name} className="relative pl-12">
+                      <dt className="text-base font-semibold leading-7 text-foreground">
+                        <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-lg bg-primary shadow-md">
+                          {IconComponent ? (
+                            <IconComponent
+                              className="h-5 w-5 text-primary-foreground"
+                              aria-hidden="true"
+                            />
+                          ) : (
+                            <span className="h-5 w-5 bg-primary-foreground rounded-full" />
+                          )}
+                        </div>
+                        {solution.name}
+                      </dt>
+                      <dd className="text-sm leading-7 text-muted-foreground">
+                        {solution.description}
+                      </dd>
+                    </div>
+                  );
+                })}
               </dl>
             </div>
           </div>
@@ -71,7 +90,6 @@ export default function SolutionSection() {
               <div className="relative h-full w-full">
                 {/* VIDEO: Añadido playsInline y pointer-events-none */}
                 <SolutionSectionVideo />
-
               </div>
             </div>
           </div>
