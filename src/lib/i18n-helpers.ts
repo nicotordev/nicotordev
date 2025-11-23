@@ -7,32 +7,32 @@ import type { Locale } from "@/i18n/config";
 
 /**
  * Example: Format a price with current user preferences
- * 
+ *
  * Usage in Server Components:
  * ```tsx
  * import { cookies } from "next/headers";
  * import { getFormattedPrice } from "@/lib/i18n-helpers";
- * 
+ *
  * export default async function PriceDisplay() {
  *   const cookieStore = await cookies();
  *   const locale = cookieStore.get("NEXT_LOCALE")?.value || "en";
  *   const currency = cookieStore.get("NEXT_CURRENCY")?.value || "USD";
- *   
+ *
  *   const price = getFormattedPrice(1500, locale, currency);
  *   return <div>{price}</div>;
  * }
  * ```
- * 
+ *
  * Usage in Client Components:
  * ```tsx
  * "use client";
  * import { useLocale } from "next-intl";
- * import { useCurrency } from "@/context/CurrencyContext";
+ * import { useCurrencyStore } from "@/stores/currency-store";
  * import { getFormattedPrice } from "@/lib/i18n-helpers";
- * 
+ *
  * export default function ClientPrice() {
  *   const locale = useLocale();
- *   const { currency } = useCurrency();
+ *   const { currency } = useCurrencyStore();
  *   const price = getFormattedPrice(1500, locale, currency);
  *   return <div>{price}</div>;
  * }
@@ -51,32 +51,32 @@ export function getFormattedPrice(
 
 /**
  * Example: Format a date/time in user's timezone
- * 
+ *
  * Usage in Server Components:
  * ```tsx
  * import { cookies } from "next/headers";
  * import { getFormattedDateTime } from "@/lib/i18n-helpers";
- * 
+ *
  * export default async function DateDisplay() {
  *   const cookieStore = await cookies();
  *   const locale = cookieStore.get("NEXT_LOCALE")?.value || "en";
  *   const timezone = cookieStore.get("NEXT_TIMEZONE")?.value || "UTC";
- *   
+ *
  *   const date = getFormattedDateTime(new Date(), locale, timezone);
  *   return <div>{date}</div>;
  * }
  * ```
- * 
+ *
  * Usage in Client Components:
  * ```tsx
  * "use client";
  * import { useLocale } from "next-intl";
- * import { useTimezone } from "@/context/TimezoneContext";
+ * import { useTimezoneStore } from "@/stores/timezone-store";
  * import { getFormattedDateTime } from "@/lib/i18n-helpers";
- * 
+ *
  * export default function ClientDate() {
  *   const locale = useLocale();
- *   const { timezone } = useTimezone();
+ *   const { timezone } = useTimezoneStore();
  *   const date = getFormattedDateTime(new Date(), locale, timezone);
  *   return <div>{date}</div>;
  * }

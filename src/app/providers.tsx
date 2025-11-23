@@ -1,9 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { SessionProvider } from "@/context/SessionContext";
-import { CurrencyProvider } from "@/context/CurrencyContext";
-import { TimezoneProvider } from "@/context/TimezoneContext";
+import StoreInitializer from "@/components/store-initializer";
 import GlassToaster from "@/components/common/glass-toast";
 
 type ProvidersProps = {
@@ -18,13 +16,13 @@ export default function Providers({
   initialTimezone,
 }: ProvidersProps) {
   return (
-    <SessionProvider>
-      <CurrencyProvider initialCurrency={initialCurrency}>
-        <TimezoneProvider initialTimezone={initialTimezone}>
-          <GlassToaster />
-          {children}
-        </TimezoneProvider>
-      </CurrencyProvider>
-    </SessionProvider>
+    <>
+      <StoreInitializer
+        initialCurrency={initialCurrency}
+        initialTimezone={initialTimezone}
+      />
+      <GlassToaster />
+      {children}
+    </>
   );
 }

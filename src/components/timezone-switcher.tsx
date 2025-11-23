@@ -2,7 +2,7 @@
 
 import { useTransition } from "react";
 import { timezones, TIMEZONE_LABELS, type Timezone } from "@/i18n/timezone";
-import { useTimezone } from "@/context/TimezoneContext";
+import { useTimezoneStore } from "@/stores/timezone-store";
 import {
   Select,
   SelectContent,
@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/select";
 
 export default function TimezoneSwitcher() {
-  const { timezone, setTimezone } = useTimezone();
+  const { timezone, setTimezone } = useTimezoneStore();
   const [isPending, startTransition] = useTransition();
 
   const handleSelect = (next: Timezone) => {

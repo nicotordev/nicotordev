@@ -39,13 +39,8 @@ export interface HeroSectionProps {
 
 export default function HeroSection({ translations }: HeroSectionProps) {
   return (
-    <div className="bg-background min-h-screen">
-      <Header
-        navigation={translations.navigation}
-        login={translations.common.login}
-      />
-
-      <div className="relative px-6 pt-14 lg:px-8">
+    <div className="bg-background py-12">
+      <div className="relative px-6 lg:px-8">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
@@ -64,11 +59,11 @@ export default function HeroSection({ translations }: HeroSectionProps) {
           />
         </div>
 
-        <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56 flex flex-col items-center text-center">
+        <div className="relative z-60 mx-auto max-w-4xl py-22 sm:py-28 lg:py-32 flex flex-col items-center text-center">
           <div className="mb-4 flex justify-center">
             <Badge
               variant="success"
-              className="relative flex items-center justify-center gap-2 capitalize pl-8 pr-4 py-2"
+              className="relative flex items-center justify-center gap-2 capitalize pl-8 pr-4 py-2 z-60"
             >
               <Dot className="w-16! h-16! absolute -left-3 top-1/2 -translate-y-1/2" />
               {translations.hero.available_for_hire}
@@ -180,7 +175,9 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             </div>
           </div>
         </div>
-        <HeroSectionTechStackCarousel />
+        <div className="py-12">
+          <HeroSectionTechStackCarousel />
+        </div>
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-x-clip blur-3xl sm:top-[calc(100%-30rem)]"

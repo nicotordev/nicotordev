@@ -37,7 +37,7 @@ const TECH_STACK_BOTTOM = [
 
 export default function HeroSectionTechStackCarousel() {
   return (
-    <div className="w-full max-w-[100vw] overflow-x-clip mx-auto px-4 pb-32 flex flex-col gap-4 mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+    <div className="isolate w-full max-w-[100vw] overflow-x-clip mx-auto px-4 pb-32 flex flex-col gap-4 mask-[linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
       {/* Top Carousel - Runs to Right */}
       <Swiper
         modules={[Autoplay]}
@@ -46,11 +46,11 @@ export default function HeroSectionTechStackCarousel() {
         loop={true}
         autoplay={{
           delay: 0, // Continuous flow
-          disableOnInteraction: false,
+          disableOnInteraction: true,
           reverseDirection: true,
-          pauseOnMouseEnter: false,
+          pauseOnMouseEnter: true,
         }}
-        speed={3000} // Smooth continuous speed
+        speed={500} // Smooth continuous speed
         breakpoints={{
           640: {
             slidesPerView: 6,
@@ -87,10 +87,11 @@ export default function HeroSectionTechStackCarousel() {
         loop={true}
         autoplay={{
           delay: 0,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: false,
+          disableOnInteraction: true,
+          pauseOnMouseEnter: true,
+          reverseDirection: false,
         }}
-        speed={3000}
+        speed={500}
         breakpoints={{
           640: {
             slidesPerView: 6,

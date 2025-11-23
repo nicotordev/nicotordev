@@ -5,8 +5,8 @@ import { useLocale } from "next-intl";
 import type { Locale } from "@/i18n/config";
 import { formatCurrency, type Currency } from "@/i18n/currency";
 import { formatInTimeZone, type Timezone } from "@/i18n/timezone";
-import { useCurrency } from "@/context/CurrencyContext";
-import { useTimezone } from "@/context/TimezoneContext";
+import { useCurrencyStore } from "@/stores/currency-store";
+import { useTimezoneStore } from "@/stores/timezone-store";
 
 type LocaleFamily = "en" | "es" | "de";
 
@@ -50,12 +50,12 @@ export function useLocalizedPreferences() {
     currency,
     supported: supportedCurrencies,
     setCurrency,
-  } = useCurrency();
+  } = useCurrencyStore();
   const {
     timezone,
     supported: supportedTimezones,
     setTimezone,
-  } = useTimezone();
+  } = useTimezoneStore();
 
   const localeFamily = useMemo(() => getLocaleFamily(locale), [locale]);
   const copy = useMemo(() => LOCALE_COPY[localeFamily], [localeFamily]);

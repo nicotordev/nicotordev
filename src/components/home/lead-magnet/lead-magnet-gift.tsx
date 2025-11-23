@@ -11,6 +11,7 @@ import { useConfetti } from "./use-confetti";
 import { useLeadMagnetSteps, LeadMagnetStep } from "./use-lead-magnet-steps";
 import { StepCard } from "./step-card";
 import { LeadMagnetOverlay } from "./lead-magnet-overlay";
+import Image from "next/image";
 
 export interface LeadMagnetGiftProps {
   show: boolean;
@@ -94,16 +95,18 @@ export default function LeadMagnetGift({
           <h2
             id="gift-title"
             className={cn(
-              "text-center text-4xl sm:text-5xl font-black gradient-text leading-tight relative z-30",
-              showTutorial ? "text-primary/90 text-shadow-glow" : "text-background"
+              "text-center text-4xl sm:text-5xl font-black leading-tight relative z-30",
+              showTutorial
+                ? "text-background/90 text-shadow-glow"
+                : "text-background"
             )}
           >
             Antes de contactarme… desbloquea tu regalo exclusivo{" "}
             <picture>
               <source srcSet="/animated/gift.webp" type="image/webp" />
-              <img
+              <Image
                 src="/animated/gift.gif"
-                alt=""
+                alt="Gift"
                 aria-hidden="true"
                 role="presentation"
                 width="64"
@@ -226,9 +229,9 @@ export default function LeadMagnetGift({
               Reclamar mi regalo{" "}
               <picture>
                 <source srcSet="/animated/gift-heart.webp" type="image/webp" />
-                <img
+                <Image
                   src="/animated/gift-heart.webp"
-                  alt=""
+                  alt="Gift Heart"
                   aria-hidden="true"
                   role="presentation"
                   width="32"
@@ -253,11 +256,27 @@ export default function LeadMagnetGift({
           </div>
 
           {/* STATUS */}
-          <div className="mt-6 text-center text-xs text-muted-foreground font-mono z-30 relative">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/40 backdrop-blur-sm border border-border/30">
-              <span className="h-2 w-2 rounded-full bg-primary/80 animate-pulse" />
-              protocolo creativo: activado
-            </span>
+          <div className="flex items-center justify-center relative z-60">
+            <Button
+              variant="destructive"
+              onClick={() => setIsGiftVisible(false)}
+              className="mt-6"
+            >
+              Cerrar para Siempre{" "}
+              <picture>
+                <source
+                  srcSet="/animated/emoji-crying.webp"
+                  type="image/webp"
+                />
+                <Image
+                  src="/animated/emoji-crying.webp"
+                  alt="😭"
+                  width="32"
+                  height="32"
+                  className="inline-block"
+                />
+              </picture>
+            </Button>
           </div>
         </LeadMagnetOverlay>
       )}

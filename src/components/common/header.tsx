@@ -1,5 +1,6 @@
+"use client";
+
 import { Menu } from "lucide-react";
-import React from "react";
 import { navigationItems } from "@/app/data";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +14,9 @@ import Logo from "@/components/logo";
 import LanguageSwitcher from "@/components/language-switcher";
 import CurrencySwitcher from "@/components/currency-switcher";
 import TimezoneSwitcher from "@/components/timezone-switcher";
+import SettingsMenu from "@/components/common/settings-menu";
+import { useWindowScroll } from "react-use";
+import { cn } from "@/lib/utils";
 
 export interface HeaderProps {
   navigation: {
@@ -27,12 +31,18 @@ export interface HeaderProps {
 
 export default function Header({ navigation, login }: HeaderProps) {
   const navItems = navigationItems(navigation);
+  const { y } = useWindowScroll();
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header
+      className={cn(
+        "sticky top-0 inset-x-0 z-9999 transition-all duration-300 ease-in-out",
+        y > 10 ? "bg-background/60 backdrop-blur-2xl" : "bg-transparent"
+      )}
+    >
       <nav
         aria-label="Global"
-        className="flex items-center justify-between p-6 lg:px-8"
+        className="flex items-center justify-between px-6 py-3 lg:px-8"
       >
         <div className="flex lg:flex-1">
           <Logo width={120} height={30} priority alt="NicoTorDev Logo" />
@@ -107,12 +117,7 @@ export default function Header({ navigation, login }: HeaderProps) {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-3">
-          <LanguageSwitcher size="icon-sm" />
-          <CurrencySwitcher />
-          <TimezoneSwitcher />
-          <a href="#" className="text-sm font-semibold text-foreground">
-            {login} <span aria-hidden="true">&rarr;</span>
-          </a>
+          <SettingsMenu loginLabel={login} />
         </div>
       </nav>
     </header>
