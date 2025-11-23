@@ -20,6 +20,7 @@ import { Turnstile } from "next-turnstile";
 import { motion, AnimatePresence } from "framer-motion";
 import { Loader2, CheckCircle, Gift } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useUIStore } from "@/stores/ui-store";
 
 interface LeadMagnetGiftDialogProps {
   open: boolean;
@@ -30,6 +31,8 @@ const LeadMagnetGiftDialog = ({
   open,
   onOpenChange,
 }: LeadMagnetGiftDialogProps) => {
+  const { claimedGift, setClaimedGift } = useUIStore();
+
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -79,6 +82,7 @@ const LeadMagnetGiftDialog = ({
       }
 
       setIsSuccess(true);
+      setClaimedGift();
 
       // Reset form after 2 seconds
       setTimeout(() => {

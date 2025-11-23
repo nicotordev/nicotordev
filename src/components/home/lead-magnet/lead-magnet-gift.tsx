@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { MousePointerClick } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -12,6 +12,7 @@ import { useLeadMagnetSteps, LeadMagnetStep } from "./use-lead-magnet-steps";
 import { StepCard } from "./step-card";
 import { LeadMagnetOverlay } from "./lead-magnet-overlay";
 import Image from "next/image";
+import { useUIStore } from "@/stores/ui-store";
 
 export interface LeadMagnetGiftProps {
   show: boolean;
@@ -19,11 +20,16 @@ export interface LeadMagnetGiftProps {
 }
 
 export default function LeadMagnetGift({
-  show,
+  show: showParam,
   setOptionSelected,
 }: LeadMagnetGiftProps) {
+  const { claimedGift, setClaimedGift } = useUIStore();
   const [isGiftVisible, setIsGiftVisible] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);
+  const show = useMemo(
+    () => showParam && !claimedGift,
+    [showParam, claimedGift]
+  );
 
   const { playSound } = useLeadMagnetSound();
   const { fireConfetti } = useConfetti();
@@ -101,7 +107,7 @@ export default function LeadMagnetGift({
                 : "text-background"
             )}
           >
-            Antes de contactarme… desbloquea tu regalo exclusivo{" "}
+            Antes de ver esta sección, desbloquea tu regalo exclusivo{" "}
             <picture>
               <source srcSet="/animated/gift.webp" type="image/webp" />
               <Image
@@ -259,7 +265,10 @@ export default function LeadMagnetGift({
           <div className="flex items-center justify-center relative z-60">
             <Button
               variant="destructive"
-              onClick={() => setIsGiftVisible(false)}
+              onClick={() => {
+                setIsGiftVisible(false);
+                setClaimedGift();
+              }}
               className="mt-6"
             >
               Cerrar para Siempre{" "}
