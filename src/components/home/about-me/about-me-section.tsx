@@ -186,7 +186,7 @@ export default function AboutMeSection({
       {/* Background Blobs */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
+        className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
       >
         <div
           style={{
@@ -200,7 +200,7 @@ export default function AboutMeSection({
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-x-clip blur-3xl sm:top-[calc(100%-30rem)]"
+        className="absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-x-clip blur-3xl sm:top-[calc(100%-30rem)]"
       >
         <div
           style={{
@@ -213,7 +213,7 @@ export default function AboutMeSection({
         />
       </div>
 
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 relative z-10">
         <div className="max-w-4xl">
           <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display mb-6">
             {translations.title}

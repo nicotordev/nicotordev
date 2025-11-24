@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 type LogoProps = {
+  theme?: "dark" | "light";
   width?: number;
   height?: number;
   className?: string;
@@ -11,6 +12,7 @@ type LogoProps = {
 };
 
 export default function Logo({
+  theme = "dark",
   width = 300,
   height,
   className,
@@ -21,10 +23,17 @@ export default function Logo({
   const computedHeight = height ?? Math.round(width / 4);
 
   return (
-    <span className={className} style={{ display: "inline-block", lineHeight: 0 }}>
+    <span
+      className={className}
+      style={{ display: "inline-block", lineHeight: 0 }}
+    >
       {/* Dark theme logo */}
       <Image
-        src="/images/logo/logo-light.svg"
+        src={
+          theme === "light"
+            ? "/images/logo/logo-dark.svg"
+            : "/images/logo/logo-light.svg"
+        }
         alt={alt}
         width={width}
         height={computedHeight}

@@ -20,6 +20,10 @@ const buttonVariants = cva(
         ghost:
           "shadow-none hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 focus-visible:outline-accent",
         link: "text-primary underline-offset-4 hover:underline shadow-none hover:translate-y-0 focus-visible:outline-primary",
+        background:
+          "bg-background text-foreground hover:bg-background/90 focus-visible:outline-background",
+        foreground:
+          "bg-foreground text-background hover:bg-foreground/90 focus-visible:outline-foreground",
       },
       size: {
         default: "h-10 px-6 py-2.5 has-[>svg]:px-4",
@@ -45,6 +49,8 @@ const blurVariants: Record<string, string> = {
   secondary: "bg-secondary/70",
   ghost: "bg-accent/60",
   link: "bg-transparent",
+  background: "bg-background/70",
+  foreground: "bg-foreground/70",
 };
 
 function Button({

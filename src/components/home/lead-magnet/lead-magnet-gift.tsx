@@ -121,7 +121,7 @@ export default function LeadMagnetGift({
             <picture>
               <source srcSet="/animated/gift.webp" type="image/webp" />
               <Image
-                src="/animated/gift.gif"
+                src="/animated/gift.webp"
                 alt={giftAlt}
                 aria-hidden="true"
                 role="presentation"
