@@ -4,10 +4,47 @@
     "about": "Acerca de",
     "projects": "Proyectos",
     "blog": "Blog",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "aria": {
+      "global": "Global navigation",
+      "openMainMenu": "Open main menu",
+      "mobileMenu": "Mobile Menu"
+    }
   },
   "common": {
-    "login": "Iniciar sesión"
+    "login": "Iniciar sesión",
+    "settings": "Settings",
+    "preferences": "Preferences",
+    "language": "Language",
+    "currency": "Currency",
+    "timezone": "Timezone",
+    "a11y": {
+      "close": "Close",
+      "loading": "Loading",
+      "toggleSidebar": "Toggle sidebar",
+      "leadMagnetSection": "Lead Magnet Section",
+      "closeTestimonial": "Close testimonial",
+      "showTestimonial": "Show testimonial",
+      "previousSlide": "Previous slide",
+      "nextSlide": "Next slide",
+      "previousPage": "Go to previous page",
+      "nextPage": "Go to next page",
+      "previous": "Previous",
+      "next": "Next",
+      "morePages": "More pages",
+      "media": {
+        "codingAlt": "Animated illustration of coding",
+        "textureAlt": "Animated texture",
+        "writingAlt": "Hand writing illustration",
+        "lightbulbAlt": "Lightbulb illustration",
+        "mechanicArmAlt": "Robotic arm illustration",
+        "giftAlt": "Gift box",
+        "sadAlt": "Crying face emoji",
+        "giftHeartAlt": "Gift with heart",
+        "psychedelicTextureAlt": "Psychedelic texture background",
+        "logoAlt": "NicoTorDev logo"
+      }
+    }
   },
   "hero": {
     "greeting": "¡Hola, soy",
@@ -144,6 +181,9 @@
       "viewProject": "Ver Proyecto"
     }
   },
+  "downloadResume": {
+    "selectFormat": "Select Format"
+  },
   "leadMagnet": {
     "title": "Hablemos sobre tu",
     "titleHighlight": "proyecto",
@@ -277,6 +317,8 @@
     },
     "personal": {
       "title": "Más allá del código",
+            "subtitle": "¿Who am I? .... a person who likes to break things out of curiosity",
+
       "description": "Me inspiran Hofmann y Leary, pero también el silencio del bosque. Entre commits y café, estudio IA, exploro psicodelia responsable y creo contenido para otros desarrolladores. Creo que la justicia —incluso en el software— es una forma de amor."
     },
     "specialties": {
@@ -291,6 +333,59 @@
       "gallery_3_alt": "Foto de Nicolás Torres Henriquez trabajando en su computadora",
       "gallery_4_alt": "Foto de Nicolás Torres Henriquez en un entorno natural"
     },
-    "galleryTitle": "Galería"
+    "galleryTitle": "Galería",
+    "gallery": {
+      "title": "Gallery",
+      "items": {
+        "conceAi": {
+          "alt": "Conce AI Logo",
+          "description": "The official logo of Conce AI, my technology business."
+        },
+        "wizard": {
+          "alt": "Nico as a psychedelic wizard",
+          "description": "Embracing creativity and magic in code, visualized as a psychedelic wizard."
+        },
+        "workstation": {
+          "alt": "Nico working on his Computer, Multiple Screens are present",
+          "description": "Deep in the flow state, surrounded by multiple screens and lines of code."
+        },
+        "acid": {
+          "alt": "Nico's pupils dilated",
+          "description": "A close-up capturing the intensity and focus of a late-night coding session."
+        },
+        "psychedelic": {
+          "alt": "Nico with psychedelic (trippy) effects",
+          "description": "Exploring the intersection of art and technology through psychedelic visuals."
+        },
+        "unicorn": {
+          "alt": "Nico in a unicorn outfit",
+          "description": "Never taking life too seriously—rocking a unicorn outfit with pride."
+        },
+        "koka": {
+          "alt": "Nico with his dog Koka",
+          "description": "Quality time with my loyal companion, Koka."
+        },
+        "flowers": {
+          "alt": "Nico among flowers",
+          "description": "Finding balance and peace in nature, surrounded by flowers."
+        },
+        "trippy": {
+          "alt": "Nico with trippy photo effects",
+          "description": "Experimenting with visual effects to create unique digital experiences."
+        },
+        "piercing": {
+          "alt": "Nico with a piercing in his nose",
+          "description": "Expressing personal style with a nose piercing."
+        },
+        "tattoo": {
+          "alt": "Nico with a tattoo on the back of the neck, a cpu chip",
+          "description": "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to tech."
+        },
+        "onlyKoka": {
+          "alt": "Koka, the dog",
+          "description": "The real boss of the operation: Koka."
+        }
+      }
+    }
   }
 }

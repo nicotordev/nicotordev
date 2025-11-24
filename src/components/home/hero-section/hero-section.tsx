@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import Header from "@/components/common/header";
-import ChileFlag from "../../emojis/chile-flag";
+import ChileFlag from "@/components/emojis/chile-flag";
 import Link from "next/link";
 import DownloadResumeButton from "@/components/download-resume-button";
 import { Badge } from "../../ui/badge";
@@ -21,6 +20,9 @@ export interface HeroSectionProps {
     };
     common: {
       login: string;
+      a11y?: {
+        media?: Record<string, string>;
+      };
     };
     hero: {
       greeting: string;
@@ -53,6 +55,8 @@ export interface HeroSectionProps {
 }
 
 export default function HeroSection({ translations }: HeroSectionProps) {
+  const media = translations.common?.a11y?.media ?? {};
+
   return (
     <div className="bg-background py-12">
       <div className="relative px-6 lg:px-8">
@@ -119,14 +123,14 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                 </span>{" "}
                 <picture className="relative top-2">
                   <source
-                    srcSet="/illustrations/writing.webp"
+                    srcSet="/images/illustrations/writing.webp"
                     type="image/webp"
                     width="50"
                     height="50"
                   />
                   <Image
-                    src="/illustrations/writing.webp"
-                    alt="✍️"
+                    src="/images/illustrations/writing.webp"
+                    alt={media.writingAlt || "Hand writing illustration"}
                     width="100"
                     height="100"
                   />
@@ -143,14 +147,14 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                   </span>{" "}
                   <picture className="relative top-2">
                     <source
-                      srcSet="/illustrations/lightbulb.webp"
+                      srcSet="/images/illustrations/lightbulb.webp"
                       type="image/webp"
                       width="50"
                       height="50"
                     />
                     <Image
-                      src="/illustrations/lightbulb.webp"
-                      alt="💡"
+                      src="/images/illustrations/lightbulb.webp"
+                      alt={media.lightbulbAlt || "Lightbulb illustration"}
                       width="100"
                       height="100"
                     />
@@ -168,14 +172,14 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                   {translations.hero.headline.impact}
                   <picture className="absolute -right-32 bottom-0">
                     <source
-                      srcSet="/illustrations/mechanic-arm.webp"
+                      srcSet="/images/illustrations/mechanic-arm.webp"
                       type="image/webp"
                       width="100"
                       height="100"
                     />
                     <Image
-                      src="/illustrations/mechanic-arm.webp"
-                      alt="🦾"
+                      src="/images/illustrations/mechanic-arm.webp"
+                      alt={media.mechanicArmAlt || "Robotic arm illustration"}
                       width="100"
                       height="100"
                     />

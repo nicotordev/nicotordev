@@ -1,6 +1,9 @@
+"use client"
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { ChevronRight, MoreHorizontal } from "lucide-react"
+import { useMessages } from "next-intl"
 
 import { cn } from "@/lib/utils"
 
@@ -84,6 +87,10 @@ function BreadcrumbEllipsis({
   className,
   ...props
 }: React.ComponentProps<"span">) {
+  const messages = useMessages();
+  const accessibility = (messages as any)?.common?.a11y ?? {};
+  const moreLabel = accessibility.morePages || "More";
+
   return (
     <span
       data-slot="breadcrumb-ellipsis"
@@ -93,7 +100,7 @@ function BreadcrumbEllipsis({
       {...props}
     >
       <MoreHorizontal className="size-4" />
-      <span className="sr-only">More</span>
+      <span className="sr-only">{moreLabel}</span>
     </span>
   )
 }

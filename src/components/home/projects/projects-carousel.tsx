@@ -19,6 +19,9 @@ import { useMessages } from "next-intl";
 const ProjectsCarousel = () => {
   const messages = useMessages();
   const t = messages.projects?.carousel as any;
+  const accessibility = (messages.common as any)?.a11y ?? {};
+  const media = accessibility.media ?? {};
+  const textureAlt = media.textureAlt || "Animated texture";
 
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
@@ -44,8 +47,8 @@ const ProjectsCarousel = () => {
       <Image
         width={1920}
         height={1080}
-        src="/images/background/texture-1.webp"
-        alt="Animated texture"
+        src="/images/background/texture-1.webp" 
+        alt={textureAlt}
         className="h-full w-full object-cover z-1 absolute inset-0 mix-blend-multiply opacity-30"
       />
       <motion.div

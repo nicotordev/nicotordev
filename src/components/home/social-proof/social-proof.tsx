@@ -24,6 +24,8 @@ const stats = [
 export default async function SocialProofSection() {
   const messages = await getMessages();
   const t = messages.socialProof as any;
+  const media = (messages.common as any)?.a11y?.media ?? {};
+  const textureAlt = media.textureAlt || "Animated texture";
 
   return (
     <section className="relative flex items-center justify-center bg-background-secondary px-6 sm:px-12 lg:px-24 py-24 sm:py-32">
@@ -31,14 +33,14 @@ export default async function SocialProofSection() {
         width={1920}
         height={1080}
         src="/images/background/texture-1.webp"
-        alt="Animated texture"
+        alt={textureAlt}
         className="h-full w-full object-cover z-1 absolute inset-0 aspect-video mix-blend-overlay opacity-30"
       />
-      <div className="mx-auto max-w-7xl flex items-stretch justify-between">
+      <div className="mx-auto max-w-7xl flex items-stretch justify-between relative z-10 bg-transparent">
         <div className="w-2/4 h-auto rounded-2xl shadow-2xl ring-4 ring-accent/30 hover:ring-accent/60 overflow-clip hover-lift">
           <Image
             alt={t.imageAlt}
-            src="/nicolas/me_pc.webp"
+            src="/images/nicolas/nico-pc.webp"
             width={1200}
             height={800}
             className="w-full h-full object-cover rounded-2xl transition-all duration-500 hover:scale-[1.5]"

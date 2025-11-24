@@ -17,6 +17,14 @@ import { useMessages } from "next-intl";
 export default function LeadMagnet() {
   const messages = useMessages();
   const t = messages.leadMagnet as any;
+  const accessibility = (messages.common as any)?.a11y ?? {};
+
+  const sectionLabel =
+    accessibility.leadMagnetSection || "Lead Magnet Section";
+  const closeTestimonialLabel =
+    accessibility.closeTestimonial || "Close testimonial";
+  const showTestimonialLabel =
+    accessibility.showTestimonial || "Show testimonial";
 
   const [optionSelected, setOptionSelected] = useState<"GIFT" | "FORM" | null>(
     null
@@ -35,7 +43,7 @@ export default function LeadMagnet() {
         "relative"
       )}
       style={{ transform: "translateZ(100%)" }}
-      aria-label="Lead Magnet Section"
+      aria-label={sectionLabel}
     >
       {/* --- Background Layer --- */}
       <PsychedelicBackground />
@@ -152,7 +160,7 @@ export default function LeadMagnet() {
                             size="icon"
                             className="absolute top-2 right-2 hover:bg-white/10 text-muted-foreground"
                             onClick={() => setIsTestimonialVisible(false)}
-                            aria-label="Close testimonial"
+                            aria-label={closeTestimonialLabel}
                           >
                             <X className="w-4 h-4" aria-hidden="true" />
                           </Button>
@@ -193,7 +201,7 @@ export default function LeadMagnet() {
                           size="icon"
                           onClick={() => setIsTestimonialVisible(true)}
                           className="rounded-full bg-background/40 border-primary/30 hover:bg-primary/20 w-12 h-12"
-                          aria-label="Show testimonial"
+                          aria-label={showTestimonialLabel}
                         >
                           <span className="font-bold text-primary text-xs">
                             GS

@@ -13,6 +13,7 @@ import { LeadMagnetOverlay } from "./lead-magnet-overlay";
 import Image from "next/image";
 import { useUIStore } from "@/stores/ui-store";
 import type messages from "@/locales/es-cl.json";
+import { useMessages } from "next-intl";
 
 export interface LeadMagnetGiftProps {
   show: boolean;
@@ -25,6 +26,7 @@ export default function LeadMagnetGift({
   setOptionSelected,
   translations,
 }: LeadMagnetGiftProps) {
+  const messages = useMessages();
   const { claimedGift, setClaimedGift } = useUIStore();
   const [isGiftVisible, setIsGiftVisible] = useState(false);
   const [showTutorial, setShowTutorial] = useState(false);
@@ -43,6 +45,10 @@ export default function LeadMagnetGift({
     allDone,
   } = useLeadMagnetSteps();
   const labels = translations?.actions;
+  const media = (messages as any)?.common?.a11y?.media ?? {};
+  const giftAlt = media.giftAlt || "Gift box";
+  const sadAlt = media.sadAlt || "Crying face emoji";
+  const giftHeartAlt = media.giftHeartAlt || "Gift with heart";
 
   // Control visibility based on show prop with smooth timing
   useEffect(() => {
@@ -116,7 +122,7 @@ export default function LeadMagnetGift({
               <source srcSet="/animated/gift.webp" type="image/webp" />
               <Image
                 src="/animated/gift.gif"
-                alt="Gift"
+                alt={giftAlt}
                 aria-hidden="true"
                 role="presentation"
                 width="64"
@@ -234,7 +240,7 @@ export default function LeadMagnetGift({
                 />
                 <Image
                   src="/animated/emoji-crying.webp"
-                  alt="😭"
+                  alt={sadAlt}
                   width="32"
                   height="32"
                   className="inline-block"
@@ -260,7 +266,7 @@ export default function LeadMagnetGift({
                 <source srcSet="/animated/gift-heart.webp" type="image/webp" />
                 <Image
                   src="/animated/gift-heart.webp"
-                  alt="Gift Heart"
+                  alt={giftHeartAlt}
                   aria-hidden="true"
                   role="presentation"
                   width="32"

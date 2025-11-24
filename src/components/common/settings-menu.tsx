@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import { useLocale } from "next-intl";
+import { useLocale, useMessages } from "next-intl";
 import { useRouter } from "next/navigation";
 import {
   Globe,
@@ -47,19 +47,20 @@ import ChileFlag from "@/components/emojis/chile-flag";
 import GermanyFlag from "@/components/emojis/germany-flag";
 
 function Flag({ locale, size = 16 }: { locale: Locale; size?: number }) {
+  const alt = `${localeNames[locale]} flag`;
   switch (locale) {
     case "en":
-      return <UnitedStatesFlag width={size} alt="United States flag" />;
+      return <UnitedStatesFlag width={size} alt={alt} />;
     case "en-gb":
-      return <UnitedKingdomFlag width={size} alt="United Kingdom flag" />;
+      return <UnitedKingdomFlag width={size} alt={alt} />;
     case "es":
-      return <MexicoFlag width={size} alt="Mexico flag" />;
+      return <MexicoFlag width={size} alt={alt} />;
     case "es-es":
-      return <SpainFlag width={size} alt="Spain flag" />;
+      return <SpainFlag width={size} alt={alt} />;
     case "es-cl":
-      return <ChileFlag width={size} alt="Chile flag" />;
+      return <ChileFlag width={size} alt={alt} />;
     case "de":
-      return <GermanyFlag width={size} alt="Germany flag" />;
+      return <GermanyFlag width={size} alt={alt} />;
     default:
       return null;
   }
@@ -70,6 +71,14 @@ interface SettingsMenuProps {
 }
 
 export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
+  const messages = useMessages();
+  const common = messages.common as any;
+
+  const settingsLabel = common?.settings || "Settings";
+  const preferencesLabel = common?.preferences || "Preferences";
+  const languageLabel = common?.language || "Language";
+  const currencyLabel = common?.currency || "Currency";
+  const timezoneLabel = common?.timezone || "Timezone";
   const router = useRouter();
   const locale = useLocale() as Locale;
   const { currency, setCurrency } = useCurrencyStore();
@@ -103,18 +112,18 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" disabled={isPending}>
           <Settings className="size-5" />
-          <span className="sr-only">Settings</span>
+          <span className="sr-only">{settingsLabel}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel>Preferences</DropdownMenuLabel>
+        <DropdownMenuLabel>{preferencesLabel}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         {/* Language Submenu */}
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Globe className="mr-2 size-4" />
-            <span>Language</span>
+            <span>{languageLabel}</span>
             <span className="ml-auto text-xs text-muted-foreground">
               {localeNames[locale]}
             </span>
@@ -134,7 +143,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <DollarSign className="mr-2 size-4" />
-            <span>Currency</span>
+            <span>{currencyLabel}</span>
             <span className="ml-auto text-xs text-muted-foreground">
               {currency}
             </span>
@@ -156,7 +165,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Clock className="mr-2 size-4" />
-            <span>Timezone</span>
+            <span>{timezoneLabel}</span>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto">
             {timezones.map((tz) => (

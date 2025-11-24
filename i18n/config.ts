@@ -1,21 +1,14 @@
 import type { StaticImageData } from "next/image";
 
-import UnitedStatesFlagPng from "@public/emojis/united-states-flag.webp";
-import UnitedKingdomFlagPng from "@public/emojis/united-kingdom-flag.webp";
-import SpainFlagPng from "@public/emojis/spain-flag.webp";
-import ChileFlagPng from "@public/emojis/chile-flag.webp";
-import GermanyFlagPng from "@public/emojis/germany-flag.webp";
+import UnitedStatesFlagPng from "@public/images/emojis/united-states-flag.webp";
+import UnitedKingdomFlagPng from "@public/images/emojis/united-kingdom-flag.webp";
+import SpainFlagPng from "@public/images/emojis/spain-flag.webp";
+import ChileFlagPng from "@public/images/emojis/chile-flag.webp";
+import GermanyFlagPng from "@public/images/emojis/germany-flag.webp";
 
-export const locales = [
-  "en",
-  "en-gb",
-  "es",
-  "es-es",
-  "es-cl",
-  "de",
-] as const;
+export const locales = ["en", "en-gb", "es", "es-es", "es-cl", "de"] as const;
 
-export type Locale = typeof locales[number];
+export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 
 export const localeNames: Record<Locale, string> = {
@@ -38,16 +31,25 @@ const baseFlags = {
 
 export const localeFlagImages = baseFlags;
 export const localeFlags = Object.fromEntries(
-  Object.entries(baseFlags).map(([k]) => [k, `/emojis/${k === "en" ? "united-states" :
-  k === "en-gb" ? "united-kingdom" :
-  k === "es" || k === "es-es" ? "spain" :
-  k === "es-cl" ? "chile" : "germany"}-flag.webp`])
+  Object.entries(baseFlags).map(([k]) => [
+    k,
+    `/images/emojis/${
+      k === "en"
+        ? "united-states"
+        : k === "en-gb"
+        ? "united-kingdom"
+        : k === "es" || k === "es-es"
+        ? "spain"
+        : k === "es-cl"
+        ? "chile"
+        : "germany"
+    }-flag.webp`,
+  ])
 ) as Record<Locale, string>;
 
 export const localesJson = Object.fromEntries(
   locales.map((l) => [l, () => import(`@/locales/${l}.json`)])
 ) as Record<Locale, () => Promise<any>>;
-
 
 export function isLocale(value: string): value is Locale {
   return locales.includes(value as Locale);

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import MexicoFlagPng from "../../../public/emojis/mexico-flag.webp";
+import MexicoFlagPng from "../../../public/images/emojis/mexico-flag.webp";
 
 type MexicoFlagProps = {
   width?: number;

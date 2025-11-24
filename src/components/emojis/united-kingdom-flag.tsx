@@ -1,5 +1,5 @@
 import Image from "next/image";
-import UnitedKingdomFlagPng from "../../../public/emojis/united-kingdom-flag.webp";
+import UnitedKingdomFlagPng from "../../../public/images/emojis/united-kingdom-flag.webp";
 
 type UnitedKingdomFlagProps = {
   width?: number;
@@ -30,4 +30,3 @@ export default function UnitedKingdomFlag({
     />
   );
 }
-

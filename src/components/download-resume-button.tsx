@@ -1,6 +1,7 @@
 'use client';
 
-import { ArrowRight, Download, FileText } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
+import { useMessages } from "next-intl";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,6 +34,10 @@ const RESUME_FORMATS: ResumeFormat[] = [
 const RESUME_BASE_PATH = '/documents/nicolas-torres-henriquez-cv-2025';
 
 export default function DownloadResumeButton({ label, className }: DownloadResumeButtonProps) {
+  const messages = useMessages();
+  const selectFormatLabel =
+    (messages as any)?.downloadResume?.selectFormat || "Select Format";
+
   const handleDownload = (extension: string) => {
     const url = `${RESUME_BASE_PATH}.${extension}`;
     const link = document.createElement('a');
@@ -56,7 +61,7 @@ export default function DownloadResumeButton({ label, className }: DownloadResum
       <DropdownMenuContent align="end" className="w-48">
         <DropdownMenuLabel className="flex items-center gap-2">
           <Download className="size-4" />
-          Select Format
+          {selectFormatLabel}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         {RESUME_FORMATS.map((format) => (

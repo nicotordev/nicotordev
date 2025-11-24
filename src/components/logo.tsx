@@ -22,22 +22,12 @@ export default function Logo({
 
   return (
     <span className={className} style={{ display: "inline-block", lineHeight: 0 }}>
-      {/* Light theme logo (default) */}
-      <Image
-        src="/logo/logo-dark.svg"
-        alt={alt}
-        width={width}
-        height={computedHeight}
-        className="dark:hidden"
-        {...(priority ? { priority: true } : {})}
-      />
       {/* Dark theme logo */}
       <Image
-        src="/logo/logo-light.svg"
+        src="/images/logo/logo-light.svg"
         alt={alt}
         width={width}
         height={computedHeight}
-        className="hidden dark:block"
         {...(priority ? { priority: true } : {})}
       />
     </span>

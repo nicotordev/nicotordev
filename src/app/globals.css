@@ -150,6 +150,7 @@
   --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1),
     0 8px 10px -1px hsl(0 0% 0% / 0.1);
   --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  --shadow-primary: 0 0 25px rgba(var(--primary) / 0.1);
 }
 
 @theme inline {
@@ -370,7 +371,7 @@
 .font-permanent-marker {
   font-family: var(--font-permanent-marker) !important;
 }
-. {
+.text-stroke {
   /* A more robust and consistent outline using text-shadow for broad compatibility */
   text-shadow: -1px -1px 0 #1f1f1f, 1px -1px 0 #1f1f1f, -1px 1px 0 #1f1f1f,
     1px 1px 0 #1f1f1f;

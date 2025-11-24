@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GermanyFlagPng from "../../../public/emojis/germany-flag.webp";
+import GermanyFlagPng from "../../../public/images/emojis/germany-flag.webp";
 
 type GermanyFlagProps = {
   width?: number;
@@ -30,4 +30,3 @@ export default function GermanyFlag({
     />
   );
 }
-

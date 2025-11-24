@@ -1,8 +1,11 @@
+"use client";
+
 import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useMessages } from "next-intl";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -176,6 +179,9 @@ function CarouselPrevious({
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
+  const messages = useMessages();
+  const accessibility = (messages as any)?.common?.a11y ?? {};
+  const previousSlideLabel = accessibility.previousSlide || "Previous slide";
 
   return (
     <Button
@@ -194,7 +200,7 @@ function CarouselPrevious({
       {...props}
     >
       <ArrowLeft />
-      <span className="sr-only">Previous slide</span>
+      <span className="sr-only">{previousSlideLabel}</span>
     </Button>
   );
 }
@@ -206,6 +212,9 @@ function CarouselNext({
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
+  const messages = useMessages();
+  const accessibility = (messages as any)?.common?.a11y ?? {};
+  const nextSlideLabel = accessibility.nextSlide || "Next slide";
 
   return (
     <Button
@@ -224,7 +233,7 @@ function CarouselNext({
       {...props}
     >
       <ArrowRight />
-      <span className="sr-only">Next slide</span>
+      <span className="sr-only">{nextSlideLabel}</span>
     </Button>
   );
 }

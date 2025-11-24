@@ -1,8 +1,18 @@
-import Image from "next/image";
 import type messages from "@/locales/es-cl.json";
 import { cn } from "@/lib/utils";
 import PortfolioGallery from "@/components/common/portfolio-gallery";
 import type { BentoSize } from "@/components/common/portfolio-gallery";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Github } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 type AboutSectionMessages = (typeof messages)["about"];
 
 type AboutMeStat = {
@@ -16,6 +26,7 @@ type AboutMeGalleryItem = {
   src: string;
   alt: string;
   size: BentoSize;
+  description?: string;
 };
 
 export interface AboutMeSectionProps {
@@ -48,68 +59,125 @@ export default function AboutMeSection({
     },
     {
       label: translations.metrics.experience,
-      value: translations.metrics.experienceValue,
+      value: translations.metrics.experienceValue.split(" ")[0],
+      suffix: translations.metrics.experienceValue.split(" ")[1],
     },
   ];
 
   const resolvedGallery = gallery ?? [
     {
-      src: "/nicolas/conce-ai.webp",
-      alt: translations.photos?.gallery_1_alt || "AI conference in Concepción",
+      src: "/images/nicolas/conce-ai.webp",
+      alt:
+        translations.gallery?.items?.conceAi?.alt ||
+        translations.photos?.gallery_1_alt ||
+        "Conce AI Logo",
       size: "large",
+      description:
+        translations.gallery?.items?.conceAi?.description ||
+        "The official logo of Conce AI, my technology business.",
     },
     {
-      src: "/nicolas/me-as-psychedelic-wizard.webp",
+      src: "/images/nicolas/nico-as-psychedelic-wizard.webp",
       alt:
-        translations.photos?.gallery_2_alt || "Nico as a psychedelic wizard",
+        translations.gallery?.items?.wizard?.alt ||
+        translations.photos?.gallery_2_alt ||
+        "Nico as a psychedelic wizard",
       size: "wide",
+      description:
+        translations.gallery?.items?.wizard?.description ||
+        "Embracing creativity and magic in code, visualized as a psychedelic wizard.",
     },
     {
-      src: "/nicolas/me_pc.webp",
+      src: "/images/nicolas/nico-pc.webp",
       alt:
+        translations.gallery?.items?.workstation?.alt ||
         translations.photos?.gallery_3_alt ||
         "Nico working on his Computer, Multiple Screens are present",
       size: "square",
+      description:
+        translations.gallery?.items?.workstation?.description ||
+        "Deep in the flow state, surrounded by multiple screens and lines of code.",
     },
     {
-      src: "/nicolas/nico-acid.webp",
-      alt: "Nico's pupils dilated",
+      src: "/images/nicolas/nico-acid.webp",
+      alt: translations.gallery?.items?.acid?.alt || "Nico's pupils dilated",
       size: "wide",
+      description:
+        translations.gallery?.items?.acid?.description ||
+        "A close-up capturing the intensity and focus of a late-night coding session.",
     },
     {
-      src: "/nicolas/nico-psychedelic.webp",
-      alt: "Nico with psychedelic (trippy) effects",
+      src: "/images/nicolas/nico-psychedelic.webp",
+      alt:
+        translations.gallery?.items?.psychedelic?.alt ||
+        "Nico with psychedelic (trippy) effects",
       size: "square",
+      description:
+        translations.gallery?.items?.psychedelic?.description ||
+        "Exploring the intersection of art and technology through psychedelic visuals.",
     },
     {
-      src: "/nicolas/nico-unicorn.webp",
-      alt: "Nico in a unicorn outfit",
+      src: "/images/nicolas/nico-unicorn.webp",
+      alt:
+        translations.gallery?.items?.unicorn?.alt || "Nico in a unicorn outfit",
       size: "wide",
+      description:
+        translations.gallery?.items?.unicorn?.description ||
+        "Never taking life too seriously—rocking a unicorn outfit with pride.",
     },
     {
-      src: "/nicolas/me-and-koka.webp",
-      alt: "Nico with his dog Koka",
+      src: "/images/nicolas/nico-and-koka.webp",
+      alt: translations.gallery?.items?.koka?.alt || "Nico with his dog Koka",
       size: "square",
+      description:
+        translations.gallery?.items?.koka?.description ||
+        "Quality time with my loyal companion, Koka.",
     },
     {
-      src: "/nicolas/me_flowers.webp",
-      alt: "Nico among flowers",
+      src: "/images/nicolas/nico-flowers.webp",
+      alt: translations.gallery?.items?.flowers?.alt || "Nico among flowers",
       size: "wide",
+      description:
+        translations.gallery?.items?.flowers?.description ||
+        "Finding balance and peace in nature, surrounded by flowers.",
     },
     {
-      src: "/nicolas/me_trippy.webp",
-      alt: "Nico with trippy photo effects",
+      src: "/images/nicolas/nico-trippy.webp",
+      alt:
+        translations.gallery?.items?.trippy?.alt ||
+        "Nico with trippy photo effects",
       size: "square",
+      description:
+        translations.gallery?.items?.trippy?.description ||
+        "Experimenting with visual effects to create unique digital experiences.",
     },
     {
-      src: "/nicolas/nico-piercing.webp",
-      alt: "Nico with a piercing in his nose",
+      src: "/images/nicolas/nico-piercing.webp",
+      alt:
+        translations.gallery?.items?.piercing?.alt ||
+        "Nico with a piercing in his nose",
       size: "wide",
+      description:
+        translations.gallery?.items?.piercing?.description ||
+        "Expressing personal style with a nose piercing.",
     },
     {
-      src: "/nicolas/nico-tattoo.webp",
-      alt: "Nico with a tattoo on the back of the neck, a cpu chip",
+      src: "/images/nicolas/nico-tattoo.webp",
+      alt:
+        translations.gallery?.items?.tattoo?.alt ||
+        "Nico with a tattoo on the back of the neck, a cpu chip",
       size: "square",
+      description:
+        translations.gallery?.items?.tattoo?.description ||
+        "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to tech.",
+    },
+    {
+      src: "/images/nicolas/only-koka.jpg",
+      alt: translations.gallery?.items?.onlyKoka?.alt || "Koka, the dog",
+      size: "square",
+      description:
+        translations.gallery?.items?.onlyKoka?.description ||
+        "The real boss of the operation: Koka.",
     },
   ];
 
@@ -153,7 +221,7 @@ export default function AboutMeSection({
           <h1 className="mt-2 text-4xl font-bold tracking-tight text-pretty text-foreground sm:text-5xl font-display">
             {translations.subtitle}
           </h1>
-          <p className="mt-6 text-xl/8 text-balance text-muted-foreground font-sans">
+          <p className="mt-6 text-xl/8 text-balance text-muted-foreground font-serif">
             {translations.description}
           </p>
         </div>
@@ -162,17 +230,22 @@ export default function AboutMeSection({
             <h2 className="text-2xl font-bold tracking-tight text-pretty text-foreground font-display">
               {translations.methodology.title}
             </h2>
-            <p className="mt-6 text-base/7 text-muted-foreground font-sans">
+            <p className="my-6 text-base/7 text-muted-foreground font-serif">
               {translations.methodology.description}
             </p>
-            <div className="mt-8 p-6 rounded-2xl bg-card/50 border border-border/50 backdrop-blur-sm">
-              <h3 className="text-lg font-semibold text-foreground font-display mb-2">
-                {translations.personal.title}
-              </h3>
-              <p className="text-base/7 text-muted-foreground font-sans">
-                {translations.personal.description}
-              </p>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>{translations.personal.title}</CardTitle>
+                <CardDescription>
+                  {translations.personal.subtitle}
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-base/7 text-muted-foreground font-serif">
+                  {translations.personal.description}
+                </p>
+              </CardContent>
+            </Card>
           </div>
           <div className="lg:col-span-1">
             <p className="text-base/7 font-semibold text-accent font-display uppercase tracking-wide">
@@ -180,34 +253,51 @@ export default function AboutMeSection({
             </p>
             <hr className="mt-6 border-t border-border" />
             <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
-              {resolvedStats.map((stat, index) => (
-                <div
-                  key={index}
-                  className={cn(
-                    "flex flex-col gap-y-2 p-4 rounded-xl hover:bg-accent/5 transition-colors duration-300",
-                    index < 2 && "border-b border-dotted border-border pb-4",
-                    index === 2 &&
-                      "max-sm:border-b max-sm:border-dotted max-sm:border-border max-sm:pb-4"
-                  )}
-                >
-                  <dt className="text-sm/6 text-muted-foreground font-sans">
-                    {stat.label}
-                  </dt>
-                  <dd className="order-first text-5xl font-bold tracking-tight text-foreground font-display">
-                    <span className="text-accent">{stat.prefix}</span>
-                    <span>{stat.value}</span>
-                    <span className="text-muted-foreground text-3xl ml-1">
-                      {stat.suffix}
-                    </span>
-                  </dd>
-                </div>
-              ))}
+              {resolvedStats.map((stat, index) => {
+                const isBottomBorder = index < resolvedStats.length - 1; // all except last on mobile
+                const isDesktopRowSeparator = index < 2; // keep your original desktop rule
+
+                return (
+                  <div
+                    key={index}
+                    className={cn(
+                      "flex flex-col gap-2 p-4 rounded-xl transition-colors duration-300",
+                      "hover:bg-accent/5 hover:border-accent",
+                      // mobile: border on all except last
+                      isBottomBorder &&
+                        "border-b border-dotted border-border pb-4",
+                      // desktop: keep your first two with borders
+                      isDesktopRowSeparator &&
+                        "sm:border-b sm:border-dotted sm:border-border"
+                    )}
+                  >
+                    <dt className="text-sm text-muted-foreground font-sans uppercase tracking-wide">
+                      {stat.label}
+                    </dt>
+
+                    <dd className="order-first font-mono tracking-tight">
+                      <span className="text-5xl font-bold gradient-text text-transparent">
+                        {stat.prefix}
+                        {stat.value}
+                      </span>
+
+                      {stat.suffix && (
+                        <span className="ml-1 text-base text-muted-foreground font-ibm-plex-mono">
+                          {stat.suffix}
+                        </span>
+                      )}
+                    </dd>
+                  </div>
+                );
+              })}
             </dl>
           </div>
         </section>
         <section className="mt-16">
           <h3 className="text-2xl font-bold tracking-tight text-foreground font-display mb-8">
-            {translations.galleryTitle || "Gallery"}
+            {translations.gallery?.title ||
+              translations.galleryTitle ||
+              "Gallery"}
           </h3>
           <PortfolioGallery items={resolvedGallery} />
         </section>

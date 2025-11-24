@@ -1,5 +1,5 @@
 import Image from "next/image";
-import UnitedStatesFlagPng from "../../../public/emojis/united-states-flag.webp";
+import UnitedStatesFlagPng from "../../../public/images/emojis/united-states-flag.webp";
 
 type UnitedStatesFlagProps = {
   width?: number;
@@ -30,4 +30,3 @@ export default function UnitedStatesFlag({
     />
   );
 }
-

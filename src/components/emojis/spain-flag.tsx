@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SpainFlagPng from "../../../public/emojis/spain-flag.webp";
+import SpainFlagPng from "../../../public/images/emojis/spain-flag.webp";
 
 type SpainFlagProps = {
   width?: number;
@@ -30,4 +30,3 @@ export default function SpainFlag({
     />
   );
 }
-
