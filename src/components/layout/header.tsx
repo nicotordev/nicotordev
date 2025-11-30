@@ -39,11 +39,13 @@ export default function Header({ navigation, login }: HeaderProps) {
   const { y } = useWindowScroll();
 
   return (
-    <header className={cn("sticky top-4 inset-x-0 z-9999 mx-auto max-w-7xl px-4")}>
+    <header
+      className={cn("sticky top-4 inset-x-0 z-9999 mx-auto max-w-7xl px-4")}
+    >
       <div
         className={cn(
           "relative w-full transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
-          y > 10
+          y > 10 || !y
             ? "bg-background/50 backdrop-blur-xl border-primary/40 shadow-primary supports-backdrop-filter:bg-background/50"
             : "bg-transparent border-transparent shadow-none"
         )}
