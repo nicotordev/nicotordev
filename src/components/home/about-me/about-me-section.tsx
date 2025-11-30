@@ -214,16 +214,27 @@ export default function AboutMeSection({
       </div>
 
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 relative z-10">
-        <div className="max-w-4xl">
-          <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display mb-6">
-            {translations.title}
-          </h2>
-          <h1 className="mt-2 text-4xl font-bold tracking-tight text-pretty text-foreground sm:text-5xl font-display">
-            {translations.subtitle}
-          </h1>
-          <p className="mt-6 text-xl/8 text-balance text-muted-foreground font-serif">
-            {translations.description}
-          </p>
+        <div className="flex flex-col items-center justify-between gap-8 lg:flex-row lg:items-stretch">
+          <div className="w-full lg:w-2/5">
+            <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display mb-6">
+              {translations.title}
+            </h2>
+            <h1 className="mt-2 text-4xl font-bold tracking-tight text-pretty text-foreground sm:text-5xl font-display">
+              {translations.subtitle}
+            </h1>
+            <p className="mt-6 text-xl/8 text-balance text-muted-foreground font-serif">
+              {translations.description}
+            </p>
+          </div>
+          <div className="flex w-full items-center justify-center 3/5">
+            <Image
+              src="/animated/handpicked.webp"
+              alt="Nico handpicked"
+              width={1500}
+              height={1500}
+              className="h-full w-full object-contain"
+            />
+          </div>
         </div>
         <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
           <div className="lg:pr-8">
