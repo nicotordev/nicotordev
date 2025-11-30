@@ -189,8 +189,8 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             </h1>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button className="[box-shadow:var(--shadow-xs)]" asChild>
-                <Link href="#about-section">
+              <Button asChild>
+                <Link href="#about-section" className="shadow-xl">
                   {translations.hero.cta.lets_talk}
                 </Link>
               </Button>
