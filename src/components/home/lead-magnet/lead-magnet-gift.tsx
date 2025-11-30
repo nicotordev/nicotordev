@@ -156,7 +156,7 @@ export default function LeadMagnetGift({
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="hidden sm:block absolute top-1/2 left-[16%] h-[2px] bg-gradient-to-r from-primary/40 to-secondary/30"
+                  className="hidden sm:block absolute top-1/2 left-[16%] h-0.5 bg-linear-to-r from-primary/40 to-secondary/30"
                 />
               )}
               {/* Line 2 -> 3 */}
@@ -165,7 +165,7 @@ export default function LeadMagnetGift({
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="hidden sm:block absolute top-1/2 left-[50%] h-[2px] bg-gradient-to-r from-secondary/30 to-accent/40"
+                  className="hidden sm:block absolute top-1/2 left-[50%] h-0.5 bg-linear-to-r from-secondary/30 to-accent/40"
                 />
               )}
             </div>
@@ -230,6 +230,8 @@ export default function LeadMagnetGift({
               onClick={() => {
                 setIsGiftVisible(false);
                 setClaimedGift();
+                setOptionSelected("FORM");
+                playSound("intro1");
               }}
             >
               {translations?.actions?.close || "Close forever"}{" "}
@@ -282,16 +284,19 @@ export default function LeadMagnetGift({
             {allDone
               ? translations?.actions?.complete ||
                 "Congrats! You've completed all the steps. Now you can unlock the form or claim your gift."
-              : (translations?.actions?.progress ||
-                  "Progress: {completed} of 3 steps completed.")
-                  .replace(
-                    "{completed}",
-                    [
-                      isStepCompleted(LeadMagnetStep.Step1Completed),
-                      isStepCompleted(LeadMagnetStep.Step2Completed),
-                      isStepCompleted(LeadMagnetStep.Step3Completed),
-                    ].filter(Boolean).length.toString()
-                  )}
+              : (
+                  translations?.actions?.progress ||
+                  "Progress: {completed} of 3 steps completed."
+                ).replace(
+                  "{completed}",
+                  [
+                    isStepCompleted(LeadMagnetStep.Step1Completed),
+                    isStepCompleted(LeadMagnetStep.Step2Completed),
+                    isStepCompleted(LeadMagnetStep.Step3Completed),
+                  ]
+                    .filter(Boolean)
+                    .length.toString()
+                )}
           </div>
         </LeadMagnetOverlay>
       )}
