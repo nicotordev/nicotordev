@@ -12,7 +12,9 @@ export const useTimezoneStore = create<TimezoneState>((set) => ({
   timezone: "UTC",
   supported: timezones,
   setTimezone: async (next: Timezone) => {
-    await setTimezoneCookie(next);
-    set({ timezone: next });
+    const result = await setTimezoneCookie(next);
+    if (result?.success) {
+      set({ timezone: next });
+    }
   },
 }));

@@ -10,14 +10,11 @@ import type { Locale } from "@/i18n/config";
  *
  * Usage in Server Components:
  * ```tsx
- * import { cookies } from "next/headers";
  * import { getFormattedPrice } from "@/lib/i18n-helpers";
+ * import { fetchUserPreferences } from "@/lib/clerk/preferences";
  *
  * export default async function PriceDisplay() {
- *   const cookieStore = await cookies();
- *   const locale = cookieStore.get("NEXT_LOCALE")?.value || "en";
- *   const currency = cookieStore.get("NEXT_CURRENCY")?.value || "USD";
- *
+ *   const { locale = "en", currency = "USD" } = await fetchUserPreferences();
  *   const price = getFormattedPrice(1500, locale, currency);
  *   return <div>{price}</div>;
  * }
@@ -54,14 +51,11 @@ export function getFormattedPrice(
  *
  * Usage in Server Components:
  * ```tsx
- * import { cookies } from "next/headers";
+ * import { fetchUserPreferences } from "@/lib/clerk/preferences";
  * import { getFormattedDateTime } from "@/lib/i18n-helpers";
  *
  * export default async function DateDisplay() {
- *   const cookieStore = await cookies();
- *   const locale = cookieStore.get("NEXT_LOCALE")?.value || "en";
- *   const timezone = cookieStore.get("NEXT_TIMEZONE")?.value || "UTC";
- *
+ *   const { locale = "en", timezone = "UTC" } = await fetchUserPreferences();
  *   const date = getFormattedDateTime(new Date(), locale, timezone);
  *   return <div>{date}</div>;
  * }

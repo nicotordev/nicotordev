@@ -12,7 +12,9 @@ export const useCurrencyStore = create<CurrencyState>((set) => ({
   currency: "USD",
   supported: currencies,
   setCurrency: async (next: Currency) => {
-    await setCurrencyCookie(next);
-    set({ currency: next });
+    const result = await setCurrencyCookie(next);
+    if (result?.success) {
+      set({ currency: next });
+    }
   },
 }));
