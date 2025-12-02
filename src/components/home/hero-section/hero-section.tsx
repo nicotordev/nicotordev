@@ -1,62 +1,22 @@
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import ChileFlag from "@/components/emojis/chile-flag";
-import Link from "next/link";
 import DownloadResumeButton from "@/components/download-resume-button";
-import { Badge } from "../../ui/badge";
+import ChileFlag from "@/components/emojis/chile-flag";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Dot } from "lucide-react";
+import { useMessages, useTranslations } from "next-intl";
+import Image from "next/image";
+import Link from "next/link";
+import { Badge } from "../../ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
 import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
-import Image from "next/image";
 
-export interface HeroSectionProps {
-  translations: {
-    navigation: {
-      home: string;
-      about: string;
-      projects: string;
-      blog: string;
-      contact: string;
-    };
-    common: {
-      login: string;
-      a11y?: {
-        media?: Record<string, string>;
-      };
-    };
-    hero: {
-      greeting: string;
-      name: string;
-      title: string;
-      available_for_hire: string;
-      description: string;
-      location: {
-        from: string;
-        tooltip: string;
-      };
-      closing: string;
-      headline: {
-        transform: string;
-        words: string;
-        and: string;
-        ideas: string;
-        into: string;
-        applications: string;
-        web: string;
-        impact: string;
-      };
-      cta: {
-        about: string;
-        download_resume: string;
-        lets_talk: string;
-      };
-    };
-  };
-}
+import type messagesType from "@/locales/es-cl.json";
+type Messages = typeof messagesType;
 
-export default function HeroSection({ translations }: HeroSectionProps) {
-  const media = translations.common?.a11y?.media ?? {};
-
+export default function HeroSection() {
+  const t = useTranslations("hero");
+  const messages = useMessages();
+  const media = messages.common?.a11y?.media ?? {};
   return (
     <div className="bg-background py-12">
       <div className="relative px-6 lg:px-8">
@@ -85,16 +45,14 @@ export default function HeroSection({ translations }: HeroSectionProps) {
               className="relative flex items-center justify-center gap-2 capitalize pl-8 pr-4 py-2 z-60"
             >
               <Dot className="w-16! h-16! absolute -left-3 top-1/2 -translate-y-1/2" />
-              {translations.hero.available_for_hire}
+              {t("available_for_hire")}
             </Badge>
           </div>
           <div className="mb-2 text-center text-muted-foreground font-medium">
             <p className="font-display text-balance tracking-tight pb-0">
-              {translations.hero.greeting}{" "}
-              <span className="font-bold text-accent">
-                {translations.hero.name}
-              </span>
-              , {translations.hero.location.from}{" "}
+              {t("greeting")}{" "}
+              <span className="font-bold text-accent">{t("name")}</span>,{" "}
+              {t("location.from")}{" "}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button variant="link" className="px-2">
@@ -104,22 +62,22 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{translations.hero.location.tooltip}</p>
+                  <p>{t("location.tooltip")}</p>
                 </TooltipContent>
               </Tooltip>
-              , {translations.hero.closing}
+              , {t("closing")}
             </p>
           </div>
           <div className="text-center">
             <h1 className="font-display text-balance text-5xl font-extrabold tracking-tight text-foreground sm:text-7xl leading-[1.2]">
-              {translations.hero.headline.transform}{" "}
+              {t("headline.transform")}{" "}
               <span
                 className={cn(
                   "inline-flex -rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl"
                 )}
               >
                 <span className="text-secondary font-bold font-mono transform-gpu">
-                  {translations.hero.headline.words}
+                  {t("headline.words")}
                 </span>{" "}
                 <picture className="relative top-2">
                   <source
@@ -138,12 +96,10 @@ export default function HeroSection({ translations }: HeroSectionProps) {
               </span>{" "}
               <br />
               <div className="inline-block">
-                <span className="inline-block">
-                  {translations.hero.headline.and}
-                </span>{" "}
+                <span className="inline-block">{t("headline.and")}</span>{" "}
                 <span className="inline-flex rotate-2 rounded-lg bg-card text-background  px-3 py-1 font-mono text-4xl font-bold shadow-sm ring-1 ring-border sm:text-6xl">
                   <span className="text-secondary font-bold font-mono transform-gpu">
-                    {translations.hero.headline.ideas}
+                    {t("headline.ideas")}
                   </span>{" "}
                   <picture className="relative top-2">
                     <source
@@ -160,16 +116,16 @@ export default function HeroSection({ translations }: HeroSectionProps) {
                     />
                   </picture>
                 </span>{" "}
-                {translations.hero.headline.into}{" "}
+                {t("headline.into")}{" "}
                 <span className="gradient-text relative">
-                  {translations.hero.headline.applications}
+                  {t("headline.applications")}
                   <br />
                   <span className="relative right-16 gradient-text">
-                    {translations.hero.headline.web}
+                    {t("headline.web")}
                   </span>
                 </span>{" "}
                 <div className="inline-block relative right-16">
-                  {translations.hero.headline.impact}
+                  {t("headline.impact")}
                   <picture className="absolute -right-32 bottom-0">
                     <source
                       srcSet="/images/illustrations/mechanic-arm.webp"
@@ -191,11 +147,11 @@ export default function HeroSection({ translations }: HeroSectionProps) {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Button asChild>
                 <Link href="#about-section" className="shadow-xl">
-                  {translations.hero.cta.lets_talk}
+                  {t("cta.lets_talk")}
                 </Link>
               </Button>
               <DownloadResumeButton
-                label={translations.hero.cta.download_resume}
+                label={t("cta.download_resume")}
                 className="text-foreground"
               />
             </div>

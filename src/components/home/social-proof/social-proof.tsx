@@ -28,7 +28,7 @@ export default async function SocialProofSection() {
   const textureAlt = media.textureAlt || "Animated texture";
 
   return (
-    <section className="relative flex items-center justify-center bg-background-secondary px-6 sm:px-12 lg:px-24 py-24 sm:py-32">
+    <section className="relative mx-auto max-w-7xl px-6 lg:px-8">
       <Image
         width={1920}
         height={1080}

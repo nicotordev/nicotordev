@@ -1,5 +1,5 @@
-import ReviewList3D from "./review-list-3d";
 import { Badge } from "@/components/ui/badge";
+import ReviewList3D from "./review-list-3d";
 
 function ReviewList3DWrapper() {
   return (
@@ -48,7 +48,7 @@ function ReviewList3DWrapper() {
         <div className="text-center max-w-2xl mx-auto space-y-6">
           <Badge
             variant="outline"
-            className="px-4 py-1 text-sm border-primary/20 text-primary bg-primary/5 backdrop-blur-sm"
+            className="px-4 py-1 text-sm border-secondary-foreground text-secondary-foreground bg-secondary/5 backdrop-blur-sm"
           >
             Testimonials
           </Badge>

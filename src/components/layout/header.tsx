@@ -1,7 +1,11 @@
 "use client";
 
-import { Menu } from "lucide-react";
 import { navigationItems } from "@/app/data";
+import SettingsMenu from "@/components/common/settings-menu";
+import CurrencySwitcher from "@/components/currency-switcher";
+import LanguageSwitcher from "@/components/language-switcher";
+import Logo from "@/components/logo";
+import TimezoneSwitcher from "@/components/timezone-switcher";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,56 +14,60 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import Logo from "@/components/logo";
-import LanguageSwitcher from "@/components/language-switcher";
-import CurrencySwitcher from "@/components/currency-switcher";
-import TimezoneSwitcher from "@/components/timezone-switcher";
-import SettingsMenu from "@/components/common/settings-menu";
-import { useWindowScroll } from "react-use";
 import { cn } from "@/lib/utils";
-import { useMessages } from "next-intl";
+import { Menu } from "lucide-react";
+import { useTranslations, useMessages } from "next-intl";
+import { useRendersCount, useWindowScroll } from "react-use";
 
-export interface HeaderProps {
-  navigation: {
-    home: string;
-    about: string;
-    projects: string;
-    blog: string;
-    contact: string;
+import type messagesType from "@/locales/es-cl.json";
+type Messages = typeof messagesType;
+
+// Header component with responsive breakpoints
+export default function Header() {
+  const tNavigation = useTranslations("navigation");
+  const tCommon = useTranslations("common");
+  const messages = useMessages() as unknown as Messages;
+
+  const navigationAria = messages.navigation?.aria ?? {};
+
+  const logoAlt = messages.common?.a11y?.media?.logoAlt || "NicoTorDev logo";
+
+  const navigation = {
+    home: tNavigation("home"),
+    about: tNavigation("about"),
+    projects: tNavigation("projects"),
+    blog: tNavigation("blog"),
+    contact: tNavigation("contact"),
   };
-  login: string;
-}
 
-export default function Header({ navigation, login }: HeaderProps) {
-  const messages = useMessages();
-  const navigationAria = (messages.navigation as any)?.aria ?? {};
-  const common = messages.common as any;
-  const logoAlt = common?.a11y?.media?.logoAlt || "NicoTorDev logo";
   const navItems = navigationItems(navigation);
   const { y } = useWindowScroll();
+  const hasRender = useRendersCount();
 
   return (
     <header
-      className={cn("sticky top-4 inset-x-0 z-9999 mx-auto max-w-7xl px-4")}
+      className={cn(
+        "left-0 top-0 sticky z-9999 w-full px-4 py-2 flex items-center justify-center"
+      )}
     >
       <div
         className={cn(
           "relative w-full transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
-          y > 10 || !y
+          y > 10 || !y || !hasRender || hasRender > 1
             ? "bg-background/50 backdrop-blur-xl border-primary/40 shadow-primary supports-backdrop-filter:bg-background/50"
             : "bg-transparent border-transparent shadow-none"
         )}
       >
         <nav
           aria-label={navigationAria.global || "Global navigation"}
-          className="relative flex items-center justify-between px-6 py-2 lg:px-8"
+          className="relative flex items-center justify-between px-4 py-2 md:px-6 lg:px-8"
         >
-          <div className="flex lg:flex-1">
+          <div className="flex md:flex-1">
             <Logo width={120} height={30} priority alt={logoAlt} />
           </div>
 
           {/* Mobile menu */}
-          <div className="flex lg:hidden">
+          <div className="flex md:hidden">
             <Sheet>
               <SheetTrigger asChild>
                 <Button
@@ -82,7 +90,7 @@ export default function Header({ navigation, login }: HeaderProps) {
                     <div className="space-y-3 py-6">
                       <div className="px-3">
                         <div className="text-xs font-semibold text-muted-foreground mb-2">
-                          {common?.preferences || "Preferences"}
+                          {tCommon("preferences") || "Preferences"}
                         </div>
                         <div className="space-y-2">
                           <LanguageSwitcher size="default" />
@@ -107,7 +115,7 @@ export default function Header({ navigation, login }: HeaderProps) {
                         href="#"
                         className="block rounded-md px-3 py-2.5 text-base font-semibold text-foreground hover:bg-accent hover:text-accent-foreground"
                       >
-                        {login}
+                        {tCommon("login")}
                       </a>
                     </div>
                   </div>
@@ -117,7 +125,7 @@ export default function Header({ navigation, login }: HeaderProps) {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden lg:flex lg:gap-x-12">
+          <div className="hidden md:flex md:gap-x-6 lg:gap-x-12">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -128,8 +136,8 @@ export default function Header({ navigation, login }: HeaderProps) {
               </a>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-3">
-            <SettingsMenu loginLabel={login} />
+          <div className="hidden md:flex md:flex-1 md:justify-end md:items-center md:gap-3">
+            <SettingsMenu loginLabel={tCommon("login")} />
           </div>
         </nav>
       </div>
