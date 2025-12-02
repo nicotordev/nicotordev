@@ -1,14 +1,16 @@
-import GlassToaster from "@/components/common/glass-toast";
-import StoreInitializer from "@/components/store-initializer";
 import { defaultCurrencyByLocale, isCurrency } from "@/i18n/currency";
 import { routing } from "@/i18n/routing";
 import { defaultTimezoneByLocale, isTimezone } from "@/i18n/timezone";
-import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { cookies } from "next/headers";
 import type { ReactNode } from "react";
+import Providers from "./providers";
 
-export default async function ProvidersWrapper({ children }: { children: ReactNode }) {
+export default async function ProvidersWrapper({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const cookieStore = await cookies();
   const cookieLocale = cookieStore.get("NEXT_LOCALE")?.value;
   const cookieCurrency = cookieStore.get("NEXT_CURRENCY")?.value;
@@ -33,13 +35,13 @@ export default async function ProvidersWrapper({ children }: { children: ReactNo
     ? cookieTimezone!
     : defaultTimezoneByLocale[locale];
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <StoreInitializer
-        initialCurrency={initialCurrency}
-        initialTimezone={initialTimezone}
-      />
-      <GlassToaster />
+    <Providers
+      locale={locale}
+      messages={messages}
+      initialCurrency={initialCurrency}
+      initialTimezone={initialTimezone}
+    >
       {children}
-    </NextIntlClientProvider>
+    </Providers>
   );
 }

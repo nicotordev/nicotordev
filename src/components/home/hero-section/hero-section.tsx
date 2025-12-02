@@ -10,9 +10,6 @@ import { Badge } from "../../ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
 import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
 
-import type messagesType from "@/locales/es-cl.json";
-type Messages = typeof messagesType;
-
 export default function HeroSection() {
   const t = useTranslations("hero");
   const messages = useMessages();

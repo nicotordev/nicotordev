@@ -1,6 +1,5 @@
 import { routing } from "@/i18n/routing";
 import ProvidersWrapper from "@/providers/providers-wrapper";
-import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Suspense, type ReactNode } from "react";
 import {
@@ -33,7 +32,6 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Suspense fallback={null}>
-      <ClerkProvider telemetry={false}>
         <ProvidersWrapper>
           <html
             lang={routing.defaultLocale}
@@ -43,7 +41,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <body className="antialiased">{children}</body>
           </html>
         </ProvidersWrapper>
-      </ClerkProvider>
     </Suspense>
   );
 }
