@@ -33,7 +33,7 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Suspense fallback={null}>
-      <ClerkProvider>
+      <ClerkProvider telemetry={false}>
         <ProvidersWrapper>
           <html
             lang={routing.defaultLocale}
