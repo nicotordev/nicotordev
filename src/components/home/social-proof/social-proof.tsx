@@ -1,6 +1,6 @@
+import { getMessages } from "next-intl/server";
 import Image from "next/image";
 import SocialProofCounterItem from "./social-proof-counter-item";
-import { getMessages } from "next-intl/server";
 
 const stats = [
   { id: 1, key: "jobSuccess", value: 100, rightSymbol: "%", leftSymbol: "" },
@@ -36,19 +36,19 @@ export default async function SocialProofSection() {
         alt={textureAlt}
         className="h-full w-full object-cover z-1 absolute inset-0 aspect-video mix-blend-overlay opacity-30"
       />
-      <div className="mx-auto max-w-7xl flex items-stretch justify-between relative z-10 bg-transparent">
-        <div className="w-2/4 h-auto rounded-2xl shadow-2xl ring-4 ring-accent/30 hover:ring-accent/60 overflow-clip hover-lift">
+      <div className="mx-auto max-w-7xl flex gap-12 lg:flex-row flex-col-reverse items-stretch justify-between relative z-10 bg-transparent">
+        <div className="w-full lg:w-1/2">
           <Image
             alt={t.imageAlt}
             src="/images/nicolas/nico-pc.webp"
             width={1200}
             height={800}
-            className="w-full h-full object-cover rounded-2xl transition-all duration-500 hover:scale-[1.5]"
+            className="w-full h-full object-cover rounded-2xl transition-all duration-500 hover:scale-[1.5] lg:max-w-2xl mx-auto"
             priority
           />
         </div>
-        <div className="px-6 pt-16 pb-24 sm:pt-20 sm:pb-32 lg:col-start-2 lg:px-8 lg:pt-32">
-          <div className="mx-auto max-w-2xl lg:mr-0 lg:max-w-lg">
+        <div className="w-full lg:w-1/2">
+          <div className="mx-auto lg:mr-0 lg:max-w-lg">
             {/* Badge */}
             <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display">
               {t.badge}
@@ -73,7 +73,7 @@ export default async function SocialProofSection() {
             </p>
 
             {/* Stats */}
-            <dl className="mt-16 grid max-w-xl grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 xl:mt-16">
+            <dl className="mt-12 grid max-w-xl grid-cols-1 gap-4 sm:mt-16 sm:grid-cols-2">
               {stats.map((stat) => (
                 <SocialProofCounterItem
                   key={stat.id}

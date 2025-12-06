@@ -223,7 +223,7 @@ export default function AboutMeSection({
         />
       </div>
 
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8 relative z-10">
+      <div className="mx-auto lg:max-w-2xl px-6 lg:px-8 relative z-10">
         <div className="flex flex-col items-center justify-between gap-8 lg:flex-row lg:items-stretch">
           <div className="w-full lg:w-2/5">
             <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display mb-6">
@@ -266,7 +266,7 @@ export default function AboutMeSection({
               </CardContent>
             </Card>
           </div>
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 mt-8 lg:mt-0">
             <p className="text-base/7 font-semibold text-accent font-display uppercase tracking-wide">
               {t("metrics.title")}
             </p>

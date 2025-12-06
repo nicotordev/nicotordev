@@ -15,14 +15,14 @@ export default async function ProblemSection() {
   return (
     <div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl lg:text-center">
-          <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight text-center">
+        <div className="mx-auto lg:max-w-3xl lg:text-center">
+          <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight lg:text-center">
             <span className="relative inline-block mx-1 text-foreground">
               {t.title} <b>{t.titleBold}</b>?
             </span>
           </h2>
 
-          <p className="mt-4 text-xl leading-9 text-muted-foreground text-center">
+          <p className="mt-4 text-xl leading-9 text-muted-foreground lg:text-center">
             {t.subtitle}{" "}
             <span className="font-semibold text-foreground">
               {t.subtitleHighlight}

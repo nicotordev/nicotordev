@@ -20,8 +20,7 @@ export default function ProjectsTitleOverlay({
       className={`${className} pointer-events-none select-none`}
     >
       <h2
-        className="text-center font-stretch-ultra-expanded font-bold w-fit text-white opacity-40 drop-shadow-lg"
-        style={{ fontSize: "12rem" }}
+        className="text-center font-stretch-ultra-expanded font-bold w-fit text-white opacity-40 drop-shadow-lg lg:text-[12rem] text-[6rem]"
       >
         {text}
       </h2>

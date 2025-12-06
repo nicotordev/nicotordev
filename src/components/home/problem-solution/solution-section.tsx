@@ -1,8 +1,7 @@
-import Image from "next/image";
 import { solutionSectionSolutions } from "@/app/data/home";
+import { getMessages } from "next-intl/server";
 import SolutionSectionTitles from "./solution-section-titles";
 import SolutionSectionVideo from "./solution-section-video";
-import { getMessages } from "next-intl/server";
 
 export default async function SolutionSection() {
   const messages = await getMessages();
@@ -18,11 +17,11 @@ export default async function SolutionSection() {
   return (
     <div className="relative pb-24 pt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mt-2 flex items-stretch justify-between">
+        <div className="mt-2 flex lg:flex-row flex-col items-stretch justify-between">
           {/* Left Column: Content */}
-          <div className="w-1/2 flex flex-col justify-center pr-12 order-2 lg:order-1">
-            <div className="max-w-2xl mx-auto lg:mx-0">
-              <div className="max-w-2xl">
+          <div className="lg:w-1/2 flex flex-col justify-center pr-12 order-2 lg:order-1">
+            <div className="lg:max-w-2xl mx-auto lg:mx-0">
+              <div className="lg:max-w-2xl">
                 {/* Title */}
                 <h2 className="text-6xl font-display font-bold tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start">
                   <b className="text-2xl text-foreground">{t.titlePrefix}</b>
@@ -81,7 +80,7 @@ export default async function SolutionSection() {
             </div>
           </div>
 
-          <div className="relative flex w-1/2 order-1 lg:order-2 mt-8 lg:mt-0 justify-center lg:justify-end">
+          <div className="relative flex lg:w-1/2 order-1 lg:order-2 mt-8 lg:mt-0 justify-center lg:justify-end">
             {/* Contenedor principal con aspect-ratio para evitar saltos de layout (CLS) */}
             <div className="relative w-full h-full group">
               {/* Sombra decorativa: Ajustada para que no se corte */}

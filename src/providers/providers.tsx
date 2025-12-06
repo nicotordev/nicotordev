@@ -2,6 +2,7 @@
 import GlassToaster from "@/components/common/glass-toast";
 import StoreInitializer from "@/components/store-initializer";
 import type { routing } from "@/i18n/routing";
+import type { Timezone } from "@/i18n/timezone";
 import { ClerkProvider } from "@clerk/nextjs";
 import { NextIntlClientProvider } from "next-intl";
 import type { Messages } from "@/types/i18n";
@@ -10,7 +11,7 @@ interface Props {
   locale: (typeof routing.locales)[number];
   messages: Messages;
   initialCurrency: string;
-  initialTimezone: string;
+  initialTimezone: Timezone;
 }
 export default function Providers({
   children,
@@ -21,7 +22,11 @@ export default function Providers({
 }: Props) {
   return (
     <ClerkProvider telemetry={false}>
-      <NextIntlClientProvider locale={locale} messages={messages}>
+      <NextIntlClientProvider
+        locale={locale}
+        messages={messages}
+        timeZone={initialTimezone}
+      >
         <StoreInitializer
           initialCurrency={initialCurrency}
           initialTimezone={initialTimezone}

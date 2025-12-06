@@ -37,7 +37,7 @@ export default function LeadMagnet() {
   return (
     <section
       className={cn(
-        "overflow-hidden bg-primary bg-blend-overlay min-h-[80vh] py-24 sm:py-32",
+        "overflow-hidden bg-primary bg-blend-overlay min-h-[80vh] py-16 sm:py-24 lg:py-32",
         "relative"
       )}
       style={{ transform: "translateZ(100%)" }}
@@ -50,7 +50,7 @@ export default function LeadMagnet() {
       <NoiseOverlay />
 
       {/* --- Content Layer --- */}
-      <div className="relative z-10 mx-auto max-w-7xl h-full flex items-center">
+      <div className="relative z-10 mx-auto max-w-7xl h-full flex items-center px-4 sm:px-6 lg:px-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -64,24 +64,24 @@ export default function LeadMagnet() {
             {/* Glass Background */}
             <div className="absolute inset-0 bg-card/30 backdrop-blur-2xl border border-border/50 -z-10 shadow-2xl" />
 
-            <div className="p-8 sm:p-12 lg:p-16">
-              <div className="text-center mb-12">
-                <h2 className="text-4xl font-bold tracking-tight sm:text-5xl text-foreground gradient-text">
+            <div className="p-6 sm:p-10 lg:p-16">
+              <div className="text-center mb-10 sm:mb-12">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground gradient-text">
                   {t?.title}{" "}
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary/40 animate-gradient">
                     {t?.titleHighlight}
                   </span>
                 </h2>
-                <p className="mt-4 text-lg leading-8 text-muted-foreground">
+                <p className="mt-4 text-base sm:text-lg leading-8 text-muted-foreground">
                   {t?.subtitle}
                 </p>
               </div>
 
-              <div className="flex flex-col lg:flex-row gap-12">
+              <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
                 {/* FORM SECTION */}
                 <motion.div layout className="flex-1 relative">
                   {/* Toggle Switch for Minimal Mode */}
-                  <div className="flex justify-end mb-4">
+                  <div className="flex flex-wrap items-center justify-between sm:justify-end gap-3 mb-4">
                     <div className="flex items-center space-x-2 bg-background/20 px-3 py-1.5 rounded-full border border-border/30 backdrop-blur-sm">
                       <Label
                         htmlFor="mode-switch"
@@ -130,7 +130,7 @@ export default function LeadMagnet() {
                 </motion.div>
 
                 {/* TESTIMONIAL SECTION */}
-                <div className="relative lg:w-auto">
+                <div className="relative w-full lg:w-auto mt-4 lg:mt-0">
                   <AnimatePresence mode="popLayout">
                     {isTestimonialVisible ? (
                       <motion.aside
@@ -144,7 +144,7 @@ export default function LeadMagnet() {
                           x: 20,
                           transition: { duration: 0.3 },
                         }}
-                        className="lg:w-80 h-full"
+                        className="w-full lg:w-80 h-full"
                       >
                         <figure className="relative h-full flex flex-col justify-between p-8 rounded-2xl bg-background/40 border border-white/10 backdrop-blur-md">
                           {/* Close Button */}

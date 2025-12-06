@@ -1,7 +1,8 @@
-import {getRequestConfig} from 'next-intl/server';
-import {hasLocale} from 'next-intl';
-import {routing} from './routing';
- 
+import { hasLocale } from "next-intl";
+import { getRequestConfig } from "next-intl/server";
+import { defaultTimezoneByLocale } from "./timezone";
+import { routing } from "./routing";
+
 export default getRequestConfig(async ({requestLocale}) => {
   // Typically corresponds to the `[locale]` segment
   const requested = await requestLocale;
@@ -11,6 +12,7 @@ export default getRequestConfig(async ({requestLocale}) => {
  
   return {
     locale,
+    timeZone: defaultTimezoneByLocale[locale],
     messages: (await import(`../locales/${locale}.json`)).default
   };
 });
