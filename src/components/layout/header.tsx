@@ -2,24 +2,13 @@
 
 import { navigationItems } from "@/app/data";
 import SettingsMenu from "@/components/common/settings-menu";
-import CurrencySwitcher from "@/components/currency-switcher";
-import LanguageSwitcher from "@/components/language-switcher";
 import Logo from "@/components/logo";
-import TimezoneSwitcher from "@/components/timezone-switcher";
-import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
-import { useTranslations, useMessages } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import { useRendersCount, useWindowScroll } from "react-use";
 
 import type messagesType from "@/locales/es-cl.json";
+import HeaderMobileMenu from "./header-mobile-menu";
 type Messages = typeof messagesType;
 
 // Header component with responsive breakpoints
@@ -44,11 +33,10 @@ export default function Header() {
   const { y } = useWindowScroll();
   const hasRender = useRendersCount();
 
-  
   return (
     <header
       className={cn(
-        "left-0 top-0 sticky z-9999 w-full px-4 py-2 flex items-center justify-center"
+        "left-0 top-0 sticky z-9999 max-w-7xl mx-auto px-4 py-2 flex items-center justify-center"
       )}
     >
       <div
@@ -68,62 +56,6 @@ export default function Header() {
           </div>
 
           {/* Mobile menu */}
-          <div className="flex md:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  aria-label={navigationAria.openMainMenu || "Open main menu"}
-                  className="-m-2.5"
-                >
-                  <Menu className="size-6" aria-hidden="true" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-full sm:max-w-sm">
-                <SheetHeader className="p-0">
-                  <SheetTitle className="sr-only">
-                    {navigationAria.mobileMenu || "Mobile Menu"}
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="mt-6">
-                  <div className="divide-y divide-border">
-                    <div className="space-y-3 py-6">
-                      <div className="px-3">
-                        <div className="text-xs font-semibold text-muted-foreground mb-2">
-                          {tCommon("preferences") || "Preferences"}
-                        </div>
-                        <div className="space-y-2">
-                          <LanguageSwitcher size="default" />
-                          <CurrencySwitcher />
-                          <TimezoneSwitcher />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="space-y-2 py-6">
-                      {navItems.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className="block rounded-md px-3 py-2 text-base font-semibold text-foreground hover:bg-accent hover:text-accent-foreground"
-                        >
-                          {item.name}
-                        </a>
-                      ))}
-                    </div>
-                    <div className="py-6">
-                      <a
-                        href="#"
-                        className="block rounded-md px-3 py-2.5 text-base font-semibold text-foreground hover:bg-accent hover:text-accent-foreground"
-                      >
-                        {tCommon("login")}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </SheetContent>
-            </Sheet>
-          </div>
 
           {/* Desktop menu */}
           <div className="hidden md:flex md:gap-x-6 lg:gap-x-12">
@@ -140,6 +72,7 @@ export default function Header() {
           <div className="hidden md:flex md:flex-1 md:justify-end md:items-center md:gap-3">
             <SettingsMenu loginLabel={tCommon("login")} />
           </div>
+          <HeaderMobileMenu messages={messages} navItems={navItems} />
         </nav>
       </div>
     </header>

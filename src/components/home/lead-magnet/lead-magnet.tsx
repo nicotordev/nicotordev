@@ -1,17 +1,19 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
-import {  useState } from "react";
+import PsychedelicBackground from "@/components/backgrounds/psychedelic-background";
+import NoiseOverlay from "@/components/common/noise-overlay";
 import LeadMagnetContactFormMinimal, {
   LeadMagnetContactFormFull,
 } from "@/components/glassmorphism/lead-magnet-contact-forms";
-import NoiseOverlay from "@/components/common/noise-overlay";
-import PsychedelicBackground from "@/components/backgrounds/psychedelic-background";
-import LeadMagnetGift from "./lead-magnet-gift";
-import { useInView } from "react-intersection-observer";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
+import { useState } from "react";
+
 import { cn } from "@/lib/utils";
-import LeadMagnetGiftDialog from "./lead-magnet-gift-dialog";
+import { useInView } from "react-intersection-observer";
+
 import { useMessages } from "next-intl";
 
 export default function LeadMagnet() {
@@ -19,17 +21,13 @@ export default function LeadMagnet() {
   const t = messages.leadMagnet as any;
   const accessibility = (messages.common as any)?.a11y ?? {};
 
-  const sectionLabel =
-    accessibility.leadMagnetSection || "Lead Magnet Section";
+  const sectionLabel = accessibility.leadMagnetSection || "Lead Magnet Section";
   const closeTestimonialLabel =
     accessibility.closeTestimonial || "Close testimonial";
   const showTestimonialLabel =
     accessibility.showTestimonial || "Show testimonial";
 
-  const [optionSelected, setOptionSelected] = useState<"GIFT" | "FORM" | null>(
-    null
-  );
-  const { ref, inView: isContactFormInView } = useInView({
+  const { ref } = useInView({
     threshold: 0.1,
     rootMargin: "-20% 0%",
   });
@@ -53,12 +51,6 @@ export default function LeadMagnet() {
 
       {/* --- Content Layer --- */}
       <div className="relative z-10 mx-auto max-w-7xl h-full flex items-center">
-        <LeadMagnetGift
-          show={isContactFormInView && optionSelected === null}
-          setOptionSelected={setOptionSelected}
-          translations={t?.gift?.experience}
-        />
-
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -88,51 +80,52 @@ export default function LeadMagnet() {
               <div className="flex flex-col lg:flex-row gap-12">
                 {/* FORM SECTION */}
                 <motion.div layout className="flex-1 relative">
-                  {/* Toggle Button for Minimal Mode */}
+                  {/* Toggle Switch for Minimal Mode */}
                   <div className="flex justify-end mb-4">
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => setKeepFormMinimal(!keepFormMinimal)}
-                      className="text-xs bg-background/20 hover:bg-background/30 border border-border/30"
-                    >
-                      {keepFormMinimal ? (
-                        <>
-                          <span className="mr-1" aria-hidden="true">
-                            📋
-                          </span>{" "}
-                          {t?.form?.toggleFull || "Full Form"}
-                        </>
-                      ) : (
-                        <>
-                          <span className="mr-1" aria-hidden="true">
-                            ✉️
-                          </span>{" "}
-                          {t?.form?.toggleMinimal || "Quick Message"}
-                        </>
-                      )}
-                    </Button>
+                    <div className="flex items-center space-x-2 bg-background/20 px-3 py-1.5 rounded-full border border-border/30 backdrop-blur-sm">
+                      <Label
+                        htmlFor="mode-switch"
+                        className="text-xs font-medium cursor-pointer mr-2"
+                      >
+                        {keepFormMinimal ? (
+                          <>
+                            <span className="mr-1" aria-hidden="true">
+                              ✉️
+                            </span>{" "}
+                            {t?.form?.toggleMinimal || "Quick Message"}
+                          </>
+                        ) : (
+                          <>
+                            <span className="mr-1" aria-hidden="true">
+                              📋
+                            </span>{" "}
+                            {t?.form?.toggleFull || "Full Form"}
+                          </>
+                        )}
+                      </Label>
+                      <Switch
+                        id="mode-switch"
+                        checked={keepFormMinimal}
+                        onCheckedChange={setKeepFormMinimal}
+                        className="scale-75 data-[state=checked]:bg-primary"
+                      />
+                    </div>
                   </div>
 
                   <AnimatePresence mode="wait">
-                    {optionSelected === "FORM" ? (
-                      <>
-                        {keepFormMinimal ? (
-                          /* MINIMAL FORM - Single Textarea */
-                          <LeadMagnetContactFormMinimal translations={t?.form} />
-                        ) : (
-                          /* FULL FORM - Individual Fields */
-                          <LeadMagnetContactFormFull translations={t?.form} />
-                        )}
-                      </>
-                    ) : optionSelected === "GIFT" ? (
-                      <LeadMagnetGiftDialog
-                        open={optionSelected === "GIFT"}
-                        onOpenChange={setOptionSelected}
-                        translations={t?.giftDialog}
+                    {keepFormMinimal ? (
+                      /* MINIMAL FORM - Single Textarea */
+                      <LeadMagnetContactFormMinimal
+                        key="minimal"
+                        translations={t?.form}
                       />
-                    ) : null}
+                    ) : (
+                      /* FULL FORM - Individual Fields */
+                      <LeadMagnetContactFormFull
+                        key="full"
+                        translations={t?.form}
+                      />
+                    )}
                   </AnimatePresence>
                 </motion.div>
 
