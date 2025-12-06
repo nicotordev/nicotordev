@@ -44,6 +44,7 @@ export default function Header() {
   const { y } = useWindowScroll();
   const hasRender = useRendersCount();
 
+  
   return (
     <header
       className={cn(

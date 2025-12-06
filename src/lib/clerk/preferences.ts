@@ -1,7 +1,8 @@
-import { auth, clerkClient } from "@clerk/nextjs/server";
+import { auth } from "@clerk/nextjs/server";
+import { clerkClient } from "./clerk-client";
 
-import { isCurrency, type Currency } from "@/i18n/currency";
 import { isLocale, type Locale } from "@/i18n/config";
+import { isCurrency, type Currency } from "@/i18n/currency";
 import { isTimezone, type Timezone } from "@/i18n/timezone";
 
 export type UserPreferences = {
@@ -23,7 +24,7 @@ function sanitizePreferences(value: unknown): UserPreferences {
     return {};
   }
 
-  const record: Record<string, unknown> = value;
+  const record: Record<string, unknown> = value as Record<string, unknown>;
   const prefs: UserPreferences = {};
 
   if (typeof record.currency === "string" && isCurrency(record.currency)) {
@@ -41,13 +42,13 @@ function sanitizePreferences(value: unknown): UserPreferences {
   return prefs;
 }
 
-function getAuthenticatedUserId(): string | null {
-  const { userId } = auth();
+async function getAuthenticatedUserId(): Promise<string | null> {
+  const { userId } = await auth();
   return userId ?? null;
 }
 
 export async function fetchUserPreferences(): Promise<UserPreferences> {
-  const userId = getAuthenticatedUserId();
+  const userId = await getAuthenticatedUserId();
   if (!userId) {
     return {};
   }
@@ -59,7 +60,7 @@ export async function fetchUserPreferences(): Promise<UserPreferences> {
 export async function upsertUserPreferences(
   patch: Partial<UserPreferences>
 ): Promise<PreferenceUpdateResult> {
-  const userId = getAuthenticatedUserId();
+  const userId = await getAuthenticatedUserId();
   if (!userId) {
     return {
       success: false,
