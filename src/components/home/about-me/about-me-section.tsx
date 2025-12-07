@@ -196,7 +196,7 @@ export default function AboutMeSection({
       {/* Background Blobs */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
+        className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80 pointer-events-none"
       >
         <div
           style={{
@@ -210,7 +210,7 @@ export default function AboutMeSection({
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-x-clip blur-3xl sm:top-[calc(100%-30rem)]"
+        className="absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-x-clip blur-3xl sm:top-[calc(100%-30rem)] pointer-events-none"
       >
         <div
           style={{
@@ -223,9 +223,9 @@ export default function AboutMeSection({
         />
       </div>
 
-      <div className="mx-auto lg:max-w-2xl px-6 lg:px-8 relative z-10">
+      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-8 lg:flex-row lg:items-stretch">
-          <div className="w-full lg:w-2/5">
+          <div className="w-full lg:w-5/12 max-w-2xl">
             <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display mb-6">
               {t("title")}
             </h2>
@@ -236,7 +236,7 @@ export default function AboutMeSection({
               {t("description")}
             </p>
           </div>
-          <div className="flex w-full items-center justify-center 3/5">
+          <div className="flex w-full items-center justify-center lg:w-7/12">
             <Image
               src="/animated/handpicked.webp"
               alt="Nico handpicked"

@@ -130,7 +130,7 @@ export default function LeadMagnet() {
                 </motion.div>
 
                 {/* TESTIMONIAL SECTION */}
-                <div className="relative w-full lg:w-auto mt-4 lg:mt-0">
+                <div className="relative w-full lg:w-auto mt-4 lg:mt-0 flex justify-center lg:block">
                   <AnimatePresence mode="popLayout">
                     {isTestimonialVisible ? (
                       <motion.aside
@@ -184,16 +184,16 @@ export default function LeadMagnet() {
                     ) : (
                       <motion.div
                         key="testimonial-trigger"
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0 }}
-                        className="absolute top-0 right-0 lg:relative"
+                        initial={{ opacity: 0, scale: 0.9, y: 6 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: 6 }}
+                        className="flex justify-center lg:justify-end"
                       >
                         <Button
                           variant="outline"
-                          size="icon"
+                          size="sm"
                           onClick={() => setIsTestimonialVisible(true)}
-                          className="rounded-full bg-background/40 border-primary/30 hover:bg-primary/20 w-12 h-12"
+                          className="rounded-full bg-background/60 border-primary/30 hover:bg-primary/20 px-4 py-2 min-w-[3rem]"
                           aria-label={showTestimonialLabel}
                         >
                           <span className="font-bold text-primary text-xs">

@@ -91,7 +91,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
           <span className="sr-only">{settingsLabel}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
+      <DropdownMenuContent align="end" className="w-56 z-[70]">
         <DropdownMenuLabel>{preferencesLabel}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
@@ -104,7 +104,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
               {localeNames[locale]}
             </span>
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent>
+          <DropdownMenuSubContent className="z-[70]">
             {locales.map((l) => (
               <DropdownMenuItem key={l} onClick={() => handleLocaleChange(l)}>
                 <Flag locale={l} />
@@ -124,7 +124,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
               {currency}
             </span>
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto">
+          <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto z-[70]">
             {currencies.map((c) => (
               <DropdownMenuItem key={c} onClick={() => handleCurrencyChange(c)}>
                 <span className="mr-2 text-muted-foreground w-4 text-center">
@@ -143,7 +143,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
             <Clock className="mr-2 size-4" />
             <span>{timezoneLabel}</span>
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto">
+          <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto z-[70]">
             {timezones.map((tz) => (
               <DropdownMenuItem
                 key={tz}
