@@ -44,3 +44,5 @@ next-env.d.ts
 locales/*.d.json.ts
 
 /lib/generated/prisma
+
+.vscode/settings.json
