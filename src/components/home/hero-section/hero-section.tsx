@@ -3,7 +3,7 @@ import ChileFlag from "@/components/emojis/chile-flag";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Dot } from "lucide-react";
-import { useMessages, useTranslations } from "next-intl";
+import { useMessages } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "../../ui/badge";
@@ -11,7 +11,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
 import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
 
 export default function HeroSection() {
-  const t = useTranslations("hero");
   const messages = useMessages();
   const media = messages.common?.a11y?.media ?? {};
   return (
@@ -42,14 +41,16 @@ export default function HeroSection() {
               className="relative flex items-center justify-center gap-2 capitalize pl-8 pr-4 py-2 z-20 w-full sm:w-auto"
             >
               <Dot className="w-16! h-16! absolute -left-3 top-1/2 -translate-y-1/2" />
-              {t("available_for_hire")}
+              {messages.hero.available_for_hire}
             </Badge>
           </div>
           <div className="mb-2 text-center text-muted-foreground font-medium w-full">
             <p className="font-display text-balance tracking-tight pb-0 text-sm sm:text-base">
-              {t("greeting")}{" "}
-              <span className="font-bold text-accent">{t("name")}</span>,{" "}
-              {t("location.from")}{" "}
+              {messages.hero.greeting}{" "}
+              <span className="font-bold text-accent">
+                {messages.hero.name}
+              </span>
+              , {messages.hero.location.from}{" "}
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button variant="link" className="px-1 sm:px-2">
@@ -59,16 +60,16 @@ export default function HeroSection() {
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{t("location.tooltip")}</p>
+                  <p>{messages.hero.location.tooltip}</p>
                 </TooltipContent>
               </Tooltip>
-              , {t("closing")}
+              , {messages.hero.closing}
             </p>
           </div>
           <div className="text-center w-full">
             <h1 className="font-display text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-tight sm:leading-[1.15] space-y-4">
               <span className="block">
-                {t("headline.transform")}{" "}
+                {messages.hero.headline.transform}{" "}
                 <span
                   className={cn(
                     "inline-flex -rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-3xl font-bold shadow-sm ring-1 ring-border",
@@ -76,7 +77,7 @@ export default function HeroSection() {
                   )}
                 >
                   <span className="text-secondary font-bold font-mono transform-gpu">
-                    {t("headline.words")}
+                    {messages.hero.headline.words}
                   </span>
                   <span className="relative ml-2 inline-flex items-center justify-center">
                     <source
@@ -98,7 +99,9 @@ export default function HeroSection() {
               </span>
 
               <span className="block space-y-3">
-                <span className="inline-block">{t("headline.and")}</span>{" "}
+                <span className="inline-block">
+                  {messages.hero.headline.and}
+                </span>{" "}
                 <span
                   className={cn(
                     "inline-flex rotate-2 rounded-lg bg-card text-background px-3 py-1 font-mono text-3xl font-bold shadow-sm ring-1 ring-border",
@@ -106,7 +109,7 @@ export default function HeroSection() {
                   )}
                 >
                   <span className="text-secondary font-bold font-mono transform-gpu">
-                    {t("headline.ideas")}
+                    {messages.hero.headline.ideas}
                   </span>
                   <span className="relative ml-2 inline-flex items-center justify-center">
                     <source
@@ -125,15 +128,19 @@ export default function HeroSection() {
                     />
                   </span>
                 </span>
-                <span className="block sm:inline">{t("headline.into")} </span>
+                <span className="block sm:inline">
+                  {messages.hero.headline.into}
+                </span>{" "}
                 <span className="block sm:inline gradient-text">
-                  {t("headline.applications")}
+                  {messages.hero.headline.applications}
                 </span>{" "}
                 <span className="block sm:inline gradient-text ml-1 sm:ml-2">
-                  {t("headline.web")}
+                  {messages.hero.headline.web}
                 </span>{" "}
                 <span className="block sm:inline-flex flex-wrap items-center justify-center gap-3 sm:gap-4 align-middle ml-1 sm:ml-2">
-                  <span className="leading-tight">{t("headline.impact")}</span>
+                  <span className="leading-tight">
+                    {messages.hero.headline.impact}
+                  </span>
                   <span className="relative inline-flex items-center justify-center mt-2 sm:mt-0">
                     <source
                       srcSet="/images/illustrations/mechanic-arm.webp"
@@ -160,11 +167,11 @@ export default function HeroSection() {
                   href="#about-section"
                   className="w-full sm:w-auto shadow-xl text-center"
                 >
-                  {t("cta.lets_talk")}
+                  {messages.hero.cta.lets_talk}
                 </Link>
               </Button>
               <DownloadResumeButton
-                label={t("cta.download_resume")}
+                label={messages.hero.cta.download_resume}
                 className="text-foreground w-full sm:w-auto"
               />
             </div>
