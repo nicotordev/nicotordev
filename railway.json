@@ -15,7 +15,7 @@
     ]
   },
   "deploy": {
-    "startCommand": "NEXT_TELEMETRY_DISABLED=1 node_modules/.bin/next start -p $PORT",
+    "startCommand": "HOSTNAME=0.0.0.0 PORT=$PORT NODE_ENV=production NODE_OPTIONS=--enable-source-maps node .next/standalone/server.js",
     "healthcheckPath": "/robots.txt",
     "restartPolicyType": "ALWAYS",
     "overlapSeconds": 30,
