@@ -193,7 +193,7 @@ export default function LeadMagnet() {
                           variant="outline"
                           size="sm"
                           onClick={() => setIsTestimonialVisible(true)}
-                          className="rounded-full bg-background/60 border-primary/30 hover:bg-primary/20 px-4 py-2 min-w-[3rem]"
+                          className="rounded-full bg-background/60 border-primary/30 hover:bg-primary/20 px-4 py-2 min-w-12"
                           aria-label={showTestimonialLabel}
                         >
                           <span className="font-bold text-primary text-xs">

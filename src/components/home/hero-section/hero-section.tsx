@@ -78,7 +78,7 @@ export default function HeroSection() {
                   <span className="text-secondary font-bold font-mono transform-gpu">
                     {t("headline.words")}
                   </span>
-                  <picture className="relative ml-2 flex items-center justify-center">
+                  <span className="relative ml-2 inline-flex items-center justify-center">
                     <source
                       srcSet="/images/illustrations/writing.webp"
                       type="image/webp"
@@ -90,9 +90,10 @@ export default function HeroSection() {
                       alt={media.writingAlt || "Hand writing illustration"}
                       width="100"
                       height="100"
-                      className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain"
+                      className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-xl"
+                      unoptimized
                     />
-                  </picture>
+                  </span>
                 </span>
               </span>
 
@@ -107,7 +108,7 @@ export default function HeroSection() {
                   <span className="text-secondary font-bold font-mono transform-gpu">
                     {t("headline.ideas")}
                   </span>
-                  <picture className="relative ml-2 flex items-center justify-center">
+                  <span className="relative ml-2 inline-flex items-center justify-center">
                     <source
                       srcSet="/images/illustrations/lightbulb.webp"
                       type="image/webp"
@@ -119,22 +120,21 @@ export default function HeroSection() {
                       alt={media.lightbulbAlt || "Lightbulb illustration"}
                       width="100"
                       height="100"
-                      className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 object-contain"
+                      className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-xl"
+                      unoptimized
                     />
-                  </picture>
+                  </span>
                 </span>
                 <span className="block sm:inline">{t("headline.into")} </span>
                 <span className="block sm:inline gradient-text">
                   {t("headline.applications")}
-                </span>
-                {" "}
-                <span className="block sm:inline gradient-text">
+                </span>{" "}
+                <span className="block sm:inline gradient-text ml-1 sm:ml-2">
                   {t("headline.web")}
-                </span>
-                {" "}
-                <span className="block sm:inline-flex flex-wrap items-center justify-center gap-3 sm:gap-4 align-middle">
+                </span>{" "}
+                <span className="block sm:inline-flex flex-wrap items-center justify-center gap-3 sm:gap-4 align-middle ml-1 sm:ml-2">
                   <span className="leading-tight">{t("headline.impact")}</span>
-                  <picture className="inline-flex items-center justify-center mt-2 sm:mt-0">
+                  <span className="relative inline-flex items-center justify-center mt-2 sm:mt-0">
                     <source
                       srcSet="/images/illustrations/mechanic-arm.webp"
                       type="image/webp"
@@ -144,18 +144,22 @@ export default function HeroSection() {
                     <Image
                       src="/images/illustrations/mechanic-arm.webp"
                       alt={media.mechanicArmAlt || "Robotic arm illustration"}
-                      width="100"
-                      height="100"
-                      className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain"
+                      width="120"
+                      height="120"
+                      className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain drop-shadow-xl"
+                      unoptimized
                     />
-                  </picture>
+                  </span>
                 </span>
               </span>
             </h1>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full">
               <Button asChild className="w-full sm:w-auto">
-                <Link href="#about-section" className="w-full sm:w-auto shadow-xl text-center">
+                <Link
+                  href="#about-section"
+                  className="w-full sm:w-auto shadow-xl text-center"
+                >
                   {t("cta.lets_talk")}
                 </Link>
               </Button>
