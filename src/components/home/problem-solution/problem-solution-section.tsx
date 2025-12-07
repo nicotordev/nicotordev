@@ -1,8 +1,13 @@
 import ProblemSection from "./problem-section";
 import SolutionSection from "./solution-section";
 import { cn } from "@/lib/utils";
+import type { Messages } from "@/types/i18n";
 
-export default function ProblemSolutionSection() {
+export default function ProblemSolutionSection({
+  messages,
+}: {
+  messages: Messages;
+}) {
   return (
     <section id="problem-solution" className="relative z-10 py-32 sm:pb-42">
       <div
@@ -90,8 +95,11 @@ export default function ProblemSolutionSection() {
           )}
         />
       </div>
-      <ProblemSection />
-      <SolutionSection />
+      <ProblemSection messages={messages.problemSolution?.problem} />
+      <SolutionSection
+        messages={messages.problemSolution?.solution}
+        commonMessages={messages.common}
+      />
     </section>
   );
 }

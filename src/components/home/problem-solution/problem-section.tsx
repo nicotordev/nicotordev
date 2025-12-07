@@ -1,15 +1,27 @@
 import { problemSectionProblems } from "@/app/data/home";
-import { getMessages } from "next-intl/server";
+import type { Messages } from "@/types/i18n";
 
-export default async function ProblemSection() {
-  const messages = await getMessages();
-  const t = messages.problemSolution?.problem as any;
+interface ProblemSectionProps {
+  messages: Messages["problemSolution"]["problem"];
+}
+
+export default function ProblemSection({ messages }: ProblemSectionProps) {
+  const t = messages;
+  const title = t.title || "Tired of developers";
+  const titleBold = t.titleBold || "who do not understand your business";
+  const subtitle = t.subtitle || "You need a";
+  const subtitleHighlight = t.subtitleHighlight || "real engineer";
+  const subtitleEnd =
+    t.subtitleEnd ||
+    ", not a robot. Someone who understands your business and delivers code that moves the needle.";
+  const sectionTitle =
+    t.sectionTitle || "Common problems I see in development teams:";
 
   const problemsWithTranslations = [
-    { ...problemSectionProblems[0], ...t.problems.technicalDebt },
-    { ...problemSectionProblems[1], ...t.problems.noVision },
-    { ...problemSectionProblems[2], ...t.problems.ghostDeadlines },
-    { ...problemSectionProblems[3], ...t.problems.excuses },
+    { ...problemSectionProblems[0], ...t.problems?.technicalDebt },
+    { ...problemSectionProblems[1], ...t.problems?.noVision },
+    { ...problemSectionProblems[2], ...t.problems?.ghostDeadlines },
+    { ...problemSectionProblems[3], ...t.problems?.excuses },
   ];
 
   return (
@@ -17,20 +29,20 @@ export default async function ProblemSection() {
       <div className="mx-auto lg:max-w-3xl lg:text-center">
         <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight lg:text-center">
           <span className="relative inline-block mx-1 text-foreground">
-            {t.title} <b>{t.titleBold}</b>?
+            {title} <b>{titleBold}</b>?
           </span>
         </h2>
 
         <p className="mt-4 text-xl leading-9 text-muted-foreground lg:text-center">
-          {t.subtitle}{" "}
+          {subtitle}{" "}
           <span className="font-semibold text-foreground">
-            {t.subtitleHighlight}
+            {subtitleHighlight}
           </span>
-          {t.subtitleEnd}
+          {subtitleEnd}
           <br />
         </p>
         <aside className="italic text-3xl text-muted-foreground font-light mt-2">
-          {t.sectionTitle}
+          {sectionTitle}
         </aside>
       </div>
       <div className="mx-auto mt-8 max-w-5xl sm:mt-12 lg:mt-16 lg:max-w-6xl">

@@ -14,10 +14,9 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useInView } from "react-intersection-observer";
 
-import { useMessages } from "next-intl";
+import type { Messages } from "@/types/i18n";
 
-export default function LeadMagnet() {
-  const messages = useMessages();
+export default function LeadMagnet({ messages }: { messages: Messages }) {
   const t = messages.leadMagnet as any;
   const accessibility = (messages.common as any)?.a11y ?? {};
 

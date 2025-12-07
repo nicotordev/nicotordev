@@ -387,5 +387,8 @@
         }
       }
     }
+  },
+  "footer": {
+    "opensInNewTab": "(abre en una nueva pestaña)"
   }
 }

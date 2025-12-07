@@ -13,14 +13,17 @@ import {
 } from "@/components/ui/carousel";
 
 import { staticProjects } from "@/app/data/projects";
-import { useMessages } from "next-intl";
+import type { Messages } from "@/types/i18n";
 import ProjectsTitleOverlay from "./projects-title-overlay";
 
-const ProjectsCarousel = () => {
-  const messages = useMessages();
+interface ProjectsCarouselProps {
+  messages: Messages;
+}
+
+const ProjectsCarousel = ({ messages }: ProjectsCarouselProps) => {
   const t = messages.projects?.carousel as any;
   const accessibility = messages.common;
-  const media = accessibility.a11y?.media;
+  const media = accessibility?.a11y?.media;
   const textureAlt = media?.textureAlt || "Animated texture";
 
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();

@@ -2,16 +2,18 @@ import DownloadResumeButton from "@/components/download-resume-button";
 import ChileFlag from "@/components/emojis/chile-flag";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { Messages } from "@/types/i18n";
 import { Dot } from "lucide-react";
-import { useMessages } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "../../ui/badge";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../../ui/tooltip";
 import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
 
-export default function HeroSection() {
-  const messages = useMessages();
+interface HeroSectionProps {
+  messages: Messages;
+}
+export default function HeroSection({ messages }: HeroSectionProps) {
   const media = messages.common?.a11y?.media ?? {};
   return (
     <div className="bg-background py-8 sm:py-10 md:py-12 relative z-10">

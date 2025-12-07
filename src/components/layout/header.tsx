@@ -4,29 +4,26 @@ import { navigationItems } from "@/app/data";
 import SettingsMenu from "@/components/common/settings-menu";
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
-import { useMessages, useTranslations } from "next-intl";
 import { useRendersCount, useWindowScroll } from "react-use";
 
-import type messagesType from "@/locales/es-cl.json";
+import type { Messages } from "@/types/i18n";
 import HeaderMobileMenu from "./header-mobile-menu";
-type Messages = typeof messagesType;
 
 // Header component with responsive breakpoints
-export default function Header() {
-  const tNavigation = useTranslations("navigation");
-  const tCommon = useTranslations("common");
-  const messages = useMessages() as unknown as Messages;
+export default function Header({ messages }: { messages: Messages }) {
+  const navigationMessages = messages.navigation ?? {};
+  const commonMessages = messages.common ?? {};
 
-  const navigationAria = messages.navigation?.aria ?? {};
+  const navigationAria = navigationMessages.aria ?? {};
 
-  const logoAlt = messages.common?.a11y?.media?.logoAlt || "NicoTorDev logo";
+  const logoAlt = commonMessages.a11y?.media?.logoAlt || "NicoTorDev logo";
 
   const navigation = {
-    home: tNavigation("home"),
-    about: tNavigation("about"),
-    projects: tNavigation("projects"),
-    blog: tNavigation("blog"),
-    contact: tNavigation("contact"),
+    home: navigationMessages.home || "Home",
+    about: navigationMessages.about || "About",
+    projects: navigationMessages.projects || "Projects",
+    blog: navigationMessages.blog || "Blog",
+    contact: navigationMessages.contact || "Contact",
   };
 
   const navItems = navigationItems(navigation);
@@ -70,7 +67,7 @@ export default function Header() {
             ))}
           </div>
           <div className="hidden md:flex md:flex-1 md:justify-end md:items-center md:gap-3">
-            <SettingsMenu loginLabel={tCommon("login")} />
+            <SettingsMenu loginLabel={commonMessages.login || "Login"} />
           </div>
           <HeaderMobileMenu messages={messages} navItems={navItems} />
         </nav>

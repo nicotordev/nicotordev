@@ -8,9 +8,9 @@ import SocialProofSection from "@/components/home/social-proof/social-proof";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
 import type { Locale } from "@/i18n/config";
+import type { Messages } from "@/types/i18n";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
-
+import { getMessages, setRequestLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -23,20 +23,21 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale as Locale);
+  const messages: Messages = (await getMessages()) as Messages;
 
   return (
     <>
-      <Header />
+      <Header messages={messages} />
       <main>
-        <HeroSection />
-        <SocialProofSection />
-        <ProblemSolutionSection />
-        <ProjectsCarousel />
-        <ReviewList3DWrapper />
-        <LeadMagnetContactForm />
-        <AboutMeSection />
+        <HeroSection messages={messages} />
+        <SocialProofSection messages={messages} />
+        <ProblemSolutionSection messages={messages} />
+        <ProjectsCarousel messages={messages} />
+        <ReviewList3DWrapper messages={messages} />
+        <LeadMagnetContactForm messages={messages} />
+        <AboutMeSection messages={messages} />
       </main>
-      <Footer />
+      <Footer messages={messages} />
     </>
   );
 }

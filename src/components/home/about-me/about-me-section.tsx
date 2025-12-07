@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import type { Messages } from "@/types/i18n";
 import Image from "next/image";
 
 type AboutMeStat = {
@@ -26,170 +26,186 @@ type AboutMeGalleryItem = {
 };
 
 export interface AboutMeSectionProps {
+  messages: Messages;
   stats?: AboutMeStat[];
   gallery?: AboutMeGalleryItem[];
 }
 
 export default function AboutMeSection({
+  messages,
   stats,
   gallery,
 }: AboutMeSectionProps) {
-  const t = useTranslations("about");
-  const tGallery = useTranslations("about.gallery.items");
-  const tPhotos = useTranslations("about.photos");
+  const aboutMessages = messages.about ?? {};
+  const galleryMessages = aboutMessages.gallery?.items ?? {};
+  const photosMessages = aboutMessages.photos ?? {};
+  const methodologyMessages = aboutMessages.methodology ?? {};
+  const personalMessages = aboutMessages.personal ?? {};
+  const metricsMessages = aboutMessages.metrics ?? {};
+  const methodologyTitle =
+    methodologyMessages.title || "Philosophy and methodology";
+  const methodologyDescription =
+    methodologyMessages.description ||
+    "My way of working is built on clarity, autonomy, and impact.";
+  const metricsTitle = metricsMessages.title || "Highlighted metrics";
+  const metricsSubtitle = metricsMessages.subtitle || "Real impact";
+
+  const experienceValueRaw = metricsMessages.experienceValue || "2.5+ years";
+  const [experienceValue, ...experienceSuffixParts] = experienceValueRaw.split(
+    " "
+  );
+  const experienceSuffix = experienceSuffixParts.join(" ").trim();
 
   const resolvedStats = stats ?? [
     {
-      label: t("metrics.total_earnings"),
+      label: metricsMessages.total_earnings || "Total earnings",
       prefix: "$",
       value: "50",
       suffix: "K+",
     },
     {
-      label: t("metrics.hours"),
+      label: metricsMessages.hours || "Hours worked",
       value: "~3.6K",
       suffix: " hrs",
     },
     {
-      label: t("metrics.success"),
+      label: metricsMessages.success || "Success rate",
       value: "99.99",
       suffix: "%",
     },
     {
-      label: t("metrics.experience"),
-      value: t("metrics.experienceValue").split(" ")[0],
-      suffix: t("metrics.experienceValue").split(" ")[1],
+      label: metricsMessages.experience || "Experience",
+      value: experienceValue || experienceValueRaw,
+      suffix: experienceSuffix || "",
     },
   ];
 
   const resolvedGallery = gallery ?? [
     {
       src: "/images/nicolas/conce-ai.webp",
-      alt: tGallery.has("conceAi.alt")
-        ? tGallery("conceAi.alt")
-        : tPhotos.has("gallery_1_alt")
-        ? tPhotos("gallery_1_alt")
-        : "Conce AI Logo",
+      alt:
+        galleryMessages.conceAi?.alt ||
+        photosMessages.gallery_1_alt ||
+        "Conce AI Logo",
       size: "large",
-      description: tGallery.has("conceAi.description")
-        ? tGallery("conceAi.description")
-        : "The official logo of Conce AI, my technology business.",
+      description:
+        galleryMessages.conceAi?.description ||
+        "The official logo of Conce AI, my technology business.",
     },
     {
       src: "/images/nicolas/nico-as-psychedelic-wizard.webp",
-      alt: tGallery.has("wizard.alt")
-        ? tGallery("wizard.alt")
-        : tPhotos.has("gallery_2_alt")
-        ? tPhotos("gallery_2_alt")
-        : "Nico as a psychedelic wizard",
+      alt:
+        galleryMessages.wizard?.alt ||
+        photosMessages.gallery_2_alt ||
+        "Nico as a psychedelic wizard",
       size: "wide",
-      description: tGallery.has("wizard.description")
-        ? tGallery("wizard.description")
-        : "Embracing creativity and magic in code, visualized as a psychedelic wizard.",
+      description:
+        galleryMessages.wizard?.description ||
+        "Embracing creativity and magic in code, visualized as a psychedelic wizard.",
     },
     {
       src: "/images/nicolas/nico-pc.webp",
-      alt: tGallery.has("workstation.alt")
-        ? tGallery("workstation.alt")
-        : tPhotos.has("gallery_3_alt")
-        ? tPhotos("gallery_3_alt")
-        : "Nico working on his Computer, Multiple Screens are present",
+      alt:
+        galleryMessages.workstation?.alt ||
+        photosMessages.gallery_3_alt ||
+        "Nico working on his Computer, Multiple Screens are present",
       size: "square",
-      description: tGallery.has("workstation.description")
-        ? tGallery("workstation.description")
-        : "Deep in the flow state, surrounded by multiple screens and lines of code.",
+      description:
+        galleryMessages.workstation?.description ||
+        "Deep in the flow state, surrounded by multiple screens and lines of code.",
     },
     {
       src: "/images/nicolas/nico-acid.webp",
-      alt: tGallery.has("acid.alt")
-        ? tGallery("acid.alt")
-        : "Nico's pupils dilated",
+      alt: galleryMessages.acid?.alt || "Nico's pupils dilated",
       size: "wide",
-      description: tGallery.has("acid.description")
-        ? tGallery("acid.description")
-        : "A close-up capturing the intensity and focus of a late-night coding session.",
+      description:
+        galleryMessages.acid?.description ||
+        "A close-up capturing the intensity and focus of a late-night coding session.",
     },
     {
       src: "/images/nicolas/nico-psychedelic.webp",
-      alt: tGallery.has("psychedelic.alt")
-        ? tGallery("psychedelic.alt")
-        : "Nico with psychedelic (trippy) effects",
+      alt: galleryMessages.psychedelic?.alt || "Nico with psychedelic effects",
       size: "square",
-      description: tGallery.has("psychedelic.description")
-        ? tGallery("psychedelic.description")
-        : "Exploring the intersection of art and technology through psychedelic visuals.",
+      description:
+        galleryMessages.psychedelic?.description ||
+        "Exploring the intersection of art and technology through psychedelic visuals.",
     },
     {
       src: "/images/nicolas/nico-unicorn.webp",
-      alt: tGallery.has("unicorn.alt")
-        ? tGallery("unicorn.alt")
-        : "Nico in a unicorn outfit",
+      alt: galleryMessages.unicorn?.alt || "Nico in a unicorn outfit",
       size: "wide",
-      description: tGallery.has("unicorn.description")
-        ? tGallery("unicorn.description")
-        : "Never taking life too seriously—rocking a unicorn outfit with pride.",
+      description:
+        galleryMessages.unicorn?.description ||
+        "Never taking life too seriously—rocking a unicorn outfit with pride.",
     },
     {
       src: "/images/nicolas/nico-and-koka.webp",
-      alt: tGallery.has("koka.alt")
-        ? tGallery("koka.alt")
-        : "Nico with his dog Koka",
+      alt: galleryMessages.koka?.alt || "Nico with his dog Koka",
       size: "square",
-      description: tGallery.has("koka.description")
-        ? tGallery("koka.description")
-        : "Quality time with my loyal companion, Koka.",
+      description:
+        galleryMessages.koka?.description ||
+        "Quality time with my loyal companion, Koka.",
     },
     {
       src: "/images/nicolas/nico-flowers.webp",
-      alt: tGallery.has("flowers.alt")
-        ? tGallery("flowers.alt")
-        : "Nico among flowers",
+      alt: galleryMessages.flowers?.alt || "Nico among flowers",
       size: "wide",
-      description: tGallery.has("flowers.description")
-        ? tGallery("flowers.description")
-        : "Finding balance and peace in nature, surrounded by flowers.",
+      description:
+        galleryMessages.flowers?.description ||
+        "Finding balance and peace in nature, surrounded by flowers.",
     },
     {
       src: "/images/nicolas/nico-trippy.webp",
-      alt: tGallery.has("trippy.alt")
-        ? tGallery("trippy.alt")
-        : "Nico with trippy photo effects",
+      alt: galleryMessages.trippy?.alt || "Nico with trippy photo effects",
       size: "square",
-      description: tGallery.has("trippy.description")
-        ? tGallery("trippy.description")
-        : "Experimenting with visual effects to create unique digital experiences.",
+      description:
+        galleryMessages.trippy?.description ||
+        "Experimenting with visual effects to create unique digital experiences.",
     },
     {
       src: "/images/nicolas/nico-piercing.webp",
-      alt: tGallery.has("piercing.alt")
-        ? tGallery("piercing.alt")
-        : "Nico with a piercing in his nose",
+      alt: galleryMessages.piercing?.alt || "Nico with a nose piercing",
       size: "wide",
-      description: tGallery.has("piercing.description")
-        ? tGallery("piercing.description")
-        : "Expressing personal style with a nose piercing.",
+      description:
+        galleryMessages.piercing?.description ||
+        "Expressing personal style with a nose piercing.",
     },
     {
       src: "/images/nicolas/nico-tattoo.webp",
-      alt: tGallery.has("tattoo.alt")
-        ? tGallery("tattoo.alt")
-        : "Nico with a tattoo on the back of the neck, a cpu chip",
+      alt:
+        galleryMessages.tattoo?.alt ||
+        "Nico with a tattoo on the back of the neck, a cpu chip",
       size: "square",
-      description: tGallery.has("tattoo.description")
-        ? tGallery("tattoo.description")
-        : "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to tech.",
+      description:
+        galleryMessages.tattoo?.description ||
+        "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to tech.",
     },
     {
       src: "/images/nicolas/only-koka.jpg",
-      alt: tGallery.has("onlyKoka.alt")
-        ? tGallery("onlyKoka.alt")
-        : "Koka, the dog",
+      alt: galleryMessages.onlyKoka?.alt || "Koka, the dog",
       size: "square",
-      description: tGallery.has("onlyKoka.description")
-        ? tGallery("onlyKoka.description")
-        : "The real boss of the operation: Koka.",
+      description:
+        galleryMessages.onlyKoka?.description ||
+        "The real boss of the operation: Koka.",
     },
   ];
+
+  const aboutTitle = aboutMessages.title || "About me";
+  const aboutSubtitle =
+    aboutMessages.subtitle || "Building software with soul and precision";
+  const aboutDescription =
+    aboutMessages.description ||
+    "I transform ideas into platforms that blend art, engineering, and intention.";
+  const personalTitle = personalMessages.title || "Beyond the code";
+  const personalSubtitle =
+    personalMessages.subtitle || "Who am I? A curious builder.";
+  const personalDescription =
+    personalMessages.description ||
+    "Between commits and coffee, I explore AI, write, and build responsibly.";
+  const galleryTitle =
+    aboutMessages.gallery?.title ||
+    aboutMessages.galleryTitle ||
+    "Gallery";
 
   return (
     <div className="relative py-24 sm:py-32">
@@ -227,13 +243,13 @@ export default function AboutMeSection({
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="w-full lg:w-5/12">
             <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display mb-6">
-              {t("title")}
+              {aboutTitle}
             </h2>
             <h1 className="mt-2 text-4xl font-bold tracking-tight text-pretty text-foreground sm:text-5xl font-display">
-              {t("subtitle")}
+              {aboutSubtitle}
             </h1>
             <p className="mt-6 text-xl/8 text-balance text-muted-foreground font-serif">
-              {t("description")}
+              {aboutDescription}
             </p>
           </div>
           <div className="flex w-full items-center justify-center lg:w-7/12">
@@ -249,26 +265,26 @@ export default function AboutMeSection({
         <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
           <div className="lg:pr-8">
             <h2 className="text-2xl font-bold tracking-tight text-pretty text-foreground font-display">
-              {t("methodology.title")}
+              {methodologyTitle}
             </h2>
             <p className="my-6 text-base/7 text-muted-foreground font-serif">
-              {t("methodology.description")}
+              {methodologyDescription}
             </p>
             <Card>
               <CardHeader>
-                <CardTitle>{t("personal.title")}</CardTitle>
-                <CardDescription>{t("personal.subtitle")}</CardDescription>
+                <CardTitle>{personalTitle}</CardTitle>
+                <CardDescription>{personalSubtitle}</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-base/7 text-muted-foreground font-serif">
-                  {t("personal.description")}
+                  {personalDescription}
                 </p>
               </CardContent>
             </Card>
           </div>
           <div className="lg:col-span-1 mt-8 lg:mt-0">
             <p className="text-base/7 font-semibold text-accent font-display uppercase tracking-wide">
-              {t("metrics.title")}
+              {metricsTitle}
             </p>
             <hr className="mt-6 border-t border-border" />
             <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
@@ -314,11 +330,7 @@ export default function AboutMeSection({
         </section>
         <section className="mt-16">
           <h3 className="text-2xl font-bold tracking-tight text-foreground font-display mb-8">
-            {t.has("gallery.title")
-              ? t("gallery.title")
-              : t.has("galleryTitle")
-              ? t("galleryTitle")
-              : "Gallery"}
+            {galleryTitle}
           </h3>
           <PortfolioGallery items={resolvedGallery} />
         </section>

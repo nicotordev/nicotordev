@@ -1,5 +1,7 @@
+"use client";
+
+import type { Messages } from "@/types/i18n";
 import { Menu } from "lucide-react";
-import { useTranslations } from "next-intl";
 import CurrencySwitcher from "../currency-switcher";
 import LanguageSwitcher from "../language-switcher";
 import TimezoneSwitcher from "../timezone-switcher";
@@ -13,14 +15,7 @@ import {
 } from "../ui/sheet";
 
 interface HeaderMobileMenuProps {
-  messages: {
-    navigation?: {
-      aria?: {
-        openMainMenu?: string;
-        mobileMenu?: string;
-      };
-    };
-  };
+  messages: Messages;
   navItems: {
     name: string;
     href: string;
@@ -28,8 +23,8 @@ interface HeaderMobileMenuProps {
 }
 
 export default function HeaderMobileMenu({ messages, navItems }: HeaderMobileMenuProps) {
-  const tCommon = useTranslations("common");
   const navigationAria = messages.navigation?.aria ?? {};
+  const commonMessages = messages.common ?? {};
   return (
     <div className="flex md:hidden">
       <Sheet>
@@ -54,7 +49,7 @@ export default function HeaderMobileMenu({ messages, navItems }: HeaderMobileMen
               <div className="space-y-3 py-6">
                 <div className="px-3">
                   <div className="text-xs font-semibold text-muted-foreground mb-2">
-                    {tCommon("preferences") || "Preferences"}
+                    {commonMessages.preferences || "Preferences"}
                   </div>
                   <div className="space-y-2">
                     <LanguageSwitcher size="default" />
@@ -79,7 +74,7 @@ export default function HeaderMobileMenu({ messages, navItems }: HeaderMobileMen
                   href="#"
                   className="block rounded-md px-3 py-2.5 text-base font-semibold text-foreground hover:bg-accent hover:text-accent-foreground"
                 >
-                  {tCommon("login")}
+                  {commonMessages.login || "Login"}
                 </a>
               </div>
             </div>

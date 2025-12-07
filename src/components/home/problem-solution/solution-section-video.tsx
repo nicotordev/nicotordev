@@ -1,9 +1,14 @@
+import type { Messages } from "@/types/i18n";
 import Image from "next/image";
-import { getMessages } from "next-intl/server";
 
-export default async function SolutionSectionVideo() {
-  const messages = await getMessages();
-  const accessibility = (messages.common as any)?.a11y ?? {};
+interface SolutionSectionVideoProps {
+  commonMessages: Messages["common"];
+}
+
+export default function SolutionSectionVideo({
+  commonMessages,
+}: SolutionSectionVideoProps) {
+  const accessibility = commonMessages?.a11y ?? {};
   const media = accessibility.media ?? {};
   const altText = media.codingAlt || "Animated illustration of coding";
 

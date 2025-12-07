@@ -1,17 +1,24 @@
 import { solutionSectionSolutions } from "@/app/data/home";
-import { getMessages } from "next-intl/server";
+import type { Messages } from "@/types/i18n";
 import SolutionSectionTitles from "./solution-section-titles";
 import SolutionSectionVideo from "./solution-section-video";
 
-export default async function SolutionSection() {
-  const messages = await getMessages();
-  const t = messages.problemSolution?.solution as any;
+interface SolutionSectionProps {
+  messages: Messages["problemSolution"]["solution"];
+  commonMessages: Messages["common"];
+}
+
+export default function SolutionSection({
+  messages,
+  commonMessages,
+}: SolutionSectionProps) {
+  const t = messages ?? {};
 
   const solutionsWithTranslations = [
-    { ...solutionSectionSolutions[0], ...t.solutions.scalableArchitecture },
-    { ...solutionSectionSolutions[1], ...t.solutions.productPartner },
-    { ...solutionSectionSolutions[2], ...t.solutions.totalOwnership },
-    { ...solutionSectionSolutions[3], ...t.solutions.radicalTransparency },
+    { ...solutionSectionSolutions[0], ...t.solutions?.scalableArchitecture },
+    { ...solutionSectionSolutions[1], ...t.solutions?.productPartner },
+    { ...solutionSectionSolutions[2], ...t.solutions?.totalOwnership },
+    { ...solutionSectionSolutions[3], ...t.solutions?.radicalTransparency },
   ];
 
   return (
@@ -23,30 +30,32 @@ export default async function SolutionSection() {
             <div className="mx-auto lg:mx-0 w-full">
               {/* Title */}
               <h2 className="text-5xl sm:text-6xl font-display font-bold tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start">
-                <b className="text-2xl text-foreground">{t.titlePrefix}</b>
-                <SolutionSectionTitles />
+                <b className="text-2xl text-foreground">
+                  {t.titlePrefix || "Software engineering with"}
+                </b>
+                <SolutionSectionTitles titles={t.rotatingTitles || []} />
               </h2>
               <p className="mt-4 text-lg sm:text-xl leading-8 sm:leading-9 text-muted-foreground text-left">
-                {t.subtitle}{" "}
+                {t.subtitle || "Beyond writing code,"}{" "}
                 <b className="font-semibold text-foreground">
-                  {t.subtitleBold1}{" "}
+                  {t.subtitleBold1 || "I build digital assets."}{" "}
                 </b>
-                {t.subtitleText}{" "}
+                {t.subtitleText || "My approach combines"}{" "}
                 <b className="font-semibold text-foreground">
-                  {t.subtitleBold2}
+                  {t.subtitleBold2 || "technical excellence"}
                 </b>{" "}
-                {t.subtitleWith}{" "}
+                {t.subtitleWith || "with"}{" "}
                 <b className="font-semibold text-foreground">
-                  {t.subtitleBold3}
+                  {t.subtitleBold3 || "business vision"}
                 </b>{" "}
-                {t.subtitleTo}{" "}
+                {t.subtitleTo || "to"}{" "}
                 <b className="font-semibold text-primary">
-                  {t.subtitleBold4}
+                  {t.subtitleBold4 || "deliver lasting results"}
                 </b>
                 .
               </p>
               <aside className="italic text-2xl sm:text-3xl text-muted-foreground font-light mt-2 mb-4 text-left">
-                {t.sectionTitle}
+                {t.sectionTitle || "How I transform your project:"}
               </aside>
 
               <dl className="space-y-5">
@@ -86,7 +95,7 @@ export default async function SolutionSection() {
 
               <div className="relative h-full w-full">
                 {/* VIDEO: Añadido playsInline y pointer-events-none */}
-                <SolutionSectionVideo />
+                <SolutionSectionVideo commonMessages={commonMessages} />
               </div>
             </div>
           </div>
