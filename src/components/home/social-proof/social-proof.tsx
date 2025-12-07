@@ -28,7 +28,7 @@ export default async function SocialProofSection() {
   const textureAlt = media.textureAlt || "Animated texture";
 
   return (
-    <section className="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative">
       <Image
         width={1920}
         height={1080}
@@ -36,14 +36,14 @@ export default async function SocialProofSection() {
         alt={textureAlt}
         className="h-full w-full object-cover z-1 absolute inset-0 aspect-video mix-blend-overlay opacity-30"
       />
-      <div className="mx-auto max-w-7xl flex gap-12 lg:flex-row flex-col-reverse items-stretch justify-between relative z-10 bg-transparent">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 flex gap-10 lg:gap-12 lg:flex-row flex-col-reverse items-stretch justify-between relative z-10 bg-transparent">
         <div className="w-full lg:w-1/2">
           <Image
             alt={t.imageAlt}
             src="/images/nicolas/nico-pc.webp"
             width={1200}
             height={800}
-            className="w-full h-full object-cover rounded-2xl transition-all duration-500 hover:scale-[1.5] lg:max-w-2xl mx-auto"
+            className="w-full h-full object-cover rounded-2xl transition-all duration-500 hover:scale-[1.5] max-w-full"
             priority
           />
         </div>
@@ -55,13 +55,13 @@ export default async function SocialProofSection() {
             </h2>
 
             {/* Title */}
-            <p className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl font-display">
+            <p className="mt-4 text-4xl font-bold tracking-tight text-foreground sm:text-5xl font-display text-left">
               {t.title}{" "}
               <span className="gradient-text">{t.titleHighlight}</span>{" "}
               {t.titleEnd}
             </p>
 
-            <p className="mt-6 text-lg leading-8 text-muted-foreground font-sans">
+            <p className="mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-muted-foreground font-sans text-left">
               {t.description.intro}{" "}
               <span className="font-bold text-foreground">
                 {t.description.name}

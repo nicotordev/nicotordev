@@ -103,46 +103,47 @@ const ProjectsCarousel = () => {
         text={t?.title || "Projects I've Built"}
       />
 
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="absolute bottom-32 left-8 z-30"
-      >
-        <Button
-          size="icon"
-          variant="outline"
-          onClick={() => {
-            carouselApi?.scrollPrev();
-          }}
-          disabled={!canScrollPrev}
-          className="disabled:pointer-events-auto bg-gray-900/30 backdrop-blur-md border-white/20 text-white hover:bg-gray-900/50 hover:text-white disabled:opacity-30 shadow-sm transition-all duration-300 rounded-full size-16"
+      <div className="relative z-20 mx-auto w-full max-w-6xl px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="absolute -bottom-20 left-0 sm:left-6 md:left-8 z-30"
         >
-          <ArrowLeft className="size-8" />
-        </Button>
-      </motion.div>
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => {
+              carouselApi?.scrollPrev();
+            }}
+            disabled={!canScrollPrev}
+            className="disabled:pointer-events-auto bg-gray-900/30 backdrop-blur-md border-white/20 text-white hover:bg-gray-900/50 hover:text-white disabled:opacity-30 shadow-sm transition-all duration-300 rounded-full size-14 sm:size-16"
+          >
+            <ArrowLeft className="size-7 sm:size-8" />
+          </Button>
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        className="absolute top-32 right-8 z-30"
-      >
-        <Button
-          size="icon"
-          variant="outline"
-          onClick={() => {
-            carouselApi?.scrollNext();
-          }}
-          disabled={!canScrollNext}
-          className="disabled:pointer-events-auto bg-gray-900/30 backdrop-blur-md border-white/20 text-white hover:bg-gray-900/50 hover:text-white disabled:opacity-30 shadow-sm transition-all duration-300 rounded-full size-16"
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="absolute -top-20 right-0 sm:right-6 md:right-8 z-30"
         >
-          <ArrowRight className="size-8" />
-        </Button>
-      </motion.div>
-      <div className="w-full relative z-20">
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => {
+              carouselApi?.scrollNext();
+            }}
+            disabled={!canScrollNext}
+            className="disabled:pointer-events-auto bg-gray-900/30 backdrop-blur-md border-white/20 text-white hover:bg-gray-900/50 hover:text-white disabled:opacity-30 shadow-sm transition-all duration-300 rounded-full size-14 sm:size-16"
+          >
+            <ArrowRight className="size-7 sm:size-8" />
+          </Button>
+        </motion.div>
+
         <Carousel
           setApi={setCarouselApi}
           opts={{
@@ -151,11 +152,11 @@ const ProjectsCarousel = () => {
           }}
           className="relative w-full max-w-full"
         >
-          <CarouselContent className="w-full max-w-full -ml-4 px-6 lg:px-8">
+          <CarouselContent className="w-full max-w-full -ml-4 px-2 sm:px-4">
             {staticProjects.map((item, index) => (
               <CarouselItem
                 key={item.id}
-                className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4 max-w-[450px]"
+                className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}

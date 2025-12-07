@@ -36,12 +36,12 @@ export default function Header() {
   return (
     <header
       className={cn(
-        "left-0 top-0 sticky z-9999 max-w-7xl mx-auto px-4 py-2 flex items-center justify-center"
+        "left-0 top-0 sticky z-9999 w-full py-2 flex items-center justify-center"
       )}
     >
       <div
         className={cn(
-          "relative w-full transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
+          "relative w-full max-w-6xl px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
           y > 10 || !y || !hasRender || hasRender > 1
             ? "bg-background/50 backdrop-blur-xl border-primary/40 shadow-primary supports-backdrop-filter:bg-background/50"
             : "bg-transparent border-transparent shadow-none"
@@ -49,7 +49,7 @@ export default function Header() {
       >
         <nav
           aria-label={navigationAria.global || "Global navigation"}
-          className="relative flex items-center justify-between px-4 py-2 md:px-6 lg:px-8"
+          className="relative flex items-center justify-between gap-4 py-2"
         >
           <div className="flex md:flex-1">
             <Logo width={120} height={30} priority alt={logoAlt} />

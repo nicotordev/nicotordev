@@ -224,8 +224,8 @@ export default function AboutMeSection({
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-8 lg:flex-row lg:items-stretch">
-          <div className="w-full lg:w-5/12 max-w-2xl">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="w-full lg:w-5/12">
             <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display mb-6">
               {t("title")}
             </h2>

@@ -16,7 +16,7 @@ export default function HeroSection() {
   const media = messages.common?.a11y?.media ?? {};
   return (
     <div className="bg-background py-8 sm:py-10 md:py-12 relative z-10">
-      <div className="relative px-4 sm:px-6 lg:px-8 mx-auto max-w-screen-2xl">
+      <div className="relative px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80 pointer-events-none"
@@ -132,29 +132,26 @@ export default function HeroSection() {
                   {t("headline.web")}
                 </span>
                 {" "}
-                <span className="block sm:inline-flex items-center justify-center gap-3 sm:gap-4">
-                  <span>{t("headline.impact")}</span>
+                <span className="block sm:inline-flex flex-wrap items-center justify-center gap-3 sm:gap-4 align-middle">
+                  <span className="leading-tight">{t("headline.impact")}</span>
+                  <picture className="inline-flex items-center justify-center mt-2 sm:mt-0">
+                    <source
+                      srcSet="/images/illustrations/mechanic-arm.webp"
+                      type="image/webp"
+                      width="100"
+                      height="100"
+                    />
+                    <Image
+                      src="/images/illustrations/mechanic-arm.webp"
+                      alt={media.mechanicArmAlt || "Robotic arm illustration"}
+                      width="100"
+                      height="100"
+                      className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain"
+                    />
+                  </picture>
                 </span>
               </span>
             </h1>
-
-            <div className="mt-4 flex justify-center">
-              <picture className="inline-flex items-center justify-center">
-                <source
-                  srcSet="/images/illustrations/mechanic-arm.webp"
-                  type="image/webp"
-                  width="100"
-                  height="100"
-                />
-                <Image
-                  src="/images/illustrations/mechanic-arm.webp"
-                  alt={media.mechanicArmAlt || "Robotic arm illustration"}
-                  width="100"
-                  height="100"
-                  className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain"
-                />
-              </picture>
-            </div>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full">
               <Button asChild className="w-full sm:w-auto">

@@ -50,7 +50,7 @@ export default function LeadMagnet() {
       <NoiseOverlay />
 
       {/* --- Content Layer --- */}
-      <div className="relative z-10 mx-auto max-w-7xl h-full flex items-center px-4 sm:px-6 lg:px-10">
+      <div className="relative z-10 mx-auto w-full max-w-6xl h-full flex items-center px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,7 +65,7 @@ export default function LeadMagnet() {
             <div className="absolute inset-0 bg-card/30 backdrop-blur-2xl border border-border/50 -z-10 shadow-2xl" />
 
             <div className="p-6 sm:p-10 lg:p-16">
-              <div className="text-center mb-10 sm:mb-12">
+              <div className="text-left sm:text-center mb-10 sm:mb-12">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground gradient-text">
                   {t?.title}{" "}
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary/40 animate-gradient">

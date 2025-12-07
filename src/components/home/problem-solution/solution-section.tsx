@@ -16,40 +16,38 @@ export default async function SolutionSection() {
 
   return (
     <div className="relative pb-24 pt-12">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
         <div className="mt-2 flex lg:flex-row flex-col items-stretch justify-between">
           {/* Left Column: Content */}
-          <div className="lg:w-1/2 flex flex-col justify-center pr-12 order-2 lg:order-1">
-            <div className="lg:max-w-2xl mx-auto lg:mx-0">
-              <div className="lg:max-w-2xl">
-                {/* Title */}
-                <h2 className="text-6xl font-display font-bold tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start">
-                  <b className="text-2xl text-foreground">{t.titlePrefix}</b>
-                  <SolutionSectionTitles />
-                </h2>
-                <p className="mt-4 text-xl leading-9 text-muted-foreground">
-                  {t.subtitle}{" "}
-                  <b className="font-semibold text-foreground">
-                    {t.subtitleBold1}{" "}
-                  </b>
-                  {t.subtitleText}{" "}
-                  <b className="font-semibold text-foreground">
-                    {t.subtitleBold2}
-                  </b>{" "}
-                  {t.subtitleWith}{" "}
-                  <b className="font-semibold text-foreground">
-                    {t.subtitleBold3}
-                  </b>{" "}
-                  {t.subtitleTo}{" "}
-                  <b className="font-semibold text-primary">
-                    {t.subtitleBold4}
-                  </b>
-                  .
-                </p>
-                <aside className="italic text-3xl text-muted-foreground font-light mt-2 mb-4">
-                  {t.sectionTitle}
-                </aside>
-              </div>
+          <div className="lg:w-1/2 flex flex-col justify-center pr-0 lg:pr-12 order-2 lg:order-1">
+            <div className="mx-auto lg:mx-0 w-full">
+              {/* Title */}
+              <h2 className="text-5xl sm:text-6xl font-display font-bold tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start">
+                <b className="text-2xl text-foreground">{t.titlePrefix}</b>
+                <SolutionSectionTitles />
+              </h2>
+              <p className="mt-4 text-lg sm:text-xl leading-8 sm:leading-9 text-muted-foreground text-left">
+                {t.subtitle}{" "}
+                <b className="font-semibold text-foreground">
+                  {t.subtitleBold1}{" "}
+                </b>
+                {t.subtitleText}{" "}
+                <b className="font-semibold text-foreground">
+                  {t.subtitleBold2}
+                </b>{" "}
+                {t.subtitleWith}{" "}
+                <b className="font-semibold text-foreground">
+                  {t.subtitleBold3}
+                </b>{" "}
+                {t.subtitleTo}{" "}
+                <b className="font-semibold text-primary">
+                  {t.subtitleBold4}
+                </b>
+                .
+              </p>
+              <aside className="italic text-2xl sm:text-3xl text-muted-foreground font-light mt-2 mb-4 text-left">
+                {t.sectionTitle}
+              </aside>
 
               <dl className="space-y-5">
                 {solutionsWithTranslations.map((solution, index) => {
