@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import Logo from "../logo";
 
 const navigation = {
@@ -19,6 +19,11 @@ const navigation = {
       name: "Twitter",
       href: "https://twitter.com/nicotordev",
       icon: Twitter,
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/4cidkid",
+      icon: Instagram,
     },
   ],
 };

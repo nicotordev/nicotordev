@@ -43,7 +43,7 @@ const ProjectsCarousel = () => {
   }, [carouselApi]);
 
   return (
-    <section className="relative py-64 bg-primary text-foreground overflow-clip w-full h-fit">
+    <section className="relative py-64 bg-primary text-foreground overflow-clip w-full h-fit select-none">
       <Image
         width={1920}
         height={1080}
@@ -103,7 +103,7 @@ const ProjectsCarousel = () => {
         text={t?.title || "Projects I've Built"}
       />
 
-      <div className="relative z-20 mx-auto w-full max-w-6xl px-6 lg:px-8">
+      <div className="relative z-20 w-full">
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -152,11 +152,11 @@ const ProjectsCarousel = () => {
           }}
           className="relative w-full max-w-full"
         >
-          <CarouselContent className="w-full max-w-full -ml-4 px-2 sm:px-4">
+          <CarouselContent className="w-full max-w-full -ml-3 px-1 sm:px-2">
             {staticProjects.map((item, index) => (
               <CarouselItem
                 key={item.id}
-                className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3 xl:basis-1/4"
+                className="pl-3 basis-10/12 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/6"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}

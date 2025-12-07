@@ -4,8 +4,6 @@ import createNextIntlPlugin from "next-intl/plugin";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   reactCompiler: true,
-
-  output: "standalone",
   poweredByHeader: false,
   compress: true,
 
@@ -36,7 +34,8 @@ const nextConfig: NextConfig = {
     "prisma",
     "@prisma/client",
   ],
-  cacheComponents: true,
+  // Disable cacheComponents to allow per-route dynamic configs (e.g., force-dynamic).
+  cacheComponents: false,
 
   experimental: {
     // ✅ reemplazo de ppr

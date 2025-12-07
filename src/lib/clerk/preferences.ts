@@ -1,4 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
+import { headers } from "next/headers";
 import { clerkClient } from "./clerk-client";
 
 import { isLocale, type Locale } from "@/i18n/config";
@@ -43,8 +44,23 @@ function sanitizePreferences(value: unknown): UserPreferences {
 }
 
 async function getAuthenticatedUserId(): Promise<string | null> {
-  const { userId } = await auth();
-  return userId ?? null;
+  // Skip when there's no request context (e.g., during static builds)
+  if (process.env.NEXT_PHASE === "phase-production-build") {
+    return null;
+  }
+
+  try {
+    headers();
+  } catch {
+    return null;
+  }
+
+  try {
+    const { userId } = await auth();
+    return userId ?? null;
+  } catch {
+    return null;
+  }
 }
 
 export async function fetchUserPreferences(): Promise<UserPreferences> {

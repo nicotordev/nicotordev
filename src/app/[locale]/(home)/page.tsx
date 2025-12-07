@@ -7,8 +7,14 @@ import ReviewList3DWrapper from "@/components/home/reviews/review-list-3d-wrappe
 import SocialProofSection from "@/components/home/social-proof/social-proof";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/header";
-import { setRequestLocale } from "next-intl/server";
 import type { Locale } from "@/i18n/config";
+import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
+
+
+export const metadata: Metadata = {
+  title: "Home",
+};
 
 export default async function HomePage({
   params,

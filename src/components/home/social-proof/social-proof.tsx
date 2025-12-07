@@ -37,7 +37,7 @@ export default async function SocialProofSection() {
         className="h-full w-full object-cover z-1 absolute inset-0 aspect-video mix-blend-overlay opacity-30"
       />
       <div className="mx-auto w-full max-w-6xl px-6 lg:px-8 flex gap-10 lg:gap-12 lg:flex-row flex-col-reverse items-stretch justify-between relative z-10 bg-transparent">
-        <div className="w-full lg:w-1/2">
+        <div className="w-full lg:w-1/2 overflow-hidden rounded-2xl border-primary border-2 shadow-lg">
           <Image
             alt={t.imageAlt}
             src="/images/nicolas/nico-pc.webp"
