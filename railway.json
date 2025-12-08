@@ -15,7 +15,7 @@
     ]
   },
   "deploy": {
-    "startCommand": "cd .next/standalone && HOSTNAME=0.0.0.0 PORT=$PORT NODE_ENV=production node server.js",
+    "startCommand": "cd .next/standalone && cp -r ../public ./ || true && mkdir -p .next && cp -r ../.next/static .next/ || true && HOSTNAME=0.0.0.0 PORT=$PORT NODE_ENV=production node server.js",
     "preDeployCommand": [
       "sh -lc \"cp -r public .next/standalone/ && mkdir -p .next/standalone/.next && cp -r .next/static .next/standalone/.next/\""
     ],
