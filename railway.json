@@ -16,7 +16,10 @@
   },
   "deploy": {
     "startCommand": "cd .next/standalone && HOSTNAME=0.0.0.0 PORT=$PORT NODE_ENV=production node server.js",
-    "healthcheckPath": "/api/health",
+    "preDeployCommand": [
+      "sh -lc \"cp -r public .next/standalone/ && mkdir -p .next/standalone/.next && cp -r .next/static .next/standalone/.next/\""
+    ],
+    "healthcheckPath": "/robots.txt",
     "restartPolicyType": "ALWAYS",
     "overlapSeconds": 30,
     "drainingSeconds": 10
