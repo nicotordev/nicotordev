@@ -1,0 +1,22 @@
+# Dependencies and builds
+node_modules
+.next
+.turbo
+dist
+build
+
+# Git and editor artifacts
+.git
+.gitignore
+.vscode
+.idea
+.DS_Store
+
+# Env and logs
+.env
+.env.*
+*.log
+*.tsbuildinfo
+
+# OS / misc
+Thumbs.db

@@ -1,34 +1,12 @@
 {
   "$schema": "https://railway.com/railway.schema.json",
   "build": {
-    "builder": "RAILPACK",
-    "watchPatterns": [
-      "app/**",
-      "components/**",
-      "lib/**",
-      "public/**",
-      "prisma/**",
-      "next.config.ts",
-      "package.json",
-      "bun.lock",
-      "railway.json"
-    ]
+    "builder": "DOCKERFILE"
   },
   "deploy": {
-    "startCommand": "cd .next/standalone && cp -r ../public ./ || true && mkdir -p .next && cp -r ../.next/static .next/ || true && HOSTNAME=0.0.0.0 PORT=$PORT NODE_ENV=production node server.js",
-    "preDeployCommand": [
-      "sh -lc \"cp -r public .next/standalone/ && mkdir -p .next/standalone/.next && cp -r .next/static .next/standalone/.next/\""
-    ],
     "healthcheckPath": "/api/health",
     "restartPolicyType": "ALWAYS",
     "overlapSeconds": 30,
     "drainingSeconds": 10
-  },
-  "environments": {
-    "pr": {
-      "deploy": {
-        "startCommand": "NEXT_TELEMETRY_DISABLED=1 node_modules/.bin/next start -p $PORT"
-      }
-    }
   }
 }
