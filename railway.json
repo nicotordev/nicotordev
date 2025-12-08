@@ -19,7 +19,7 @@
     "preDeployCommand": [
       "sh -lc \"cp -r public .next/standalone/ && mkdir -p .next/standalone/.next && cp -r .next/static .next/standalone/.next/\""
     ],
-    "healthcheckPath": "/robots.txt",
+    "healthcheckPath": "/api/health",
     "restartPolicyType": "ALWAYS",
     "overlapSeconds": 30,
     "drainingSeconds": 10
