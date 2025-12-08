@@ -12,6 +12,8 @@ export default function Footer({ messages }: FooterProps) {
   const descriptionCopy =
     messages.socialProof?.description?.focus ||
     "Building calm, fast products with a human voice.";
+  const opensInNewTab =
+    messages.footer?.opensInNewTab ?? "opens in new tab";
   const translatedLinks = footerNavigation.links.map((link) => ({
     ...link,
     label:
@@ -50,14 +52,14 @@ export default function Footer({ messages }: FooterProps) {
                     className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
-                  >
-                    <span className="sr-only">
-                      {item.name} ({messages.footer.opensInNewTab})
-                    </span>
-                    <item.icon className="h-5 w-5" aria-hidden="true" />
-                  </a>
-                ))}
-              </div>
+                >
+                  <span className="sr-only">
+                    {item.name} ({opensInNewTab})
+                  </span>
+                  <item.icon className="h-5 w-5" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
             </div>
 
             <div className="flex flex-col gap-4 sm:items-end sm:pt-1">
