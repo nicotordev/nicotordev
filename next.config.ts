@@ -9,16 +9,11 @@ const nextConfig: NextConfig = {
   output: "standalone",
 
   images: {
-    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "i.pravatar.cc" },
       { protocol: "https", hostname: "avatars.dicebear.com" },
       { protocol: "https", hostname: "picsum.photos" },
     ],
-    deviceSizes: [640, 828, 1080, 1920, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
-    minimumCacheTTL: 31536000,
-    loader: "default",
   },
 
   productionBrowserSourceMaps: false,
