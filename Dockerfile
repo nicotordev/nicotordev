@@ -15,7 +15,8 @@ RUN bun install --frozen-lockfile
 
 # Copy source and build (standalone output is configured in next.config.ts)
 COPY . .
-RUN bun run build
+# Use Node (npm) to run the build to avoid Bun runtime gaps during Next.js build
+RUN npm run build
 
 # Stage 2: minimal runtime image using Bun
 FROM oven/bun:1.1.29-alpine AS runner
