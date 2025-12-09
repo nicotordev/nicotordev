@@ -1,6 +1,6 @@
 "use client";
 
-import type { AssetDTO } from "types/projects";
+import type { AssetDTO } from "@/types/projects";
 import {
   Card,
   CardContent,

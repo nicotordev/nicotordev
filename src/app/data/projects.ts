@@ -1,4 +1,4 @@
-import type { ProjectDTO } from "types/projects";
+import type { ProjectDTO } from "@/types/projects";
 
 export const staticProjects: ProjectDTO[] = [
   // --- 2025 ---

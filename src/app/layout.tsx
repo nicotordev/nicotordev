@@ -32,15 +32,15 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Suspense fallback={null}>
-        <ProvidersWrapper>
-          <html
-            lang={routing.defaultLocale}
-            suppressHydrationWarning
-            className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable} ${localJetBrainsMono.variable} ${localIBMPlexMono.variable} ${localFontdinerSwanky.variable} ${localLoveLight.variable} ${localPermanentMarker.variable}`}
-          >
-            <body className="antialiased">{children}</body>
-          </html>
-        </ProvidersWrapper>
+      <ProvidersWrapper>
+        <html
+          lang={routing.defaultLocale}
+          suppressHydrationWarning
+          className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable} ${localJetBrainsMono.variable} ${localIBMPlexMono.variable} ${localFontdinerSwanky.variable} ${localLoveLight.variable} ${localPermanentMarker.variable}`}
+        >
+          <body className="antialiased">{children}</body>
+        </html>
+      </ProvidersWrapper>
     </Suspense>
   );
 }
