@@ -23,8 +23,8 @@ export default function HeroSection({ messages }: HeroSectionProps) {
 
         <div className="relative z-20 mx-auto w-full max-w-5xl py-12 sm:py-18 lg:py-22 flex flex-col items-center text-center px-2 sm:px-0">
           <div className="mb-3 flex justify-center w-full">
-            <Badge variant="success" className="relative">
-              <Dot className="w-16! h-16! absolute -left-3 top-1/2 -translate-y-1/2" />
+            <Badge variant="success" className="relative pl-6 overflow-visible">
+              <Dot className="w-16! h-16! absolute -left-4 top-1/2 -translate-y-1/2" />
               {messages.hero.available_for_hire}
             </Badge>
           </div>

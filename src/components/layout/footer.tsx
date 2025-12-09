@@ -8,12 +8,11 @@ interface FooterProps {
 
 export default function Footer({ messages }: FooterProps) {
   const navigationMessages = messages.navigation ?? {};
-  const footerTitle = messages.reviews?.title || "NicoTorDev Footer";
+  const footerTitle = messages.footer?.title || "NicoTorDev Footer";
   const descriptionCopy =
-    messages.socialProof?.description?.focus ||
+    messages.footer?.description?.focus ||
     "Building calm, fast products with a human voice.";
-  const opensInNewTab =
-    messages.footer?.opensInNewTab ?? "opens in new tab";
+  const opensInNewTab = messages.footer?.opensInNewTab ?? "opens in new tab";
   const translatedLinks = footerNavigation.links.map((link) => ({
     ...link,
     label:
@@ -52,14 +51,14 @@ export default function Footer({ messages }: FooterProps) {
                     className="text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
-                >
-                  <span className="sr-only">
-                    {item.name} ({opensInNewTab})
-                  </span>
-                  <item.icon className="h-5 w-5" aria-hidden="true" />
-                </a>
-              ))}
-            </div>
+                  >
+                    <span className="sr-only">
+                      {item.name} ({opensInNewTab})
+                    </span>
+                    <item.icon className="h-5 w-5" aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
             </div>
 
             <div className="flex flex-col gap-4 sm:items-end sm:pt-1">
@@ -88,7 +87,8 @@ export default function Footer({ messages }: FooterProps) {
 
           <div className="mt-8 border-t border-primary-foreground/15 pt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-2">
             <p className="text-xs leading-5 text-primary-foreground/70">
-              &copy; {new Date().getFullYear()} NicotorDev. All rights reserved.
+              &copy; {new Date().getFullYear()} NicotorDev.{" "}
+              {messages.footer?.copyright || "All rights reserved."}
             </p>
           </div>
         </div>

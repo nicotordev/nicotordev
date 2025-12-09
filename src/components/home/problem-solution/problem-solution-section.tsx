@@ -1,7 +1,7 @@
-import ProblemSection from "./problem-section";
-import SolutionSection from "./solution-section";
 import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
+import ProblemSection from "./problem-section";
+import SolutionSection from "./solution-section";
 
 export default function ProblemSolutionSection({
   messages,
@@ -12,7 +12,7 @@ export default function ProblemSolutionSection({
     <section id="problem-solution" className="relative z-10 py-32 sm:pb-42">
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
+        className="absolute inset-x-0 top-20 -z-10 transform-gpu overflow-x-clip blur-3xl sm:top-40"
       >
         <div
           style={{
@@ -29,7 +29,7 @@ export default function ProblemSolutionSection({
       </div>
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
+        className="absolute inset-x-0 top-20 -z-10 transform-gpu overflow-x-clip blur-3xl sm:top-40"
       >
         <div
           style={{

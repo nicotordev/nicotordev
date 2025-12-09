@@ -3,6 +3,7 @@
     "home": "Inicio",
     "about": "Acerca de",
     "projects": "Proyectos",
+    "services": "Servicios",
     "blog": "Blog",
     "contact": "Contacto",
     "aria": {
@@ -391,7 +392,12 @@
     }
   },
   "footer": {
-    "opensInNewTab": "(abre en una nueva pestaña)"
+    "title": "Pie de página NicoTorDev",
+    "description": {
+      "focus": "Construyendo productos tranquilos y rápidos con voz humana."
+    },
+    "opensInNewTab": "(abre en una nueva pestaña)",
+    "copyright": "Todos los derechos reservados."
   },
   "reviewsList": {
     "review-01": {

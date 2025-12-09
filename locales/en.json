@@ -3,6 +3,7 @@
     "home": "Home",
     "about": "About",
     "projects": "Projects",
+    "services": "Services",
     "blog": "Blog",
     "contact": "Contact",
     "aria": {
@@ -392,7 +393,12 @@
     }
   },
   "footer": {
-    "opensInNewTab": "(opens in a new tab)"
+    "title": "NicoTorDev Footer",
+    "description": {
+      "focus": "Building calm, fast products with a human voice."
+    },
+    "opensInNewTab": "(opens in a new tab)",
+    "copyright": "All rights reserved."
   },
   "reviewsList": {
     "review-01": {
