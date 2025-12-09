@@ -385,9 +385,9 @@
           "description": "El verdadero jefe de la operación: Koka."
         }
       }
-    },
-    "footer": {
-      "opensInNewTab": "(abre en una nueva pestaña)"
     }
+  },
+  "footer": {
+    "opensInNewTab": "(abre en una nueva pestaña)"
   }
 }

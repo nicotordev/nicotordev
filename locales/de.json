@@ -385,9 +385,9 @@
           "description": "Der wahre Boss der Operation: Koka."
         }
       }
-    },
-    "footer": {
-      "opensInNewTab": "(öffnet in einem neuen Tab)"
     }
+  },
+  "footer": {
+    "opensInNewTab": "(öffnet in einem neuen Tab)"
   }
 }
