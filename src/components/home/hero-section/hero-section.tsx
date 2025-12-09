@@ -1,3 +1,4 @@
+import { BackgroundDecoration } from "@/components/backgrounds/background-decoration";
 import DownloadResumeButton from "@/components/download-resume-button";
 import ChileFlag from "@/components/emojis/chile-flag";
 import { Button } from "@/components/ui/button";
@@ -18,23 +19,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
   return (
     <div className="bg-background py-8 sm:py-10 md:py-12 relative z-10">
       <div className="relative px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 -top-40 z-10 transform-gpu overflow-x-clip blur-3xl sm:-top-80 pointer-events-none"
-        >
-          <div
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-            className={cn(
-              "relative left-[calc(50%-11rem)] -translate-x-1/2",
-              "aspect-1155/678 w-144.5 rotate-30",
-              "bg-linear-to-tr from-accent to-primary opacity-80",
-              "sm:left-[calc(50%-30rem)] sm:w-288.75"
-            )}
-          />
-        </div>
+        <BackgroundDecoration />
 
         <div className="relative z-20 mx-auto w-full max-w-5xl py-12 sm:py-18 lg:py-22 flex flex-col items-center text-center px-2 sm:px-0">
           <div className="mb-3 flex justify-center w-full">
@@ -74,14 +59,14 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                 {messages.hero.headline.transform}{" "}
                 <span
                   className={cn(
-                    "inline-flex -rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-3xl font-bold shadow-sm ring-1 ring-border",
+                    "inline-flex items-center justify-center -rotate-2 rounded-lg bg-card text-card-foreground px-3 py-1 font-mono text-3xl font-bold shadow-sm ring-1 ring-border",
                     "sm:text-4xl md:text-5xl"
                   )}
                 >
                   <span className="text-secondary font-bold font-mono transform-gpu">
                     {messages.hero.headline.words}
                   </span>
-                  <span className="relative ml-2 inline-flex items-center justify-center">
+                  <span className="relative ml-1 inline-flex items-center justify-center top-0">
                     <source
                       srcSet="/images/illustrations/writing.webp"
                       type="image/webp"
@@ -106,14 +91,15 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                 </span>{" "}
                 <span
                   className={cn(
-                    "inline-flex rotate-2 rounded-lg bg-card text-background px-3 py-1 font-mono text-3xl font-bold shadow-sm ring-1 ring-border",
-                    "sm:text-4xl md:text-5xl"
+                    "inline-flex items-center justify-center rotate-2 rounded-lg bg-card text-background px-2 py-1 font-mono text-3xl font-bold shadow-sm ring-1 ring-border",
+                    "sm:text-4xl md:text-5xl",
+                    "mx-4"
                   )}
                 >
                   <span className="text-secondary font-bold font-mono transform-gpu">
                     {messages.hero.headline.ideas}
                   </span>
-                  <span className="relative ml-2 inline-flex items-center justify-center">
+                  <span className="relative ml-1 inline-flex items-center justify-center top-0">
                     <source
                       srcSet="/images/illustrations/lightbulb.webp"
                       type="image/webp"
@@ -140,7 +126,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                   {messages.hero.headline.web}
                 </span>{" "}
                 <span className="block sm:inline-flex flex-wrap items-center justify-center gap-3 sm:gap-4 align-middle ml-1 sm:ml-2">
-                  <span className="leading-tight">
+                  <span className="leading-tight gradient-text">
                     {messages.hero.headline.impact}
                   </span>
                   <span className="relative inline-flex items-center justify-center mt-2 sm:mt-0">
@@ -182,23 +168,10 @@ export default function HeroSection({ messages }: HeroSectionProps) {
         <div className="py-10 sm:py-12">
           <HeroSectionTechStackCarousel />
         </div>
-        <div
-          aria-hidden="true"
-          className="absolute inset-x-0 top-[calc(100%-13rem)] z-10 transform-gpu overflow-x-clip blur-3xl sm:top-[calc(100%-30rem)] pointer-events-none"
-        >
-          <div
-            style={{
-              clipPath:
-                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-            }}
-            className={cn(
-              "relative left-[calc(50%+3rem)] -translate-x-1/2",
-              "aspect-1155/678 w-144.5",
-              "bg-linear-to-tr from-accent to-secondary opacity-30",
-              "sm:left-[calc(50%+36rem)] sm:w-288.75"
-            )}
-          />
-        </div>
+        <BackgroundDecoration
+          className="top-[calc(100%-13rem)] sm:top-[calc(100%-30rem)]"
+          shapeClassName="left-[calc(50%+3rem)] sm:left-[calc(50%+36rem)] bg-linear-to-tr from-accent to-secondary opacity-30 rotate-0"
+        />
       </div>
     </div>
   );

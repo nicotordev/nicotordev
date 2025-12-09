@@ -1,3 +1,4 @@
+import { BackgroundDecoration } from "@/components/backgrounds/background-decoration";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import type { Messages } from "@/types/i18n";
@@ -16,14 +17,15 @@ const ReviewList3D = dynamic(() => import("./review-list-3d"), {
 
 function ReviewList3DWrapper({ messages }: { messages: Messages }) {
   const reviewsMessages = messages.reviews ?? {};
-  const badgeLabel = reviewsMessages.title || "Testimonials";
+  const badgeLabel = reviewsMessages.pre_title || "Testimonials";
   const heading = reviewsMessages.title || "Client Reviews";
   const subtitle =
     reviewsMessages.subtitle || "Real feedback from real projects";
   return (
-    <section className="relative w-full pb-52 pt-32 z-10 overflow-hidden bg-transparent">
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-8 flex flex-col items-center gap-16">
-        <div className="text-center mx-auto space-y-6">
+    <section className="relative w-full z-10 overflow-hidden bg-transparent">
+      <BackgroundDecoration className="-top-20 opacity-40" />
+      <div className="relative z-10 mx-auto w-full px-6 lg:px-8 flex flex-col items-center gap-16 bg-transparent">
+        <div className="text-center mx-auto space-y-6 absolute left-0 top-0 backdrop-blur-sm w-full h-full flex flex-col items-center justify-center">
           <Badge variant="secondary">{badgeLabel}</Badge>
           <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             {heading}
@@ -33,10 +35,14 @@ function ReviewList3DWrapper({ messages }: { messages: Messages }) {
           </p>
         </div>
 
-        <div className="w-full relative min-h-[1200px]">
+        <div className="w-fit relative min-h-[1800px]">
           <ReviewList3D />
         </div>
       </div>
+      <BackgroundDecoration
+        className="top-auto bottom-0 translate-y-1/3"
+        shapeClassName="left-[calc(50%+15rem)] bg-linear-to-tr from-secondary to-accent opacity-40 rotate-180"
+      />
     </section>
   );
 }

@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react"; // Assuming you have lucide-react, or use an SVG icon
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 // --- Types ---
 export type BentoSize = "square" | "wide" | "tall" | "large";
