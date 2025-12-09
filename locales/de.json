@@ -12,6 +12,7 @@
     }
   },
   "common": {
+    "viewDetails": "Details anzeigen",
     "login": "Anmelden",
     "settings": "Einstellungen",
     "preferences": "Präferenzen",

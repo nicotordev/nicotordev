@@ -1,4 +1,3 @@
-import type { BentoSize } from "@/components/common/portfolio-gallery";
 import PortfolioGallery from "@/components/common/portfolio-gallery";
 import {
   Card,
@@ -11,6 +10,7 @@ import { ImageDialog } from "@/components/ui/image-dialog";
 import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
 import Image from "next/image";
+import type { BentoSize } from '../../../types/footer';
 
 type AboutMeStat = {
   label: string;

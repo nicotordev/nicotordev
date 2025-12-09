@@ -12,6 +12,7 @@
     }
   },
   "common": {
+    "viewDetails": "View Details",
     "login": "Log in",
     "settings": "Settings",
     "preferences": "Preferences",

@@ -12,6 +12,7 @@
     }
   },
   "common": {
+    "viewDetails": "Ver Detalles",
     "login": "Iniciar sesión",
     "settings": "Settings",
     "preferences": "Preferences",
