@@ -6,43 +6,43 @@
     "blog": "Blog",
     "contact": "Contacto",
     "aria": {
-      "global": "Global navigation",
-      "openMainMenu": "Open main menu",
-      "mobileMenu": "Mobile Menu"
+      "global": "Navegación global",
+      "openMainMenu": "Abrir menú principal",
+      "mobileMenu": "Menú móvil"
     }
   },
   "common": {
     "login": "Iniciar sesión",
-    "settings": "Settings",
-    "preferences": "Preferences",
-    "language": "Language",
-    "currency": "Currency",
-    "timezone": "Timezone",
+    "settings": "Ajustes",
+    "preferences": "Preferencias",
+    "language": "Idioma",
+    "currency": "Moneda",
+    "timezone": "Zona horaria",
     "a11y": {
-      "close": "Close",
-      "loading": "Loading",
-      "toggleSidebar": "Toggle sidebar",
-      "leadMagnetSection": "Lead Magnet Section",
-      "closeTestimonial": "Close testimonial",
-      "showTestimonial": "Show testimonial",
-      "previousSlide": "Previous slide",
-      "nextSlide": "Next slide",
-      "previousPage": "Go to previous page",
-      "nextPage": "Go to next page",
-      "previous": "Previous",
-      "next": "Next",
-      "morePages": "More pages",
+      "close": "Cerrar",
+      "loading": "Cargando",
+      "toggleSidebar": "Alternar barra lateral",
+      "leadMagnetSection": "Sección de Lead Magnet",
+      "closeTestimonial": "Cerrar testimonio",
+      "showTestimonial": "Mostrar testimonio",
+      "previousSlide": "Diapositiva anterior",
+      "nextSlide": "Siguiente diapositiva",
+      "previousPage": "Ir a la página anterior",
+      "nextPage": "Ir a la siguiente página",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "morePages": "Más páginas",
       "media": {
-        "codingAlt": "Animated illustration of coding",
-        "textureAlt": "Animated texture",
-        "writingAlt": "Hand writing illustration",
-        "lightbulbAlt": "Lightbulb illustration",
-        "mechanicArmAlt": "Robotic arm illustration",
-        "giftAlt": "Gift box",
-        "sadAlt": "Crying face emoji",
-        "giftHeartAlt": "Gift with heart",
-        "psychedelicTextureAlt": "Psychedelic texture background",
-        "logoAlt": "NicoTorDev logo"
+        "codingAlt": "Ilustración animada de programación",
+        "textureAlt": "Textura animada",
+        "writingAlt": "Ilustración de escritura a mano",
+        "lightbulbAlt": "Ilustración de bombilla",
+        "mechanicArmAlt": "Ilustración de brazo robótico",
+        "giftAlt": "Caja de regalo",
+        "sadAlt": "Emoji de cara llorando",
+        "giftHeartAlt": "Regalo con corazón",
+        "psychedelicTextureAlt": "Fondo de textura psicodélica",
+        "logoAlt": "Logo de NicoTorDev"
       }
     }
   },
@@ -60,7 +60,7 @@
     "headline": {
       "transform": "Transformar",
       "words": "palabras",
-      "and": "y",
+      "and": "e",
       "ideas": "ideas",
       "into": "en",
       "applications": "aplicaciones",
@@ -80,8 +80,8 @@
     "titleEnd": "y fundadores",
     "description": {
       "intro": "Soy",
-      "name": "Nicolas Torres",
-      "text": ", un Ingeniero Web Full-Stack especializado en TypeScript, Next.js, React, Node.js y sistemas aumentados con IA. He entregado software escalable a clientes en Alemania, Singapur, EE.UU. y Chile—manteniendo un 100% de Job Success Score como talento Top Rated en Upwork.",
+      "name": "Nicolás Torres",
+      "text": ", un Ingeniero Web Full-Stack especializado en TypeScript, Next.js, React, Node.js y sistemas aumentados con IA. He entregado software escalable a clientes en Alemania, Singapur, EE.UU. y Chile—manteniendo un 100% de puntuación de éxito laboral como talento Top Rated en Upwork.",
       "focus": "Mi enfoque es construir productos limpios, rápidos y con propósito que eleven cómo operan los equipos."
     },
     "stats": {
@@ -90,11 +90,11 @@
       "activeEngagements": "Compromisos Activos",
       "rate": "Tarifa"
     },
-    "imageAlt": "Nicolas trabajando en su computadora"
+    "imageAlt": "Nicolás trabajando en su ordenador"
   },
   "problemSolution": {
     "problem": {
-      "title": "¿Cansado de Desarrolladores",
+      "title": "¿Cansado de Desarrolladores?",
       "titleBold": "Que no entienden tu negocio",
       "subtitle": "Necesitas un",
       "subtitleHighlight": "ingeniero de verdad",
@@ -182,7 +182,7 @@
     }
   },
   "downloadResume": {
-    "selectFormat": "Select Format"
+    "selectFormat": "Seleccionar formato"
   },
   "leadMagnet": {
     "title": "Hablemos sobre tu",
@@ -192,7 +192,7 @@
       "toggleMinimal": "Mensaje Rápido",
       "toggleFull": "Formulario Completo",
       "name": "Nombre",
-      "email": "Email",
+      "email": "Correo electrónico",
       "message": "Mensaje",
       "budget": "Presupuesto",
       "timeline": "Plazo",
@@ -204,7 +204,7 @@
       "projectPlaceholder": "Cuéntame sobre tu proyecto...",
       "quickMessageTitle": "Mensaje rápido",
       "quickMessageDescription": "Comparte tu nombre, contacto y detalles del proyecto en un solo mensaje.",
-      "quickMessagePlaceholder": "¡Hola Nico! 👋\n\nMi nombre es [Tu Nombre]\nEmail: [tu.email@ejemplo.com]\nPresupuesto: [$monto o tarifa por hora]\n\nBusco ayuda con:\n[Describe tu proyecto aquí...]\n\n¡Quedo atento!",
+      "quickMessagePlaceholder": "¡Hola Nico! 👋\n\nMi nombre es [Tu Nombre]\nCorreo electrónico: [tu.email@ejemplo.com]\nPresupuesto: [$monto o tarifa por hora]\n\nBusco ayuda con:\n[Describe tu proyecto aquí...]\n\n¡Quedo atento!",
       "privacyCopy": "Al enviar este formulario, acepto la",
       "privacyPolicy": "política de privacidad",
       "submit": "Enviar Mensaje",
@@ -282,7 +282,7 @@
   },
   "reviews": {
     "title": "Lo que Dicen los Clientes",
-    "subtitle": "Feedback real de proyectos reales"
+    "subtitle": "Comentarios reales de proyectos reales"
   },
   "about": {
     "title": "Sobre mí",
@@ -317,8 +317,7 @@
     },
     "personal": {
       "title": "Más allá del código",
-            "subtitle": "¿Who am I? .... a person who likes to break things out of curiosity",
-
+      "subtitle": "¿Quién soy? .... una persona a la que le gusta romper cosas por curiosidad",
       "description": "Me inspiran Hofmann y Leary, pero también el silencio del bosque. Entre commits y café, estudio IA, exploro psicodelia responsable y creo contenido para otros desarrolladores. Creo que la justicia —incluso en el software— es una forma de amor."
     },
     "specialties": {
@@ -335,57 +334,60 @@
     },
     "galleryTitle": "Galería",
     "gallery": {
-      "title": "Gallery",
+      "title": "Galería",
       "items": {
         "conceAi": {
-          "alt": "Conce AI Logo",
-          "description": "The official logo of Conce AI, my technology business."
+          "alt": "Logo de Conce AI",
+          "description": "El logo oficial de Conce AI, mi negocio tecnológico."
         },
         "wizard": {
-          "alt": "Nico as a psychedelic wizard",
-          "description": "Embracing creativity and magic in code, visualized as a psychedelic wizard."
+          "alt": "Nico como un mago psicodélico",
+          "description": "Abrazando la creatividad y la magia en el código, visualizado como un mago psicodélico."
         },
         "workstation": {
-          "alt": "Nico working on his Computer, Multiple Screens are present",
-          "description": "Deep in the flow state, surrounded by multiple screens and lines of code."
+          "alt": "Nico trabajando en su computadora, con múltiples pantallas presentes",
+          "description": "Sumido en el estado de flujo, rodeado de múltiples pantallas y líneas de código."
         },
         "acid": {
-          "alt": "Nico's pupils dilated",
-          "description": "A close-up capturing the intensity and focus of a late-night coding session."
+          "alt": "Las pupilas de Nico dilatadas",
+          "description": "Un primer plano que captura la intensidad y el enfoque de una sesión de codificación nocturna."
         },
         "psychedelic": {
-          "alt": "Nico with psychedelic (trippy) effects",
-          "description": "Exploring the intersection of art and technology through psychedelic visuals."
+          "alt": "Nico con efectos psicodélicos (trippy)",
+          "description": "Explorando la intersección del arte y la tecnología a través de visuales psicodélicos."
         },
         "unicorn": {
-          "alt": "Nico in a unicorn outfit",
-          "description": "Never taking life too seriously—rocking a unicorn outfit with pride."
+          "alt": "Nico con un disfraz de unicornio",
+          "description": "Nunca tomándome la vida demasiado en serio—luciendo un disfraz de unicornio con orgullo."
         },
         "koka": {
-          "alt": "Nico with his dog Koka",
-          "description": "Quality time with my loyal companion, Koka."
+          "alt": "Nico con su perro Koka",
+          "description": "Tiempo de calidad con mi leal compañero, Koka."
         },
         "flowers": {
-          "alt": "Nico among flowers",
-          "description": "Finding balance and peace in nature, surrounded by flowers."
+          "alt": "Nico entre flores",
+          "description": "Encontrando equilibrio y paz en la naturaleza, rodeado de flores."
         },
         "trippy": {
-          "alt": "Nico with trippy photo effects",
-          "description": "Experimenting with visual effects to create unique digital experiences."
+          "alt": "Nico con efectos fotográficos trippy",
+          "description": "Experimentando con efectos visuales para crear experiencias digitales únicas."
         },
         "piercing": {
-          "alt": "Nico with a piercing in his nose",
-          "description": "Expressing personal style with a nose piercing."
+          "alt": "Nico con un piercing en la nariz",
+          "description": "Expresando estilo personal con un piercing en la nariz."
         },
         "tattoo": {
-          "alt": "Nico with a tattoo on the back of the neck, a cpu chip",
-          "description": "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to tech."
+          "alt": "Nico con un tatuaje en la nuca, un chip de CPU",
+          "description": "Vibras cyberpunk: un tatuaje de chip de CPU en la nuca, simbolizando mi conexión con la tecnología."
         },
         "onlyKoka": {
-          "alt": "Koka, the dog",
-          "description": "The real boss of the operation: Koka."
+          "alt": "Koka, el perro",
+          "description": "El verdadero jefe de la operación: Koka."
         }
       }
+    },
+    "footer": {
+      "opensInNewTab": "(abre en una nueva pestaña)"
     }
   }
 }

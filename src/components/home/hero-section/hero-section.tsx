@@ -49,7 +49,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
           <div className="mb-2 text-center text-muted-foreground font-medium w-full">
             <p className="font-display text-balance tracking-tight pb-0 text-sm sm:text-base">
               {messages.hero.greeting}{" "}
-              <span className="font-bold text-accent">
+              <span className="font-bold text-secondary">
                 {messages.hero.name}
               </span>
               , {messages.hero.location.from}{" "}
@@ -65,7 +65,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                   <p>{messages.hero.location.tooltip}</p>
                 </TooltipContent>
               </Tooltip>
-              , {messages.hero.closing}
+              {messages.hero.closing}
             </p>
           </div>
           <div className="text-center w-full">

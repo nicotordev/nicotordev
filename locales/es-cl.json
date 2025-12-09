@@ -60,7 +60,7 @@
     "headline": {
       "transform": "Transformar",
       "words": "palabras",
-      "and": "y",
+      "and": "e",
       "ideas": "ideas",
       "into": "en",
       "applications": "aplicaciones",
@@ -382,13 +382,13 @@
           "description": "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to tech."
         },
         "onlyKoka": {
-          "alt": "Koka, the dog",
-          "description": "The real boss of the operation: Koka."
-        }
-      }
+      "alt": "Koka, the dog",
+      "description": "The real boss of the operation: Koka."
     }
+  }
   },
   "footer": {
     "opensInNewTab": "(abre en una nueva pestaña)"
   }
+}
 }

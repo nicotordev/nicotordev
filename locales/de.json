@@ -1,390 +1,393 @@
 {
   "navigation": {
-    "home": "Home",
-    "about": "About",
-    "projects": "Projects",
+    "home": "Startseite",
+    "about": "Über",
+    "projects": "Projekte",
     "blog": "Blog",
-    "contact": "Contact",
+    "contact": "Kontakt",
     "aria": {
-      "global": "Global navigation",
-      "openMainMenu": "Open main menu",
-      "mobileMenu": "Mobile Menu"
+      "global": "Globale Navigation",
+      "openMainMenu": "Hauptmenü öffnen",
+      "mobileMenu": "Mobiles Menü"
     }
   },
   "common": {
-    "login": "Log in",
-    "settings": "Settings",
-    "preferences": "Preferences",
-    "language": "Language",
-    "currency": "Currency",
-    "timezone": "Timezone",
+    "login": "Anmelden",
+    "settings": "Einstellungen",
+    "preferences": "Präferenzen",
+    "language": "Sprache",
+    "currency": "Währung",
+    "timezone": "Zeitzone",
     "a11y": {
-      "close": "Close",
-      "loading": "Loading",
-      "toggleSidebar": "Toggle sidebar",
-      "leadMagnetSection": "Lead Magnet Section",
-      "closeTestimonial": "Close testimonial",
-      "showTestimonial": "Show testimonial",
-      "previousSlide": "Previous slide",
-      "nextSlide": "Next slide",
-      "previousPage": "Go to previous page",
-      "nextPage": "Go to next page",
-      "previous": "Previous",
-      "next": "Next",
-      "morePages": "More pages",
+      "close": "Schließen",
+      "loading": "Laden",
+      "toggleSidebar": "Seitenleiste umschalten",
+      "leadMagnetSection": "Lead Magnet Abschnitt",
+      "closeTestimonial": "Testimonial schließen",
+      "showTestimonial": "Testimonial anzeigen",
+      "previousSlide": "Vorherige Folie",
+      "nextSlide": "Nächste Folie",
+      "previousPage": "Gehe zur vorherigen Seite",
+      "nextPage": "Gehe zur nächsten Seite",
+      "previous": "Vorherige",
+      "next": "Nächste",
+      "morePages": "Weitere Seiten",
       "media": {
-        "codingAlt": "Animated illustration of coding",
-        "textureAlt": "Animated texture",
-        "writingAlt": "Hand writing illustration",
-        "lightbulbAlt": "Lightbulb illustration",
-        "mechanicArmAlt": "Robotic arm illustration",
-        "giftAlt": "Gift box",
-        "sadAlt": "Crying face emoji",
-        "giftHeartAlt": "Gift with heart",
-        "psychedelicTextureAlt": "Psychedelic texture background",
-        "logoAlt": "NicoTorDev logo"
+        "codingAlt": "Animierte Illustration des Codierens",
+        "textureAlt": "Animierte Textur",
+        "writingAlt": "Handschriftliche Illustration",
+        "lightbulbAlt": "Glühbirnenillustration",
+        "mechanicArmAlt": "Roboterarm-Illustration",
+        "giftAlt": "Geschenkbox",
+        "sadAlt": "Weinendes Gesicht Emoji",
+        "giftHeartAlt": "Geschenk mit Herz",
+        "psychedelicTextureAlt": "Psychedelischer Textur-Hintergrund",
+        "logoAlt": "NicoTorDev Logo"
       }
     }
   },
   "hero": {
-    "greeting": "Hi, I'm",
+    "greeting": "Hallo, ich bin",
     "name": "Nicolás Torres",
-    "title": "Full Stack Developer",
-    "available_for_hire": "Available for hire",
-    "description": "Software developer, content creator, and technology enthusiast from Chile.",
+    "title": "Full Stack Entwickler",
+    "available_for_hire": "Verfügbar für Anstellung",
+    "description": "Softwareentwickler, Content Creator und Technikenthusiast aus Chile.",
     "location": {
-      "from": "a full-stack web engineer from",
-      "tooltip": "From Concepción, Chile. Glad you're here!"
+      "from": "ein Full-Stack-Webentwickler aus",
+      "tooltip": "Aus Concepción, Chile. Ich freue mich, dass du hier bist!"
     },
-    "closing": "and my craft is to",
+    "closing": "und meine Arbeit besteht darin",
     "headline": {
-      "transform": "Turning",
-      "words": "words",
-      "and": "and",
-      "ideas": "ideas",
-      "into": "into",
-      "applications": "impactful",
-      "web": "web applications",
-      "impact": "that matter"
+      "transform": "Transformieren",
+      "words": "Wörter",
+      "and": "und",
+      "ideas": "Ideen",
+      "into": "in",
+      "applications": "Anwendungen",
+      "web": "Web",
+      "impact": "beeindruckende"
     },
     "cta": {
-      "about": "Learn more about me",
-      "download_resume": "Download Resume",
-      "lets_talk": "Let's talk 🚀"
+      "about": "Lerne mich besser kennen",
+      "download_resume": "Lebenslauf herunterladen",
+      "lets_talk": "Lass uns reden 🚀"
     }
   },
   "socialProof": {
-    "badge": "Proven Experience",
-    "title": "Trusted by",
-    "titleHighlight": "international teams",
-    "titleEnd": "& founders",
+    "badge": "Erwiesene Erfahrung",
+    "title": "Vertraut von",
+    "titleHighlight": "internationalen Teams",
+    "titleEnd": "und Gründern",
     "description": {
-      "intro": "I'm",
+      "intro": "Ich bin",
       "name": "Nicolas Torres",
-      "text": ", a Full-Stack Web Engineer specialized in TypeScript, Next.js, React, Node.js, and AI-augmented systems. I've delivered scalable software to clients across Germany, Singapore, the U.S., and Chile—maintaining a 100% Job Success Score as a Top Rated talent on Upwork.",
-      "focus": "My focus is building clean, fast, and purposeful products that elevate how teams operate."
+      "text": ", ein Full-Stack-Webingenieur, spezialisiert auf TypeScript, Next.js, React, Node.js und KI-unterstützte Systeme. Ich habe skalierbare Software an Kunden in Deutschland, Singapur, den USA und Chile geliefert und dabei eine 100%ige Erfolgsquote als Top Rated Talent auf Upwork aufrechterhalten.",
+      "focus": "Mein Fokus liegt darauf, saubere, schnelle und zielgerichtete Produkte zu entwickeln, die die Arbeitsweise der Teams verbessern."
     },
     "stats": {
-      "jobSuccess": "Job Success",
-      "projectsDelivered": "Projects Delivered",
-      "activeEngagements": "Active Engagements",
-      "rate": "Rate"
+      "jobSuccess": "Beruflicher Erfolg",
+      "projectsDelivered": "Gelieferte Projekte",
+      "activeEngagements": "Aktive Engagements",
+      "rate": "Stundensatz"
     },
-    "imageAlt": "Nicolas working on his computer"
+    "imageAlt": "Nicolas arbeitet an seinem Computer"
   },
   "problemSolution": {
     "problem": {
-      "title": "Tired of Developers",
-      "titleBold": "Who don't understand your business",
-      "subtitle": "You need a",
-      "subtitleHighlight": "real engineer",
-      "subtitleEnd": ", not a robot. Someone who understands your business, thinks like an owner, and delivers code that truly moves the needle.",
-      "sectionTitle": "Most common problems I see in development teams:",
+      "title": "Müde von Entwicklern",
+      "titleBold": "Die dein Geschäft nicht verstehen",
+      "subtitle": "Du brauchst einen",
+      "subtitleHighlight": "echten Ingenieur",
+      "subtitleEnd": ", keinen Roboter. Jemanden, der dein Geschäft versteht, wie ein Eigentümer denkt und Code liefert, der wirklich etwas bewirkt.",
+      "sectionTitle": "Häufigste Probleme, die ich in Entwicklungsteams sehe:",
       "problems": {
         "technicalDebt": {
-          "name": "Technical Debt (Spaghetti Code)",
-          "description": "Fragile systems where fixing one bug creates three new ones. Scaling becomes expensive and risky."
+          "name": "Technische Schulden (Spaghetti-Code)",
+          "description": "Fragile Systeme, bei denen das Beheben eines Fehlers drei neue schafft. Skalierung wird kostspielig und riskant."
         },
         "noVision": {
-          "name": "Executors without Vision",
-          "description": "Developers who act like robots: they wait for exact orders and don't warn about UX or business mistakes."
+          "name": "Ausführer ohne Vision",
+          "description": "Entwickler, die wie Roboter agieren: Sie warten auf genaue Anweisungen und bemerken keine UX- oder Geschäftsfehler."
         },
         "ghostDeadlines": {
-          "name": "Ghost Deadlines",
-          "description": "Estimates that are never met. Tickets drag on week after week without a real delivery date."
+          "name": "Geisterfristen",
+          "description": "Schätzungen, die nie eingehalten werden. Die Tickets ziehen sich Woche für Woche ohne ein echtes Lieferdatum."
         },
         "excuses": {
-          "name": "Excuses, not Results",
-          "description": "The classic 'it works on my machine' mentality. When there's a fire in production, nobody takes control."
+          "name": "Ausreden, keine Ergebnisse",
+          "description": "Die klassische Mentalität von 'auf meinem Rechner funktioniert es'. Wenn es in der Produktion brennt, übernimmt niemand die Kontrolle."
         }
       }
     },
     "solution": {
-      "titlePrefix": "Software Engineering with",
-      "subtitle": "Beyond writing lines of code,",
-      "subtitleBold1": "I build digital assets.",
-      "subtitleText": "My approach combines",
-      "subtitleBold2": "technical excellence",
-      "subtitleWith": "with",
-      "subtitleBold3": "business vision",
-      "subtitleTo": "to",
-      "subtitleBold4": "deliver lasting results",
-      "sectionTitle": "How I transform your project:",
+      "titlePrefix": "Software Engineering mit",
+      "subtitle": "Über das Schreiben von Codezeilen hinaus,",
+      "subtitleBold1": "baue ich digitale Vermögenswerte.",
+      "subtitleText": "Mein Ansatz kombiniert",
+      "subtitleBold2": "technische Exzellenz",
+      "subtitleWith": "mit",
+      "subtitleBold3": "Geschäftsvision",
+      "subtitleTo": "um",
+      "subtitleBold4": "Ergebnisse zu liefern, die bestehen bleiben",
+      "sectionTitle": "Wie ich dein Projekt transformiere:",
       "solutions": {
         "scalableArchitecture": {
-          "name": "Scalable Architecture",
-          "description": "I write clean, modular, and documented code. Your project will be easy to maintain today and scale tomorrow."
+          "name": "Skalierbare Architektur",
+          "description": "Ich schreibe sauberen, modularen und dokumentierten Code. Dein Projekt wird heute leicht zu warten und morgen leicht zu skalieren sein."
         },
         "productPartner": {
-          "name": "Product Partner",
-          "description": "I don't just code; I understand your business. I propose strategic improvements to maximize product value."
+          "name": "Produktpartner",
+          "description": "Ich schreibe nicht nur Code; ich verstehe dein Geschäft. Ich schlage strategische Verbesserungen vor, um den Wert des Produkts zu maximieren."
         },
         "totalOwnership": {
-          "name": "Total Ownership",
-          "description": "I treat your project as if it were mine. If a problem arises, I take responsibility and lead the solution to the end."
+          "name": "Vollständige Verantwortung",
+          "description": "Ich behandle dein Projekt, als wäre es meins. Wenn ein Problem auftritt, übernehme ich die Verantwortung und führe die Lösung bis zum Ende."
         },
         "radicalTransparency": {
-          "name": "Radical Transparency",
-          "description": "No confusing jargon. I maintain constant communication so you always know the real state of development."
+          "name": "Radikale Transparenz",
+          "description": "Ohne verwirrende Fachbegriffe. Ich halte eine ständige Kommunikation aufrecht, damit du immer den tatsächlichen Stand der Entwicklung kennst."
         }
       },
       "rotatingTitles": [
-        "Product Mindset",
-        "Business Vision",
-        "Results Focus",
-        "Clear Communication",
-        "Radical Transparency",
-        "Total Ownership",
-        "Scalable Architecture",
-        "Clean and Modular Code",
-        "Strategic Proposals",
-        "Solution Leadership",
-        "Sustainable Value",
-        "Technical Excellence",
-        "Guaranteed Quality",
-        "Simple Maintenance",
-        "Future Scalability",
-        "Constant Innovation",
-        "Continuous Improvement",
-        "Optimal Efficiency",
-        "Measurable Results",
-        "Lasting Impact",
-        "User Satisfaction"
+        "Produktmentalität",
+        "Geschäftsvision",
+        "Ergebnisorientierung",
+        "Klare Kommunikation",
+        "Radikale Transparenz",
+        "Vollständige Verantwortung",
+        "Skalierbare Architektur",
+        "Sauberer und modularer Code",
+        "Strategische Vorschläge",
+        "Führung in Lösungen",
+        "Nachhaltiger Wert",
+        "Technische Exzellenz",
+        "Garantierte Qualität",
+        "Einfache Wartung",
+        "Zukünftige Skalierbarkeit",
+        "Ständige Innovation",
+        "Kontinuierliche Verbesserung",
+        "Optimale Effizienz",
+        "Messbare Ergebnisse",
+        "Dauerhafte Wirkung",
+        "Benutzerzufriedenheit"
       ]
     }
   },
   "projects": {
-    "section_title": "My Projects",
-    "section_subtitle": "Explore my latest work and creative solutions.",
+    "section_title": "Meine Projekte",
+    "section_subtitle": "Entdecke meine neuesten Arbeiten und kreativen Lösungen.",
     "carousel": {
-      "title": "Projects I've Built",
-      "viewProject": "View Project"
+      "title": "Projekte, die ich gebaut habe",
+      "viewProject": "Projekt ansehen"
     }
   },
   "downloadResume": {
-    "selectFormat": "Select Format"
+    "selectFormat": "Format auswählen"
   },
   "leadMagnet": {
-    "title": "Let's talk about your",
-    "titleHighlight": "project",
-    "subtitle": "Ready to turn that story into reality? Fill out the form below.",
+    "title": "Lass uns über dein",
+    "titleHighlight": "Projekt",
+    "subtitle": "Bereit, diese Geschichte Wirklichkeit werden zu lassen? Fülle das Formular unten aus.",
     "form": {
-      "toggleMinimal": "Quick Message",
-      "toggleFull": "Full Form",
+      "toggleMinimal": "Schnelle Nachricht",
+      "toggleFull": "Vollständiges Formular",
       "name": "Name",
-      "email": "Email",
-      "message": "Message",
+      "email": "E-Mail",
+      "message": "Nachricht",
       "budget": "Budget",
-      "timeline": "Timeline",
-      "firstName": "First name",
-      "lastName": "Last name",
-      "website": "Website",
+      "timeline": "Zeitplan",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "website": "Webseite",
       "websiteOptionalHint": "(optional)",
-      "projectDetails": "Project Details",
-      "projectPlaceholder": "Tell me about your project...",
-      "quickMessageTitle": "Quick Message",
-      "quickMessageDescription": "Share your name, contact info, and project details all in one message.",
-      "quickMessagePlaceholder": "Hi Nico! 👋\n\nMy name is [Your Name]\nEmail: [your.email@example.com]\nBudget: [$amount or hourly rate]\n\nI'm looking for help with:\n[Describe your project here...]\n\nLooking forward to hearing from you!",
-      "privacyCopy": "By submitting this form, I agree to the",
-      "privacyPolicy": "privacy policy",
-      "submit": "Send Message",
-      "submitFull": "Let's talk",
-      "submitQuick": "Send Message"
+      "projectDetails": "Projektdetails",
+      "projectPlaceholder": "Erzähle mir von deinem Projekt...",
+      "quickMessageTitle": "Schnelle Nachricht",
+      "quickMessageDescription": "Teile deinen Namen, Kontakt und Projektdetails in einer einzigen Nachricht.",
+      "quickMessagePlaceholder": "Hallo Nico! 👋\n\nMein Name ist [Dein Name]\nE-Mail: [deine.email@beispiel.com]\nBudget: [$Betrag oder Stundensatz]\n\nIch suche Hilfe bei:\n[Beschreibe hier dein Projekt...]\n\nIch freue mich auf deine Antwort!",
+      "privacyCopy": "Indem ich dieses Formular absende, akzeptiere ich die",
+      "privacyPolicy": "Datenschutzrichtlinie",
+      "submit": "Nachricht senden",
+      "submitFull": "Lass uns reden",
+      "submitQuick": "Nachricht senden"
     },
     "testimonial": {
-      "quote": "While I was working as a CTO at",
+      "quote": "Während ich als CTO bei",
       "company": "Spiritory GmbH",
-      "quoteEnd": ", we hired Nicolas as a Full Stack Developer... He was reliable, keeping projects on schedule with the quality needed. I highly recommend him.",
+      "quoteEnd": ", haben wir Nicolas als Full Stack Entwickler engagiert... Er war zuverlässig und hielt die Projekte pünktlich mit der notwendigen Qualität. Ich kann ihn wärmstens empfehlen.",
       "author": "Goce S.",
-      "role": "ex. CTO Spiritory GmbH"
+      "role": "ehem. CTO Spiritory GmbH"
     },
     "gift": {
-      "title": "Choose Your Path",
-      "subtitle": "How would you like to proceed?",
+      "title": "Wähle deinen Weg",
+      "subtitle": "Wie möchtest du fortfahren?",
       "options": {
         "form": {
-          "title": "Let's Talk",
-          "description": "Share your project details"
+          "title": "Lass uns reden",
+          "description": "Teile die Details deines Projekts"
         },
         "gift": {
-          "title": "Get a Gift",
-          "description": "Claim your free resource"
+          "title": "Hol dir ein Geschenk",
+          "description": "Fordere dein kostenloses Material an"
         }
       },
       "experience": {
-        "title": "Before seeing this section, unlock your exclusive gift",
-        "subtitle": "Complete each step to release your gift and unlock the form. Don't worry: it's 100% fun.",
+        "title": "Bevor du diesen Abschnitt siehst, schalte dein exklusives Geschenk frei",
+        "subtitle": "Vervollständige jeden Schritt, um dein Geschenk freizuschalten und das Formular zu entsperren. Keine Sorge: alles ist 100% Spaß.",
         "steps": [
           {
-            "title": "Step 1",
-            "description": "Imagine the triumphant sound of your project doing exactly what you dream."
+            "title": "Schritt 1",
+            "description": "Stell dir den triumphalen Klang deines Projekts vor, das genau das erreicht, was du träumst."
           },
           {
-            "title": "Step 2",
-            "description": "Visualize your idea running perfectly. Yes, that clean."
+            "title": "Schritt 2",
+            "description": "Visualisiere deine Idee, die perfekt funktioniert. Ja, so sauber."
           },
           {
-            "title": "Step 3",
-            "description": "Tap to unlock the gift and the form. Promise: zero explosions."
+            "title": "Schritt 3",
+            "description": "Tippe, um das Geschenk und das Formular freizuschalten. (Versprochen: keine Explosionen.)"
           }
         ],
         "actions": {
-          "close": "Close forever",
-          "claim": "Claim my gift",
-          "claimAria": "Claim my exclusive gift",
-          "progress": "Progress: {completed} of 3 steps completed.",
-          "complete": "Congrats! You've completed all the steps. Now you can unlock the form or claim your gift.",
-          "stepLabel": "Step",
+          "close": "Für immer schließen",
+          "claim": "Mein Geschenk anfordern",
+          "claimAria": "Fordere mein exklusives Geschenk an",
+          "progress": "Fortschritt: {completed} von 3 Schritten abgeschlossen.",
+          "complete": "Herzlichen Glückwunsch! Du hast alle Schritte abgeschlossen. Jetzt kannst du das Formular freischalten oder dein Geschenk anfordern.",
+          "stepLabel": "Schritt",
           "status": {
-            "completed": "Completed",
-            "pending": "Pending, click to complete",
-            "locked": "Locked"
+            "completed": "Abgeschlossen",
+            "pending": "Ausstehend, klicke, um abzuschließen",
+            "locked": "Gesperrt"
           }
         }
       }
     },
     "giftDialog": {
-      "title": "Claim my gift",
-      "description": "Verify you're human and get exclusive access to your gift. No spam, just real value.",
-      "emailLabel": "Email",
+      "title": "Mein Geschenk anfordern",
+      "description": "Überprüfe deine Menschlichkeit und erhalte exklusiven Zugang zu deinem Geschenk. Kein Spam, nur echter Wert.",
+      "emailLabel": "E-Mail",
       "emailPlaceholder": "me@nicotordev.com",
-      "securityLabel": "Security verification",
-      "protectedBy": "Protected by Turnstile",
-      "cancel": "Cancel",
-      "processing": "Processing...",
-      "claim": "Claim gift",
-      "successTitle": "Gift claimed!",
-      "successMessage": "Check your email. If you don't see it, look in spam or promotions.",
-      "successNote": "In a few seconds this window will close automatically ✨",
-      "verificationComplete": "Verification complete · ready to claim",
-      "error": "Error claiming the gift. Please try again."
+      "securityLabel": "Sicherheitsüberprüfung",
+      "protectedBy": "Geschützt durch Turnstile",
+      "cancel": "Abbrechen",
+      "processing": "Wird verarbeitet...",
+      "claim": "Geschenk anfordern",
+      "successTitle": "Geschenk angefordert!",
+      "successMessage": "Überprüfe deine E-Mail. Wenn du es nicht siehst, schaue auch im Spam- oder Promotionsordner nach.",
+      "successNote": "In wenigen Sekunden wird dieses Fenster automatisch geschlossen ✨",
+      "verificationComplete": "Überprüfung abgeschlossen · bereit zur Anforderung",
+      "error": "Fehler beim Anfordern des Geschenks. Bitte versuche es erneut."
     }
   },
   "reviews": {
-    "title": "What Clients Say",
-    "subtitle": "Real feedback from real projects"
+    "title": "Was die Kunden sagen",
+    "subtitle": "Echtes Feedback zu echten Projekten"
   },
   "about": {
-    "title": "About Me",
-    "subtitle": "Building software with soul and precision",
-    "description": "I'm Nicolás Richard Torres, a Chilean full-stack engineer who believes code shouldn't just work: it should have purpose. I went from breaking systems out of curiosity to designing structures with ethics. Today I transform ideas into platforms that combine art, engineering, and a dose of well-directed rebellion.",
+    "title": "Über mich",
+    "subtitle": "Software mit Seele und Präzision entwickeln",
+    "description": "Ich bin Nicolás Richard Torres, ein chilenischer Full-Stack-Ingenieur, der glaubt, dass Code nicht nur funktionieren, sondern auch einen Zweck haben sollte. Ich habe von der Zerstörung von Systemen aus Neugierde zu einem ethischen Design von Strukturen gewechselt. Heute verwandle ich Ideen in Plattformen, die Kunst, Ingenieurwesen und eine Prise gut geleitete Rebellion kombinieren.",
     "role": {
-      "current": "Current Role",
-      "position": "Freelance Full Stack Developer",
-      "mode": "Mode",
+      "current": "Aktuelle Rolle",
+      "position": "Freelance Full Stack Entwickler",
+      "mode": "Modalität",
       "modeDetails": "Remote / Hybrid"
     },
     "metrics": {
-      "title": "Key Metrics",
-      "subtitle": "Real impact and measurable results",
-      "total_earnings": "Total Earnings",
-      "hours": "Hours Worked",
-      "success": "Success Rate",
-      "complete": "complete",
-      "experience": "Experience",
-      "experienceValue": "2.5+ years"
+      "title": "Hervorstechende Metriken",
+      "subtitle": "Echter Einfluss und messbare Ergebnisse",
+      "total_earnings": "Gesamteinnahmen",
+      "hours": "Gearbeitete Stunden",
+      "success": "Erfolgsquote",
+      "complete": "abgeschlossen",
+      "experience": "Erfahrung",
+      "experienceValue": "2,5+ Jahre"
     },
     "methodology": {
-      "title": "Philosophy and Methodology",
-      "description": "My way of working is based on three pillars: clarity in architecture, autonomy to solve, and impact in every line of code. I rely on strict typing, living documentation, and transparent communication.",
+      "title": "Philosophie und Methodik",
+      "description": "Meine Arbeitsweise basiert auf drei Säulen: Klarheit in der Architektur, Autonomie zur Problemlösung und Einfluss in jeder Codezeile. Ich stütze mich auf strenge Typisierung, lebendige Dokumentation und transparente Kommunikation.",
       "title_frontend": "Frontend",
       "title_backend": "Backend",
-      "title_styling": "Design and Styling"
+      "title_styling": "Design und Stile"
     },
     "workStyle": {
-      "title": "Work Style",
-      "description": "Agile, autonomous, and detail-oriented. I propose solutions rather than wait for instructions."
+      "title": "Arbeitsstil",
+      "description": "Agil, autonom und detailorientiert. Ich schlage Lösungen vor, bevor ich auf Anweisungen warte."
     },
     "personal": {
-      "title": "Beyond the Code",
-      "subtitle": "¿Who am I? .... a person who likes to break things out of curiosity",
-      "description": "I'm inspired by Hofmann and Leary, but also by the silence of the forest. Between commits and coffee, I study AI, explore responsible psychedelics, and create content for other developers. I believe that justice—even in software—is a form of love."
+      "title": "Jenseits des Codes",
+      "subtitle": "Wer bin ich? .... eine Person, die gerne aus Neugier Dinge zerbricht",
+      "description": "Ich lasse mich von Hofmann und Leary inspirieren, aber auch von der Stille des Waldes. Zwischen Commits und Kaffee studiere ich KI, erkunde verantwortungsvolle Psychodelie und erstelle Inhalte für andere Entwickler. Ich glaube, dass Gerechtigkeit – selbst in der Software – eine Form von Liebe ist."
     },
     "specialties": {
-      "description": "Next.js, React, TypeScript, and systems where the interface matters as much as the logic."
+      "description": "Next.js, React, TypeScript und Systeme, in denen die Benutzeroberfläche ebenso wichtig ist wie die Logik."
     },
     "stack": {
-      "description": "Node.js, Prisma ORM, tRPC, PostgreSQL, and scalable architectures with frictionless deployments."
+      "description": "Node.js, Prisma ORM, tRPC, PostgreSQL und skalierbare Architekturen mit reibungslosen Bereitstellungen."
     },
     "photos": {
-      "gallery_1_alt": "Conce AI Logo",
-      "gallery_2_alt": "Photo of Nicolás Torres Henriquez smiling",
-      "gallery_3_alt": "Photo of Nicolás Torres Henriquez working on his computer",
-      "gallery_4_alt": "Photo of Nicolás Torres Henriquez in a natural environment"
+      "gallery_1_alt": "Logo von Conce AI",
+      "gallery_2_alt": "Foto von Nicolás Torres Henriquez lächelnd",
+      "gallery_3_alt": "Foto von Nicolás Torres Henriquez, der an seinem Computer arbeitet",
+      "gallery_4_alt": "Foto von Nicolás Torres Henriquez in einer natürlichen Umgebung"
     },
-    "galleryTitle": "Gallery",
+    "galleryTitle": "Galerie",
     "gallery": {
-      "title": "Gallery",
+      "title": "Galerie",
       "items": {
         "conceAi": {
           "alt": "Conce AI Logo",
-          "description": "The official logo of Conce AI, my technology business."
+          "description": "Das offizielle Logo von Conce AI, meinem Technologieunternehmen."
         },
         "wizard": {
-          "alt": "Nico as a psychedelic wizard",
-          "description": "Embracing creativity and magic in code, visualized as a psychedelic wizard."
+          "alt": "Nico als psychedelischer Zauberer",
+          "description": "Kreativität und Magie im Code umarmen, visualisiert als psychedelischer Zauberer."
         },
         "workstation": {
-          "alt": "Nico working on his Computer, Multiple Screens are present",
-          "description": "Deep in the flow state, surrounded by multiple screens and lines of code."
+          "alt": "Nico arbeitet an seinem Computer, mehrere Bildschirme sind vorhanden",
+          "description": "Tief im Flow-Zustand, umgeben von mehreren Bildschirmen und Codezeilen."
         },
         "acid": {
-          "alt": "Nico's pupils dilated",
-          "description": "A close-up capturing the intensity and focus of a late-night coding session."
+          "alt": "Nicos Pupillen erweitert",
+          "description": "Eine Nahaufnahme, die die Intensität und den Fokus einer nächtlichen Codierungssitzung einfängt."
         },
         "psychedelic": {
-          "alt": "Nico with psychedelic (trippy) effects",
-          "description": "Exploring the intersection of art and technology through psychedelic visuals."
+          "alt": "Nico mit psychedelischen (trippy) Effekten",
+          "description": "Die Schnittstelle von Kunst und Technologie durch psychedelische Visuals erkunden."
         },
         "unicorn": {
-          "alt": "Nico in a unicorn outfit",
-          "description": "Never taking life too seriously—rocking a unicorn outfit with pride."
+          "alt": "Nico in einem Einhornkostüm",
+          "description": "Das Leben nie zu ernst nehmen – stolz in einem Einhornkostüm."
         },
         "koka": {
-          "alt": "Nico with his dog Koka",
-          "description": "Quality time with my loyal companion, Koka."
+          "alt": "Nico mit seinem Hund Koka",
+          "description": "Qualitätszeit mit meinem treuen Begleiter, Koka."
         },
         "flowers": {
-          "alt": "Nico among flowers",
-          "description": "Finding balance and peace in nature, surrounded by flowers."
+          "alt": "Nico zwischen Blumen",
+          "description": "Balance und Frieden in der Natur finden, umgeben von Blumen."
         },
         "trippy": {
-          "alt": "Nico with trippy photo effects",
-          "description": "Experimenting with visual effects to create unique digital experiences."
+          "alt": "Nico mit trippy Fotoeffekten",
+          "description": "Mit visuellen Effekten experimentieren, um einzigartige digitale Erlebnisse zu schaffen."
         },
         "piercing": {
-          "alt": "Nico with a piercing in his nose",
-          "description": "Expressing personal style with a nose piercing."
+          "alt": "Nico mit einem Nasenpiercing",
+          "description": "Persönlichen Stil mit einem Nasenpiercing ausdrücken."
         },
         "tattoo": {
-          "alt": "Nico with a tattoo on the back of the neck, a cpu chip",
-          "description": "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to tech."
+          "alt": "Nico mit einem Tattoo am Nacken, einem CPU-Chip",
+          "description": "Cyberpunk-Vibes: ein CPU-Chip-Tattoo am Nacken, das meine Verbindung zur Technik symbolisiert."
         },
         "onlyKoka": {
-          "alt": "Koka, the dog",
-          "description": "The real boss of the operation: Koka."
+          "alt": "Koka, der Hund",
+          "description": "Der wahre Boss der Operation: Koka."
         }
       }
+    },
+    "footer": {
+      "opensInNewTab": "(öffnet in einem neuen Tab)"
     }
   }
 }
