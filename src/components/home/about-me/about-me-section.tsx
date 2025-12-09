@@ -1,4 +1,5 @@
 import PortfolioGallery from "@/components/common/portfolio-gallery";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -10,7 +11,7 @@ import { ImageDialog } from "@/components/ui/image-dialog";
 import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
 import Image from "next/image";
-import type { BentoSize } from '../../../types/footer';
+import type { BentoSize } from "../../../types/footer";
 
 type AboutMeStat = {
   label: string;
@@ -201,9 +202,7 @@ export default function AboutMeSection({
     personalMessages.description ||
     "Between commits and coffee, I explore AI, write, and build responsibly.";
   const galleryTitle =
-    aboutMessages.gallery?.title ||
-    aboutMessages.galleryTitle ||
-    "Gallery";
+    aboutMessages.gallery?.title || aboutMessages.galleryTitle || "Gallery";
   const metricsTitle = aboutMessages.metricsTitle || "Highlighted metrics";
 
   return (
@@ -241,9 +240,7 @@ export default function AboutMeSection({
       <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="w-full lg:w-5/12">
-            <h2 className="inline-block rounded-full bg-accent/10 px-5 py-2 text-sm font-bold uppercase tracking-wider text-accent ring-2 ring-accent/30 font-display mb-6">
-              {aboutTitle}
-            </h2>
+            <Badge variant="secondary">{aboutTitle}</Badge>
             <h1 className="mt-2 text-4xl font-bold tracking-tight text-pretty text-foreground sm:text-5xl font-display">
               {aboutSubtitle}
             </h1>

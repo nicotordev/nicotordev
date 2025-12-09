@@ -55,7 +55,7 @@ export function ReviewDialogProvider({ children }: { children: ReactNode }) {
           {selectedReview && (
             <div className="flex flex-col gap-6">
               <DialogHeader>
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
                   <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-white/10 shadow-sm">
                     <Image
                       src={selectedReview.clientImage}
@@ -64,11 +64,11 @@ export function ReviewDialogProvider({ children }: { children: ReactNode }) {
                       className="object-cover"
                     />
                   </div>
-                  <div className="flex flex-col gap-1 text-left">
+                  <div className="flex flex-col gap-1 text-center sm:text-left w-full sm:w-auto">
                     <DialogTitle className="text-xl font-bold leading-tight">
                       {selectedReview.title}
                     </DialogTitle>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center justify-center sm:justify-start gap-2">
                       <div className="flex">
                         {[1, 2, 3, 4, 5].map((star) => (
                           <Star

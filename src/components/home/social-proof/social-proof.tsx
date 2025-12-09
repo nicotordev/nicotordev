@@ -44,8 +44,8 @@ export default function SocialProofSection({
             width={1200}
             height={800}
             containerClassName="w-full h-full"
-            className="w-full h-full object-cover rounded-2xl"
-            priority
+            className="w-full object-contain sm:h-full sm:object-cover rounded-2xl"
+            preload
           />
         </div>
         <div className="w-full lg:w-1/2">

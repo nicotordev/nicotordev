@@ -23,10 +23,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
 
         <div className="relative z-20 mx-auto w-full max-w-5xl py-12 sm:py-18 lg:py-22 flex flex-col items-center text-center px-2 sm:px-0">
           <div className="mb-3 flex justify-center w-full">
-            <Badge
-              variant="success"
-              className="relative flex items-center justify-center gap-2 capitalize pl-8 pr-4 py-2 z-20 w-full sm:w-auto"
-            >
+            <Badge variant="success" className="relative">
               <Dot className="w-16! h-16! absolute -left-3 top-1/2 -translate-y-1/2" />
               {messages.hero.available_for_hire}
             </Badge>
@@ -116,16 +113,14 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                     />
                   </span>
                 </span>
-                <span className="block sm:inline">
-                  {messages.hero.headline.into}
-                </span>{" "}
-                <span className="block sm:inline gradient-text">
+                <span className="inline">{messages.hero.headline.into}</span>{" "}
+                <span className="inline gradient-text">
                   {messages.hero.headline.applications}
                 </span>{" "}
-                <span className="block sm:inline gradient-text ml-1 sm:ml-2">
+                <span className="inline gradient-text ml-1 sm:ml-2">
                   {messages.hero.headline.web}
                 </span>{" "}
-                <span className="block sm:inline-flex flex-wrap items-center justify-center gap-3 sm:gap-4 align-middle ml-1 sm:ml-2">
+                <span className="inline-flex flex-wrap items-center justify-center gap-3 sm:gap-4 align-middle ml-1 sm:ml-2">
                   <span className="leading-tight gradient-text">
                     {messages.hero.headline.impact}
                   </span>
