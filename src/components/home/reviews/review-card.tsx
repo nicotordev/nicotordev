@@ -1,5 +1,8 @@
-import { Star, CalendarDays } from "lucide-react";
+"use client";
+
 import { cn } from "@/lib/utils";
+import { CalendarDays, Star } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 interface Review {
@@ -17,6 +20,7 @@ const ReviewCard = ({
   feedback,
   dates,
 }: Review) => {
+  const t = useTranslations("reviewCard");
   const [startDate] = dates.split(" - ");
 
   return (
@@ -24,7 +28,8 @@ const ReviewCard = ({
       className={cn(
         "relative w-80 h-full cursor-pointer rounded-xl border bg-card/80 backdrop-blur-sm",
         "p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-[1.025]",
-        "border-border hover:bg-accent/40"
+        "border-border hover:bg-accent/40",
+        "my-4"
       )}
       style={{
         boxShadow: "0px 0px 5px var(--color-primary)",
@@ -71,7 +76,7 @@ const ReviewCard = ({
               </>
             ) : (
               <span className="text-xs font-medium text-muted-foreground">
-                No rating
+                {t("noRating")}
               </span>
             )}
           </div>
@@ -84,7 +89,7 @@ const ReviewCard = ({
           <p className="line-clamp-4 pr-1">“{feedback}”</p>
         ) : (
           <span className="italic text-muted-foreground/70">
-            No written feedback provided.
+            {t("noFeedback")}
           </span>
         )}
       </blockquote>

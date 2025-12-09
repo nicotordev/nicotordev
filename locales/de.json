@@ -281,8 +281,9 @@
     }
   },
   "reviews": {
+    "pre_title": "Kundenstimmen",
     "title": "Was die Kunden sagen",
-    "subtitle": "Echtes Feedback zu echten Projekten"
+    "subtitle": "Echtes Feedback von unseren geschätzten Kunden, das die Qualität und den Wert unserer Projekte unterstreicht."
   },
   "about": {
     "title": "Über mich",
@@ -332,7 +333,7 @@
       "gallery_3_alt": "Foto von Nicolás Torres Henriquez, der an seinem Computer arbeitet",
       "gallery_4_alt": "Foto von Nicolás Torres Henriquez in einer natürlichen Umgebung"
     },
-    "metricsTitle":"",
+    "metricsTitle": "",
     "galleryTitle": "Galerie",
     "gallery": {
       "title": "Galerie",
@@ -390,5 +391,76 @@
   },
   "footer": {
     "opensInNewTab": "(öffnet in einem neuen Tab)"
+  },
+  "reviewsList": {
+    "review-01": {
+      "title": "Full-Stack-Entwickler (React / NextJs / Tailwind) zum Erstellen einer Dashboard-Seite"
+    },
+    "review-02": {
+      "title": "Frontend-Spezialist für einen Marktplatz (Next.js) - Laufendes Projekt 95% fertig (Bugs + kleine Tickets)",
+      "feedback": "Nicolas war eine großartige Einstellung - sehr entschlossen, motiviert und mit einem Blick fürs Detail. Auch wenn er jung ist, bringt er alles mit, was man braucht, um den Job zu erledigen."
+    },
+    "review-03": {
+      "title": "CMS-Fix für statische Seiten",
+      "feedback": "Nicolas arbeitet sehr schnell, er schlug eine viel bessere Lösung für das Problem vor, das gelöst werden musste. Ein paar zusätzliche Anpassungen wurden ohne Fragen vorgenommen. Ich bin immer zufrieden."
+    },
+    "review-04": {
+      "title": "DevOps-Ingenieur mit Expertise in Next.js, Nginx und Automatisierung",
+      "feedback": "Nicolas hat einen 3-Tage-Job in nur 12 Stunden erledigt. Alle Anforderungen erfüllt und auch einige zusätzliche Aufgaben. Immer ein Vergnügen, mit Nicolas zu arbeiten! Danke"
+    },
+    "review-05": {
+      "title": "Fileserver Meilenstein 2",
+      "feedback": "Nicolas half mir, die Dateiserver-Upload-Funktionalitäten zu verfeinern und implementierte sie in eine bestehende Funktion. Er war bereit, mir bei Dingen außerhalb des Umfangs zu helfen."
+    },
+    "review-06": {
+      "title": "Ubuntu DO Dateiserver mit Drag & Drop",
+      "feedback": "Nicolas hat eine Drag & Drop-Dateiserver-Funktionalität erstellt und mir geholfen, als ich es brauchte. Er ist schnell und sachkundig, bereit, die Extrameile zu gehen."
+    },
+    "review-07": {
+      "title": "Krypto-Screener mit React js",
+      "feedback": "Nicolas ist ein herausragender Freelancer, dessen technisches Können nur von seinem Engagement für Exzellenz übertroffen wird. Bei einer engen Frist stellte er die volle Funktionalität sicher."
+    },
+    "review-08": {
+      "title": "Quick10x: Echtzeit-Krypto-Analyse-SaaS-Plattform — Brauche Hilfe bei der Einrichtung von Nodemailer JS",
+      "feedback": "Sehr pünktlich, bei der Sache und Projekt im erwarteten Zeitrahmen geliefert. Vielen Dank!"
+    },
+    "review-09": {
+      "title": "Full-Stack-Entwickler für Legal Compliance MVP gesucht",
+      "feedback": "Es war ausgezeichnet, mit Nicolas zu arbeiten. Er versteht komplexe Konzepte schnell und setzt sie in intuitive und funktionale Lösungen um."
+    },
+    "review-10": {
+      "title": "Front-End-Entwickler - Shadcn Admin Kit"
+    },
+    "review-11": {
+      "title": "Konvertiere ein 1-seitiges Figma in HTML"
+    },
+    "review-12": {
+      "title": "Schnelle Lösung: Clerk-Authentifizierung & Neon-Datenbank-Setup in bestehender Wein-Plattform"
+    },
+    "review-13": {
+      "title": "Experte .NextJS-Entwickler für Backend-Umstrukturierung gesucht"
+    },
+    "review-14": {
+      "title": "Full-Stack-Webingenieur"
+    },
+    "review-15": {
+      "title": "Frontend-Spezialist für einen Marktplatz (Next.js) — Langes laufendes Projekt",
+      "feedback": "Wir haben Nicolas für Fehlerbehebungen eingestellt, aber bald gemerkt, dass er unglaublich talentiert ist und Aufgaben ultraschnell erfasst. Wir haben ihn für ein viel längeres Projekt verlängert."
+    },
+    "review-16": {
+      "title": "Full-Stack-Ingenieur - Angewandte KI-Systeme",
+      "feedback": "Nicolas ist ein großartiger Ingenieur, bringt tolle Energie und Enthusiasmus mit. Sehr empfehlenswert."
+    },
+    "review-17": {
+      "title": "React & Node Dev gesucht (Web App: Node, React, MUI & MySQL)"
+    },
+    "review-18": {
+      "title": "Website in React neu erstellen",
+      "feedback": "Es war ein absolutes Vergnügen, mit Nicolas zu arbeiten. Sehr reaktionsschnell, großartiger Code, kontinuierliche Unterstützung."
+    }
+  },
+  "reviewCard": {
+    "noRating": "Keine Bewertung",
+    "noFeedback": "Kein schriftliches Feedback vorhanden."
   }
 }

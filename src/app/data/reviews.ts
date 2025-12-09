@@ -1,4 +1,5 @@
 export interface Review {
+  id: string; // Added for i18n
   clientImage: string;
   title: string;
   rating: number | null;
@@ -12,6 +13,7 @@ export interface Review {
 
 export const reviews: Review[] = [
   {
+    id: "review-01",
     clientImage: "/images/profile-pics/1.webp",
     title:
       "Full-stack developer (React / NextJs / Tailwind) to build a dashboard page",
@@ -24,6 +26,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-02",
     clientImage: "/images/profile-pics/2.webp",
     title:
       "Frontend Specialist for a Marketplace (Next.js) - Ongoing Project 95% Ready (Bugs+Small Tickets)",
@@ -37,6 +40,7 @@ export const reviews: Review[] = [
     hourlyRate: 8.99,
   },
   {
+    id: "review-03",
     clientImage: "/images/profile-pics/3.webp",
     title: "CMS fix static pages",
     rating: 5.0,
@@ -49,6 +53,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-04",
     clientImage: "/images/profile-pics/4.webp",
     title: "DevOps Engineer with Expertise in Next.js, Nginx, and Automation",
     rating: 5.0,
@@ -61,6 +66,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-05",
     clientImage: "/images/profile-pics/5.webp",
     title: "Fileserver milestone 2",
     rating: 5.0,
@@ -73,6 +79,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-06",
     clientImage: "/images/profile-pics/6.webp",
     title: "Ubuntu DO fileserver with drag and drop",
     rating: 5.0,
@@ -85,6 +92,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-07",
     clientImage: "/images/profile-pics/7.webp",
     title: "Crypto screener using React js",
     rating: 4.7,
@@ -97,6 +105,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-08",
     clientImage: "/images/profile-pics/8.webp",
     title:
       "Quick10x: Real-Time Crypto Analytics SaaS Platform — Need help with setting up Nodemailer JS",
@@ -110,6 +119,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-09",
     clientImage: "/images/profile-pics/9.webp",
     title: "Full-Stack Developer Needed for Legal Compliance MVP",
     rating: 5.0,
@@ -122,6 +132,7 @@ export const reviews: Review[] = [
     hourlyRate: 23,
   },
   {
+    id: "review-10",
     clientImage: "/images/profile-pics/10.webp",
     title: "Front End Developer - Shadcn Admin Kit",
     rating: 5.0,
@@ -133,6 +144,7 @@ export const reviews: Review[] = [
     hourlyRate: 23,
   },
   {
+    id: "review-11",
     clientImage: "/images/profile-pics/11.webp",
     title: "Convert a 1 page figma into html",
     rating: null,
@@ -144,6 +156,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-12",
     clientImage: "/images/profile-pics/12.webp",
     title:
       "Quick Fix: Clerk Authentication & Neon Database Setup in Existing Wine Platform",
@@ -156,6 +169,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-13",
     clientImage: "/images/profile-pics/13.webp",
     title: "Expert .NextJS developer needed for backend restructuring",
     rating: 5.0,
@@ -167,6 +181,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-14",
     clientImage: "/images/profile-pics/14.webp",
     title: "Full stack web engineer",
     rating: 5.0,
@@ -178,6 +193,7 @@ export const reviews: Review[] = [
     hourlyRate: 15,
   },
   {
+    id: "review-15",
     clientImage: "/images/profile-pics/15.webp",
     title:
       "Frontend Specialist for a Marketplace (Next.js) — Long Ongoing Project",
@@ -191,6 +207,7 @@ export const reviews: Review[] = [
     hourlyRate: null,
   },
   {
+    id: "review-16",
     clientImage: "/images/profile-pics/16.webp",
     title: "Full Stack Engineer - Applied AI Systems",
     rating: 5.0,
@@ -203,6 +220,7 @@ export const reviews: Review[] = [
     hourlyRate: 14,
   },
   {
+    id: "review-17",
     clientImage: "/images/profile-pics/17.webp",
     title: "React & Node Dev Needed (Web App: Node, React, MUI & MySQL)",
     rating: null,
@@ -214,6 +232,7 @@ export const reviews: Review[] = [
     hourlyRate: 8.99,
   },
   {
+    id: "review-18",
     clientImage: "/images/profile-pics/18.webp",
     title: "Recreate Website in React",
     rating: 5.0,

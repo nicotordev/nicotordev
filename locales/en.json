@@ -281,8 +281,9 @@
     }
   },
   "reviews": {
-    "title": "What Customers Say",
-    "subtitle": "Real feedback from real projects"
+    "pre_title": "Customer Reviews",
+    "title": "What Our Customers Say",
+    "subtitle": "Genuine feedback from our valued customers, highlighting the quality and value of our projects."
   },
   "about": {
     "title": "About Me",
@@ -390,5 +391,76 @@
   },
   "footer": {
     "opensInNewTab": "(opens in a new tab)"
+  },
+  "reviewsList": {
+    "review-01": {
+      "title": "Full-stack developer (React / NextJs / Tailwind) to build a dashboard page"
+    },
+    "review-02": {
+      "title": "Frontend Specialist for a Marketplace (Next.js) - Ongoing Project 95% Ready (Bugs+Small Tickets)",
+      "feedback": "Nicolas was a great hire - very determined, motivated with an eye for detail. Even though he is young he brings everything you need to get the job done."
+    },
+    "review-03": {
+      "title": "CMS fix static pages",
+      "feedback": "Nicolas works very fast, he proposed a much better solution for the issue that needed to be resolved. A few extra tweaks were done without any questions. I am always satisfied."
+    },
+    "review-04": {
+      "title": "DevOps Engineer with Expertise in Next.js, Nginx, and Automation",
+      "feedback": "Nicolas did a 3 day job in just 12 hours. All requirements met and some extra jobs as well. Always a pleasure to work with Nicolas! Gracias"
+    },
+    "review-05": {
+      "title": "Fileserver milestone 2",
+      "feedback": "Nicolas helped me to refine the fileserver upload functionalities and implemented it in an existing function. He was willing to help me with things outside scope."
+    },
+    "review-06": {
+      "title": "Ubuntu DO fileserver with drag and drop",
+      "feedback": "Nicolas has created a drag and drop fileserver functionality and helped me when I needed it. He is fast and knowledgeable, willing to go the extra mile."
+    },
+    "review-07": {
+      "title": "Crypto screener using React js",
+      "feedback": "Nicolas is an outstanding freelancer whose technical prowess is matched only by his commitment to excellence. With a tight deadline, he ensured full functionality."
+    },
+    "review-08": {
+      "title": "Quick10x: Real-Time Crypto Analytics SaaS Platform — Need help with setting up Nodemailer JS",
+      "feedback": "Very punctual, on task and project delivered within the expected timeframe. Thanks so much!"
+    },
+    "review-09": {
+      "title": "Full-Stack Developer Needed for Legal Compliance MVP",
+      "feedback": "Nicolas has been excellent to work with. He understands complex concepts quickly and converts them into intuitive and functional solutions."
+    },
+    "review-10": {
+      "title": "Front End Developer - Shadcn Admin Kit"
+    },
+    "review-11": {
+      "title": "Convert a 1 page figma into html"
+    },
+    "review-12": {
+      "title": "Quick Fix: Clerk Authentication & Neon Database Setup in Existing Wine Platform"
+    },
+    "review-13": {
+      "title": "Expert .NextJS developer needed for backend restructuring"
+    },
+    "review-14": {
+      "title": "Full stack web engineer"
+    },
+    "review-15": {
+      "title": "Frontend Specialist for a Marketplace (Next.js) — Long Ongoing Project",
+      "feedback": "We hired Nicolas for bug-fixing, but soon realised he's incredibly talented and grasps tasks ultra-fast. We extended him into a much longer project."
+    },
+    "review-16": {
+      "title": "Full Stack Engineer - Applied AI Systems",
+      "feedback": "Nicolas is a great engineer, brings great energy and enthusiasm. Highly recommended."
+    },
+    "review-17": {
+      "title": "React & Node Dev Needed (Web App: Node, React, MUI & MySQL)"
+    },
+    "review-18": {
+      "title": "Recreate Website in React",
+      "feedback": "It was an absolute pleasure working with Nicolas. Very responsive, great code, continuous support."
+    }
+  },
+  "reviewCard": {
+    "noRating": "No rating",
+    "noFeedback": "No written feedback provided."
   }
 }
