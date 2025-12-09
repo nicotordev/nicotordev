@@ -12,6 +12,7 @@
     }
   },
   "common": {
+    "see_reviews": "See reviews",
     "viewDetails": "View Details",
     "login": "Log in",
     "settings": "Settings",
