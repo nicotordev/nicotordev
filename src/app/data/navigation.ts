@@ -6,9 +6,9 @@ export type NavigationT = {
   contact: string;
 };
 export const navigationItems = (navigationT: NavigationT) => [
-  { name: navigationT.home, href: "#home" },
+  { name: navigationT.home, href: "/" },
   { name: navigationT.about, href: "#about" },
   { name: navigationT.projects, href: "#projects" },
-  { name: navigationT.blog, href: "#blog" },
+  { name: navigationT.blog, href: "/blog" },
   { name: navigationT.contact, href: "#contact" },
 ];

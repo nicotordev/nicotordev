@@ -1,10 +1,10 @@
 "use client";
 
-import { navigationItems } from "@/app/data";
+import { navigationItems } from "@/app/data/navigation";
 import SettingsMenu from "@/components/common/settings-menu";
 import Logo from "@/components/logo";
 import { cn } from "@/lib/utils";
-import { useRendersCount, useWindowScroll } from "react-use";
+import { useWindowScroll } from "react-use";
 
 import type { Messages } from "@/types/i18n";
 import HeaderMobileMenu from "./header-mobile-menu";
@@ -28,7 +28,6 @@ export default function Header({ messages }: { messages: Messages }) {
 
   const navItems = navigationItems(navigation);
   const { y } = useWindowScroll();
-  const hasRender = useRendersCount();
 
   return (
     <header
@@ -39,7 +38,7 @@ export default function Header({ messages }: { messages: Messages }) {
       <div
         className={cn(
           "relative w-full max-w-6xl px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
-          y > 10 || !y || !hasRender || hasRender > 1
+          y > 10
             ? "bg-background/50 backdrop-blur-xl border-primary/40 shadow-primary supports-backdrop-filter:bg-background/50"
             : "bg-transparent border-transparent shadow-none"
         )}

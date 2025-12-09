@@ -7,4 +7,7 @@ export const routing = defineRouting({
 
   // Used when no locale matches
   defaultLocale,
+
+  // Always include the locale in the URL to match the `/[locale]` app directory
+  localePrefix: "always",
 });

@@ -1,30 +1,22 @@
 "use client";
 
-import { useTransition } from "react";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { Check, Clock, DollarSign, Globe, LogIn, Settings } from "lucide-react";
 import { useLocale, useMessages } from "next-intl";
-import { useRouter } from "next/navigation";
-import {
-  Globe,
-  DollarSign,
-  Clock,
-  User,
-  Settings,
-  Check,
-  LogIn,
-} from "lucide-react";
+import { useTransition } from "react";
 
-import { locales, localeNames, type Locale } from "@/i18n/config";
+import { localeNames, locales, type Locale } from "@/i18n/config";
 import {
   currencies,
   CURRENCY_LABELS,
   CURRENCY_SYMBOLS,
   type Currency,
 } from "@/i18n/currency";
-import { timezones, TIMEZONE_LABELS, type Timezone } from "@/i18n/timezone";
+import { TIMEZONE_LABELS, timezones, type Timezone } from "@/i18n/timezone";
 
+import { setLocaleCookie } from "@/app/actions/locale.actions";
 import { useCurrencyStore } from "@/stores/currency-store";
 import { useTimezoneStore } from "@/stores/timezone-store";
-import { setLocaleCookie } from "@/app/actions/locale.actions";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -54,6 +46,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
   const currencyLabel = common?.currency || "Currency";
   const timezoneLabel = common?.timezone || "Timezone";
   const router = useRouter();
+  const pathname = usePathname();
   const locale = useLocale() as Locale;
   const { currency, setCurrency } = useCurrencyStore();
   const { timezone, setTimezone } = useTimezoneStore();
@@ -63,7 +56,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
     if (next === locale) return;
     startTransition(async () => {
       await setLocaleCookie(next);
-      router.refresh();
+      router.replace(pathname, { locale: next });
     });
   };
 
@@ -91,7 +84,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
           <span className="sr-only">{settingsLabel}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56 z-[70]">
+      <DropdownMenuContent align="end" className="w-56 z-70">
         <DropdownMenuLabel>{preferencesLabel}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
@@ -104,7 +97,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
               {localeNames[locale]}
             </span>
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className="z-[70]">
+          <DropdownMenuSubContent className="z-70">
             {locales.map((l) => (
               <DropdownMenuItem key={l} onClick={() => handleLocaleChange(l)}>
                 <Flag locale={l} />
@@ -124,7 +117,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
               {currency}
             </span>
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto z-[70]">
+          <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto z-70">
             {currencies.map((c) => (
               <DropdownMenuItem key={c} onClick={() => handleCurrencyChange(c)}>
                 <span className="mr-2 text-muted-foreground w-4 text-center">
@@ -143,7 +136,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
             <Clock className="mr-2 size-4" />
             <span>{timezoneLabel}</span>
           </DropdownMenuSubTrigger>
-          <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto z-[70]">
+          <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto z-70">
             {timezones.map((tz) => (
               <DropdownMenuItem
                 key={tz}

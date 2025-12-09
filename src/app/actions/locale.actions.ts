@@ -1,6 +1,5 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 import { isLocale, type Locale } from "@/i18n/config";
@@ -21,8 +20,6 @@ export async function setLocaleCookie(nextLocale: string) {
   if (!result.success) {
     return { success: false as const, error: result.message };
   }
-
-  revalidatePath("/", "layout");
 
   return { success: true as const };
 }

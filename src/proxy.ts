@@ -3,6 +3,8 @@ import {
   createRouteMatcher,
 } from "@clerk/nextjs/server";
 import createMiddleware from "next-intl/middleware";
+import { NextResponse } from "next/server";
+import { getLocaleFromPath } from "../i18n/config";
 import { routing } from "../i18n/routing";
 
 const nextIntlMiddleware = createMiddleware(routing);
@@ -14,16 +16,29 @@ const isPublicRoute = createRouteMatcher([
   "/sign-in(.*)",
   "/:locale/sign-in(.*)",
   "/:locale",
+  "/:locale/about",
+  "/:locale/projects",
+  "/:locale/blog",
+  "/:locale/contact",
+  "/about",
+  "/projects",
+  "/blog",
+  "/contact",
 ]);
 
 export default clerkMiddlewareImpl(async (auth, req) => {
   // Do not run i18n middleware on API routes
   if (req.nextUrl.pathname.startsWith("/api")) {
-    return; // Let the request pass through without localization
+    return NextResponse.next();
   }
 
   if (!isPublicRoute(req)) {
-    await auth.protect();
+    const locale =
+      getLocaleFromPath(req.nextUrl.pathname) ?? routing.defaultLocale;
+
+    await auth.protect({
+      signInUrl: `/${locale}/sign-in`,
+    });
   }
 
   return nextIntlMiddleware(req);

@@ -1,4 +1,4 @@
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import { defaultCurrencyByLocale } from "@/i18n/currency";
@@ -13,7 +13,8 @@ export default async function ProvidersWrapper({
   children: ReactNode;
 }) {
   const preferences = await fetchUserPreferences();
-  const locale = preferences.locale ?? routing.defaultLocale;
+  const requestLocale = await getLocale();
+  const locale = requestLocale ?? preferences.locale ?? routing.defaultLocale;
   const messages = await getMessages({ locale });
 
   const initialCurrency =
