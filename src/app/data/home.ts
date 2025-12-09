@@ -1,15 +1,15 @@
 import {
   // Problemas (Iconos de alerta/negativos)
   AlertTriangle, // Para código peligroso
-  Bot, // Para falta de pensamiento crítico (trabajo robótico)
-  Hourglass, // Para tiempo perdido
-  ShieldAlert, // Para falta de seguridad/responsabilidad
+  Bot, // Para falta de seguridad/responsabilidad
 
   // Soluciones (Iconos positivos/acción)
-  Braces, // Código estructurado
-  Lightbulb, // Ideas y visión
+  Braces, // Para falta de pensamiento crítico (trabajo robótico)
+  Hourglass, // Código estructurado
+  Lightbulb, // Seguridad garantizada
+  MessageSquare, // Para tiempo perdido
+  ShieldAlert, // Ideas y visión
   ShieldCheck, // Seguridad garantizada
-  MessageSquare, // Comunicación fluida
 } from "lucide-react";
 
 export const problemSectionProblems = [
@@ -216,3 +216,22 @@ export const regulexCaseStudy: RegulexCaseStudy = {
     "Support for PDF and DOCX formats with OCR",
   ],
 };
+
+export const nicolasStats = [
+  { id: 1, key: "jobSuccess", value: 100, rightSymbol: "%", leftSymbol: "" },
+  {
+    id: 2,
+    key: "projectsDelivered",
+    value: 18,
+    rightSymbol: "",
+    leftSymbol: "",
+  },
+  {
+    id: 3,
+    key: "activeEngagements",
+    value: 4,
+    rightSymbol: "",
+    leftSymbol: "",
+  },
+  { id: 4, key: "rate", value: 26, rightSymbol: "/hr", leftSymbol: "$" },
+];

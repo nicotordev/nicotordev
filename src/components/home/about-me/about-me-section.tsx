@@ -7,6 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ImageDialog } from "@/components/ui/image-dialog";
 import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
 import Image from "next/image";
@@ -47,13 +48,10 @@ export default function AboutMeSection({
   const methodologyDescription =
     methodologyMessages.description ||
     "My way of working is built on clarity, autonomy, and impact.";
-  const metricsTitle = metricsMessages.title || "Highlighted metrics";
-  const metricsSubtitle = metricsMessages.subtitle || "Real impact";
 
   const experienceValueRaw = metricsMessages.experienceValue || "2.5+ years";
-  const [experienceValue, ...experienceSuffixParts] = experienceValueRaw.split(
-    " "
-  );
+  const [experienceValue, ...experienceSuffixParts] =
+    experienceValueRaw.split(" ");
   const experienceSuffix = experienceSuffixParts.join(" ").trim();
 
   const resolvedStats = stats ?? [
@@ -206,6 +204,7 @@ export default function AboutMeSection({
     aboutMessages.gallery?.title ||
     aboutMessages.galleryTitle ||
     "Gallery";
+  const metricsTitle = aboutMessages.metricsTitle || "Highlighted metrics";
 
   return (
     <div className="relative py-24 sm:py-32">
@@ -253,13 +252,20 @@ export default function AboutMeSection({
             </p>
           </div>
           <div className="flex w-full items-center justify-center lg:w-7/12">
-            <Image
+            <ImageDialog
               src="/animated/handpicked.webp"
               alt="Nico handpicked"
               width={1500}
               height={1500}
-              className="h-full w-full object-contain"
-            />
+            >
+              <Image
+                src="/animated/handpicked.webp"
+                alt="Nico handpicked"
+                width={1500}
+                height={1500}
+                className="h-full w-full object-contain"
+              />
+            </ImageDialog>
           </div>
         </div>
         <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
