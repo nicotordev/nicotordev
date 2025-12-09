@@ -20,10 +20,6 @@ const isPublicRoute = createRouteMatcher([
   "/:locale/projects",
   "/:locale/blog",
   "/:locale/contact",
-  "/about",
-  "/projects",
-  "/blog",
-  "/contact",
 ]);
 
 export default clerkMiddlewareImpl(async (auth, req) => {
@@ -36,8 +32,9 @@ export default clerkMiddlewareImpl(async (auth, req) => {
     const locale =
       getLocaleFromPath(req.nextUrl.pathname) ?? routing.defaultLocale;
 
-    await auth.protect({
-      signInUrl: `/${locale}/sign-in`,
+    await auth.protect(undefined, {
+      unauthenticatedUrl: `/${locale}/sign-in`,
+      unauthorizedUrl: `/${locale}/sign-in`,
     });
   }
 
