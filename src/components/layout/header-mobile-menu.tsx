@@ -22,7 +22,10 @@ interface HeaderMobileMenuProps {
   }[];
 }
 
-export default function HeaderMobileMenu({ messages, navItems }: HeaderMobileMenuProps) {
+export default function HeaderMobileMenu({
+  messages,
+  navItems,
+}: HeaderMobileMenuProps) {
   const navigationAria = messages.navigation?.aria ?? {};
   const commonMessages = messages.common ?? {};
   return (
@@ -52,9 +55,9 @@ export default function HeaderMobileMenu({ messages, navItems }: HeaderMobileMen
                     {commonMessages.preferences || "Preferences"}
                   </div>
                   <div className="space-y-2">
-                    <LanguageSwitcher size="default" />
-                    <CurrencySwitcher />
-                    <TimezoneSwitcher />
+                    <LanguageSwitcher size="default" className="w-full" />
+                    <CurrencySwitcher className="w-full" />
+                    <TimezoneSwitcher className="w-full" />
                   </div>
                 </div>
               </div>

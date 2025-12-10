@@ -1,14 +1,5 @@
 "use client";
 
-import { useTransition } from "react";
-import { useLocale } from "next-intl";
-import {
-  currencies,
-  CURRENCY_LABELS,
-  CURRENCY_SYMBOLS,
-  type Currency,
-} from "@/i18n/currency";
-import { useCurrencyStore } from "@/stores/currency-store";
 import {
   Select,
   SelectContent,
@@ -16,21 +7,33 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  currencies,
+  CURRENCY_LABELS,
+  CURRENCY_SYMBOLS,
+  type Currency,
+} from "@/i18n/currency";
+import { useCurrencyStore } from "@/stores/currency-store";
+import { useTransition } from "react";
 
-export default function CurrencySwitcher() {
+export default function CurrencySwitcher({
+  className,
+}: {
+  className?: string;
+}) {
   const { currency, setCurrency } = useCurrencyStore();
   const [isPending, startTransition] = useTransition();
 
-  const handleSelect = (next: Currency) => {
+  const handleSelect = (next: string) => {
     if (next === currency) return;
     startTransition(async () => {
-      await setCurrency(next);
+      await setCurrency(next as Currency);
     });
   };
 
   return (
     <Select value={currency} onValueChange={handleSelect} disabled={isPending}>
-      <SelectTrigger className="w-[140px]">
+      <SelectTrigger className={className || "w-[140px]"}>
         <SelectValue>
           <span className="flex items-center gap-1.5">
             <span className="text-muted-foreground">

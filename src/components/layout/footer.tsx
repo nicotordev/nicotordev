@@ -23,7 +23,7 @@ export default function Footer({ messages }: FooterProps) {
 
   return (
     <footer
-      className="relative flex flex-col font-sans antialiased bg-primary text-primary-foreground border-t border-primary-foreground/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] lg:shadow-[0_-18px_48px_rgba(0,0,0,0.18)] bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.05),transparent_50%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.04),transparent_45%)]"
+      className="mt-12 sm:mt-0 relative flex flex-col font-sans antialiased bg-primary text-primary-foreground border-t border-primary-foreground/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] lg:shadow-[0_-18px_48px_rgba(0,0,0,0.18)] bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.05),transparent_50%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.04),transparent_45%)]"
       aria-labelledby="footer-heading"
     >
       <FooterNewsletter messages={messages} />

@@ -1,17 +1,18 @@
 "use client";
 
 import { setLocaleCookie } from "@/app/actions/locale.actions";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { localeNames, locales, type Locale } from "@/i18n/config";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import { useTransition } from "react";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import ChileFlag from "@/components/emojis/chile-flag";
 import GermanyFlag from "@/components/emojis/germany-flag";
@@ -42,42 +43,48 @@ function Flag({ locale, size = 16 }: { locale: Locale; size?: number }) {
 
 export default function LanguageSwitcher({
   size = "default",
+  className,
 }: {
   size?: "default" | "sm" | "lg" | "icon" | "icon-sm" | "icon-lg";
+  className?: string;
 }) {
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale() as Locale;
   const [isPending, startTransition] = useTransition();
 
-  const handleSelect = (next: Locale) => {
+  const handleSelect = (next: string) => {
     if (next === locale) return;
     startTransition(async () => {
-      await setLocaleCookie(next);
-      router.replace(pathname, { locale: next });
+      await setLocaleCookie(next as Locale);
+      router.replace(pathname, { locale: next as Locale });
     });
   };
 
   const isIconSize = size?.includes("icon");
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size={size} disabled={isPending}>
-          <Flag locale={locale} />
-          {!isIconSize && (
-            <span className="ml-1 hidden sm:inline">{localeNames[locale]}</span>
-          )}
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+    <Select value={locale} onValueChange={handleSelect} disabled={isPending}>
+      <SelectTrigger className={className}>
+        <SelectValue placeholder={localeNames[locale]}>
+          <div className="flex items-center gap-2">
+            <Flag locale={locale} />
+            {!isIconSize && (
+              <span className="truncate">{localeNames[locale]}</span>
+            )}
+          </div>
+        </SelectValue>
+      </SelectTrigger>
+      <SelectContent>
         {locales.map((l) => (
-          <DropdownMenuItem key={l} onSelect={() => handleSelect(l)}>
-            <Flag locale={l} />
-            <span className="ml-1">{localeNames[l]}</span>
-          </DropdownMenuItem>
+          <SelectItem key={l} value={l}>
+            <div className="flex items-center gap-2">
+              <Flag locale={l} />
+              <span>{localeNames[l]}</span>
+            </div>
+          </SelectItem>
         ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </SelectContent>
+    </Select>
   );
 }

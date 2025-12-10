@@ -1,8 +1,5 @@
 "use client";
 
-import { useTransition } from "react";
-import { timezones, TIMEZONE_LABELS, type Timezone } from "@/i18n/timezone";
-import { useTimezoneStore } from "@/stores/timezone-store";
 import {
   Select,
   SelectContent,
@@ -10,21 +7,28 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { TIMEZONE_LABELS, timezones, type Timezone } from "@/i18n/timezone";
+import { useTimezoneStore } from "@/stores/timezone-store";
+import { useTransition } from "react";
 
-export default function TimezoneSwitcher() {
+export default function TimezoneSwitcher({
+  className,
+}: {
+  className?: string;
+}) {
   const { timezone, setTimezone } = useTimezoneStore();
   const [isPending, startTransition] = useTransition();
 
-  const handleSelect = (next: Timezone) => {
+  const handleSelect = (next: string) => {
     if (next === timezone) return;
     startTransition(async () => {
-      await setTimezone(next);
+      await setTimezone(next as Timezone);
     });
   };
 
   return (
     <Select value={timezone} onValueChange={handleSelect} disabled={isPending}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className={className || "w-[180px]"}>
         <SelectValue>
           <span className="truncate">{TIMEZONE_LABELS[timezone]}</span>
         </SelectValue>

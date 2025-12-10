@@ -52,7 +52,7 @@ export default function PortfolioGallery({ items }: PortfolioGalleryProps) {
       {/* The Fullscreen Modal */}
       <AnimatePresence>
         {selectedId !== null && selectedItem && (
-          <div className="fixed inset-0 flex items-center justify-center p-4 sm:p-10 z-99999">
+          <div className="fixed inset-0 flex items-center justify-center p-4 sm:p-10 z-50">
             {/* Backdrop (Blur) */}
             <motion.div
               initial={{ opacity: 0 }}
