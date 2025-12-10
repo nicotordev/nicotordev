@@ -7,6 +7,9 @@ import { cn } from "@/lib/utils";
 import { useRendersCount, useWindowScroll } from "react-use";
 
 import type { Messages } from "@/types/i18n";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import { Typography } from "../ui/typography";
 import HeaderMobileMenu from "./header-mobile-menu";
 
 // Header component with responsive breakpoints
@@ -62,12 +65,21 @@ export default function Header({ messages }: { messages: Messages }) {
                 href={item.href}
                 className="text-sm font-semibold text-foreground/90 hover:text-foreground"
               >
-                {item.name}
+                <Typography as="span" mood="artistic" role="button">
+                  {item.name}
+                </Typography>
               </a>
             ))}
           </div>
           <div className="hidden md:flex md:flex-1 md:justify-end md:items-center md:gap-3">
             <SettingsMenu loginLabel={commonMessages.login || "Login"} />
+            <Link href="/sign-in">
+              <Button>
+                <Typography as="span" mood="artistic" role="button">
+                  {commonMessages.login || "Login"}
+                </Typography>
+              </Button>
+            </Link>
           </div>
           <HeaderMobileMenu messages={messages} navItems={navItems} />
         </nav>

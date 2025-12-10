@@ -2,6 +2,7 @@ import { BackgroundDecoration } from "@/components/backgrounds/background-decora
 import DownloadResumeButton from "@/components/download-resume-button";
 import ChileFlag from "@/components/emojis/chile-flag";
 import { Button } from "@/components/ui/button";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
 import { Dot } from "lucide-react";
@@ -21,19 +22,21 @@ export default function HeroSection({ messages }: HeroSectionProps) {
       <div className="relative px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
         <BackgroundDecoration />
 
-        <div className="relative z-20 mx-auto w-full max-w-5xl py-12 sm:py-18 lg:py-22 flex flex-col items-center text-center px-2 sm:px-0">
+        <div className="relative z-20 mx-auto w-full max-w-6xl py-12 sm:py-18 lg:py-22 flex flex-col items-center text-center px-2 sm:px-0">
           <div className="mb-3 flex justify-center w-full">
             <Badge variant="success" className="relative pl-6 overflow-visible">
               <Dot className="w-16! h-16! absolute -left-4 top-1/2 -translate-y-1/2" />
-              {messages.hero.available_for_hire}
+              <Typography as="span" role="label">
+                {messages.hero.available_for_hire}
+              </Typography>
             </Badge>
           </div>
           <div className="mb-2 text-center text-muted-foreground font-medium w-full">
-            <p className="font-display text-balance tracking-tight pb-0 text-sm sm:text-base">
+            <Typography as="h2">
               {messages.hero.greeting}{" "}
-              <span className="font-bold text-secondary">
+              <Typography as="span" className="font-bold text-secondary">
                 {messages.hero.name}
-              </span>
+              </Typography>
               , {messages.hero.location.from}{" "}
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -44,14 +47,16 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                   </Button>
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>{messages.hero.location.tooltip}</p>
+                  <Typography role="body">
+                    {messages.hero.location.tooltip}
+                  </Typography>
                 </TooltipContent>
               </Tooltip>
               {messages.hero.closing}
-            </p>
+            </Typography>
           </div>
           <div className="text-center w-full">
-            <h1 className="font-display text-balance text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-tight sm:leading-[1.15] space-y-4">
+            <Typography as="h1" role="display" mood="artistic">
               <span className="block">
                 {messages.hero.headline.transform}{" "}
                 <span
@@ -60,9 +65,14 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                     "sm:text-4xl md:text-5xl"
                   )}
                 >
-                  <span className="text-secondary font-bold font-mono transform-gpu">
+                  <Typography
+                    as="span"
+                    mood="code"
+                    role="display"
+                    className="text-secondary font-bold transform-gpu text-3xl sm:text-4xl md:text-5xl"
+                  >
                     {messages.hero.headline.words}
-                  </span>
+                  </Typography>
                   <span className="relative ml-1 inline-flex items-center justify-center top-0">
                     <source
                       srcSet="/images/illustrations/writing.webp"
@@ -93,9 +103,14 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                     "mx-4"
                   )}
                 >
-                  <span className="text-secondary font-bold font-mono transform-gpu">
+                  <Typography
+                    as="span"
+                    mood="code"
+                    role="display"
+                    className="text-secondary font-bold transform-gpu text-3xl sm:text-4xl md:text-5xl"
+                  >
                     {messages.hero.headline.ideas}
-                  </span>
+                  </Typography>
                   <span className="relative ml-1 inline-flex items-center justify-center top-0">
                     <source
                       srcSet="/images/illustrations/lightbulb.webp"
@@ -142,7 +157,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                   </span>
                 </span>
               </span>
-            </h1>
+            </Typography>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 w-full">
               <Button asChild className="w-full sm:w-auto">
@@ -150,11 +165,17 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                   href="#about-section"
                   className="w-full sm:w-auto shadow-xl text-center"
                 >
-                  {messages.hero.cta.lets_talk}
+                  <Typography as="span" mood="artistic" role="button">
+                    {messages.hero.cta.lets_talk}
+                  </Typography>
                 </Link>
               </Button>
               <DownloadResumeButton
-                label={messages.hero.cta.download_resume}
+                label={
+                  <Typography as="span" mood="artistic" role="button">
+                    {messages.hero.cta.download_resume}
+                  </Typography>
+                }
                 className="text-foreground w-full sm:w-auto"
               />
             </div>

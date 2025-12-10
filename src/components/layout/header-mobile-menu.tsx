@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import { Typography } from "../ui/typography";
 
 interface HeaderMobileMenuProps {
   messages: Messages;
@@ -51,9 +52,12 @@ export default function HeaderMobileMenu({
             <div className="divide-y divide-border">
               <div className="space-y-3 py-6">
                 <div className="px-3">
-                  <div className="text-xs font-semibold text-muted-foreground mb-2">
+                  <Typography
+                    role="label"
+                    className="text-xs font-semibold text-muted-foreground mb-2"
+                  >
                     {commonMessages.preferences || "Preferences"}
-                  </div>
+                  </Typography>
                   <div className="space-y-2">
                     <LanguageSwitcher size="default" className="w-full" />
                     <CurrencySwitcher className="w-full" />
@@ -66,18 +70,32 @@ export default function HeaderMobileMenu({
                   <a
                     key={item.name}
                     href={item.href}
-                    className="block rounded-md px-3 py-2 text-base font-semibold text-foreground hover:bg-accent hover:text-accent-foreground"
+                    className="block rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
                   >
-                    {item.name}
+                    <Typography
+                      as="span"
+                      mood="artistic"
+                      role="button"
+                      className="text-base font-semibold text-foreground"
+                    >
+                      {item.name}
+                    </Typography>
                   </a>
                 ))}
               </div>
               <div className="py-6">
                 <a
                   href="#"
-                  className="block rounded-md px-3 py-2.5 text-base font-semibold text-foreground hover:bg-accent hover:text-accent-foreground"
+                  className="block rounded-md px-3 py-2.5 hover:bg-accent hover:text-accent-foreground"
                 >
-                  {commonMessages.login || "Login"}
+                  <Typography
+                    as="span"
+                    mood="artistic"
+                    role="button"
+                    className="text-base font-semibold text-foreground"
+                  >
+                    {commonMessages.login || "Login"}
+                  </Typography>
                 </a>
               </div>
             </div>

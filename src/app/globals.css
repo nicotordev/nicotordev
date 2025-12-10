@@ -360,6 +360,10 @@
   line-height: 1.4;
 }
 
+@utility type-button {
+  @apply font-sans font-medium;
+}
+
 /* Code */
 @utility type-code {
   @apply font-mono text-sm;

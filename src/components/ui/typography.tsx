@@ -13,7 +13,8 @@ export type TypographyRole =
   | "label"
   | "code"
   | "caption"
-  | "overline";
+  | "overline"
+  | "button";
 
 export type TypographyMood =
   | "neutral" // Default sans (Inter)
@@ -63,6 +64,7 @@ const defaultTags: Record<TypographyRole, TypographyAs> = {
   code: "code",
   caption: "span",
   overline: "span",
+  button: "span",
 };
 
 // Base class for each role (size, fluid scale, tracking)
@@ -75,6 +77,7 @@ const roleClasses: Record<TypographyRole, string> = {
   code: "type-code",
   caption: "type-caption",
   overline: "type-overline",
+  button: "type-button",
 };
 
 // Font family classes based on Mood

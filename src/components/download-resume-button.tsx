@@ -1,7 +1,6 @@
 'use client';
 
-import { ArrowRight, Download } from "lucide-react";
-import { useMessages } from "next-intl";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,10 +9,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Download } from "lucide-react";
+import { useMessages } from "next-intl";
 
 interface DownloadResumeButtonProps {
-  label: string 
+  label: React.ReactNode; 
   className?: string;
 }
 

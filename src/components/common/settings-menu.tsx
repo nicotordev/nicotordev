@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "@/i18n/navigation";
-import { Check, Clock, DollarSign, Globe, LogIn, Settings } from "lucide-react";
+import { Check, Clock, DollarSign, Globe, Settings } from "lucide-react";
 import { useLocale, useMessages } from "next-intl";
 import { useTransition } from "react";
 
@@ -30,6 +30,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Typography } from "@/components/ui/typography";
 import Flag from "./flag";
 
 interface SettingsMenuProps {
@@ -81,27 +82,36 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" disabled={isPending}>
           <Settings className="size-5" />
-          <span className="sr-only">{settingsLabel}</span>
+          <Typography role="label" className="sr-only">
+            {settingsLabel}
+          </Typography>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56 z-70">
-        <DropdownMenuLabel>{preferencesLabel}</DropdownMenuLabel>
+        <DropdownMenuLabel>
+          <Typography role="label">{preferencesLabel}</Typography>
+        </DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         {/* Language Submenu */}
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Globe className="mr-2 size-4" />
-            <span>{languageLabel}</span>
-            <span className="ml-auto text-xs text-muted-foreground">
+            <Typography role="label">{languageLabel}</Typography>
+            <Typography
+              role="caption"
+              className="ml-auto text-muted-foreground"
+            >
               {localeNames[locale]}
-            </span>
+            </Typography>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent className="z-70">
             {locales.map((l) => (
               <DropdownMenuItem key={l} onClick={() => handleLocaleChange(l)}>
                 <Flag locale={l} />
-                <span className="ml-2 flex-1">{localeNames[l]}</span>
+                <Typography role="label" className="ml-2 flex-1">
+                  {localeNames[l]}
+                </Typography>
                 {l === locale && <Check className="ml-2 size-4" />}
               </DropdownMenuItem>
             ))}
@@ -112,18 +122,26 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <DollarSign className="mr-2 size-4" />
-            <span>{currencyLabel}</span>
-            <span className="ml-auto text-xs text-muted-foreground">
+            <Typography role="label">{currencyLabel}</Typography>
+            <Typography
+              role="caption"
+              className="ml-auto text-muted-foreground"
+            >
               {currency}
-            </span>
+            </Typography>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto z-70">
             {currencies.map((c) => (
               <DropdownMenuItem key={c} onClick={() => handleCurrencyChange(c)}>
-                <span className="mr-2 text-muted-foreground w-4 text-center">
+                <Typography
+                  role="label"
+                  className="mr-2 text-muted-foreground w-4 text-center"
+                >
                   {CURRENCY_SYMBOLS[c]}
-                </span>
-                <span className="flex-1">{CURRENCY_LABELS[c]}</span>
+                </Typography>
+                <Typography role="label" className="flex-1">
+                  {CURRENCY_LABELS[c]}
+                </Typography>
                 {c === currency && <Check className="ml-2 size-4" />}
               </DropdownMenuItem>
             ))}
@@ -134,7 +152,7 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
         <DropdownMenuSub>
           <DropdownMenuSubTrigger>
             <Clock className="mr-2 size-4" />
-            <span>{timezoneLabel}</span>
+            <Typography role="label">{timezoneLabel}</Typography>
           </DropdownMenuSubTrigger>
           <DropdownMenuSubContent className="max-h-[300px] overflow-y-auto z-70">
             {timezones.map((tz) => (
@@ -142,21 +160,14 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
                 key={tz}
                 onClick={() => handleTimezoneChange(tz)}
               >
-                <span className="flex-1">{TIMEZONE_LABELS[tz]}</span>
+                <Typography role="label" className="flex-1">
+                  {TIMEZONE_LABELS[tz]}
+                </Typography>
                 {tz === timezone && <Check className="ml-2 size-4" />}
               </DropdownMenuItem>
             ))}
           </DropdownMenuSubContent>
         </DropdownMenuSub>
-
-        <DropdownMenuSeparator />
-
-        <DropdownMenuItem asChild>
-          <a href="#" className="flex items-center cursor-pointer">
-            <LogIn className="mr-2 size-4" />
-            <span>{loginLabel}</span>
-          </a>
-        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
