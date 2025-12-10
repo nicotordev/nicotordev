@@ -468,7 +468,7 @@
     }
   },
   "newsletter": {
-    "title": "Subscribe to our newsletter",
+    "title": "Subscribe to my newsletter",
     "description": "Get the latest news and updates from NicotorDev directly to your inbox.",
     "placeholder": "Enter your email",
     "button": "Subscribe",

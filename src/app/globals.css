@@ -194,19 +194,40 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
-  --font-serif: var(--font-serif);
-  /* Not a Tailwind token, but handy utility var for headings */
-  --font-display: var(--font-display);
-  /* Alternative monospace fonts */
-  --font-jetbrains-mono: var(--font-jetbrains-mono);
-  --font-ibm-plex-mono: var(--font-ibm-plex-mono);
-  /* Fun and decorative fonts */
-  --font-fontdiner-swanky: var(--font-fontdiner-swanky);
-  --font-love-light: var(--font-love-light);
-  --font-permanent-marker: var(--font-permanent-marker);
+  /* --- Typography System: Font Families --- */
 
+  /* Primary Sans (Neutral/Product) */
+  --font-sans-inter: var(--font-inter), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, sans-serif;
+
+  /* Display Sans (Headlines/Modern) */
+  --font-sans-sora: var(--font-sora), -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Serif (Editorial) */
+  --font-serif-source: var(--font-source-serif4), Georgia, Cambria,
+    "Times New Roman", Times, ui-serif, serif;
+
+  /* Mono (Code/Tech) */
+  --font-mono-fira: var(--font-fira-code), ui-monospace, SFMono-Regular,
+    "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  --font-mono-jetbrains: var(--font-jetbrains-mono), ui-monospace,
+    SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+  --font-mono-plex: var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular,
+    "SF Mono", Menlo, Monaco, Consolas, "Courier New", monospace;
+
+  /* Display / Creative (Moods) */
+  --font-display-swanky: var(--font-fontdiner-swanky), cursive, fantasy;
+  --font-display-love: var(--font-love-light), cursive, fantasy;
+  --font-display-marker: var(--font-permanent-marker), cursive, fantasy;
+
+  /* --- Default Mappings --- */
+  --font-sans: var(--font-sans-inter);
+  --font-serif: var(--font-serif-source);
+  --font-mono: var(--font-mono-fira);
+  --font-display: var(--font-sans-sora);
+
+  /* --- Radius & Shadows --- */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -220,6 +241,8 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+
+  /* --- Animations --- */
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
   @keyframes marquee {
@@ -240,31 +263,153 @@
   }
 }
 
+/* --- Typography System: Utilities & Fluid Scales --- */
+@utility type-display-lg {
+  @apply font-display font-extrabold tracking-tight;
+  font-size: clamp(3.5rem, 3.147rem + 4.706vw, 6rem); /* 56px -> 96px */
+  line-height: 1.1;
+}
+@utility type-display-md {
+  @apply font-display font-bold tracking-tight;
+  font-size: clamp(2.5rem, 2.147rem + 4.706vw, 5rem); /* 40px -> 80px */
+  line-height: 1.1;
+}
+@utility type-display-sm {
+  @apply font-display font-bold tracking-tight;
+  font-size: clamp(2rem, 1.718rem + 3.756vw, 4rem); /* 32px -> 64px */
+  line-height: 1.15;
+}
+
+/* Headline: High-emphasis text for sections */
+@utility type-headline-lg {
+  @apply font-display font-bold tracking-tight;
+  font-size: clamp(2rem, 1.789rem + 2.817vw, 3.5rem); /* 32px -> 56px */
+  line-height: 1.2;
+}
+@utility type-headline-md {
+  @apply font-display font-bold tracking-tight;
+  font-size: clamp(1.75rem, 1.574rem + 2.347vw, 3rem); /* 28px -> 48px */
+  line-height: 1.25;
+}
+@utility type-headline-sm {
+  @apply font-display font-bold;
+  font-size: clamp(1.5rem, 1.359rem + 1.878vw, 2.5rem); /* 24px -> 40px */
+  line-height: 1.3;
+}
+
+/* Title: Medium-emphasis text for sub-sections/cards */
+@utility type-title-lg {
+  @apply font-sans font-semibold;
+  font-size: clamp(1.25rem, 1.162rem + 1.174vw, 1.875rem); /* 20px -> 30px */
+  line-height: 1.35;
+}
+@utility type-title-md {
+  @apply font-sans font-semibold;
+  font-size: clamp(1.125rem, 1.072rem + 0.704vw, 1.5rem); /* 18px -> 24px */
+  line-height: 1.4;
+}
+@utility type-title-sm {
+  @apply font-sans font-medium;
+  font-size: clamp(1rem, 0.982rem + 0.235vw, 1.125rem); /* 16px -> 18px */
+  line-height: 1.45;
+  letter-spacing: 0.005em;
+}
+
+/* Body: Long-form reading text */
+@utility type-body-lg {
+  @apply font-sans font-normal;
+  font-size: clamp(1rem, 0.965rem + 0.47vw, 1.25rem); /* 16px -> 20px */
+  line-height: 1.6;
+  color: var(--foreground);
+}
+@utility type-body-md {
+  @apply font-sans font-normal text-base; /* 16px fixed/stable */
+  line-height: 1.6;
+}
+@utility type-body-sm {
+  @apply font-sans font-normal text-sm; /* 14px */
+  line-height: 1.6;
+}
+
+/* Label: UI text, buttons, tags */
+@utility type-label-lg {
+  @apply font-sans font-medium text-sm;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+@utility type-label-md {
+  @apply font-sans font-medium text-xs; /* 12px */
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+@utility type-label-sm {
+  @apply font-sans font-medium;
+  font-size: 0.6875rem; /* 11px */
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
+
+/* Caption & Overline */
+@utility type-caption {
+  @apply font-sans font-normal text-xs text-muted-foreground;
+  line-height: 1.4;
+}
+@utility type-overline {
+  @apply font-sans font-bold uppercase tracking-widest text-muted-foreground;
+  font-size: 0.625rem; /* 10px */
+  line-height: 1.4;
+}
+
+/* Code */
+@utility type-code {
+  @apply font-mono text-sm;
+  background-color: oklch(0.95 0.01 280 / 0.5);
+  padding: 0.1em 0.3em;
+  border-radius: 0.25em;
+}
+.dark .type-code {
+  background-color: oklch(0.3 0.05 280 / 0.5);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    /* Apply new font choices globally */
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
   }
-  /* Make headlines more marketing-forward by default */
-  h1,
-  h2,
+  /* Default heading styles mapped to system */
+  h1 {
+    @apply type-display-sm lg:type-display-md;
+  }
+  h2 {
+    @apply type-headline-md lg:type-headline-lg;
+  }
   h3 {
-    font-family: var(--font-display);
-    font-weight: 800; /* extra-bold for impact */
-    letter-spacing: -0.02em;
+    @apply type-headline-sm lg:type-headline-md;
   }
-  /* Ensure code still uses the mono stack */
+  h4 {
+    @apply type-title-lg;
+  }
+  h5 {
+    @apply type-title-md;
+  }
+  h6 {
+    @apply type-title-sm;
+  }
+
+  p {
+    @apply type-body-md;
+  }
   code,
   pre,
   kbd,
   samp {
-    font-family: var(--font-mono);
+    @apply font-mono;
   }
 }
 
+/* Animations (Preserved) */
 @keyframes gradient-x {
   0%,
   100% {
@@ -392,13 +537,4 @@
     oklch(from var(--background) l c h / 0.95) 80%,
     var(--background) 100%
   );
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }

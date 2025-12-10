@@ -178,13 +178,7 @@ const permanentMarker = localFont({
 });
 
 export {
-  inter as localInter,
-  sora as localSora,
-  sourceSerif4 as localSourceSerif4,
-  firaCode as localFiraCode,
-  jetBrainsMono as localJetBrainsMono,
-  ibmPlexMono as localIBMPlexMono,
-  fontdinerSwanky as localFontdinerSwanky,
-  loveLight as localLoveLight,
-  permanentMarker as localPermanentMarker,
+  firaCode as localFiraCode, fontdinerSwanky as localFontdinerSwanky, ibmPlexMono as localIBMPlexMono, inter as localInter, jetBrainsMono as localJetBrainsMono, loveLight as localLoveLight,
+  permanentMarker as localPermanentMarker, sora as localSora,
+  sourceSerif4 as localSourceSerif4
 };

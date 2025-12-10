@@ -55,7 +55,6 @@ const nextConfig: NextConfig = {
       static: 180,
     },
 
-    optimizeCss: true,
   },
 
   turbopack: {
