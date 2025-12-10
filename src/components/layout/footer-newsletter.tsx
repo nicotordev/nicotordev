@@ -13,8 +13,7 @@ interface FooterNewsletterProps {
 
 export default function FooterNewsletter({ messages }: FooterNewsletterProps) {
   // Safe access to nested translation keys
-  const t = (key: string) => {
-    // @ts-ignore - dynamic access
+  const t = (key: 'title' | 'description' | 'placeholder' | 'button' | 'disclaimer') => {
     return messages?.newsletter?.[key] || key;
   };
 

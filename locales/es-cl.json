@@ -470,5 +470,12 @@
   "reviewCard": {
     "noRating": "Sin calificación",
     "noFeedback": "No hay comentarios escritos."
+  },
+  "newsletter": {
+    "title": "Suscríbete a nuestro boletín",
+    "description": "Recibe las últimas noticias y actualizaciones de NicotorDev directamente en tu correo electrónico.",
+    "placeholder": "Introduce tu correo electrónico",
+    "button": "Suscríbete",
+    "disclaimer": "No spam, te puedes desuscribir en cualquier momento."
   }
 }
