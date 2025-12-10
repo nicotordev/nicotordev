@@ -467,6 +467,13 @@
       "feedback": "It was an absolute pleasure working with Nicolas. Very responsive, great code, continuous support."
     }
   },
+  "newsletter": {
+    "title": "Subscribe to our newsletter",
+    "description": "Get the latest news and updates from NicotorDev directly to your inbox.",
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "disclaimer": "No spam, unsubscribe at any time."
+  },
   "reviewCard": {
     "noRating": "No rating",
     "noFeedback": "No written feedback provided."

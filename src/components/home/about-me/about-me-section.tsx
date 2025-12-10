@@ -331,6 +331,8 @@ export default function AboutMeSection({
             </dl>
           </div>
         </section>
+      </div>
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <section className="mt-16">
           <h3 className="text-2xl font-bold tracking-tight text-foreground font-display mb-8">
             {galleryTitle}

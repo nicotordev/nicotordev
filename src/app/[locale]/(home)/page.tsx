@@ -29,13 +29,27 @@ export default async function HomePage({
     <>
       <Header messages={messages} />
       <main>
-        <HeroSection messages={messages} />
-        <SocialProofSection messages={messages} />
-        <ProblemSolutionSection messages={messages} />
-        <ProjectsCarousel messages={messages} />
-        <ReviewList3DWrapper messages={messages} />
-        <LeadMagnetContactForm messages={messages} />
-        <AboutMeSection messages={messages} />
+        <section>
+          <HeroSection messages={messages} />
+        </section>
+        <section>
+          <SocialProofSection messages={messages} />
+        </section>
+        <section>
+          <ProblemSolutionSection messages={messages} />
+        </section>
+        <section>
+          <ProjectsCarousel messages={messages} />
+        </section>
+        <section>
+          <ReviewList3DWrapper messages={messages} />
+        </section>
+        <section>
+          <LeadMagnetContactForm messages={messages} />
+        </section>
+        <section>
+          <AboutMeSection messages={messages} />
+        </section>
       </main>
       <Footer messages={messages} />
     </>

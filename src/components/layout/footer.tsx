@@ -1,6 +1,7 @@
 import { footerNavigation } from "@/app/data/layout.data";
 import type { Messages } from "@/types/i18n";
 import Logo from "../logo";
+import FooterNewsletter from "./footer-newsletter";
 
 interface FooterProps {
   messages: Messages;
@@ -22,21 +23,22 @@ export default function Footer({ messages }: FooterProps) {
 
   return (
     <footer
-      className="relative flex flex-col font-sans antialiased overflow-clip bg-primary text-primary-foreground border-t border-primary-foreground/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] lg:shadow-[0_-18px_48px_rgba(0,0,0,0.18)] bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.05),transparent_50%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.04),transparent_45%)]"
+      className="relative flex flex-col font-sans antialiased bg-primary text-primary-foreground border-t border-primary-foreground/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] lg:shadow-[0_-18px_48px_rgba(0,0,0,0.18)] bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.05),transparent_50%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.04),transparent_45%)]"
       aria-labelledby="footer-heading"
     >
+      <FooterNewsletter messages={messages} />
       {/* Gradient Overlay for texture (optional) */}
       <div
         className="absolute top-0 left-0 w-full h-full bg-linear-to-b from-transparent to-foreground/5 pointer-events-none"
         aria-hidden="true"
       />
 
-      <div className="relative z-10">
+      <div className="relative z-10 pt-20">
         <h2 id="footer-heading" className="sr-only">
           {footerTitle}
         </h2>
 
-        <div className="relative mx-auto max-w-6xl px-6 py-12 sm:py-14 lg:px-8">
+        <div className="relative mx-auto max-w-6xl px-6 py-4 sm:py-6 lg:px-8">
           <div className="flex flex-col gap-10 sm:flex-row sm:items-center sm:justify-between">
             <div className="space-y-4 max-w-xs sm:max-w-sm">
               <Logo className="text-primary-foreground" />
