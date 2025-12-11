@@ -38,7 +38,7 @@ export default function Footer({ messages }: FooterProps) {
           {footerTitle}
         </h2>
 
-        <div className="relative mx-auto max-w-6xl px-6 py-4 sm:py-6 lg:px-8">
+        <div className="relative mx-auto max-w-7xl px-6 py-4 sm:py-6 lg:px-8">
           <div className="flex flex-col gap-10 sm:flex-row sm:items-center sm:justify-between">
             <div className="space-y-4 max-w-xs sm:max-w-sm">
               <Logo className="text-primary-foreground" />

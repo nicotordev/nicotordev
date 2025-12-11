@@ -266,17 +266,17 @@
 /* --- Typography System: Utilities & Fluid Scales --- */
 @utility type-display-lg {
   @apply font-display font-extrabold tracking-tight;
-  font-size: clamp(3.5rem, 3.147rem + 4.706vw, 6rem); /* 56px -> 96px */
+  font-size: clamp(3rem, 2.647rem + 4.706vw, 4.5rem); /* 48px -> 72px */
   line-height: 1.1;
 }
 @utility type-display-md {
   @apply font-display font-bold tracking-tight;
-  font-size: clamp(2.5rem, 2.147rem + 4.706vw, 5rem); /* 40px -> 80px */
+  font-size: clamp(2.25rem, 1.912rem + 4.235vw, 3.75rem); /* 36px -> 60px */
   line-height: 1.1;
 }
 @utility type-display-sm {
   @apply font-display font-bold tracking-tight;
-  font-size: clamp(2rem, 1.718rem + 3.756vw, 4rem); /* 32px -> 64px */
+  font-size: clamp(1.75rem, 1.559rem + 3.13vw, 3rem); /* 28px -> 48px */
   line-height: 1.15;
 }
 

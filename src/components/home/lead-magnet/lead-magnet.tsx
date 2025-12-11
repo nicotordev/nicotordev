@@ -11,6 +11,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useState } from "react";
 
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import { useInView } from "react-intersection-observer";
 
@@ -49,7 +50,7 @@ export default function LeadMagnet({ messages }: { messages: Messages }) {
       <NoiseOverlay />
 
       {/* --- Content Layer --- */}
-      <div className="relative z-10 mx-auto w-full max-w-6xl h-full flex items-center px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto w-full max-w-7xl h-full flex items-center px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,15 +66,22 @@ export default function LeadMagnet({ messages }: { messages: Messages }) {
 
             <div className="p-6 sm:p-10 lg:p-16">
               <div className="text-left sm:text-center mb-10 sm:mb-12">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground gradient-text">
+                <Typography
+                  as="h2"
+                  role="headline"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground gradient-text"
+                >
                   {t?.title}{" "}
                   <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary/40 animate-gradient">
                     {t?.titleHighlight}
                   </span>
-                </h2>
-                <p className="mt-4 text-base sm:text-lg leading-8 text-muted-foreground">
+                </Typography>
+                <Typography
+                  role="body"
+                  className="mt-4 text-base sm:text-lg leading-8 text-muted-foreground"
+                >
                   {t?.subtitle}
-                </p>
+                </Typography>
               </div>
 
               <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">

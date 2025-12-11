@@ -1,4 +1,5 @@
 import { problemSectionProblems } from "@/app/data/home";
+import { Typography } from "@/components/ui/typography";
 import type { Messages } from "@/types/i18n";
 
 interface ProblemSectionProps {
@@ -25,27 +26,41 @@ export default function ProblemSection({ messages }: ProblemSectionProps) {
   ];
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
+    <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
       <div className="mx-auto lg:max-w-3xl lg:text-center">
-        <h2 className="text-4xl lg:text-5xl font-black tracking-tight text-foreground leading-tight lg:text-center">
-          <span className="relative inline-block mx-1 text-foreground">
-            {title} <b>{titleBold}</b>?
-          </span>
-        </h2>
+        <div className="lg:text-center text-foreground">
+          <Typography
+            as="h2"
+            role="headline"
+            className="text-4xl lg:text-5xl font-black tracking-tight leading-tight"
+          >
+            <span className="relative inline-block mx-1">
+              {title} <b>{titleBold}</b>?
+            </span>
+          </Typography>
+        </div>
 
-        <p className="mt-4 text-xl leading-9 text-muted-foreground lg:text-center">
+        <Typography
+          role="body"
+          className="mt-4 text-xl leading-9 text-muted-foreground lg:text-center"
+        >
           {subtitle}{" "}
           <span className="font-semibold text-foreground">
             {subtitleHighlight}
           </span>
           {subtitleEnd}
           <br />
-        </p>
-        <aside className="italic text-3xl text-muted-foreground font-light mt-2">
+        </Typography>
+        <Typography
+          as="aside"
+          role="title"
+          mood="editorial"
+          className="italic text-3xl text-muted-foreground font-light mt-2"
+        >
           {sectionTitle}
-        </aside>
+        </Typography>
       </div>
-      <div className="mx-auto mt-8 max-w-5xl sm:mt-12 lg:mt-16 lg:max-w-6xl">
+      <div className="mx-auto mt-8 max-w-5xl sm:mt-12 lg:mt-16 lg:max-w-7xl">
         <dl className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-2 lg:gap-y-16">
           {problemsWithTranslations.map((problem, index) => {
             const IconComponent = problemSectionProblems[index]?.icon;
@@ -62,10 +77,21 @@ export default function ProblemSection({ messages }: ProblemSectionProps) {
                       <span className="h-5 w-5 bg-secondary-foreground rounded-full" />
                     )}
                   </div>
-                  {problem.name}
+                  <Typography
+                    as="span"
+                    role="label"
+                    className="text-base font-semibold leading-7"
+                  >
+                    {problem.name}
+                  </Typography>
                 </dt>
-                <dd className="text-sm leading-7 text-muted-foreground">
-                  {problem.description}
+                <dd className="mt-1">
+                  <Typography
+                    role="body"
+                    className="text-sm leading-7 text-muted-foreground"
+                  >
+                    {problem.description}
+                  </Typography>
                 </dd>
               </div>
             );

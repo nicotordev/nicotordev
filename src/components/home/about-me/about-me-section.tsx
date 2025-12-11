@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ImageDialog } from "@/components/ui/image-dialog";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
 import Image from "next/image";
@@ -237,16 +238,24 @@ export default function AboutMeSection({
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="w-full lg:w-5/12">
             <Badge variant="secondary">{aboutTitle}</Badge>
-            <h1 className="mt-2 text-4xl font-bold tracking-tight text-pretty text-foreground sm:text-5xl font-display">
+            <Typography
+              as="h1"
+              role="display"
+              className="mt-2 text-4xl font-bold tracking-tight text-pretty text-foreground sm:text-5xl"
+            >
               {aboutSubtitle}
-            </h1>
-            <p className="mt-6 text-xl/8 text-balance text-muted-foreground font-serif">
+            </Typography>
+            <Typography
+              role="body"
+              mood="editorial"
+              className="mt-6 text-xl/8 text-balance text-muted-foreground"
+            >
               {aboutDescription}
-            </p>
+            </Typography>
           </div>
           <div className="flex w-full items-center justify-center lg:w-7/12">
             <ImageDialog
@@ -267,28 +276,50 @@ export default function AboutMeSection({
         </div>
         <section className="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
           <div className="lg:pr-8">
-            <h2 className="text-2xl font-bold tracking-tight text-pretty text-foreground font-display">
+            <Typography
+              as="h2"
+              role="headline"
+              className="text-2xl font-bold tracking-tight text-pretty text-foreground"
+            >
               {methodologyTitle}
-            </h2>
-            <p className="my-6 text-base/7 text-muted-foreground font-serif">
+            </Typography>
+            <Typography
+              role="body"
+              mood="editorial"
+              className="my-6 text-base/7 text-muted-foreground"
+            >
               {methodologyDescription}
-            </p>
+            </Typography>
             <Card>
               <CardHeader>
-                <CardTitle>{personalTitle}</CardTitle>
-                <CardDescription>{personalSubtitle}</CardDescription>
+                <CardTitle>
+                  <Typography role="title">{personalTitle}</Typography>
+                </CardTitle>
+                <CardDescription>
+                  <Typography role="body" className="text-muted-foreground">
+                    {personalSubtitle}
+                  </Typography>
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <p className="text-base/7 text-muted-foreground font-serif">
+                <Typography
+                  role="body"
+                  mood="editorial"
+                  className="text-base/7 text-muted-foreground"
+                >
                   {personalDescription}
-                </p>
+                </Typography>
               </CardContent>
             </Card>
           </div>
           <div className="lg:col-span-1 mt-8 lg:mt-0">
-            <p className="text-base/7 font-semibold text-accent font-display uppercase tracking-wide">
+            <Typography
+              role="label"
+              mood="product"
+              className="text-base/7 font-semibold text-accent uppercase tracking-wide"
+            >
               {metricsTitle}
-            </p>
+            </Typography>
             <hr className="mt-6 border-t border-border" />
             <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               {resolvedStats.map((stat, index) => {
@@ -309,20 +340,33 @@ export default function AboutMeSection({
                         "sm:border-b sm:border-dotted sm:border-border"
                     )}
                   >
-                    <dt className="text-sm text-muted-foreground font-sans uppercase tracking-wide">
+                    <Typography
+                      as="dt"
+                      role="label"
+                      className="text-sm text-muted-foreground uppercase tracking-wide"
+                    >
                       {stat.label}
-                    </dt>
+                    </Typography>
 
-                    <dd className="order-first font-mono tracking-tight">
-                      <span className="text-5xl font-bold gradient-text text-transparent">
+                    <dd className="order-first">
+                      <Typography
+                        as="span"
+                        role="headline"
+                        mood="code"
+                        className="text-3xl font-bold gradient-text text-transparent"
+                      >
                         {stat.prefix}
                         {stat.value}
-                      </span>
+                      </Typography>
 
                       {stat.suffix && (
-                        <span className="ml-1 text-base text-muted-foreground font-ibm-plex-mono">
+                        <Typography
+                          as="span"
+                          role="code"
+                          className="ml-1 text-base text-muted-foreground"
+                        >
                           {stat.suffix}
-                        </span>
+                        </Typography>
                       )}
                     </dd>
                   </div>
@@ -332,11 +376,15 @@ export default function AboutMeSection({
           </div>
         </section>
       </div>
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
-        <section className="mt-16">
-          <h3 className="text-2xl font-bold tracking-tight text-foreground font-display mb-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <section className="flex flex-col mt-16 w-full">
+          <Typography
+            as="h3"
+            role="headline"
+            className="text-2xl font-bold tracking-tight text-foreground mb-8"
+          >
             {galleryTitle}
-          </h3>
+          </Typography>
           <PortfolioGallery items={resolvedGallery} />
         </section>
       </div>

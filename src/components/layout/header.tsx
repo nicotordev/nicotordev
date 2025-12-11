@@ -41,7 +41,7 @@ export default function Header({ messages }: { messages: Messages }) {
     >
       <div
         className={cn(
-          "relative w-full max-w-6xl px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
+          "relative w-full max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
           y > 10 && renderCount > 1
             ? "bg-background/50 backdrop-blur-xl border-primary/40 shadow-primary supports-backdrop-filter:bg-background/50"
             : "bg-transparent border-transparent shadow-none"

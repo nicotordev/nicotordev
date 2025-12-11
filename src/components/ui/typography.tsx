@@ -41,7 +41,10 @@ export type TypographyAs =
   | "code"
   | "label"
   | "pre"
-  | "figcaption";
+  | "figcaption"
+  | "aside"
+  | "dt"
+  | "dd";
 
 export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   as?: TypographyAs;

@@ -36,7 +36,7 @@ export default function PortfolioGallery({ items }: PortfolioGalleryProps) {
   const selectedItem = selectedId !== null ? items[selectedId] : null;
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full">
       {/* The Grid */}
       <motion.div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px] grid-flow-dense">
         {items.map((item, index) => (

@@ -1,6 +1,7 @@
 "use client";
 
 import type { Review } from "@/app/data/reviews";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import { useInView } from "framer-motion";
 import { CalendarDays, Star } from "lucide-react";
@@ -67,20 +68,26 @@ const ReviewCard = (review: Review) => {
             />
 
             <div className="flex flex-col overflow-x-clip">
-              <figcaption
+              <Typography
+                as="figcaption"
+                role="label"
                 className="text-sm font-semibold text-card-foreground truncate max-w-[200px]"
                 title={title}
               >
                 {title}
-              </figcaption>
+              </Typography>
 
               {/* Rating */}
               <div className="flex items-center gap-1 mt-0.5">
                 {rating ? (
                   <>
-                    <span className="text-xs font-medium text-muted-foreground">
+                    <Typography
+                      as="span"
+                      role="caption"
+                      className="text-xs font-medium text-muted-foreground"
+                    >
                       {rating.toFixed(1)}
-                    </span>
+                    </Typography>
                     <div className="flex">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <Star
@@ -96,9 +103,13 @@ const ReviewCard = (review: Review) => {
                     </div>
                   </>
                 ) : (
-                  <span className="text-xs font-medium text-muted-foreground">
+                  <Typography
+                    as="span"
+                    role="caption"
+                    className="text-xs font-medium text-muted-foreground"
+                  >
                     {t("noRating")}
-                  </span>
+                  </Typography>
                 )}
               </div>
             </div>
@@ -107,11 +118,17 @@ const ReviewCard = (review: Review) => {
           {/* Feedback */}
           <blockquote className="relative mt-4 text-sm leading-relaxed text-muted-foreground">
             {feedback ? (
-              <p className="line-clamp-4 pr-1">“{feedback}”</p>
+              <Typography role="body" className="line-clamp-4 pr-1">
+                “{feedback}”
+              </Typography>
             ) : (
-              <span className="italic text-muted-foreground/70">
+              <Typography
+                as="span"
+                role="caption"
+                className="italic text-muted-foreground/70"
+              >
                 {t("noFeedback")}
-              </span>
+              </Typography>
             )}
           </blockquote>
 

@@ -1,6 +1,7 @@
 "use client";
+import { Typography } from "@/components/ui/typography";
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface SolutionSectionTitlesProps {
   titles: string[];
@@ -37,7 +38,12 @@ export default function SolutionSectionTitles({
   };
 
   return (
-    <span className="text-primary relative inline-block">
+    <Typography
+      as="span"
+      role="display"
+      mood="product"
+      className="text-primary relative inline-block"
+    >
       <AnimatePresence mode="wait">
         <motion.span
           key={randomIndex}
@@ -49,6 +55,6 @@ export default function SolutionSectionTitles({
           {formatTitle(safeTitles[randomIndex] || "")}
         </motion.span>
       </AnimatePresence>
-    </span>
+    </Typography>
   );
 }

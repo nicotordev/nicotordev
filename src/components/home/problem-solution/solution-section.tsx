@@ -1,4 +1,5 @@
 import { solutionSectionSolutions } from "@/app/data/home";
+import { Typography } from "@/components/ui/typography";
 import type { Messages } from "@/types/i18n";
 import SolutionSectionTitles from "./solution-section-titles";
 import SolutionSectionVideo from "./solution-section-video";
@@ -23,40 +24,59 @@ export default function SolutionSection({
 
   return (
     <div className="relative pb-24 pt-12">
-      <div className="mx-auto w-full max-w-6xl px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
         <div className="mt-2 flex lg:flex-row flex-col items-stretch justify-between">
           {/* Left Column: Content */}
           <div className="lg:w-1/2 flex flex-col justify-center pr-0 lg:pr-12 order-2 lg:order-1">
             <div className="mx-auto lg:mx-0 w-full">
               {/* Title */}
-              <h2 className="text-5xl sm:text-6xl font-display font-bold tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start">
-                <b className="text-2xl text-foreground">
+
+              <Typography
+                as="h2"
+                role="headline"
+                mood="product"
+                className="text-5xl sm:text-6xl font-black tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start"
+              >
+                <Typography
+                  as="span"
+                  role="headline"
+                  mood="product"
+                  className="text-2xl text-foreground font-bold"
+                >
                   {t.titlePrefix || "Software engineering with"}
-                </b>
+                </Typography>
                 <SolutionSectionTitles titles={t.rotatingTitles || []} />
-              </h2>
-              <p className="mt-4 text-lg sm:text-xl leading-8 sm:leading-9 text-muted-foreground text-left">
+              </Typography>
+              <Typography
+                role="body"
+                className="mt-4 text-lg sm:text-xl leading-8 sm:leading-9 text-muted-foreground text-left"
+              >
                 {t.subtitle || "Beyond writing code,"}{" "}
-                <b className="font-semibold text-foreground">
+                <Typography as="span" className="font-semibold text-foreground">
                   {t.subtitleBold1 || "I build digital assets."}{" "}
-                </b>
+                </Typography>
                 {t.subtitleText || "My approach combines"}{" "}
-                <b className="font-semibold text-foreground">
+                <Typography as="span" className="font-semibold text-foreground">
                   {t.subtitleBold2 || "technical excellence"}
-                </b>{" "}
+                </Typography>{" "}
                 {t.subtitleWith || "with"}{" "}
-                <b className="font-semibold text-foreground">
+                <Typography as="span" className="font-semibold text-foreground">
                   {t.subtitleBold3 || "business vision"}
-                </b>{" "}
+                </Typography>{" "}
                 {t.subtitleTo || "to"}{" "}
-                <b className="font-semibold text-primary">
+                <Typography as="span" className="font-semibold text-primary">
                   {t.subtitleBold4 || "deliver lasting results"}
-                </b>
+                </Typography>
                 .
-              </p>
-              <aside className="italic text-2xl sm:text-3xl text-muted-foreground font-light mt-2 mb-4 text-left">
+              </Typography>
+              <Typography
+                as="aside"
+                role="title"
+                mood="editorial"
+                className="italic text-2xl sm:text-3xl text-muted-foreground font-light mt-2 mb-4 text-left"
+              >
                 {t.sectionTitle || "How I transform your project:"}
-              </aside>
+              </Typography>
 
               <dl className="space-y-5">
                 {solutionsWithTranslations.map((solution, index) => {
@@ -75,10 +95,22 @@ export default function SolutionSection({
                             <span className="h-5 w-5 bg-primary-foreground rounded-full" />
                           )}
                         </div>
-                        {solution.name}
+
+                        <Typography
+                          as="span"
+                          role="label"
+                          className="text-base font-semibold leading-7 text-foreground"
+                        >
+                          {solution.name}
+                        </Typography>
                       </dt>
-                      <dd className="text-sm leading-7 text-muted-foreground">
-                        {solution.description}
+                      <dd className="mt-1">
+                        <Typography
+                          role="body"
+                          className="text-sm leading-7 text-muted-foreground"
+                        >
+                          {solution.description}
+                        </Typography>
                       </dd>
                     </div>
                   );

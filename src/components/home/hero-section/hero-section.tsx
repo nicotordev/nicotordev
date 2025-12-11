@@ -19,10 +19,10 @@ export default function HeroSection({ messages }: HeroSectionProps) {
   const media = messages.common?.a11y?.media ?? {};
   return (
     <div className="bg-background py-8 sm:py-10 md:py-12 relative z-10">
-      <div className="relative px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
+      <div className="relative px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         <BackgroundDecoration />
 
-        <div className="relative z-20 mx-auto w-full max-w-6xl py-12 sm:py-18 lg:py-22 flex flex-col items-center text-center px-2 sm:px-0">
+        <div className="relative z-20 mx-auto w-full max-w-7xl py-12 sm:py-18 lg:py-22 flex flex-col items-center text-center px-2 sm:px-0">
           <div className="mb-3 flex justify-center w-full">
             <Badge variant="success" className="relative pl-6 overflow-visible">
               <Dot className="w-16! h-16! absolute -left-4 top-1/2 -translate-y-1/2" />

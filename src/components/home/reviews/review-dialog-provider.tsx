@@ -8,6 +8,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import { Star } from "lucide-react";
 import Image from "next/image";
@@ -66,7 +67,9 @@ export function ReviewDialogProvider({ children }: { children: ReactNode }) {
                   </div>
                   <div className="flex flex-col gap-1 text-center sm:text-left w-full sm:w-auto">
                     <DialogTitle className="text-xl font-bold leading-tight">
-                      {selectedReview.title}
+                      <Typography as="span" role="headline" className="text-xl">
+                        {selectedReview.title}
+                      </Typography>
                     </DialogTitle>
                     <div className="flex items-center justify-center sm:justify-start gap-2">
                       <div className="flex">
@@ -82,11 +85,15 @@ export function ReviewDialogProvider({ children }: { children: ReactNode }) {
                           />
                         ))}
                       </div>
-                      <span className="text-sm font-medium text-muted-foreground">
+                      <Typography
+                        as="span"
+                        role="label"
+                        className="text-sm font-medium text-muted-foreground"
+                      >
                         {selectedReview.rating
                           ? selectedReview.rating.toFixed(1)
                           : "No Rating"}
-                      </span>
+                      </Typography>
                     </div>
                   </div>
                 </div>
@@ -95,34 +102,56 @@ export function ReviewDialogProvider({ children }: { children: ReactNode }) {
               <div className="relative">
                 <DialogDescription className="text-base leading-relaxed text-foreground/90">
                   {selectedReview.feedback || (
-                    <span className="italic text-muted-foreground">
+                    <Typography
+                      as="span"
+                      role="body"
+                      className="italic text-muted-foreground"
+                    >
                       No feedback provided.
-                    </span>
+                    </Typography>
                   )}
                 </DialogDescription>
               </div>
 
               <div className="flex flex-col gap-2 border-t border-white/10 pt-4 text-sm text-muted-foreground">
                 <div className="flex justify-between items-center">
-                  <span>Project Dates:</span>
-                  <span className="font-medium text-foreground">
+                  <Typography as="span" role="label">
+                    Project Dates:
+                  </Typography>
+                  <Typography
+                    as="span"
+                    role="body"
+                    className="font-medium text-foreground"
+                  >
                     {selectedReview.dates}
-                  </span>
+                  </Typography>
                 </div>
                 {selectedReview.amount > 0 && (
                   <div className="flex justify-between items-center">
-                    <span>Budget:</span>
-                    <span className="font-medium text-foreground">
+                    <Typography as="span" role="label">
+                      Budget:
+                    </Typography>
+                    <Typography
+                      as="span"
+                      role="body"
+                      className="font-medium text-foreground"
+                    >
                       ${selectedReview.amount.toLocaleString()}
-                    </span>
+                    </Typography>
                   </div>
                 )}
                 {selectedReview.paymentType && (
                   <div className="flex justify-between items-center">
-                    <span>Payment Type:</span>
-                    <span className="font-medium text-foreground">
+                    <Typography as="span" role="label">
+                      Payment Type:
+                    </Typography>
+                    <Typography
+                      as="span"
+                      role="body"
+                      className="font-medium text-foreground"
+                    >
                       {selectedReview.paymentType}
-                    </span>
+                    </Typography>
                   </div>
                 )}
               </div>

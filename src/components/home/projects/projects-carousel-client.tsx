@@ -11,6 +11,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import { Typography } from "@/components/ui/typography";
 
 import { staticProjects } from "@/app/data/projects";
 import type { Messages } from "@/types/i18n";
@@ -146,16 +147,29 @@ const ProjectsCarouselClient = ({ messages }: ProjectsCarouselClientProps) => {
                     </div>
                   </div>
                   <div className="pt-6 flex flex-col gap-3">
-                    <div className="line-clamp-2 text-xl font-semibold md:text-2xl text-white tracking-tight">
+                    <Typography
+                      role="headline"
+                      as="div"
+                      className="line-clamp-2 text-xl font-semibold md:text-2xl text-white tracking-tight"
+                    >
                       {item.name}
-                    </div>
-                    <div className="text-white/70 line-clamp-2 text-sm md:text-base leading-relaxed">
+                    </Typography>
+                    <Typography
+                      role="body"
+                      as="div"
+                      className="text-white/70 line-clamp-2 text-sm md:text-base leading-relaxed"
+                    >
                       {item.description}
-                    </div>
+                    </Typography>
                     <div className="mt-auto pt-4 flex items-center text-sm font-medium text-white group-hover:text-accent transition-colors group/btn w-fit">
-                      <span className="underline decoration-white/50 group-hover:decoration-accent underline-offset-4 transition-all">
+                      <Typography
+                        as="span"
+                        role="button"
+                        mood="artistic"
+                        className="underline decoration-white/50 group-hover:decoration-accent underline-offset-4 transition-all"
+                      >
                         {t?.viewProject || "View Project"}
-                      </span>
+                      </Typography>
                       <ArrowRight className="ml-2 size-4 transition-transform group-hover/btn:translate-x-1" />
                     </div>
                   </div>

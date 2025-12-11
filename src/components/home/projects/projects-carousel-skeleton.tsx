@@ -1,3 +1,4 @@
+import { Typography } from "@/components/ui/typography";
 import Image from "next/image";
 import ProjectsTitleOverlay from "./projects-title-overlay";
 
@@ -29,9 +30,12 @@ const ProjectsCarouselSkeleton = () => {
       <div className="absolute inset-0 z-20 flex items-center justify-center">
         <div className="flex flex-col items-center gap-4">
           <div className="size-12 border-4 border-white/20 border-t-accent rounded-full animate-spin" />
-          <p className="text-white/60 font-medium animate-pulse">
+          <Typography
+            role="body"
+            className="text-white/60 font-medium animate-pulse"
+          >
             Loading Projects...
-          </p>
+          </Typography>
         </div>
       </div>
     </div>

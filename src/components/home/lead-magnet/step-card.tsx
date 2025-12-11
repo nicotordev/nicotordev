@@ -1,6 +1,7 @@
+import { Typography } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 interface StepCardProps {
   stepNumber: number;
@@ -87,16 +88,18 @@ export function StepCard({
       aria-pressed={isCompleted}
       aria-current={isActive ? "step" : undefined}
     >
-      <div
-        className={cn(
-          "font-permanent-marker text-lg flex items-center gap-2",
-          colorClass
-        )}
+      <Typography
+        as="div"
+        role="label"
+        mood="handwritten"
+        className={cn("text-lg flex items-center gap-2", colorClass)}
       >
         {labels?.stepLabel || "Step"} {stepNumber}{" "}
         {isCompleted && <CheckCircle className={cn("w-5 h-5", colorClass)} />}
-      </div>
-      <p className="mt-2 text-sm text-foreground/80">{description}</p>
+      </Typography>
+      <Typography role="body" className="mt-2 text-sm text-foreground/80">
+        {description}
+      </Typography>
     </motion.button>
   );
 }

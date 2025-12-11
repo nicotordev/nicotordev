@@ -13,18 +13,20 @@ interface FooterNewsletterProps {
 
 export default function FooterNewsletter({ messages }: FooterNewsletterProps) {
   // Safe access to nested translation keys
-  const t = (key: 'title' | 'description' | 'placeholder' | 'button' | 'disclaimer') => {
+  const t = (
+    key: "title" | "description" | "placeholder" | "button" | "disclaimer"
+  ) => {
     return messages?.newsletter?.[key] || key;
   };
 
   return (
-    <div className="absolute z-20 w-full px-4 inset-x-0 -translate-y-1/2">
+    <div className="flex items-center justify-center absolute z-20 w-full inset-x-0 -translate-y-1/2 max-w-7xl mx-auto px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="pointer-events-auto relative overflow-hidden rounded-3xl bg-card border border-border/50 p-6 sm:p-10 max-w-5xl mx-auto shadow-2xl backdrop-blur-xl"
+        className="pointer-events-auto relative overflow-hidden rounded-3xl bg-card border border-border/50 w-full p-6 lg:p-8 shadow-2xl backdrop-blur-xl"
       >
         {/* Atmosphere Layer */}
         <BackgroundDecoration className="opacity-20 scale-125 -top-20" />

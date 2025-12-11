@@ -9,10 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Eye } from "lucide-react";
-import { useTranslations } from "next-intl";
 import { useState } from "react";
 interface ReviewList3DWrapperTitleProps {
   badgeLabel: string;
@@ -28,7 +28,6 @@ export default function ReviewList3DWrapperTitle({
   buttonText,
 }: ReviewList3DWrapperTitleProps) {
   const [isVisible, setIsVisible] = useState(true);
-  const t = useTranslations();
 
   return (
     <AnimatePresence mode="wait">
@@ -47,16 +46,22 @@ export default function ReviewList3DWrapperTitle({
             "text-center mx-auto space-y-6 py-12 absolute flex flex-col items-center justify-center inset-0 z-30 backdrop-blur-xs bg-background/20"
           )}
         >
-          <Card>
+          <Card className="shadow-lg">
             <CardHeader>
               <CardTitle>
                 <Badge variant="secondary">{badgeLabel}</Badge>
-                <h2 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+                <Typography
+                  as="h2"
+                  role="display"
+                  className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
+                >
                   {heading}
-                </h2>
+                </Typography>
               </CardTitle>
             </CardHeader>
-            <CardContent>{subtitle}</CardContent>
+            <CardContent>
+              <Typography role="body">{subtitle}</Typography>
+            </CardContent>
             <CardFooter>
               <Button type="submit" variant="secondary" size="full">
                 {buttonText}

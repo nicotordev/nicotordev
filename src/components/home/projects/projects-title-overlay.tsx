@@ -1,4 +1,5 @@
 "use client";
+import { Typography } from "@/components/ui/typography";
 import { motion } from "framer-motion";
 
 export interface ProjectsTitleOverlayProps {
@@ -18,9 +19,13 @@ export default function ProjectsTitleOverlay({
       transition={{ delay: 0.2, duration: 0.6 }}
       className={`${className} pointer-events-none select-none w-full flex items-center justify-center py-6`}
     >
-      <h2 className="text-center font-stretch-ultra-expanded font-bold text-white opacity-60 drop-shadow-lg leading-none text-[6rem] xl:text-[8rem] wrap-break-word">
+      <Typography
+        as="h2"
+        role="display"
+        className="text-center font-stretch-ultra-expanded font-bold text-white opacity-60 drop-shadow-lg leading-none text-[6rem] xl:text-[8rem] wrap-break-word"
+      >
         {text}
-      </h2>
+      </Typography>
     </motion.div>
   );
 }

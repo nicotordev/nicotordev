@@ -1,6 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Typography } from "@/components/ui/typography";
+import {
+  animate,
+  motion,
+  useInView,
+  useMotionValue,
+  useTransform,
+} from "framer-motion";
+import { useEffect, useRef } from "react";
 
 interface SocialProofCounterItemProps {
   id: string;
@@ -17,37 +25,45 @@ export default function SocialProofCounterItem({
   rightSymbol,
   leftSymbol,
 }: SocialProofCounterItemProps) {
-  const [valueToShow, setValueToShow] = useState(0); // value to show from 0 to value
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.5 });
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setValueToShow((prev) => {
-        if (prev < value) {
-          return prev + 1;
-        }
-        // clear interval when done
-        clearInterval(intervalId);
-        return prev;
+    if (isInView) {
+      const controls = animate(count, value, {
+        duration: 1.5,
+        ease: "easeOut",
       });
-    }, 50); // we increase 1 per second
-
-    // clear interval on unmount
-    return () => clearInterval(intervalId);
-  }, [value]);
+      return () => controls.stop();
+    } else {
+      count.set(0);
+    }
+  }, [isInView, value, count]);
 
   return (
     <div
+      ref={ref}
       key={id}
       className="group flex flex-col gap-y-3 border-l-4 border-primary pl-6 transition-all duration-300 hover:border-secondary hover:pl-8"
     >
-      <dt className="text-sm font-medium text-muted-foreground transition-colors group-hover:text-secondary">
+      <Typography
+        as="dt"
+        className="text-sm font-medium text-muted-foreground transition-colors group-hover:text-secondary"
+      >
         {name}
-      </dt>
-      <dd className="order-first text-4xl font-black tracking-tight text-primary transition-all group-hover:text-secondary font-display will-change-contents">
+      </Typography>
+      <Typography
+        as="dd"
+        role="headline"
+        mood="product"
+        className="order-first text-4xl font-black tracking-tight text-primary transition-all group-hover:text-secondary will-change-contents"
+      >
         {leftSymbol}
-        {valueToShow}
+        <motion.span>{rounded}</motion.span>
         {rightSymbol}
-      </dd>
+      </Typography>
     </div>
   );
 }
