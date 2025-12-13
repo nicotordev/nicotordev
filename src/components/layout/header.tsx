@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { useRendersCount, useWindowScroll } from "react-use";
 
 import type { Messages } from "@/types/i18n";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { Typography } from "../ui/typography";
@@ -73,13 +74,18 @@ export default function Header({ messages }: { messages: Messages }) {
           </div>
           <div className="hidden md:flex md:flex-1 md:justify-end md:items-center md:gap-3">
             <SettingsMenu loginLabel={commonMessages.login || "Login"} />
-            <Link href="/sign-in">
-              <Button>
-                <Typography as="span" mood="artistic" role="button">
-                  {commonMessages.login || "Login"}
-                </Typography>
-              </Button>
-            </Link>
+            <SignedOut>
+              <Link href="/sign-in">
+                <Button>
+                  <Typography as="span" mood="artistic" role="button">
+                    {commonMessages.login || "Login"}
+                  </Typography>
+                </Button>
+              </Link>
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </div>
           <HeaderMobileMenu messages={messages} navItems={navItems} />
         </nav>
