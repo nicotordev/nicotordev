@@ -1,5 +1,6 @@
 # Stage 1: build with Node (full compatibility for Next.js/Turbopack)
-FROM node:22-alpine AS builder
+# Use AWS ECR public mirror to avoid Docker Hub auth outages during CI builds
+FROM public.ecr.aws/docker/library/node:22-alpine AS builder
 
 WORKDIR /app
 
