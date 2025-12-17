@@ -24,8 +24,6 @@ function TechStackCarouselFallback() {
 const HeroSectionTechStackCarouselClient = dynamic(
   async () => import("./hero-section-tech-stack-carousel-client"),
   {
-    // CWV/INP: Swiper is relatively heavy; split it out of the initial bundle.
-    ssr: false,
     loading: () => <TechStackCarouselFallback />,
   }
 );

@@ -9,23 +9,22 @@
     "aria": {
       "global": "Global navigation",
       "openMainMenu": "Open main menu",
-      "mobileMenu": "Mobile Menu"
+      "mobileMenu": "Mobile menu"
     }
   },
   "common": {
-    "see_reviews": "See reviews",
-    "viewDetails": "View Details",
+    "viewDetails": "View details",
     "login": "Log in",
     "settings": "Settings",
     "preferences": "Preferences",
     "language": "Language",
     "currency": "Currency",
-    "timezone": "Timezone",
+    "timezone": "Time zone",
     "a11y": {
       "close": "Close",
       "loading": "Loading",
       "toggleSidebar": "Toggle sidebar",
-      "leadMagnetSection": "Lead Magnet Section",
+      "leadMagnetSection": "Lead capture section",
       "closeTestimonial": "Close testimonial",
       "showTestimonial": "Show testimonial",
       "previousSlide": "Previous slide",
@@ -36,94 +35,94 @@
       "next": "Next",
       "morePages": "More pages",
       "media": {
-        "codingAlt": "Animated illustration of coding",
+        "codingAlt": "Animated programming illustration",
         "textureAlt": "Animated texture",
-        "writingAlt": "Hand writing illustration",
+        "writingAlt": "Handwriting illustration",
         "lightbulbAlt": "Lightbulb illustration",
         "mechanicArmAlt": "Robotic arm illustration",
         "giftAlt": "Gift box",
         "sadAlt": "Crying face emoji",
-        "giftHeartAlt": "Gift with heart",
+        "giftHeartAlt": "Gift with a heart",
         "psychedelicTextureAlt": "Psychedelic texture background",
         "logoAlt": "NicoTorDev logo"
       }
     }
   },
   "hero": {
-    "greeting": "Hello, I am",
+    "greeting": "Hi, I'm",
     "name": "Nicolás Torres",
     "title": "Full Stack Developer",
     "available_for_hire": "Available for hire",
-    "description": "Software developer, content creator, and technology enthusiast from Chile.",
+    "description": "Software developer, content creator, and tech enthusiast from Chile.",
     "location": {
       "from": "a full-stack web engineer from",
-      "tooltip": "From Concepción, Chile. I'm glad you're here!"
+      "tooltip": "From Concepción, Chile. Glad you're here!"
     },
-    "closing": "and my job is to",
+    "closing": "and my work is about",
     "headline": {
       "transform": "Transform",
       "words": "words",
       "and": "and",
       "ideas": "ideas",
       "into": "into",
-      "applications": "impactful",
+      "applications": "applications",
       "web": "web",
-      "impact": "applications"
+      "impact": "with impact"
     },
     "cta": {
-      "about": "Get to know me more",
+      "about": "Learn more about me",
       "download_resume": "Download CV",
       "lets_talk": "Let's talk 🚀"
     }
   },
   "socialProof": {
-    "badge": "Proven Experience",
+    "badge": "Proven experience",
     "title": "Trusted by",
     "titleHighlight": "international teams",
     "titleEnd": "and founders",
     "description": {
-      "intro": "I am",
-      "name": "Nicolas Torres",
-      "text": ", a Full-Stack Web Engineer specialized in TypeScript, Next.js, React, Node.js, and AI-enhanced systems. I have delivered scalable software to clients in Germany, Singapore, the USA, and Chile—maintaining a 100% Job Success Score as a Top Rated talent on Upwork.",
-      "focus": "My focus is to build clean, fast, and purposeful products that elevate how teams operate."
+      "intro": "I'm",
+      "name": "Nicolás Torres",
+      "text": ", a Full-Stack Web Engineer specializing in TypeScript, Next.js, React, Node.js, and AI-enhanced systems. I've delivered scalable software for clients in Germany, Singapore, the U.S., and Chile—maintaining a 100% Job Success Score as a Top Rated talent on Upwork.",
+      "focus": "My focus is building clean, fast, purposeful products that improve how teams operate."
     },
     "stats": {
-      "jobSuccess": "Job Success",
-      "projectsDelivered": "Projects Delivered",
-      "activeEngagements": "Active Engagements",
+      "jobSuccess": "Job success",
+      "projectsDelivered": "Projects delivered",
+      "activeEngagements": "Active engagements",
       "rate": "Rate"
     },
-    "imageAlt": "Nicolas working on his computer"
+    "imageAlt": "Nicolás working on his computer"
   },
   "problemSolution": {
     "problem": {
-      "title": "Tired of Developers",
-      "titleBold": "Who don't understand your business",
+      "title": "Tired of developers",
+      "titleBold": "who don't understand your business",
       "subtitle": "You need a",
       "subtitleHighlight": "real engineer",
-      "subtitleEnd": ", not a robot. Someone who understands your business, thinks like an owner, and delivers code that truly moves the needle.",
-      "sectionTitle": "Most common problems I see in development teams:",
+      "subtitleEnd": ", not a robot. Someone who understands your business, thinks like an owner, and ships code that actually moves the needle.",
+      "sectionTitle": "Most common issues I see in development teams:",
       "problems": {
         "technicalDebt": {
-          "name": "Technical Debt (Spaghetti Code)",
-          "description": "Fragile systems where fixing one bug creates three new ones. Scaling becomes costly and risky."
+          "name": "Technical debt (spaghetti code)",
+          "description": "Fragile systems where fixing one bug creates three more. Scaling becomes expensive and risky."
         },
         "noVision": {
-          "name": "Executors without Vision",
-          "description": "Developers who act like robots: they wait for exact orders and do not notice UX or business errors."
+          "name": "Executors with no vision",
+          "description": "Developers who act like robots: they wait for exact instructions and miss UX or business issues."
         },
         "ghostDeadlines": {
-          "name": "Ghost Deadlines",
-          "description": "Estimates that are never met. Tickets drag on week after week without a real delivery date."
+          "name": "Ghost deadlines",
+          "description": "Estimates that never hold. Tickets drag on week after week with no real delivery date."
         },
         "excuses": {
-          "name": "Excuses, not Results",
-          "description": "The classic mindset of 'it works on my machine'. When there's a fire in production, no one takes control."
+          "name": "Excuses, not results",
+          "description": "The classic “it works on my machine” mindset. When production is on fire, nobody takes control."
         }
       }
     },
     "solution": {
-      "titlePrefix": "Software Engineering with",
+      "titlePrefix": "Software engineering with",
       "subtitle": "Beyond writing lines of code,",
       "subtitleBold1": "I build digital assets.",
       "subtitleText": "My approach combines",
@@ -131,120 +130,120 @@
       "subtitleWith": "with",
       "subtitleBold3": "business vision",
       "subtitleTo": "to",
-      "subtitleBold4": "deliver lasting results",
+      "subtitleBold4": "deliver results that last",
       "sectionTitle": "How I transform your project:",
       "solutions": {
         "scalableArchitecture": {
-          "name": "Scalable Architecture",
-          "description": "I write clean, modular, and documented code. Your project will be easy to maintain today and scale tomorrow."
+          "name": "Scalable architecture",
+          "description": "I write clean, modular, documented code. Your project is easy to maintain today and scale tomorrow."
         },
         "productPartner": {
-          "name": "Product Partner",
-          "description": "I don't just write code; I understand your business. I propose strategic improvements to maximize product value."
+          "name": "Product partner",
+          "description": "I don’t just code; I understand your business. I suggest strategic improvements to maximize product value."
         },
         "totalOwnership": {
-          "name": "Total Ownership",
-          "description": "I treat your project as if it were my own. If a problem arises, I take responsibility and lead the solution to the end."
+          "name": "Full ownership",
+          "description": "I treat your project like it’s mine. If a problem comes up, I take responsibility and lead the fix to the end."
         },
         "radicalTransparency": {
-          "name": "Radical Transparency",
-          "description": "No confusing technical jargon. I maintain constant communication so you always know the real status of development."
+          "name": "Radical transparency",
+          "description": "No confusing jargon. I keep communication steady so you always know the real development status."
         }
       },
       "rotatingTitles": [
-        "Product Mindset",
-        "Business Vision",
-        "Results Focus",
-        "Clear Communication",
-        "Radical Transparency",
-        "Total Ownership",
-        "Scalable Architecture",
-        "Clean and Modular Code",
-        "Strategic Proposals",
-        "Leadership in Solutions",
-        "Sustainable Value",
-        "Technical Excellence",
-        "Guaranteed Quality",
-        "Simple Maintenance",
-        "Future Scalability",
-        "Constant Innovation",
-        "Continuous Improvement",
-        "Optimal Efficiency",
-        "Measurable Results",
-        "Lasting Impact",
-        "User Satisfaction"
+        "Product mindset",
+        "Business vision",
+        "Results focus",
+        "Clear communication",
+        "Radical transparency",
+        "Full ownership",
+        "Scalable architecture",
+        "Clean, modular code",
+        "Strategic proposals",
+        "Solution leadership",
+        "Sustainable value",
+        "Technical excellence",
+        "Guaranteed quality",
+        "Easy maintenance",
+        "Future scalability",
+        "Continuous innovation",
+        "Continuous improvement",
+        "Optimal efficiency",
+        "Measurable results",
+        "Lasting impact",
+        "User satisfaction"
       ]
     }
   },
   "projects": {
-    "section_title": "My Projects",
-    "section_subtitle": "Explore my latest work and creative solutions.",
+    "section_title": "My projects",
+    "section_subtitle": "Explore my most recent work and creative solutions.",
     "carousel": {
-      "title": "Projects I've Built",
-      "viewProject": "View Project"
+      "title": "Projects I've built",
+      "viewProject": "View project"
     }
   },
   "downloadResume": {
-    "selectFormat": "Select Format"
+    "selectFormat": "Select format"
   },
   "leadMagnet": {
     "title": "Let's talk about your",
     "titleHighlight": "project",
     "subtitle": "Ready to turn that story into reality? Fill out the form below.",
     "form": {
-      "toggleMinimal": "Quick Message",
-      "toggleFull": "Full Form",
+      "toggleMinimal": "Quick message",
+      "toggleFull": "Full form",
       "name": "Name",
       "email": "Email",
       "message": "Message",
       "budget": "Budget",
       "timeline": "Timeline",
-      "firstName": "First Name",
-      "lastName": "Last Name",
+      "firstName": "First name",
+      "lastName": "Last name",
       "website": "Website",
       "websiteOptionalHint": "(optional)",
-      "projectDetails": "Project Details",
+      "projectDetails": "Project details",
       "projectPlaceholder": "Tell me about your project...",
-      "quickMessageTitle": "Quick Message",
-      "quickMessageDescription": "Share your name, contact, and project details in one message.",
-      "quickMessagePlaceholder": "Hello Nico! 👋\n\nMy name is [Your Name]\nEmail: [your.email@example.com]\nBudget: [$amount or hourly rate]\n\nI am looking for help with:\n[Describe your project here...]\n\nI look forward to hearing from you!",
+      "quickMessageTitle": "Quick message",
+      "quickMessageDescription": "Share your name, contact info, and project details in a single message.",
+      "quickMessagePlaceholder": "Hi Nico! 👋\n\nMy name is [Your Name]\nEmail: [your.email@example.com]\nBudget: [$amount or hourly rate]\n\nI’m looking for help with:\n[Describe your project here...]\n\nLooking forward to it!",
       "privacyCopy": "By submitting this form, I agree to the",
       "privacyPolicy": "privacy policy",
-      "submit": "Send Message",
-      "submitFull": "Let's Talk",
-      "submitQuick": "Send Message"
+      "submit": "Send message",
+      "submitFull": "Let's talk",
+      "submitQuick": "Send message"
     },
     "testimonial": {
       "quote": "While working as CTO at",
       "company": "Spiritory GmbH",
-      "quoteEnd": ", we hired Nicolas as a Full Stack Developer... He was reliable, keeping projects on time with the necessary quality. I highly recommend him.",
+      "quoteEnd": ", we hired Nicolas as a Full Stack Developer... He was reliable, kept projects on time, and delivered the required quality. I highly recommend him.",
       "author": "Goce S.",
-      "role": "ex. CTO Spiritory GmbH"
+      "role": "Former CTO, Spiritory GmbH"
     },
     "gift": {
-      "title": "Choose Your Path",
+      "title": "Choose your path",
       "subtitle": "How would you like to proceed?",
       "options": {
         "form": {
-          "title": "Let's Talk",
-          "description": "Share the details of your project"
+          "title": "Let's talk",
+          "description": "Share your project details"
         },
         "gift": {
-          "title": "Get a Gift",
+          "title": "Get a gift",
           "description": "Claim your free resource"
         }
       },
       "experience": {
         "title": "Before viewing this section, unlock your exclusive gift",
-        "subtitle": "Complete each step to release your gift and unlock the form. Don't worry: it's all 100% fun.",
+        "subtitle": "Complete each step to unlock your gift and the form. Don’t worry: it’s 100% fun.",
         "steps": [
           {
             "title": "Step 1",
-            "description": "Imagine the triumphant sound of your project achieving exactly what you dream."
+            "description": "Imagine the triumphant sound of your project achieving exactly what you want."
           },
           {
             "title": "Step 2",
-            "description": "Visualize your idea working perfectly. Yes, that clean."
+            "description": "Visualize your idea working perfectly. Yep—this clean."
           },
           {
             "title": "Step 3",
@@ -255,8 +254,8 @@
           "close": "Close forever",
           "claim": "Claim my gift",
           "claimAria": "Claim my exclusive gift",
-          "progress": "Progress: {completed} out of 3 steps completed.",
-          "complete": "Congratulations! You have completed all the steps. Now you can unlock the form or claim your gift.",
+          "progress": "Progress: {completed} of 3 steps completed.",
+          "complete": "Congrats! You completed all the steps. Now you can unlock the form or claim your gift.",
           "stepLabel": "Step",
           "status": {
             "completed": "Completed",
@@ -268,61 +267,61 @@
     },
     "giftDialog": {
       "title": "Claim my gift",
-      "description": "Verify your humanity and gain exclusive access to your gift. No spam, just real value.",
+      "description": "Verify you're human and get exclusive access to your gift. No spam—just real value.",
       "emailLabel": "Email",
       "emailPlaceholder": "me@nicotordev.com",
-      "securityLabel": "Security Verification",
+      "securityLabel": "Security verification",
       "protectedBy": "Protected by Turnstile",
       "cancel": "Cancel",
       "processing": "Processing...",
       "claim": "Claim gift",
       "successTitle": "Gift claimed!",
-      "successMessage": "Check your email. If you don't see it, also check your spam or promotions folder.",
-      "successNote": "This box will automatically close in a few seconds ✨",
+      "successMessage": "Check your email. If you don’t see it, also check spam or promotions.",
+      "successNote": "This box will close automatically in a few seconds ✨",
       "verificationComplete": "Verification complete · ready to claim",
       "error": "Error claiming the gift. Please try again."
     }
   },
   "reviews": {
-    "pre_title": "Customer Reviews",
-    "title": "What My Customers Say",
-    "subtitle": "Genuine feedback from my valued customers, highlighting the quality and value of my projects."
+    "pre_title": "Testimonials",
+    "title": "What my clients say",
+    "subtitle": "Real feedback from valued clients, highlighting the quality and value of my work."
   },
   "about": {
-    "title": "About Me",
+    "title": "About me",
     "subtitle": "Building software with soul and precision",
-    "description": "I am Nicolás Richard Torres, a Chilean full stack engineer who believes that code should not only work: it must have purpose. I went from breaking systems out of curiosity to designing structures with ethics. Today, I transform ideas into platforms that combine art, engineering, and a dose of well-directed rebellion.",
+    "description": "I believe code shouldn’t just work: it should have purpose. I went from breaking systems out of curiosity to designing structures with ethics. Today I turn ideas into platforms that blend art, engineering, and a dose of well-directed rebellion.",
     "role": {
-      "current": "Current Role",
+      "current": "Current role",
       "position": "Freelance Full Stack Developer",
-      "mode": "Mode",
+      "mode": "Work mode",
       "modeDetails": "Remote / Hybrid"
     },
     "metrics": {
-      "title": "Highlighted Metrics",
+      "title": "Key metrics",
       "subtitle": "Real impact and measurable results",
-      "total_earnings": "Total Earnings",
-      "hours": "Hours Worked",
-      "success": "Success Rate",
+      "total_earnings": "Total earnings",
+      "hours": "Hours worked",
+      "success": "Success rate",
       "complete": "completed",
       "experience": "Experience",
       "experienceValue": "2.5+ years"
     },
     "methodology": {
-      "title": "Philosophy and Methodology",
-      "description": "My way of working is based on three pillars: clarity in architecture, autonomy to solve, and impact in every line of code. I rely on strict typing, living documentation, and transparent communication.",
+      "title": "Philosophy and methodology",
+      "description": "My way of working is built on three pillars: architectural clarity, autonomy to solve, and impact in every line of code. I rely on strict typing, living documentation, and transparent communication.",
       "title_frontend": "Frontend",
       "title_backend": "Backend",
-      "title_styling": "Design and Styles"
+      "title_styling": "Design and styling"
     },
     "workStyle": {
-      "title": "Work Style",
-      "description": "Agile, autonomous, and detail-oriented. I propose solutions rather than waiting for instructions."
+      "title": "Work style",
+      "description": "Agile, autonomous, and detail-oriented. I propose solutions instead of waiting for instructions."
     },
     "personal": {
-      "title": "Beyond the Code",
-      "subtitle": "Who am I? .... a person who likes to break things out of curiosity",
-      "description": "I am inspired by Hofmann and Leary, but also by the silence of the forest. Between commits and coffee, I study AI, explore responsible psychedelia, and create content for other developers. I believe that justice—even in software—is a form of love."
+      "title": "Beyond the code",
+      "subtitle": "Who am I? .... someone who likes to break things out of curiosity",
+      "description": "I’m inspired by Hofmann and Leary, but also by the silence of the forest. Between commits and coffee, I study AI, explore responsible psychedelia, and create content for other developers. I believe justice—even in software—is a form of love."
     },
     "specialties": {
       "description": "Next.js, React, TypeScript, and systems where the interface matters as much as the logic."
@@ -331,39 +330,39 @@
       "description": "Node.js, Prisma ORM, tRPC, PostgreSQL, and scalable architectures with frictionless deployments."
     },
     "photos": {
-      "gallery_1_alt": "Conce AI Logo",
+      "gallery_1_alt": "Conce AI logo",
       "gallery_2_alt": "Photo of Nicolás Torres Henriquez smiling",
       "gallery_3_alt": "Photo of Nicolás Torres Henriquez working on his computer",
       "gallery_4_alt": "Photo of Nicolás Torres Henriquez in a natural setting"
     },
-    "metricsTitle": "",
+    "metricsTitle": "Key metrics",
     "galleryTitle": "Gallery",
     "gallery": {
       "title": "Gallery",
       "items": {
         "conceAi": {
-          "alt": "Conce AI Logo",
-          "description": "The official logo of Conce AI, my technology business."
+          "alt": "Conce AI logo",
+          "description": "The official Conce AI logo, my tech business."
         },
         "wizard": {
           "alt": "Nico as a psychedelic wizard",
           "description": "Embracing creativity and magic in code, visualized as a psychedelic wizard."
         },
         "workstation": {
-          "alt": "Nico working on his Computer, Multiple Screens are present",
-          "description": "Deep in the flow state, surrounded by multiple screens and lines of code."
+          "alt": "Nico working on his computer, with multiple screens present",
+          "description": "Deep in flow state, surrounded by multiple screens and lines of code."
         },
         "acid": {
-          "alt": "Nico's pupils dilated",
+          "alt": "Nico's dilated pupils",
           "description": "A close-up capturing the intensity and focus of a late-night coding session."
         },
         "psychedelic": {
-          "alt": "Nico with psychedelic (trippy) effects",
+          "alt": "Nico with psychedelic effects",
           "description": "Exploring the intersection of art and technology through psychedelic visuals."
         },
         "unicorn": {
           "alt": "Nico in a unicorn outfit",
-          "description": "Never taking life too seriously—rocking a unicorn outfit with pride."
+          "description": "Never taking life too seriously—wearing a unicorn outfit with pride."
         },
         "koka": {
           "alt": "Nico with his dog Koka",
@@ -374,16 +373,16 @@
           "description": "Finding balance and peace in nature, surrounded by flowers."
         },
         "trippy": {
-          "alt": "Nico with trippy photo effects",
+          "alt": "Nico with trippy visual effects",
           "description": "Experimenting with visual effects to create unique digital experiences."
         },
         "piercing": {
-          "alt": "Nico with a piercing in his nose",
+          "alt": "Nico with a nose piercing",
           "description": "Expressing personal style with a nose piercing."
         },
         "tattoo": {
-          "alt": "Nico with a tattoo on the back of the neck, a cpu chip",
-          "description": "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to tech."
+          "alt": "Nico with a tattoo on the back of his neck: a CPU chip",
+          "description": "Cyberpunk vibes: a CPU chip tattoo on the back of my neck, symbolizing my connection to technology."
         },
         "onlyKoka": {
           "alt": "Koka, the dog",
@@ -402,48 +401,48 @@
   },
   "reviewsList": {
     "review-01": {
-      "title": "Full-stack developer (React / NextJs / Tailwind) to build a dashboard page"
+      "title": "Full-stack Developer (React / NextJs / Tailwind) to build a dashboard"
     },
     "review-02": {
-      "title": "Frontend Specialist for a Marketplace (Next.js) - Ongoing Project 95% Ready (Bugs+Small Tickets)",
-      "feedback": "Nicolas was a great hire - very determined, motivated with an eye for detail. Even though he is young he brings everything you need to get the job done."
+      "title": "Frontend Specialist for Marketplace (Next.js) - Ongoing project 95% ready (Bugs + small tickets)",
+      "feedback": "Nicolas was a great hire: very determined, motivated, and with strong attention to detail. Even though he’s young, he brings everything needed to get the job done."
     },
     "review-03": {
-      "title": "CMS fix static pages",
-      "feedback": "Nicolas works very fast, he proposed a much better solution for the issue that needed to be resolved. A few extra tweaks were done without any questions. I am always satisfied."
+      "title": "Fix static pages in CMS",
+      "feedback": "Nicolas works very fast and proposed a much better solution for the issue that needed to be solved. He made a few additional adjustments without being asked. I’m always satisfied."
     },
     "review-04": {
-      "title": "DevOps Engineer with Expertise in Next.js, Nginx, and Automation",
-      "feedback": "Nicolas did a 3 day job in just 12 hours. All requirements met and some extra jobs as well. Always a pleasure to work with Nicolas! Gracias"
+      "title": "DevOps Engineer expert in Next.js, Nginx, and Automation",
+      "feedback": "Nicolas did a 3-day job in just 12 hours. He met all requirements and also handled a few extra tasks. It’s always a pleasure working with Nicolas. Thank you."
     },
     "review-05": {
       "title": "Fileserver milestone 2",
-      "feedback": "Nicolas helped me to refine the fileserver upload functionalities and implemented it in an existing function. He was willing to help me with things outside scope."
+      "feedback": "Nicolas helped me refine the file server upload features and implemented them in an existing function. He was willing to help with items outside the scope."
     },
     "review-06": {
-      "title": "Ubuntu DO fileserver with drag and drop",
-      "feedback": "Nicolas has created a drag and drop fileserver functionality and helped me when I needed it. He is fast and knowledgeable, willing to go the extra mile."
+      "title": "Ubuntu DO file server with drag and drop",
+      "feedback": "Nicolas built a drag-and-drop file server feature and helped me when needed. He’s fast, knowledgeable, and willing to go the extra mile."
     },
     "review-07": {
-      "title": "Crypto screener using React js",
-      "feedback": "Nicolas is an outstanding freelancer whose technical prowess is matched only by his commitment to excellence. With a tight deadline, he ensured full functionality."
+      "title": "Crypto screener using React.js",
+      "feedback": "Nicolas is an exceptional freelancer whose technical skill is matched only by his commitment to excellence. With a tight deadline, he delivered full functionality."
     },
     "review-08": {
-      "title": "Quick10x: Real-Time Crypto Analytics SaaS Platform — Need help with setting up Nodemailer JS",
-      "feedback": "Very punctual, on task and project delivered within the expected timeframe. Thanks so much!"
+      "title": "Quick10x: Real-time crypto analytics SaaS platform — Help with Nodemailer JS setup",
+      "feedback": "Very punctual, focused on the task, and the project was delivered within the expected timeframe. Thank you!"
     },
     "review-09": {
-      "title": "Full-Stack Developer Needed for Legal Compliance MVP",
-      "feedback": "Nicolas has been excellent to work with. He understands complex concepts quickly and converts them into intuitive and functional solutions."
+      "title": "Full-Stack Developer needed for legal compliance MVP",
+      "feedback": "It’s been great working with Nicolas. He understands complex concepts quickly and turns them into intuitive, functional solutions."
     },
     "review-10": {
       "title": "Front End Developer - Shadcn Admin Kit"
     },
     "review-11": {
-      "title": "Convert a 1 page figma into html"
+      "title": "Convert a 1-page Figma design to HTML"
     },
     "review-12": {
-      "title": "Quick Fix: Clerk Authentication & Neon Database Setup in Existing Wine Platform"
+      "title": "Quick fix: Clerk authentication setup and Neon database on an existing wine platform"
     },
     "review-13": {
       "title": "Expert .NextJS developer needed for backend restructuring"
@@ -452,31 +451,31 @@
       "title": "Full stack web engineer"
     },
     "review-15": {
-      "title": "Frontend Specialist for a Marketplace (Next.js) — Long Ongoing Project",
-      "feedback": "We hired Nicolas for bug-fixing, but soon realised he's incredibly talented and grasps tasks ultra-fast. We extended him into a much longer project."
+      "title": "Frontend Specialist for Marketplace (Next.js) — Long-term ongoing project",
+      "feedback": "We hired Nicolas to fix bugs, but soon realized he’s incredibly talented and picks up tasks ultra-fast. We extended him into a much longer project."
     },
     "review-16": {
       "title": "Full Stack Engineer - Applied AI Systems",
-      "feedback": "Nicolas is a great engineer, brings great energy and enthusiasm. Highly recommended."
+      "feedback": "Nicolas is a great engineer—brings strong energy and enthusiasm. Highly recommended."
     },
     "review-17": {
-      "title": "React & Node Dev Needed (Web App: Node, React, MUI & MySQL)"
+      "title": "React & Node dev needed (Web App: Node, React, MUI & MySQL)"
     },
     "review-18": {
-      "title": "Recreate Website in React",
-      "feedback": "It was an absolute pleasure working with Nicolas. Very responsive, great code, continuous support."
+      "title": "Recreate website in React",
+      "feedback": "It was an absolute pleasure working with Nicolas. Very responsive, excellent code, and ongoing support."
     }
-  },
-  "newsletter": {
-    "title": "Subscribe to my newsletter",
-    "description": "Get the latest news and updates from NicotorDev directly to your inbox.",
-    "placeholder": "Enter your email",
-    "button": "Subscribe",
-    "disclaimer": "No spam, unsubscribe at any time."
   },
   "reviewCard": {
     "noRating": "No rating",
-    "noFeedback": "No written feedback provided."
+    "noFeedback": "No written feedback."
+  },
+  "newsletter": {
+    "title": "Subscribe to our newsletter",
+    "description": "Get the latest news and updates from NicoTorDev delivered to your inbox.",
+    "placeholder": "Enter your email",
+    "button": "Subscribe",
+    "disclaimer": "No spam. You can unsubscribe anytime."
   },
   "seo": {
     "site": {
@@ -484,12 +483,12 @@
       "url": "https://nicotordev.com"
     },
     "title": {
-      "default": "NicoTorDev — Full Stack Web Engineer (TypeScript, Next.js, AI)",
+      "default": "NicoTorDev — Full Stack Engineer (TypeScript, Next.js, AI)",
       "template": "%s | NicoTorDev"
     },
-    "description": "Nicolás Torres is a Full Stack Web Engineer specialized in TypeScript, Next.js, React, Node.js and AI. I build fast, scalable, human-centered SaaS products for startups and global teams.",
+    "description": "Nicolás Torres is a Full Stack Engineer specializing in TypeScript, Next.js, React, Node.js, and AI. I build fast, scalable, human-centered SaaS products for startups and global teams.",
     "keywords": [
-      "Full Stack Web Engineer",
+      "Full Stack Engineer",
       "TypeScript Developer",
       "Next.js Developer",
       "React Developer",
@@ -498,22 +497,22 @@
       "SaaS Developer",
       "Remote Developer",
       "Upwork Top Rated",
-      "Web Engineer Chile",
-      "Full Stack Developer Latin America"
+      "Web Developer Chile",
+      "Full Stack Latin America"
     ],
     "openGraph": {
-      "title": "NicoTorDev — Full Stack Web Engineer",
-      "description": "I transform ideas into fast, scalable and meaningful web applications using TypeScript, Next.js and AI.",
-      "imageAlt": "NicoTorDev — Full Stack Web Engineer"
+      "title": "NicoTorDev — Full Stack Engineer",
+      "description": "I transform ideas into fast, scalable, high-impact web applications using TypeScript, Next.js, and AI.",
+      "imageAlt": "NicoTorDev — Full Stack Engineer"
     },
     "twitter": {
-      "title": "NicoTorDev — Full Stack Web Engineer",
-      "description": "Building calm, fast and human-centered web products with TypeScript, Next.js and AI.",
+      "title": "NicoTorDev — Full Stack Engineer",
+      "description": "Building human, fast, scalable web products with TypeScript, Next.js, and AI.",
       "creator": "@typeNaN_"
     },
     "person": {
       "name": "Nicolás Torres",
-      "jobTitle": "Full Stack Web Engineer",
+      "jobTitle": "Full Stack Engineer",
       "image": "https://nicotordev.com/images/nicolas/nico-pc.webp",
       "sameAs": [
         "https://github.com/nicotordev",

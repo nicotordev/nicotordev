@@ -8,7 +8,6 @@ import ProjectsCarouselSkeleton from "./projects-carousel-skeleton";
 const ProjectsCarouselClient = dynamic(
   async () => import("./projects-carousel-client"),
   {
-    ssr: false,
     loading: () => <ProjectsCarouselSkeleton />,
   }
 );

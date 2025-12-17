@@ -20,11 +20,17 @@ const isPublicRoute = createRouteMatcher([
   "/:locale/projects",
   "/:locale/blog",
   "/:locale/contact",
+  "/r(.*)",
 ]);
 
 export default clerkMiddlewareImpl(async (auth, req) => {
   // Do not run i18n middleware on API routes
   if (req.nextUrl.pathname.startsWith("/api")) {
+    return NextResponse.next();
+  }
+
+  // Redirect system is not locale-aware; let it be handled by rewrites/backends
+  if (req.nextUrl.pathname === "/r" || req.nextUrl.pathname.startsWith("/r/")) {
     return NextResponse.next();
   }
 

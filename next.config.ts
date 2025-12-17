@@ -125,6 +125,25 @@ const nextConfig: NextConfig = {
     ];
   },
 
+  async rewrites() {
+    const backendBase =
+      process.env.ADMIN_API_BASE_URL ??
+      process.env.NEXT_PUBLIC_ADMIN_API_BASE_URL ??
+      "http://localhost:3001";
+    const backend = backendBase.replace(/\/$/, "");
+
+    return [
+      {
+        source: "/r/:slug*",
+        destination: `${backend}/r/:slug*`,
+      },
+      {
+        source: "/api/:path*",
+        destination: `${backend}/api/:path*`,
+      },
+    ];
+  },
+
   compiler: {
     removeConsole:
       process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
