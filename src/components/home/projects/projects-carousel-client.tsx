@@ -1,8 +1,9 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import type { CarouselApi } from "@/components/ui/carousel";
@@ -21,100 +22,114 @@ interface ProjectsCarouselClientProps {
   messages: Messages;
 }
 
+type ProjectsCarouselI18n = {
+  title?: string;
+  viewProject?: string;
+};
+
 const ProjectsCarouselClient = ({ messages }: ProjectsCarouselClientProps) => {
-  const t = messages.projects?.carousel as any;
-  const accessibility = messages.common;
-  const media = accessibility?.a11y?.media;
-  const textureAlt = media?.textureAlt || "Animated texture";
+  const t = (messages.projects?.carousel ?? {}) as ProjectsCarouselI18n;
 
-  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(false);
+  const media = messages.common?.a11y?.media ?? {};
+  const textureAlt = media.textureAlt || "Animated texture";
 
-  useEffect(() => {
-    if (!carouselApi) {
-      return;
-    }
-    const updateSelection = () => {
+  const [carouselApi, setCarouselApi] = useState<CarouselApi | undefined>(
+    undefined
+  );
+  const [canScrollPrev, setCanScrollPrev] = useState<boolean>(false);
+  const [canScrollNext, setCanScrollNext] = useState<boolean>(false);
+
+  const titleText = t.title ?? "Projects I've Built";
+  const viewProjectText = t.viewProject ?? "View Project";
+
+  const updateSelection = useMemo(() => {
+    return () => {
+      if (!carouselApi) return;
       setCanScrollPrev(carouselApi.canScrollPrev());
       setCanScrollNext(carouselApi.canScrollNext());
     };
+  }, [carouselApi]);
+
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     updateSelection();
     carouselApi.on("select", updateSelection);
+
     return () => {
       carouselApi.off("select", updateSelection);
     };
-  }, [carouselApi]);
+  }, [carouselApi, updateSelection]);
 
   return (
     <div className="relative w-full h-full">
+      {/* Background texture */}
       <Image
         width={1920}
         height={1080}
         src="/images/background/texture-1.webp"
         alt={textureAlt}
-        className="h-full w-full object-cover z-1 absolute inset-0 mix-blend-multiply opacity-30"
+        className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover mix-blend-multiply opacity-30"
+        priority={false}
       />
-      <div className="absolute -top-[20%] -left-[10%] w-[70%] h-[70%] bg-accent blur-[20px] rounded-full z-1" />
-      <div className="absolute top-[10%] -right-[10%] w-[60%] h-[60%] bg-accent blur-[20px] rounded-full z-1" />
-      <div className="absolute -bottom-[20%] left-[20%] w-[60%] h-[60%] bg-secondary blur-[20px] rounded-full z-1" />
 
+      {/* Ambient blobs */}
+      <div className="pointer-events-none absolute -top-[20%] -left-[10%] z-0 h-[70%] w-[70%] rounded-full bg-accent blur-[20px]" />
+      <div className="pointer-events-none absolute top-[10%] -right-[10%] z-0 h-[60%] w-[60%] rounded-full bg-accent blur-[20px]" />
+      <div className="pointer-events-none absolute -bottom-[20%] left-[20%] z-0 h-[60%] w-[60%] rounded-full bg-secondary blur-[20px]" />
+
+      {/* Title overlays */}
+      <ProjectsTitleOverlay className="absolute top-0 z-10" text={titleText} />
       <ProjectsTitleOverlay
-        className="absolute top-0 z-10"
-        text={t?.title || "Projects I've Built"}
-      />
-      <ProjectsTitleOverlay
-        className="absolute bottom-0 right-0 rotate-180 z-10"
-        text={t?.title || "Projects I've Built"}
+        className="absolute bottom-0 right-0 z-10 rotate-180"
+        text={titleText}
       />
 
       <div className="relative z-20 w-full py-64">
+        {/* Prev button */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="absolute -bottom-20 left-0 sm:left-6 md:left-8 z-30"
+          className="absolute -bottom-20 left-0 z-30 sm:left-6 md:left-8"
         >
           <Button
             size="icon"
             variant="outline"
-            onClick={() => {
-              carouselApi?.scrollPrev();
-            }}
+            onClick={() => carouselApi?.scrollPrev()}
             disabled={!canScrollPrev}
-            className="disabled:pointer-events-auto bg-gray-900/30 backdrop-blur-md border-white/20 text-white hover:bg-gray-900/50 hover:text-white disabled:opacity-30 shadow-sm transition-all duration-300 rounded-full size-14 sm:size-16"
+            aria-label="Previous projects"
+            className="disabled:pointer-events-auto rounded-full bg-gray-900/30 backdrop-blur-md border-white/20 text-white hover:bg-gray-900/50 hover:text-white disabled:opacity-30 shadow-sm transition-all duration-300 size-14 sm:size-16"
           >
-            <ArrowLeft className="size-7 sm:size-8" />
+            <ArrowLeft className="size-7 sm:size-8" aria-hidden="true" />
           </Button>
         </motion.div>
 
+        {/* Next button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="absolute -top-20 right-0 sm:right-6 md:right-8 z-30"
+          className="absolute -top-20 right-0 z-30 sm:right-6 md:right-8"
         >
           <Button
             size="icon"
             variant="outline"
-            onClick={() => {
-              carouselApi?.scrollNext();
-            }}
+            onClick={() => carouselApi?.scrollNext()}
             disabled={!canScrollNext}
-            className="disabled:pointer-events-auto bg-gray-900/30 backdrop-blur-md border-white/20 text-white hover:bg-gray-900/50 hover:text-white disabled:opacity-30 shadow-sm transition-all duration-300 rounded-full size-14 sm:size-16"
+            aria-label="Next projects"
+            className="disabled:pointer-events-auto rounded-full bg-gray-900/30 backdrop-blur-md border-white/20 text-white hover:bg-gray-900/50 hover:text-white disabled:opacity-30 shadow-sm transition-all duration-300 size-14 sm:size-16"
           >
-            <ArrowRight className="size-7 sm:size-8" />
+            <ArrowRight className="size-7 sm:size-8" aria-hidden="true" />
           </Button>
         </motion.div>
 
         <Carousel
           setApi={setCarouselApi}
-          opts={{
-            align: "center",
-            loop: true,
-          }}
+          opts={{ align: "center", loop: true }}
           className="relative w-full max-w-full"
         >
           <CarouselContent className="w-full max-w-full -ml-6 px-1 sm:px-2">
@@ -128,49 +143,54 @@ const ProjectsCarouselClient = ({ messages }: ProjectsCarouselClientProps) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                  className="group flex flex-col justify-between h-full p-6 transition-all bg-gray-900/30 backdrop-blur-xl border border-white/20 hover:border-accent/50 hover:shadow-2xl hover:-translate-y-1 rounded-xl shadow-xl"
+                  className="group flex h-full flex-col justify-between rounded-xl border border-white/20 bg-gray-900/30 p-6 shadow-xl backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-2xl"
                 >
-                  <div>
-                    <div className="aspect-3/2 flex overflow-x-clip rounded-2xl border border-border/20 bg-muted/50">
-                      <div className="flex-1">
-                        <div className="relative h-full w-full origin-bottom transition duration-500 group-hover:scale-105">
-                          <Image
-                            src={item.image}
-                            alt={item.name}
-                            width={1280}
-                            height={720}
-                            className="object-cover object-center w-full h-full"
-                          />
-                          <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        </div>
+                  <div className="aspect-3/2 flex overflow-x-clip rounded-2xl border border-border/20 bg-muted/50">
+                    <div className="flex-1">
+                      <div className="relative h-full w-full origin-bottom transition duration-500 group-hover:scale-105">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          width={1280}
+                          height={720}
+                          className="h-full w-full object-cover object-center"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                       </div>
                     </div>
                   </div>
-                  <div className="pt-6 flex flex-col gap-3">
+
+                  <div className="flex flex-col gap-3 pt-6">
                     <Typography
                       role="headline"
                       as="div"
-                      className="line-clamp-2 text-xl font-semibold md:text-2xl text-white tracking-tight"
+                      className="line-clamp-2 text-xl font-semibold tracking-tight text-white md:text-2xl"
                     >
                       {item.name}
                     </Typography>
+
                     <Typography
                       role="body"
                       as="div"
-                      className="text-white/70 line-clamp-2 text-sm md:text-base leading-relaxed"
+                      className="line-clamp-2 text-sm leading-relaxed text-white/70 md:text-base"
                     >
                       {item.description}
                     </Typography>
-                    <div className="mt-auto pt-4 flex items-center text-sm font-medium text-white group-hover:text-accent transition-colors group/btn w-fit">
+
+                    <div className="group/btn mt-auto flex w-fit items-center pt-4 text-sm font-medium text-white transition-colors group-hover:text-accent">
                       <Typography
                         as="span"
                         role="button"
                         mood="artistic"
-                        className="underline decoration-white/50 group-hover:decoration-accent underline-offset-4 transition-all"
+                        className="underline decoration-white/50 underline-offset-4 transition-all group-hover:decoration-accent"
                       >
-                        {t?.viewProject || "View Project"}
+                        {viewProjectText}
                       </Typography>
-                      <ArrowRight className="ml-2 size-4 transition-transform group-hover/btn:translate-x-1" />
+                      <ArrowRight
+                        className="ml-2 size-4 transition-transform group-hover/btn:translate-x-1"
+                        aria-hidden="true"
+                      />
                     </div>
                   </div>
                 </motion.div>

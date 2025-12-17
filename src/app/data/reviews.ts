@@ -1,5 +1,11 @@
+export type ReviewId = (typeof reviewsData)[number]["id"];
+export type ReviewIdWithFeedback = Extract<
+  (typeof reviewsData)[number],
+  { feedback: string }
+>["id"];
+
 export interface Review {
-  id: string; // Added for i18n
+  id: ReviewId; // Added for i18n
   clientImage: string;
   title: string;
   rating: number | null;
@@ -11,7 +17,7 @@ export interface Review {
   hourlyRate: number | null;
 }
 
-export const reviews: Review[] = [
+const reviewsData = [
   {
     id: "review-01",
     clientImage: "/images/profile-pics/1.webp",
@@ -244,7 +250,9 @@ export const reviews: Review[] = [
     hours: 22,
     hourlyRate: 11.99,
   },
-];
+] as const;
+
+export const reviews: Review[] = reviewsData as unknown as Review[];
 
 export const firstRow = reviews.slice(0, reviews.length / 2);
 export const secondRow = reviews.slice(reviews.length / 2);

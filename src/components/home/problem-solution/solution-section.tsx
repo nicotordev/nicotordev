@@ -4,95 +4,157 @@ import type { Messages } from "@/types/i18n";
 import SolutionSectionTitles from "./solution-section-titles";
 import SolutionSectionVideo from "./solution-section-video";
 
+type SolutionMessages = Messages["problemSolution"]["solution"];
+type CommonMessages = Messages["common"];
+
 interface SolutionSectionProps {
-  messages: Messages["problemSolution"]["solution"];
-  commonMessages: Messages["common"];
+  messages?: SolutionMessages;
+  commonMessages: CommonMessages;
 }
+
+type SolutionKey =
+  | "scalableArchitecture"
+  | "productPartner"
+  | "totalOwnership"
+  | "radicalTransparency";
+
+const ORDER: readonly SolutionKey[] = [
+  "scalableArchitecture",
+  "productPartner",
+  "totalOwnership",
+  "radicalTransparency",
+] as const;
 
 export default function SolutionSection({
   messages,
   commonMessages,
 }: SolutionSectionProps) {
-  const t = messages ?? {};
+  const t = messages;
 
-  const solutionsWithTranslations = [
-    { ...solutionSectionSolutions[0], ...t.solutions?.scalableArchitecture },
-    { ...solutionSectionSolutions[1], ...t.solutions?.productPartner },
-    { ...solutionSectionSolutions[2], ...t.solutions?.totalOwnership },
-    { ...solutionSectionSolutions[3], ...t.solutions?.radicalTransparency },
-  ];
+  const titlePrefix = t?.titlePrefix ?? "Software engineering with";
+  const rotatingTitles = t?.rotatingTitles ?? [];
+  const subtitle = t?.subtitle ?? "Beyond writing code,";
+  const subtitleBold1 = t?.subtitleBold1 ?? "I build digital assets.";
+  const subtitleText = t?.subtitleText ?? "My approach combines";
+  const subtitleBold2 = t?.subtitleBold2 ?? "technical excellence";
+  const subtitleWith = t?.subtitleWith ?? "with";
+  const subtitleBold3 = t?.subtitleBold3 ?? "business vision";
+  const subtitleTo = t?.subtitleTo ?? "to";
+  const subtitleBold4 = t?.subtitleBold4 ?? "deliver lasting results";
+  const sectionTitle = t?.sectionTitle ?? "How I transform your project:";
+
+  const solutions = ORDER.map((key) => {
+    const base = solutionSectionSolutions.find((s) => s.key === key);
+    const override = t?.solutions?.[key];
+
+    const fallback = {
+      key,
+      name: key,
+      description: "",
+      icon: undefined as unknown,
+    };
+
+    const merged = {
+      ...(base ?? fallback),
+      ...(override ?? {}),
+    };
+
+    return merged;
+  });
 
   return (
-    <div className="relative pb-24 pt-12">
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
-        <div className="mt-2 flex lg:flex-row flex-col items-stretch justify-between">
-          {/* Left Column: Content */}
-          <div className="lg:w-1/2 flex flex-col justify-center pr-0 lg:pr-12 order-2 lg:order-1">
-            <div className="mx-auto lg:mx-0 w-full">
-              {/* Title */}
+    <section className="relative pb-16 pt-10 sm:pb-24 sm:pt-12">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mt-2 flex flex-col items-stretch justify-between gap-10 lg:flex-row lg:gap-0">
+          {/* Right Column (mobile first): Video */}
+          <div className="relative flex w-full justify-center lg:order-2 lg:mt-0 lg:w-1/2 lg:justify-end">
+            <div className="relative w-full h-full group">
+              <div className="absolute -inset-1 translate-x-4 translate-y-4 rounded-2xl bg-primary/20 blur-3xl -z-10" />
+              <div className="relative h-full w-full">
+                <SolutionSectionVideo commonMessages={commonMessages} />
+              </div>
+            </div>
+          </div>
 
-              <Typography
-                as="h2"
-                role="headline"
-                mood="product"
-                className="text-5xl sm:text-6xl font-black tracking-tight text-foreground leading-tight text-left min-h-48 flex flex-col justify-center items-start"
-              >
+          {/* Left Column: Content */}
+          <div className="flex w-full flex-col justify-center lg:order-1 lg:w-1/2 lg:pr-12">
+            <div className="mx-auto w-full lg:mx-0">
+              {/* Title */}
+              <div className="min-h-0 sm:min-h-48 flex flex-col justify-center items-start">
                 <Typography
                   as="span"
                   role="headline"
                   mood="product"
-                  className="text-2xl text-foreground font-bold"
+                  className="text-base sm:text-2xl text-foreground font-bold"
                 >
-                  {t.titlePrefix || "Software engineering with"}
+                  {titlePrefix}
                 </Typography>
-                <SolutionSectionTitles titles={t.rotatingTitles || []} />
-              </Typography>
+
+                <Typography
+                  as="h2"
+                  role="headline"
+                  mood="product"
+                  className="mt-2 font-black tracking-tight text-foreground leading-tight text-left text-4xl sm:text-6xl"
+                >
+                  <SolutionSectionTitles titles={rotatingTitles} />
+                </Typography>
+              </div>
+
               <Typography
                 role="body"
-                className="mt-4 text-lg sm:text-xl leading-8 sm:leading-9 text-muted-foreground text-left"
+                className="mt-4 text-base leading-7 text-muted-foreground sm:text-xl sm:leading-9 text-left"
               >
-                {t.subtitle || "Beyond writing code,"}{" "}
+                {subtitle}{" "}
                 <Typography as="span" className="font-semibold text-foreground">
-                  {t.subtitleBold1 || "I build digital assets."}{" "}
+                  {subtitleBold1}{" "}
                 </Typography>
-                {t.subtitleText || "My approach combines"}{" "}
+                {subtitleText}{" "}
                 <Typography as="span" className="font-semibold text-foreground">
-                  {t.subtitleBold2 || "technical excellence"}
+                  {subtitleBold2}
                 </Typography>{" "}
-                {t.subtitleWith || "with"}{" "}
+                {subtitleWith}{" "}
                 <Typography as="span" className="font-semibold text-foreground">
-                  {t.subtitleBold3 || "business vision"}
+                  {subtitleBold3}
                 </Typography>{" "}
-                {t.subtitleTo || "to"}{" "}
+                {subtitleTo}{" "}
                 <Typography as="span" className="font-semibold text-primary">
-                  {t.subtitleBold4 || "deliver lasting results"}
+                  {subtitleBold4}
                 </Typography>
                 .
               </Typography>
+
               <Typography
                 as="aside"
                 role="title"
                 mood="editorial"
-                className="italic text-2xl sm:text-3xl text-muted-foreground font-light mt-2 mb-4 text-left"
+                className="mt-3 mb-4 italic font-light text-muted-foreground text-left text-xl sm:text-3xl"
               >
-                {t.sectionTitle || "How I transform your project:"}
+                {sectionTitle}
               </Typography>
 
               <dl className="space-y-5">
-                {solutionsWithTranslations.map((solution, index) => {
+                {solutions.map((solution) => {
                   const IconComponent =
-                    solutionSectionSolutions[index]?.icon || null;
+                    (
+                      solution as {
+                        icon?: React.ComponentType<{
+                          className?: string;
+                          "aria-hidden"?: boolean;
+                        }>;
+                      }
+                    ).icon ?? null;
+
                   return (
-                    <div key={solution.name} className="relative pl-12">
-                      <dt className="text-base font-semibold leading-7 text-foreground">
+                    <div key={solution.key} className="relative pl-12">
+                      <dt className="text-foreground">
                         <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-lg bg-primary shadow-md">
                           {IconComponent ? (
-                            <IconComponent
-                              className="h-5 w-5 text-primary-foreground"
-                              aria-hidden="true"
-                            />
+                            <IconComponent className="h-5 w-5 text-primary-foreground" />
                           ) : (
-                            <span className="h-5 w-5 bg-primary-foreground rounded-full" />
+                            <span
+                              aria-hidden="true"
+                              className="h-5 w-5 rounded-full bg-primary-foreground"
+                            />
                           )}
                         </div>
 
@@ -104,6 +166,7 @@ export default function SolutionSection({
                           {solution.name}
                         </Typography>
                       </dt>
+
                       <dd className="mt-1">
                         <Typography
                           role="body"
@@ -118,21 +181,8 @@ export default function SolutionSection({
               </dl>
             </div>
           </div>
-
-          <div className="relative flex lg:w-1/2 order-1 lg:order-2 mt-8 lg:mt-0 justify-center lg:justify-end">
-            {/* Contenedor principal con aspect-ratio para evitar saltos de layout (CLS) */}
-            <div className="relative w-full h-full group">
-              {/* Sombra decorativa: Ajustada para que no se corte */}
-              <div className="absolute -inset-1 translate-x-4 translate-y-4 rounded-2xl bg-primary/20 blur-3xl -z-10" />
-
-              <div className="relative h-full w-full">
-                {/* VIDEO: Añadido playsInline y pointer-events-none */}
-                <SolutionSectionVideo commonMessages={commonMessages} />
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

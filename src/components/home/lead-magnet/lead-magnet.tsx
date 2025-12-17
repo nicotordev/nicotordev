@@ -1,4 +1,5 @@
 "use client";
+
 import PsychedelicBackground from "@/components/backgrounds/psychedelic-background";
 import NoiseOverlay from "@/components/common/noise-overlay";
 import LeadMagnetContactFormMinimal, {
@@ -7,127 +8,127 @@ import LeadMagnetContactFormMinimal, {
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { Typography } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
+import type { Messages } from "@/types/i18n";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useState } from "react";
-
-import { Typography } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
 import { useInView } from "react-intersection-observer";
 
-import type { Messages } from "@/types/i18n";
+type LeadMagnetMessages = NonNullable<Messages["leadMagnet"]>;
+type A11yMessages = NonNullable<Messages["common"]>["a11y"];
 
 export default function LeadMagnet({ messages }: { messages: Messages }) {
-  const t = messages.leadMagnet as any;
-  const accessibility = (messages.common as any)?.a11y ?? {};
+  const t: LeadMagnetMessages | undefined = messages.leadMagnet;
+  const a11y: A11yMessages | undefined = messages.common?.a11y;
 
-  const sectionLabel = accessibility.leadMagnetSection || "Lead Magnet Section";
-  const closeTestimonialLabel =
-    accessibility.closeTestimonial || "Close testimonial";
-  const showTestimonialLabel =
-    accessibility.showTestimonial || "Show testimonial";
+  const sectionLabel = a11y?.leadMagnetSection ?? "Lead Magnet Section";
+  const closeTestimonialLabel = a11y?.closeTestimonial ?? "Close testimonial";
+  const showTestimonialLabel = a11y?.showTestimonial ?? "Show testimonial";
 
   const { ref } = useInView({
     threshold: 0.1,
     rootMargin: "-20% 0%",
+    triggerOnce: true,
   });
-  const [isTestimonialVisible, setIsTestimonialVisible] = useState(true);
-  const [keepFormMinimal, setKeepFormMinimal] = useState(false);
+
+  const [isTestimonialVisible, setIsTestimonialVisible] =
+    useState<boolean>(true);
+  const [keepFormMinimal, setKeepFormMinimal] = useState<boolean>(false);
 
   return (
     <section
-      className={cn(
-        "overflow-hidden bg-primary bg-blend-overlay min-h-[80vh] py-16 sm:py-24 lg:py-32",
-        "relative"
-      )}
-      style={{ transform: "translateZ(100%)" }}
       aria-label={sectionLabel}
+      className={cn(
+        "relative overflow-hidden bg-primary bg-blend-overlay",
+        "min-h-[80vh] py-16 sm:py-24 lg:py-32"
+      )}
     >
-      {/* --- Background Layer --- */}
+      {/* Background layers */}
       <PsychedelicBackground />
-
-      {/* --- Noise Overlay --- */}
       <NoiseOverlay />
 
-      {/* --- Content Layer --- */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl h-full flex items-center px-4 sm:px-6 lg:px-8">
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl items-center px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="w-full relative"
           ref={ref}
+          initial={{ opacity: 0, y: 48 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="relative w-full"
         >
-          {/* Glassmorphism Container */}
-          <div className="relative rounded-3xl overflow-hidden">
-            {/* Glass Background */}
-            <div className="absolute inset-0 bg-card/30 backdrop-blur-2xl border border-border/50 -z-10 shadow-2xl" />
+          {/* Glass container */}
+          <div className="relative overflow-hidden rounded-3xl">
+            <div className="absolute inset-0 -z-10 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-2xl shadow-2xl" />
 
             <div className="p-6 sm:p-10 lg:p-16">
-              <div className="text-left sm:text-center mb-10 sm:mb-12">
+              {/* Header */}
+              <div className="mb-10 text-left sm:mb-12 sm:text-center">
                 <Typography
                   as="h2"
                   role="headline"
-                  className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground gradient-text"
+                  className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl gradient-text"
                 >
                   {t?.title}{" "}
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-secondary/40 animate-gradient">
+                  <span className="bg-linear-to-r from-primary to-secondary/40 bg-clip-text text-transparent animate-gradient">
                     {t?.titleHighlight}
                   </span>
                 </Typography>
+
                 <Typography
                   role="body"
-                  className="mt-4 text-base sm:text-lg leading-8 text-muted-foreground"
+                  className="mt-4 text-base leading-8 text-muted-foreground sm:text-lg"
                 >
                   {t?.subtitle}
                 </Typography>
               </div>
 
-              <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
-                {/* FORM SECTION */}
-                <motion.div layout className="flex-1 relative">
-                  {/* Toggle Switch for Minimal Mode */}
-                  <div className="flex flex-wrap items-center justify-between sm:justify-end gap-3 mb-4">
-                    <div className="flex items-center space-x-2 bg-background/20 px-3 py-1.5 rounded-full border border-border/30 backdrop-blur-sm">
+              <div className="flex flex-col gap-10 lg:flex-row lg:gap-12">
+                {/* Form */}
+                <motion.div layout className="relative flex-1">
+                  {/* Toggle */}
+                  <div className="mb-4 flex flex-wrap items-center justify-between gap-3 sm:justify-end">
+                    <div className="flex items-center gap-2 rounded-full border border-border/30 bg-background/20 px-3 py-1.5 backdrop-blur-sm">
                       <Label
                         htmlFor="mode-switch"
-                        className="text-xs font-medium cursor-pointer mr-2"
+                        className="cursor-pointer text-xs font-medium"
                       >
                         {keepFormMinimal ? (
                           <>
-                            <span className="mr-1" aria-hidden="true">
+                            <span aria-hidden className="mr-1">
                               ✉️
-                            </span>{" "}
-                            {t?.form?.toggleMinimal || "Quick Message"}
+                            </span>
+                            {t?.form?.toggleMinimal ?? "Quick Message"}
                           </>
                         ) : (
                           <>
-                            <span className="mr-1" aria-hidden="true">
+                            <span aria-hidden className="mr-1">
                               📋
-                            </span>{" "}
-                            {t?.form?.toggleFull || "Full Form"}
+                            </span>
+                            {t?.form?.toggleFull ?? "Full Form"}
                           </>
                         )}
                       </Label>
+
                       <Switch
                         id="mode-switch"
                         checked={keepFormMinimal}
                         onCheckedChange={setKeepFormMinimal}
                         className="scale-75 data-[state=checked]:bg-primary"
+                        aria-checked={keepFormMinimal}
                       />
                     </div>
                   </div>
 
                   <AnimatePresence mode="wait">
                     {keepFormMinimal ? (
-                      /* MINIMAL FORM - Single Textarea */
                       <LeadMagnetContactFormMinimal
                         key="minimal"
                         translations={t?.form}
                       />
                     ) : (
-                      /* FULL FORM - Individual Fields */
                       <LeadMagnetContactFormFull
                         key="full"
                         translations={t?.form}
@@ -136,33 +137,27 @@ export default function LeadMagnet({ messages }: { messages: Messages }) {
                   </AnimatePresence>
                 </motion.div>
 
-                {/* TESTIMONIAL SECTION */}
-                <div className="relative w-full lg:w-auto mt-4 lg:mt-0 flex justify-center lg:block">
+                {/* Testimonial */}
+                <div className="relative mt-4 flex w-full justify-center lg:mt-0 lg:w-auto lg:block">
                   <AnimatePresence mode="popLayout">
                     {isTestimonialVisible ? (
                       <motion.aside
-                        key="testimonial-card"
+                        key="testimonial"
                         layout
-                        initial={{ opacity: 0, scale: 0.9, x: 20 }}
+                        initial={{ opacity: 0, scale: 0.92, x: 16 }}
                         animate={{ opacity: 1, scale: 1, x: 0 }}
-                        exit={{
-                          opacity: 0,
-                          scale: 0.9,
-                          x: 20,
-                          transition: { duration: 0.3 },
-                        }}
-                        className="w-full lg:w-80 h-full"
+                        exit={{ opacity: 0, scale: 0.92, x: 16 }}
+                        className="w-full lg:w-80"
                       >
-                        <figure className="relative h-full flex flex-col justify-between p-8 rounded-2xl bg-background/40 border border-white/10 backdrop-blur-md">
-                          {/* Close Button */}
+                        <figure className="relative flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-background/40 p-8 backdrop-blur-md">
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="absolute top-2 right-2 hover:bg-white/10 text-muted-foreground"
-                            onClick={() => setIsTestimonialVisible(false)}
+                            className="absolute right-2 top-2 text-muted-foreground hover:bg-white/10"
                             aria-label={closeTestimonialLabel}
+                            onClick={() => setIsTestimonialVisible(false)}
                           >
-                            <X className="w-4 h-4" aria-hidden="true" />
+                            <X className="h-4 w-4" aria-hidden />
                           </Button>
 
                           <blockquote className="text-sm leading-relaxed text-foreground/90">
@@ -174,11 +169,11 @@ export default function LeadMagnet({ messages }: { messages: Messages }) {
                           </blockquote>
 
                           <figcaption className="mt-8 flex items-center gap-4 border-t border-white/10 pt-4">
-                            <div className="size-10 flex-none rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-primary font-bold text-sm">
+                            <div className="flex size-10 flex-none items-center justify-center rounded-full border border-primary/30 bg-primary/20 text-sm font-bold text-primary">
                               GS
                             </div>
                             <div>
-                              <div className="font-semibold text-sm text-foreground">
+                              <div className="text-sm font-semibold text-foreground">
                                 {t?.testimonial?.author}
                               </div>
                               <div className="text-xs text-muted-foreground">
@@ -199,11 +194,11 @@ export default function LeadMagnet({ messages }: { messages: Messages }) {
                         <Button
                           variant="outline"
                           size="sm"
-                          onClick={() => setIsTestimonialVisible(true)}
-                          className="rounded-full bg-background/60 border-primary/30 hover:bg-primary/20 px-4 py-2 min-w-12"
                           aria-label={showTestimonialLabel}
+                          onClick={() => setIsTestimonialVisible(true)}
+                          className="min-w-12 rounded-full border-primary/30 bg-background/60 px-4 py-2 hover:bg-primary/20"
                         >
-                          <span className="font-bold text-primary text-xs">
+                          <span className="text-xs font-bold text-primary">
                             GS
                           </span>
                         </Button>

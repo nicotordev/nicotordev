@@ -14,24 +14,28 @@ import {
 
 export const problemSectionProblems = [
   {
+    key: "technicalDebt",
     name: "Deuda Técnica (Código Espagueti)",
     description:
       "Sistemas frágiles donde corregir un error crea tres nuevos. Escalar se vuelve costoso y arriesgado.",
     icon: AlertTriangle,
   },
   {
+    key: "noVision",
     name: "Ejecutores sin Visión",
     description:
       "Desarrolladores que actúan como robots: esperan órdenes exactas y no advierten sobre errores de UX o negocio.",
     icon: Bot,
   },
   {
+    key: "ghostDeadlines",
     name: "Plazos Fantasma",
     description:
       "Estimaciones que nunca se cumplen. Los tickets se arrastran semana tras semana sin una fecha de entrega real.",
     icon: Hourglass,
   },
   {
+    key: "excuses",
     name: "Excusas, no Resultados",
     description:
       "La clásica mentalidad de 'en mi máquina funciona'. Cuando hay fuego en producción, nadie toma el control.",
@@ -41,24 +45,28 @@ export const problemSectionProblems = [
 
 export const solutionSectionSolutions = [
   {
+    key: "scalableArchitecture",
     name: "Arquitectura Escalable",
     description:
       "Escribo código limpio, modular y documentado. Tu proyecto será fácil de mantener hoy y de escalar mañana.",
     icon: Braces,
   },
   {
+    key: "productOwner",
     name: "Socio de Producto",
     description:
       "No solo pico código; entiendo tu negocio. Propongo mejoras estratégicas para maximizar el valor del producto.",
     icon: Lightbulb,
   },
   {
+    key: "ownershipTotal",
     name: "Ownership Total",
     description:
       "Trato tu proyecto como si fuera mío. Si surge un problema, asumo la responsabilidad y lidero la solución hasta el final.",
     icon: ShieldCheck,
   },
   {
+    key: "radicalTransparency",
     name: "Transparencia Radical",
     description:
       "Sin tecnicismos confusos. Mantengo una comunicación constante para que siempre sepas el estado real del desarrollo.",

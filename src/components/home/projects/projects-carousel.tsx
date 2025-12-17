@@ -2,11 +2,11 @@
 
 import type { Messages } from "@/types/i18n";
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import ProjectsCarouselSkeleton from "./projects-carousel-skeleton";
 
 const ProjectsCarouselClient = dynamic(
-  () => import("./projects-carousel-client"),
+  async () => import("./projects-carousel-client"),
   {
     ssr: false,
     loading: () => <ProjectsCarouselSkeleton />,
@@ -18,42 +18,76 @@ interface ProjectsCarouselProps {
 }
 
 const ProjectsCarousel = ({ messages }: ProjectsCarouselProps) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const ref = useRef<HTMLElement | null>(null);
+
+  const fallback = useMemo(() => <ProjectsCarouselSkeleton />, []);
 
   useEffect(() => {
+    // If already visible, do nothing
+    if (isVisible) return;
+
+    // If IntersectionObserver isn't available, just load it
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsVisible(true);
+      return;
+    }
+
+    const el = ref.current;
+    if (!el) return;
+
+    let cancelled = false;
+
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (entry?.isIntersecting) {
+        if (!entry?.isIntersecting || cancelled) return;
+
+        // Optional: defer to idle time to reduce jank
+        const w = window as unknown as {
+          requestIdleCallback?: (
+            cb: () => void,
+            opts?: { timeout: number }
+          ) => number;
+        };
+
+        if (typeof w.requestIdleCallback === "function") {
+          w.requestIdleCallback(
+            () => {
+              if (!cancelled) setIsVisible(true);
+            },
+            { timeout: 800 }
+          );
+        } else {
           setIsVisible(true);
-          observer.disconnect();
         }
+
+        observer.disconnect();
       },
       {
-        rootMargin: "200px", // Start loading 200px before it comes into view
+        root: null,
+        rootMargin: "400px 0px", // load earlier than before (better UX)
+        threshold: 0.01,
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(el);
 
     return () => {
+      cancelled = true;
       observer.disconnect();
     };
-  }, []);
+  }, [isVisible]);
 
   return (
     <section
-      ref={ref}
-      className="relative bg-primary text-foreground overflow-clip w-full h-fit select-none min-h-[800px]"
+      ref={(node) => {
+        ref.current = node;
+      }}
+      className="relative w-full h-fit min-h-[800px] select-none overflow-clip bg-primary text-foreground"
     >
-      {isVisible ? (
-        <ProjectsCarouselClient messages={messages} />
-      ) : (
-        <ProjectsCarouselSkeleton />
-      )}
+      {isVisible ? <ProjectsCarouselClient messages={messages} /> : fallback}
     </section>
   );
 };
