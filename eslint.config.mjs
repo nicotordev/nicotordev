@@ -1,6 +1,6 @@
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-import next from "eslint-config-next";
+import next from "eslint-config-next/core-web-vitals";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -39,7 +39,7 @@ const eslintConfig = [
       "*.config.js",
       "*.config.mjs",
       "ecosystem.config.js",
-      "deploy.sh"
+      "deploy.sh",
     ],
   },
 ];

@@ -59,7 +59,7 @@ function HighlightWord({
         height={64}
         aria-hidden
         className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-xl"
-        unoptimized
+        sizes="(min-width: 768px) 64px, (min-width: 640px) 56px, 48px"
       />
     </span>
   );
@@ -156,7 +156,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                     height={96}
                     aria-hidden
                     className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain drop-shadow-xl"
-                    unoptimized
+                    sizes="(min-width: 768px) 96px, (min-width: 640px) 80px, 64px"
                   />
                 </div>
               </div>

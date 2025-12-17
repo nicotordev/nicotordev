@@ -55,6 +55,9 @@ const nextConfig: NextConfig = {
       static: 180,
     },
 
+    // CWV diagnostics: include attribution for CLS/LCP when available (e.g., DOM node summary).
+    webVitalsAttribution: ["CLS", "LCP"],
+
   },
 
   turbopack: {

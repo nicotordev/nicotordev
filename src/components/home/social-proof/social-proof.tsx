@@ -58,7 +58,8 @@ export default function SocialProofSection({
     src: "/images/nicolas/nico-pc.webp",
     width: 1200,
     height: 800,
-    preload: true,
+    priority: true,
+    sizes: "(min-width: 1024px) 50vw, 100vw",
   } as const;
 
   return (

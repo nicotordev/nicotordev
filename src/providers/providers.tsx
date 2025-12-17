@@ -1,5 +1,6 @@
 "use client";
 import GlassToaster from "@/components/common/glass-toast";
+import WebVitalsReporter from "@/components/performance/web-vitals-reporter";
 import StoreInitializer from "@/components/store-initializer";
 import type { routing } from "@/i18n/routing";
 import type { Timezone } from "@/i18n/timezone";
@@ -27,6 +28,7 @@ export default function Providers({
         messages={messages}
         timeZone={initialTimezone}
       >
+        <WebVitalsReporter />
         <StoreInitializer
           initialCurrency={initialCurrency}
           initialTimezone={initialTimezone}
