@@ -6,25 +6,26 @@ WORKDIR /app
 
 # Build-time envs (Railway/GitHub Actions pass via --build-arg)
 ARG NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
-ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
 
 # Disable telemetry during build
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Install Bun for dependency install, keep Node for build compatibility
-RUN npm install -g bun
+# Install Bun (avoid npm registry / extra failure points)
+RUN apk add --no-cache curl bash \
+  && curl -fsSL https://bun.sh/install | bash \
+  && ln -s /root/.bun/bin/bun /usr/local/bin/bun
 
-# Install deps using bun.lock for reproducible builds
-COPY package.json bun.lock ./
+# Install deps using bun lockfile(s) for reproducible builds
+COPY package.json bun.lockb* bun.lock* ./
 RUN bun install --frozen-lockfile
 
 # Copy source and build (standalone output is configured in next.config.ts)
 COPY . .
-# Use Node (npm) to run the build to avoid Bun runtime gaps during Next.js build
 RUN npm run build
 
-# Stage 2: minimal runtime image using Bun
-FROM oven/bun:1.1.29-alpine AS runner
+# Stage 2: minimal runtime image using Node (Next.js standalone expects Node)
+FROM public.ecr.aws/docker/library/node:22-alpine AS runner
 
 WORKDIR /app
 ENV NODE_ENV=production
@@ -45,4 +46,4 @@ USER nextjs
 EXPOSE 3000
 
 # Next.js standalone server entrypoint
-CMD ["bun", "server.js"]
+CMD ["node", "server.js"]
