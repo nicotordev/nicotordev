@@ -1,20 +1,28 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from "next";
 
-const BASE_URL = 'https://nicotordev.com'
-const locales = ['en', 'en-GB', 'es', 'es-CL', 'es-ES'] as const
-
-const languages = Object.fromEntries([
-  ['x-default', BASE_URL],
-  ...locales.map(l => [l, l === 'en' ? BASE_URL : `${BASE_URL}/${l}`]),
-]) as Record<string, string>
+import { routing } from "@/i18n/routing";
+import type { Locale } from "@/i18n/config";
+import { SITE_URL } from "@/lib/seo/constants";
+import { getAlternatesLanguages, getLocaleUrl } from "@/lib/seo/i18n";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return locales.map(locale => ({
-    url: locale === 'en' ? BASE_URL : `${BASE_URL}/${locale}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: 'weekly',
-    priority: 1,
-    alternates: { languages },
-    images: [""]
-  }))
+  const lastModified = new Date();
+
+  const alternatesLanguages = {
+    "x-default": getLocaleUrl(SITE_URL, routing.defaultLocale),
+    ...getAlternatesLanguages(SITE_URL),
+  };
+
+  const locales = routing.locales as readonly Locale[];
+
+  return locales.map((locale) => ({
+    url: getLocaleUrl(SITE_URL, locale),
+    lastModified,
+    changeFrequency: "weekly",
+    priority: locale === routing.defaultLocale ? 1 : 0.9,
+    alternates: { languages: alternatesLanguages },
+    // Helps some crawlers; Google doesn't use this as Open Graph.
+    // Keep it lightweight and stable.
+    images: [`${SITE_URL}/og/og-image.png`],
+  }));
 }

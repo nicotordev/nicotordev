@@ -1,6 +1,38 @@
 import { SignIn } from "@clerk/nextjs";
 import Image from "next/image";
 import BackgroundWavesAnimated from "../../../../components/backgrounds/background-waves-animated";
+import type { Locale } from "@/i18n/config";
+import type { Metadata } from "next";
+import { getSeoMessages } from "@/lib/seo/get-seo";
+
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const typedLocale = locale as Locale;
+
+  const seo = await getSeoMessages(typedLocale);
+  const siteUrl = seo.site.url.replace(/\/$/, "");
+
+  const title =
+    typedLocale === "de"
+      ? "Anmelden"
+      : typedLocale.startsWith("es")
+      ? "Iniciar sesión"
+      : "Sign in";
+
+  return {
+    title,
+    alternates: {
+      canonical: new URL(`/${typedLocale}/sign-in`, siteUrl)
+        .toString()
+        .replace(/\/$/, ""),
+    },
+    robots: { index: false, follow: false },
+  };
+}
 
 export default function SignInPage() {
   return (

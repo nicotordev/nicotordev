@@ -12,9 +12,6 @@ type NavMessages = NonNullable<Messages["navigation"]>;
 type FooterLink = (typeof footerNavigation.links)[number];
 
 export default function Footer({ messages }: FooterProps) {
-  const navigationMessages: NavMessages = (messages.navigation ??
-    {}) as NavMessages;
-
   const footerTitle = messages.footer?.title ?? "NicoTorDev Footer";
   const descriptionCopy =
     messages.footer?.description?.focus ??
@@ -22,6 +19,9 @@ export default function Footer({ messages }: FooterProps) {
   const opensInNewTab = messages.footer?.opensInNewTab ?? "opens in new tab";
 
   const translatedLinks = useMemo(() => {
+    const navigationMessages: NavMessages = (messages.navigation ??
+      {}) as NavMessages;
+
     return footerNavigation.links.map((link: FooterLink) => {
       const maybeLabel = navigationMessages[link.key as keyof NavMessages];
       return {
@@ -29,7 +29,7 @@ export default function Footer({ messages }: FooterProps) {
         label: typeof maybeLabel === "string" ? maybeLabel : link.fallback,
       };
     });
-  }, [navigationMessages]);
+  }, [messages.navigation]);
 
   const year = useMemo(() => new Date().getFullYear(), []);
 

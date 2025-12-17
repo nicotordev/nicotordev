@@ -471,5 +471,60 @@
     "placeholder": "Enter your email",
     "button": "Subscribe",
     "disclaimer": "No spam, unsubscribe at any time."
+  },
+  "seo": {
+    "site": {
+      "name": "NicoTorDev",
+      "url": "https://nicotordev.com"
+    },
+    "title": {
+      "default": "NicoTorDev — Full Stack Web Engineer (TypeScript, Next.js, AI)",
+      "template": "%s | NicoTorDev"
+    },
+    "description": "Nicolás Torres is a Full Stack Web Engineer specialised in TypeScript, Next.js, React, Node.js and AI. I build fast, scalable, human-centred SaaS products for startups and global teams.",
+    "keywords": [
+      "Full Stack Web Engineer",
+      "TypeScript Developer",
+      "Next.js Developer",
+      "React Developer",
+      "Node.js Developer",
+      "AI Web Engineer",
+      "SaaS Developer",
+      "Remote Developer",
+      "Upwork Top Rated",
+      "Web Engineer Chile",
+      "Full Stack Developer Latin America"
+    ],
+    "openGraph": {
+      "title": "NicoTorDev — Full Stack Web Engineer",
+      "description": "I transform ideas into fast, scalable and meaningful web applications using TypeScript, Next.js and AI.",
+      "imageAlt": "NicoTorDev — Full Stack Web Engineer"
+    },
+    "twitter": {
+      "title": "NicoTorDev — Full Stack Web Engineer",
+      "description": "Building calm, fast and human-centred web products with TypeScript, Next.js and AI.",
+      "creator": "@typeNaN_"
+    },
+    "person": {
+      "name": "Nicolás Torres",
+      "jobTitle": "Full Stack Web Engineer",
+      "image": "https://nicotordev.com/images/nicolas/nico-pc.webp",
+      "sameAs": [
+        "https://github.com/nicotordev",
+        "https://www.upwork.com/users/~0135b280e8a4859638",
+        "https://x.com/typeNaN_"
+      ],
+      "knowsAbout": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Node.js",
+        "Prisma",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "OpenAI API",
+        "SaaS"
+      ]
+    }
   }
 }

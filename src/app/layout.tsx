@@ -2,6 +2,7 @@ import { routing } from "@/i18n/routing";
 import ProvidersWrapper from "@/providers/providers-wrapper";
 import type { Metadata } from "next";
 import { Suspense, type ReactNode } from "react";
+import { getLocale } from "next-intl/server";
 import {
   localFiraCode,
   localFontdinerSwanky,
@@ -16,7 +17,6 @@ import {
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "NicoTorDev",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.ico",
@@ -29,18 +29,20 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children }: RootLayoutProps) {
+  const locale = (await getLocale()) ?? routing.defaultLocale;
+
   return (
-    <Suspense fallback={null}>
-      <ProvidersWrapper>
-        <html
-          lang={routing.defaultLocale}
-          suppressHydrationWarning
-          className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable} ${localJetBrainsMono.variable} ${localIBMPlexMono.variable} ${localFontdinerSwanky.variable} ${localLoveLight.variable} ${localPermanentMarker.variable}`}
-        >
-          <body className="antialiased">{children}</body>
-        </html>
-      </ProvidersWrapper>
-    </Suspense>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable} ${localJetBrainsMono.variable} ${localIBMPlexMono.variable} ${localFontdinerSwanky.variable} ${localLoveLight.variable} ${localPermanentMarker.variable}`}
+    >
+      <body className="antialiased">
+        <Suspense fallback={null}>
+          <ProvidersWrapper>{children}</ProvidersWrapper>
+        </Suspense>
+      </body>
+    </html>
   );
 }

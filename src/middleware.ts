@@ -4,8 +4,8 @@ import {
 } from "@clerk/nextjs/server";
 import createMiddleware from "next-intl/middleware";
 import { NextResponse } from "next/server";
-import { getLocaleFromPath } from "../i18n/config";
-import { routing } from "../i18n/routing";
+import { getLocaleFromPath } from "@/i18n/config";
+import { routing } from "@/i18n/routing";
 
 const nextIntlMiddleware = createMiddleware(routing);
 

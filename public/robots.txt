@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+Sitemap: https://nicotordev.com/sitemap.xml
+Host: https://nicotordev.com

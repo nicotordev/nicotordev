@@ -471,5 +471,60 @@
     "placeholder": "Gib deinen E-Mail-Adresse ein",
     "button": "Abonniere",
     "disclaimer": "Kein Spam, du kannst dich jederzeit abmelden."
+  },
+  "seo": {
+    "site": {
+      "name": "NicoTorDev",
+      "url": "https://nicotordev.com"
+    },
+    "title": {
+      "default": "NicoTorDev — Full-Stack Web Engineer (TypeScript, Next.js, KI)",
+      "template": "%s | NicoTorDev"
+    },
+    "description": "Nicolás Torres ist ein Full-Stack Web Engineer mit Schwerpunkt auf TypeScript, Next.js, React, Node.js und KI. Ich baue schnelle, skalierbare und menschenzentrierte SaaS-Produkte für Startups und globale Teams.",
+    "keywords": [
+      "Full-Stack Web Engineer",
+      "TypeScript Entwickler",
+      "Next.js Entwickler",
+      "React Entwickler",
+      "Node.js Entwickler",
+      "KI Web Engineer",
+      "SaaS Entwickler",
+      "Remote Developer",
+      "Upwork Top Rated",
+      "Web Engineer Chile",
+      "Full Stack Latin America"
+    ],
+    "openGraph": {
+      "title": "NicoTorDev — Full-Stack Web Engineer",
+      "description": "Ich verwandle Ideen in schnelle, skalierbare und wirkungsvolle Webanwendungen mit TypeScript, Next.js und KI.",
+      "imageAlt": "NicoTorDev — Full-Stack Web Engineer"
+    },
+    "twitter": {
+      "title": "NicoTorDev — Full-Stack Web Engineer",
+      "description": "Ich baue ruhige, schnelle und menschenzentrierte Webprodukte mit TypeScript, Next.js und KI.",
+      "creator": "@typeNaN_"
+    },
+    "person": {
+      "name": "Nicolás Torres",
+      "jobTitle": "Full-Stack Web Engineer",
+      "image": "https://nicotordev.com/images/nicolas/nico-pc.webp",
+      "sameAs": [
+        "https://github.com/nicotordev",
+        "https://www.upwork.com/users/~0135b280e8a4859638",
+        "https://x.com/typeNaN_"
+      ],
+      "knowsAbout": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Node.js",
+        "Prisma",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "OpenAI API",
+        "SaaS"
+      ]
+    }
   }
 }

@@ -470,5 +470,60 @@
     "placeholder": "Introduce tu correo electrónico",
     "button": "Suscríbete",
     "disclaimer": "No spam, te puedes desuscribir en cualquier momento."
+  },
+  "seo": {
+    "site": {
+      "name": "NicoTorDev",
+      "url": "https://nicotordev.com"
+    },
+    "title": {
+      "default": "NicoTorDev — Ingeniero Full Stack (TypeScript, Next.js, IA)",
+      "template": "%s | NicoTorDev"
+    },
+    "description": "Nicolás Torres es un Ingeniero Full Stack especializado en TypeScript, Next.js, React, Node.js e IA. Construyo productos SaaS rápidos, escalables y centrados en las personas para startups y equipos globales.",
+    "keywords": [
+      "Ingeniero Full Stack",
+      "Desarrollador TypeScript",
+      "Desarrollador Next.js",
+      "Desarrollador React",
+      "Desarrollador Node.js",
+      "Ingeniero Web IA",
+      "Desarrollador SaaS",
+      "Desarrollador Remoto",
+      "Upwork Top Rated",
+      "Desarrollador Web Chile",
+      "Full Stack Latinoamérica"
+    ],
+    "openGraph": {
+      "title": "NicoTorDev — Ingeniero Full Stack",
+      "description": "Transformo ideas en aplicaciones web rápidas, escalables y con impacto usando TypeScript, Next.js e IA.",
+      "imageAlt": "NicoTorDev — Ingeniero Full Stack"
+    },
+    "twitter": {
+      "title": "NicoTorDev — Ingeniero Full Stack",
+      "description": "Construyendo productos web humanos, rápidos y escalables con TypeScript, Next.js e IA.",
+      "creator": "@typeNaN_"
+    },
+    "person": {
+      "name": "Nicolás Torres",
+      "jobTitle": "Ingeniero Full Stack",
+      "image": "https://nicotordev.com/images/nicolas/nico-pc.webp",
+      "sameAs": [
+        "https://github.com/nicotordev",
+        "https://www.upwork.com/users/~0135b280e8a4859638",
+        "https://x.com/typeNaN_"
+      ],
+      "knowsAbout": [
+        "TypeScript",
+        "Next.js",
+        "React",
+        "Node.js",
+        "Prisma",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "OpenAI API",
+        "SaaS"
+      ]
+    }
   }
 }

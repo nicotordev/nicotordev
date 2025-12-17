@@ -43,7 +43,12 @@ function ReviewList3DWrapper({ messages }: { messages: Messages }) {
 
         <div
           className="relative w-full"
-          style={{ minHeight: REVIEW_MIN_HEIGHT_PX, width: '100%', maxWidth: '100%', overflowX: 'clip' }}
+          style={{
+            minHeight: REVIEW_MIN_HEIGHT_PX,
+            width: "100%",
+            maxWidth: "100%",
+            overflowX: "clip",
+          }}
           aria-busy="true"
         >
           <ReviewList3D />
