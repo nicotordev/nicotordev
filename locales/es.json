@@ -211,7 +211,17 @@
       "privacyPolicy": "política de privacidad",
       "submit": "Enviar mensaje",
       "submitFull": "Hablemos",
-      "submitQuick": "Enviar mensaje"
+      "submitQuick": "Enviar mensaje",
+      "successMessage": "Mensaje enviado exitosamente. ¡Pronto te contactaré!",
+      "errorMessage": "Hubo un error al enviar el mensaje. Por favor intenta nuevamente.",
+      "errors": {
+        "required": "Campo requerido",
+        "name_min": "El nombre debe tener al menos 2 caracteres",
+        "name_max": "El nombre debe tener máximo 100 caracteres",
+        "email_invalid": "Correo electrónico inválido",
+        "message_min": "El mensaje debe tener al menos 2 caracteres",
+        "message_max": "El mensaje debe tener máximo 1000 caracteres"
+      }
     },
     "testimonial": {
       "quote": "Mientras trabajaba como CTO en",

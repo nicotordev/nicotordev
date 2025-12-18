@@ -11,6 +11,7 @@ import type { Locale } from "@/i18n/config";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
+import { Toaster } from 'react-hot-toast';
 
 type Props = {
   children: ReactNode;
@@ -122,6 +123,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         dangerouslySetInnerHTML={jsonLdToScriptInnerHtml(graph)}
       />
       {children}
+      <Toaster />
     </>
   );
 }
