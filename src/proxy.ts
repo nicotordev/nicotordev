@@ -1,51 +1,9 @@
-import {
-  clerkMiddleware as clerkMiddlewareImpl,
-  createRouteMatcher,
-} from "@clerk/nextjs/server";
 import createMiddleware from "next-intl/middleware";
-import { NextResponse } from "next/server";
-import { getLocaleFromPath } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 
 const nextIntlMiddleware = createMiddleware(routing);
 
-// Match public routes - include locale prefix patterns
-// Since routes are under [locale], we need to match both /sign-in and /:locale/sign-in
-const isPublicRoute = createRouteMatcher([
-  "/",
-  "/sign-in(.*)",
-  "/:locale/sign-in(.*)",
-  "/:locale",
-  "/:locale/about",
-  "/:locale/projects",
-  "/:locale/blog",
-  "/:locale/contact",
-  "/r(.*)",
-]);
-
-export default clerkMiddlewareImpl(async (auth, req) => {
-  // Do not run i18n middleware on API routes
-  if (req.nextUrl.pathname.startsWith("/api")) {
-    return NextResponse.next();
-  }
-
-  // Redirect system is not locale-aware; let it be handled by rewrites/backends
-  if (req.nextUrl.pathname === "/r" || req.nextUrl.pathname.startsWith("/r/")) {
-    return NextResponse.next();
-  }
-
-  if (!isPublicRoute(req)) {
-    const locale =
-      getLocaleFromPath(req.nextUrl.pathname) ?? routing.defaultLocale;
-
-    await auth.protect(undefined, {
-      unauthenticatedUrl: `/${locale}/sign-in`,
-      unauthorizedUrl: `/${locale}/sign-in`,
-    });
-  }
-
-  return nextIntlMiddleware(req);
-});
+export default nextIntlMiddleware;
 
 export const config = {
   matcher: [

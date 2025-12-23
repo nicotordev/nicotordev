@@ -1,9 +1,7 @@
 "use client";
 
 import type { Messages } from "@/types/i18n";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Menu } from "lucide-react";
-import Link from "next/link";
 import CurrencySwitcher from "../currency-switcher";
 import LanguageSwitcher from "../language-switcher";
 import TimezoneSwitcher from "../timezone-switcher";
@@ -84,34 +82,6 @@ export default function HeaderMobileMenu({
                     </Typography>
                   </a>
                 ))}
-              </div>
-              <div className="py-6">
-                <SignedOut>
-                  <Link
-                    href="/sign-in"
-                    className="block rounded-md px-3 py-2.5 hover:bg-accent hover:text-accent-foreground"
-                  >
-                    <Typography
-                      as="span"
-                      mood="artistic"
-                      role="button"
-                      className="text-base font-semibold text-foreground"
-                    >
-                      {commonMessages.login || "Login"}
-                    </Typography>
-                  </Link>
-                </SignedOut>
-                <SignedIn>
-                  <div className="flex items-center gap-3 px-3 py-2.5">
-                    <UserButton afterSignOutUrl="/" />
-                    <Typography
-                      as="span"
-                      className="text-base font-semibold text-foreground"
-                    >
-                      My Account
-                    </Typography>
-                  </div>
-                </SignedIn>
               </div>
             </div>
           </div>

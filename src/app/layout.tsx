@@ -1,8 +1,7 @@
 import { routing } from "@/i18n/routing";
-import ProvidersWrapper from "@/providers/providers-wrapper";
 import type { Metadata } from "next";
 import { Suspense, type ReactNode } from "react";
-import { getLocale } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import {
   localFiraCode,
   localFontdinerSwanky,
@@ -15,6 +14,7 @@ import {
   localSourceSerif4,
 } from "./fonts";
 import "./globals.css";
+import ProvidersWrapper from "@/providers/providers-wrapper";
 
 export const metadata: Metadata = {
   icons: {
@@ -31,6 +31,7 @@ type RootLayoutProps = {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   const locale = (await getLocale()) ?? routing.defaultLocale;
+  const messages = await getMessages({ locale });
 
   return (
     <html
