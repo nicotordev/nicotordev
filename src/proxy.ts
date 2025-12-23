@@ -1,9 +1,16 @@
+import { NextResponse, type NextRequest } from "next/server";
 import createMiddleware from "next-intl/middleware";
 import { routing } from "@/i18n/routing";
 
 const nextIntlMiddleware = createMiddleware(routing);
 
-export default nextIntlMiddleware;
+export default function middleware(req: NextRequest) {
+  if (new URL(req.url).pathname.startsWith("/api")) {
+    return NextResponse.next();
+  }
+
+  return nextIntlMiddleware(req);
+}
 
 export const config = {
   matcher: [
