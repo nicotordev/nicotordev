@@ -19,6 +19,7 @@ export default function Providers({
   return (
     <NextIntlClientProvider
       locale={locale}
+      timeZone={Intl.DateTimeFormat().resolvedOptions().timeZone}
       messages={messages}
     >
       <WebVitalsReporter />
