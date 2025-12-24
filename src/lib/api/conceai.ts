@@ -4,16 +4,9 @@ import {
   type NewContactRequestSchema,
 } from "./../../schemas/user.schema";
 
-function getConceAIUrl() {
-  const fromEnv = process.env.NEXT_PUBLIC_API_URL;
-  if (!fromEnv) {
-    throw new Error("NEXT_PUBLIC_API_URL is not defined");
-  }
-  return fromEnv.replace(/\/$/, "");
-}
 
 const axiosInstance = axios.create({
-  baseURL: getConceAIUrl(),
+  baseURL: "https://api.conce.com",
   headers: {
     "Content-Type": "application/json",
   },
