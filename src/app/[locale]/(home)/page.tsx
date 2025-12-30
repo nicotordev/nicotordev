@@ -61,7 +61,7 @@ export default async function HomePage({
     <>
       <Header messages={messages} />
       <main>
-        <HeroSection messages={messages} />
+        <HeroSection messages={messages} locale={locale as Locale} />
         <SocialProofSection messages={messages} />
         <ProblemSolutionSection messages={messages} />
         <ProjectsCarousel messages={messages} />
