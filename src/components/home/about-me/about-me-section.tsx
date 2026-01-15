@@ -46,88 +46,140 @@ export default function AboutMeSection({
   const personal = about.personal ?? {};
   const metrics = about.metrics ?? {};
 
-  const methodologyTitle =
-    methodology.title ?? "Philosophy and methodology";
+  const methodologyTitle = methodology.title ?? "Philosophy and methodology";
   const methodologyDescription =
     methodology.description ??
     "My way of working is built on clarity, autonomy, and impact.";
 
   const experienceRaw = metrics.experienceValue ?? "2.5+ years";
-  const [experienceValue, ...experienceSuffixParts] =
-    experienceRaw.split(" ");
+  const [experienceValue, ...experienceSuffixParts] = experienceRaw.split(" ");
   const experienceSuffix = experienceSuffixParts.join(" ").trim();
 
-  const resolvedStats: AboutMeStat[] =
-    stats ??
-    [
-      {
-        label: metrics.total_earnings ?? "Total earnings",
-        prefix: "$",
-        value: "50",
-        suffix: "K+",
-      },
-      {
-        label: metrics.hours ?? "Hours worked",
-        value: "~3.6K",
-        suffix: " hrs",
-      },
-      {
-        label: metrics.success ?? "Success rate",
-        value: "99.99",
-        suffix: "%",
-      },
-      {
-        label: metrics.experience ?? "Experience",
-        value: experienceValue || experienceRaw,
-        suffix: experienceSuffix,
-      },
-    ];
+  const resolvedStats: AboutMeStat[] = stats ?? [
+    {
+      label: metrics.total_earnings ?? "Total earnings",
+      prefix: "$",
+      value: "50",
+      suffix: "K+",
+    },
+    {
+      label: metrics.hours ?? "Hours worked",
+      value: "~3.6K",
+      suffix: " hrs",
+    },
+    {
+      label: metrics.success ?? "Success rate",
+      value: "99.99",
+      suffix: "%",
+    },
+    {
+      label: metrics.experience ?? "Experience",
+      value: experienceValue || experienceRaw,
+      suffix: experienceSuffix,
+    },
+  ];
 
-  const resolvedGallery: AboutMeGalleryItem[] =
-    gallery ??
-    [
-      {
-        src: "/images/nicolas/conce-ai.webp",
-        alt:
-          galleryMsgs.conceAi?.alt ??
-          photosMsgs.gallery_1_alt ??
-          "Conce AI Logo",
-        size: "large",
-        description:
-          galleryMsgs.conceAi?.description ??
-          "The official logo of Conce AI, my technology business.",
-      },
-      {
-        src: "/images/nicolas/nico-as-psychedelic-wizard.webp",
-        alt:
-          galleryMsgs.wizard?.alt ??
-          photosMsgs.gallery_2_alt ??
-          "Nico as a psychedelic wizard",
-        size: "wide",
-        description:
-          galleryMsgs.wizard?.description ??
-          "Embracing creativity and magic in code.",
-      },
-      {
-        src: "/images/nicolas/nico-pc.webp",
-        alt:
-          galleryMsgs.workstation?.alt ??
-          photosMsgs.gallery_3_alt ??
-          "Nico working on his computer",
-        size: "square",
-        description:
-          galleryMsgs.workstation?.description ??
-          "Deep in the flow state, surrounded by code.",
-      },
-      {
-        src: "/images/nicolas/only-koka.jpg",
-        alt: galleryMsgs.onlyKoka?.alt ?? "Koka the dog",
-        size: "square",
-        description:
-          galleryMsgs.onlyKoka?.description ??
-          "The real boss of the operation: Koka.",
-      },
-    ];
+  const resolvedGallery: AboutMeGalleryItem[] = [
+    {
+      src: "/images/nicolas/conce-ai.webp",
+      alt:
+        galleryMsgs.conceAi?.alt ?? photosMsgs.gallery_1_alt ?? "Conce AI Logo",
+      size: "large",
+      description:
+        galleryMsgs.conceAi?.description ??
+        "The official logo of Conce AI, my technology business.",
+    },
+    {
+      src: "/images/nicolas/nico-as-psychedelic-wizard.webp",
+      alt:
+        galleryMsgs.wizard?.alt ??
+        photosMsgs.gallery_2_alt ??
+        "Nico as a psychedelic wizard",
+      size: "wide",
+      description:
+        galleryMsgs.wizard?.description ??
+        "Embracing creativity and magic in code.",
+    },
+    {
+      src: "/images/nicolas/nico-pc.webp",
+      alt:
+        galleryMsgs.workstation?.alt ??
+        photosMsgs.gallery_3_alt ??
+        "Nico working on his computer",
+      size: "square",
+      description:
+        galleryMsgs.workstation?.description ??
+        "Deep in the flow state, surrounded by code.",
+    },
+    {
+      src: "/images/nicolas/only-koka.jpg",
+      alt: galleryMsgs.onlyKoka?.alt ?? "Koka the dog",
+      size: "square",
+      description:
+        galleryMsgs.onlyKoka?.description ??
+        "The real boss of the operation: Koka.",
+    },
+    {
+      src: "/images/nicolas/nico-acid.webp",
+      alt: galleryMsgs.acid?.alt ?? "Nico in acid-inspired art",
+      size: "square",
+      description:
+        galleryMsgs.acid?.description ??
+        "Exploring altered perspectives through art.",
+    },
+    {
+      src: "/images/nicolas/nico-and-koka.webp",
+      alt: galleryMsgs.koka?.alt ?? "Nico and Koka together",
+      size: "wide",
+      description:
+        galleryMsgs.koka?.description ?? "Best friends and coding companions.",
+    },
+    {
+      src: "/images/nicolas/nico-flowers.webp",
+      alt: galleryMsgs.flowers?.alt ?? "Nico with flowers",
+      size: "square",
+      description:
+        galleryMsgs.flowers?.description ??
+        "Finding beauty in nature and code.",
+    },
+    {
+      src: "/images/nicolas/nico-piercing.webp",
+      alt: galleryMsgs.piercing?.alt ?? "Nico with piercing",
+      size: "square",
+      description:
+        galleryMsgs.piercing?.description ?? "Self-expression through style.",
+    },
+    {
+      src: "/images/nicolas/nico-psychedelic.webp",
+      alt: galleryMsgs.psychedelic?.alt ?? "Nico in psychedelic art",
+      size: "square",
+      description:
+        galleryMsgs.psychedelic?.description ??
+        "Consciousness exploration meets digital art.",
+    },
+    {
+      src: "/images/nicolas/nico-tattoo.webp",
+      alt: galleryMsgs.tattoo?.alt ?? "Nico showing tattoo",
+      size: "square",
+      description:
+        galleryMsgs.tattoo?.description ?? "Stories written on skin.",
+    },
+    {
+      src: "/images/nicolas/nico-trippy.webp",
+      alt: galleryMsgs.trippy?.alt ?? "Nico in trippy art style",
+      size: "square",
+      description:
+        galleryMsgs.trippy?.description ?? "Reality bends, creativity flows.",
+    },
+    {
+      src: "/images/nicolas/nico-unicorn.webp",
+      alt: galleryMsgs.unicorn?.alt ?? "Nico as a unicorn",
+      size: "square",
+      description:
+        galleryMsgs.unicorn?.description ??
+        "Embracing the magical and mythical.",
+    },
+  ];
 
   const aboutTitle = about.title ?? "About me";
   const aboutSubtitle =
@@ -137,19 +189,14 @@ export default function AboutMeSection({
     "I transform ideas into platforms that blend art, engineering, and intention.";
 
   const personalTitle = personal.title ?? "Beyond the code";
-  const personalSubtitle =
-    personal.subtitle ?? "Who am I? A curious builder.";
+  const personalSubtitle = personal.subtitle ?? "Who am I? A curious builder.";
   const personalDescription =
     personal.description ??
     "Between commits and coffee, I explore AI, write, and build responsibly.";
 
-  const galleryTitle =
-    about.gallery?.title ??
-    about.galleryTitle ??
-    "Gallery";
+  const galleryTitle = about.gallery?.title ?? about.galleryTitle ?? "Gallery";
 
-  const metricsTitle =
-    about.metricsTitle ?? "Highlighted metrics";
+  const metricsTitle = about.metricsTitle ?? "Highlighted metrics";
 
   return (
     <section className="relative py-24 sm:py-32">

@@ -143,21 +143,19 @@ const ProjectsCarouselClient = ({ messages }: ProjectsCarouselClientProps) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + index * 0.1, duration: 0.5 }}
-                  className="group flex h-full flex-col justify-between rounded-xl border border-white/20 bg-gray-900/30 p-6 shadow-xl backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-2xl"
+                  className="group flex h-full flex-col rounded-xl border border-white/20 bg-gray-900/30 p-6 shadow-xl backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-accent/50 hover:shadow-2xl"
                 >
-                  <div className="aspect-3/2 flex overflow-x-clip rounded-2xl border border-border/20 bg-muted/50">
-                    <div className="flex-1">
-                      <div className="relative h-full w-full origin-bottom transition duration-500 group-hover:scale-105">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          width={1280}
-                          height={720}
-                          className="h-full w-full object-cover object-center"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                      </div>
+                  <div className="w-full overflow-hidden rounded-2xl">
+                    <div className="flex h-84 overflow-hidden w-full transition duration-500 group-hover:scale-105">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        width={1080}
+                        height={1080}
+                        className="h-full w-full object-cover object-center"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                     </div>
                   </div>
 

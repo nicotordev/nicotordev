@@ -48,7 +48,7 @@ export default async function ReviewList3D() {
   return (
     <div className="relative flex w-full h-fit items-center justify-center overflow-y-clip rounded-2xl bg-transparent">
       <ReviewDialogProvider>
-        <div className="relative z-10 flex h-[1800px] w-full items-center justify-between gap-6 bg-transparent px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 flex h-[1800px] items-center justify-between gap-6 bg-transparent px-4 sm:px-6 lg:px-8">
           {rows.map((col, idx) => (
             <ReviewColumn
               key={`reviews-col-${idx}`}

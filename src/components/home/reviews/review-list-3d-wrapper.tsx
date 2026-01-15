@@ -32,28 +32,7 @@ function ReviewList3DWrapper({ messages }: { messages: Messages }) {
   return (
     <section className="relative z-10 w-full overflow-hidden bg-transparent">
       <BackgroundDecoration className="-top-20 opacity-40 pointer-events-none" />
-
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-16 bg-transparent">
-        <ReviewList3DWrapperTitle
-          badgeLabel={badgeLabel}
-          heading={heading}
-          subtitle={subtitle}
-          buttonText={buttonText}
-        />
-
-        <div
-          className="relative w-full"
-          style={{
-            minHeight: REVIEW_MIN_HEIGHT_PX,
-            width: "100%",
-            maxWidth: "100%",
-            overflowX: "clip",
-          }}
-          aria-busy="true"
-        >
-          <ReviewList3D />
-        </div>
-      </div>
+      <ReviewList3D />
 
       <BackgroundDecoration
         className="top-auto bottom-0 translate-y-1/3 pointer-events-none"
