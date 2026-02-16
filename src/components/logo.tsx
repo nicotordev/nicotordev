@@ -37,6 +37,7 @@ export default function Logo({
         alt={alt}
         width={width}
         height={computedHeight}
+        style={{ height: "auto" }}
         {...(priority ? { priority: true } : {})}
       />
     </span>
