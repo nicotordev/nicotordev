@@ -23,16 +23,13 @@ const ReviewList3D = dynamic(() => import("./review-list-3d"), {
 
 function ReviewList3DWrapper({ messages }: { messages: Messages }) {
   const reviewsMessages = messages.reviews ?? {};
-  const badgeLabel = reviewsMessages.pre_title ?? "Testimonials";
-  const heading = reviewsMessages.title ?? "Client Reviews";
-  const subtitle =
-    reviewsMessages.subtitle ?? "Real feedback from real projects";
-  const buttonText = messages.common?.see_reviews ?? "See reviews";
 
   return (
-    <section className="relative z-10 w-full overflow-hidden bg-transparent">
+    <section className="relative z-10 overflow-hidden bg-transparent ">
       <BackgroundDecoration className="-top-20 opacity-40 pointer-events-none" />
-      <ReviewList3D />
+      <div className="container mx-auto">
+        <ReviewList3D />
+      </div>
 
       <BackgroundDecoration
         className="top-auto bottom-0 translate-y-1/3 pointer-events-none"

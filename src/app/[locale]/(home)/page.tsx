@@ -49,9 +49,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function HomePage({
-  params,
-}: HomePageProps) {
+export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   const messages: Messages = (await getMessages({
     locale: locale as Locale,
@@ -61,7 +59,7 @@ export default async function HomePage({
     <>
       <Header messages={messages} />
       <main>
-        <HeroSection messages={messages} locale={locale as Locale} />
+        <HeroSection messages={messages} />
         <SocialProofSection messages={messages} />
         <ProblemSolutionSection messages={messages} />
         <ProjectsCarousel messages={messages} />
