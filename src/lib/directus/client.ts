@@ -79,3 +79,21 @@ export async function directusFetchOptional<T>(
     return null;
   }
 }
+
+/** POST JSON to Directus (e.g. create item). Use server-side so DIRECTUS_TOKEN is available. */
+export async function directusPost<T, B = unknown>(
+  path: string,
+  body: B
+): Promise<T> {
+  const url = `${getDirectusUrl()}${path}`;
+  const res = await fetch(url, {
+    method: "POST",
+    headers: getDirectusHeaders(),
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error(`Directus POST ${path}: ${res.status} ${text}`);
+  }
+  return res.json() as Promise<T>;
+}

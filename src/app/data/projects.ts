@@ -4,6 +4,7 @@ export const staticProjects: ProjectDTO[] = [
   // --- 2025 ---
   {
     id: "proj_1",
+    slug: "regulex",
     name: "Regulex: AI-Powered Legal Compliance & Auditing Platform",
     cost: 0,
     description:
@@ -86,6 +87,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_2",
+    slug: "v0-dev-mcp",
     name: "V0.dev MCP: AI Agent Context Protocol Integration",
     cost: 0,
     description:
@@ -112,6 +114,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_3",
+    slug: "conexus-space-planner",
     name: "Conexus: AI-Assisted Workspace Planning Calculator",
     cost: 0,
     description:
@@ -130,6 +133,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_4",
+    slug: "seguidoress",
     name: "Seguidoress: Full-Stack SaaS for Social Media Services",
     cost: 0,
     description:
@@ -221,6 +225,7 @@ export const staticProjects: ProjectDTO[] = [
   // --- 2024 ---
   {
     id: "proj_5",
+    slug: "sexyconce",
     name: "SexyConce: Telegram Community Automation Bot",
     cost: 0,
     description:
@@ -247,6 +252,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_6",
+    slug: "flowcl-pagos",
     name: "FlowCL Pagos: TypeScript SDK for Payment Integration",
     cost: 0,
     description:
@@ -274,6 +280,7 @@ export const staticProjects: ProjectDTO[] = [
   // --- 2023 ---
   {
     id: "proj_8",
+    slug: "spiritory",
     name: "Spiritory: Collectible Whisky & Spirits E-commerce Platform",
     cost: 0,
     description:
@@ -348,6 +355,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_9",
+    slug: "funpicai",
     name: "FunpicAI: AI-Powered Creative Image Generator",
     cost: 0,
     description:
@@ -395,6 +403,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_10",
+    slug: "crypto-asset-screener",
     name: "Crypto Asset Screener: Real-Time Market Analytics Platform",
     cost: 0,
     description:
@@ -470,6 +479,7 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_11",
+    slug: "classpro",
     name: "Classpro: Education Management Platform",
     cost: 0,
     description:

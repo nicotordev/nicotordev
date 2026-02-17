@@ -1,5 +1,6 @@
 "use client";
 
+import { saveLeadAction } from "@/app/actions/lead.actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -96,6 +97,14 @@ export default function LeadMagnetContactFormMinimal({
     }
 
     try {
+      await saveLeadAction({
+        name,
+        email,
+        message,
+        source: "lead_magnet_minimal",
+        turnstileToken: formState.turnstileToken,
+      });
+
       await sendContactRequest({
         name,
         email,
@@ -284,6 +293,14 @@ export function LeadMagnetContactFormFull({
     }
 
     try {
+      await saveLeadAction({
+        name: derivedName,
+        email: formState.email.trim(),
+        message: derivedMessage,
+        source: "lead_magnet_full",
+        turnstileToken: formState.turnstileToken,
+      });
+
       await sendContactRequest({
         name: derivedName,
         email: formState.email.trim(),

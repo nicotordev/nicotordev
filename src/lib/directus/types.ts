@@ -28,6 +28,8 @@ export type DirectusProjectAsset = {
 export type DirectusProject = {
   id: number;
   project_id: string;
+  /** URL-friendly identifier; may be missing on older items. */
+  slug?: string | null;
   name: string;
   cost: number;
   description: string;
@@ -63,4 +65,18 @@ export type DirectusItemsResponse<T> = {
 
 export type DirectusItemResponse<T> = {
   data: T | null;
+};
+
+/** Payload to create a lead (snake_case for Directus). */
+export type DirectusLeadCreate = {
+  name: string;
+  email: string;
+  message: string;
+  source: string;
+  turnstile_validated: boolean;
+};
+
+export type DirectusLead = DirectusLeadCreate & {
+  id: number;
+  date_created?: string | null;
 };

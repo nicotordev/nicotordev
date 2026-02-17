@@ -26,6 +26,7 @@ export {
   fetchProjects,
   fetchProjectsOptional,
   fetchProjectById,
+  fetchProjectBySlug,
   type ProjectFromCMS,
 } from "@/lib/directus/projects";
 
@@ -35,3 +36,5 @@ export {
   fetchBlogBySlug,
   type BlogPostFromCMS,
 } from "@/lib/directus/blogs";
+
+export { createLead, type CreateLeadPayload } from "@/lib/directus/leads";

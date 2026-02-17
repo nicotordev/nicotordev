@@ -11,6 +11,7 @@ import type { AssetDTO, ProjectDTO } from "@/types/projects";
 
 const DEFAULT_FIELDS = [
   "project_id",
+  "slug",
   "name",
   "cost",
   "description",
@@ -47,6 +48,7 @@ function mapAsset(a: {
 function mapDirectusProjectToProject(p: DirectusProject): ProjectDTO {
   const dto: ProjectDTO = {
     id: p.project_id,
+    slug: p.slug ?? slugFromId(p.project_id),
     name: p.name,
     cost: p.cost,
     description: p.description,
@@ -62,6 +64,11 @@ function mapDirectusProjectToProject(p: DirectusProject): ProjectDTO {
   if (p.link != null) dto.link = p.link;
   if (p.link_text != null) dto.linkText = p.link_text;
   return dto;
+}
+
+/** Fallback slug when Directus project has no slug (e.g. project_id "proj_1" -> "proj-1"). */
+function slugFromId(projectId: string): string {
+  return projectId.replace(/_/g, "-").toLowerCase();
 }
 
 export type ProjectFromCMS = ProjectDTO & {
@@ -122,6 +129,28 @@ export async function fetchProjectById(
       {
         fields: [...DEFAULT_FIELDS],
         filter: { project_id: projectId },
+        limit: 1,
+      }
+    );
+    const item = res.data?.[0];
+    return item ? toProjectFromCMS(item) : null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Fetch a single project by slug (e.g. "regulex", "v0-dev-mcp").
+ */
+export async function fetchProjectBySlug(
+  slug: string
+): Promise<ProjectFromCMS | null> {
+  try {
+    const res = await directusFetch<{ data: DirectusProject[] }>(
+      "/items/projects",
+      {
+        fields: [...DEFAULT_FIELDS],
+        filter: { slug, is_active: true },
         limit: 1,
       }
     );

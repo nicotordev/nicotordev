@@ -55,6 +55,7 @@ function HighlightWord({
       <Image
         src={imageSrc}
         alt={imageAlt}
+        unoptimized
         width={64}
         height={64}
         aria-hidden

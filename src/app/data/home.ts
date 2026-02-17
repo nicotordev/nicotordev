@@ -241,5 +241,5 @@ export const nicolasStats = [
     rightSymbol: "",
     leftSymbol: "",
   },
-  { id: 4, key: "rate", value: 26, rightSymbol: "/hr", leftSymbol: "$" },
+  { id: 4, key: "rate", value: 30, rightSymbol: "/hr", leftSymbol: "$" },
 ];

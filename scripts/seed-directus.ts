@@ -280,6 +280,7 @@ async function seedReviews() {
 // Minimal project shape for seed (avoids pulling in app deps)
 type ProjectSeed = {
   id: string;
+  slug: string;
   name: string;
   cost: number;
   description: string;
@@ -300,6 +301,7 @@ async function seedProjects() {
   for (const p of staticProjects) {
     const body = {
       project_id: p.id,
+      slug: p.slug,
       name: p.name,
       cost: p.cost,
       description: p.description,

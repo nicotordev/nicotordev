@@ -11,6 +11,8 @@ export type AssetDTO = {
 
 export type ProjectDTO = {
   id: string;
+  /** URL-friendly identifier (e.g. "regulex", "v0-dev-mcp"). */
+  slug: string;
   name: string;
   cost: number;
   description: string;
