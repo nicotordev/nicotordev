@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -13,36 +13,82 @@ import { ArrowRight, Download } from "lucide-react";
 import { useMessages } from "next-intl";
 
 interface DownloadResumeButtonProps {
-  label: React.ReactNode; 
+  label: React.ReactNode;
   className?: string;
 }
 
 interface ResumeFormat {
-  extension: string;
   label: string;
   icon: string;
+  href: string;
+  downloadName: string;
+  extension: string;
 }
 
 const RESUME_FORMATS: ResumeFormat[] = [
-  { extension: 'pdf', label: 'PDF', icon: '📄' },
-  { extension: 'docx', label: 'Word', icon: '📝' },
-  { extension: 'txt', label: 'Text', icon: '📃' },
-  { extension: 'md', label: 'Markdown', icon: '📋' },
-  { extension: 'odt', label: 'OpenDocument', icon: '📄' },
+  {
+    label: "PDF",
+    icon: "📄",
+    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.pdf",
+    downloadName: "Nicolas-Torres-Henriquez-2026-CV.pdf",
+    extension: "pdf",
+  },
+  {
+    label: "Text",
+    icon: "📃",
+    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.txt",
+    downloadName: "Nicolas-Torres-Henriquez-2026-CV.txt",
+    extension: "txt",
+  },
+  {
+    label: "Markdown",
+    icon: "📋",
+    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.md",
+    downloadName: "Nicolas-Torres-Henriquez-2026-CV.md",
+    extension: "md",
+  },
+  {
+    label: "HTML",
+    icon: "🌐",
+    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.html",
+    downloadName: "Nicolas-Torres-Henriquez-2026-CV.html",
+    extension: "html",
+  },
+  {
+    label: "PNG (Page 1)",
+    icon: "🖼️",
+    href: "/documents/Nicolas-Torres-Henriquez-2026-CV-page-1.png",
+    downloadName: "Nicolas-Torres-Henriquez-2026-CV-page-1.png",
+    extension: "png",
+  },
+  {
+    label: "PNG (Page 2)",
+    icon: "🖼️",
+    href: "/documents/Nicolas-Torres-Henriquez-2026-CV-page-2.png",
+    downloadName: "Nicolas-Torres-Henriquez-2026-CV-page-2.png",
+    extension: "png",
+  },
+  {
+    label: "Metadata",
+    icon: "ℹ️",
+    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.info.txt",
+    downloadName: "Nicolas-Torres-Henriquez-2026-CV.info.txt",
+    extension: "txt",
+  },
 ];
 
-const RESUME_BASE_PATH = '/documents/nicolas-torres-henriquez-cv-2025';
-
-export default function DownloadResumeButton({ label, className }: DownloadResumeButtonProps) {
+export default function DownloadResumeButton({
+  label,
+  className,
+}: DownloadResumeButtonProps) {
   const messages = useMessages();
   const selectFormatLabel =
-    (messages as any)?.downloadResume?.selectFormat || "Select Format";
+    messages.downloadResume?.selectFormat || "Select Format";
 
-  const handleDownload = (extension: string) => {
-    const url = `${RESUME_BASE_PATH}.${extension}`;
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `nicolas-torres-henriquez-cv-2025.${extension}`;
+  const handleDownload = (format: ResumeFormat) => {
+    const link = document.createElement("a");
+    link.href = format.href;
+    link.download = format.downloadName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -58,7 +104,7 @@ export default function DownloadResumeButton({ label, className }: DownloadResum
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent align="end" className="w-56">
         <DropdownMenuLabel className="flex items-center gap-2">
           <Download className="size-4" />
           {selectFormatLabel}
@@ -66,8 +112,8 @@ export default function DownloadResumeButton({ label, className }: DownloadResum
         <DropdownMenuSeparator />
         {RESUME_FORMATS.map((format) => (
           <DropdownMenuItem
-            key={format.extension}
-            onClick={() => handleDownload(format.extension)}
+            key={format.downloadName}
+            onClick={() => handleDownload(format)}
             className="cursor-pointer"
           >
             <span className="flex items-center gap-2">
