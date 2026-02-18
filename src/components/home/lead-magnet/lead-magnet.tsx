@@ -51,12 +51,13 @@ export default function LeadMagnet({ messages }: LeadMagnetProps) {
       className={cn(
         "relative overflow-hidden bg-primary bg-blend-overlay",
         "min-h-[80vh] py-16 sm:py-24 lg:py-32",
+        "flex items-center justify-center"
       )}
     >
       <PsychedelicBackground />
       <NoiseOverlay />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grow">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}

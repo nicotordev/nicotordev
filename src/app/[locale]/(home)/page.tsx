@@ -1,5 +1,6 @@
 import AboutMeSection from "@/components/home/about-me/about-me-section";
 import HeroSection from "@/components/home/hero-section/hero-section";
+import BlogSection from "@/components/home/blog/blog-section";
 import LeadMagnetContactForm from "@/components/home/lead-magnet/lead-magnet";
 import ProblemSolutionSection from "@/components/home/problem-solution/problem-solution-section";
 import ProjectsCarousel from "@/components/home/projects/projects-carousel";
@@ -66,6 +67,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <ReviewList3DWrapper messages={messages} />
         <LeadMagnetContactForm messages={messages} />
         <AboutMeSection messages={messages} />
+        <BlogSection messages={messages} />
       </main>
       <Footer messages={messages} />
     </>
