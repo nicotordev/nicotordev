@@ -3,15 +3,10 @@ import type { Metadata } from "next";
 import { Suspense, type ReactNode } from "react";
 import { getLocale, getMessages } from "next-intl/server";
 import {
-  localFiraCode,
-  localFontdinerSwanky,
   localIBMPlexMono,
   localInter,
-  localJetBrainsMono,
-  localLoveLight,
   localPermanentMarker,
   localSora,
-  localSourceSerif4,
 } from "./fonts";
 import "./globals.css";
 import ProvidersWrapper from "@/providers/providers-wrapper";
@@ -23,6 +18,15 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.webp",
   },
   manifest: "/site.webmanifest",
+  // Reduce layout shift and help crawlers; themeColor can improve browser chrome.
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fdf2f8" },
+    { media: "(prefers-color-scheme: dark)", color: "#1c1917" },
+  ],
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 type RootLayoutProps = {
@@ -37,7 +41,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
     <html
       lang={locale}
       suppressHydrationWarning
-      className={`${localInter.variable} ${localSora.variable} ${localSourceSerif4.variable} ${localFiraCode.variable} ${localJetBrainsMono.variable} ${localIBMPlexMono.variable} ${localFontdinerSwanky.variable} ${localLoveLight.variable} ${localPermanentMarker.variable}`}
+      className={`${localInter.variable} ${localSora.variable} ${localIBMPlexMono.variable} ${localPermanentMarker.variable}`}
     >
       <body className="antialiased">
         <Suspense fallback={null}>

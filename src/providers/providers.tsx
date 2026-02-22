@@ -1,7 +1,6 @@
 "use client";
 import GlassToaster from "@/components/common/glass-toast";
 import WebVitalsReporter from "@/components/performance/web-vitals-reporter";
-import StoreInitializer from "@/components/store-initializer";
 import type { routing } from "@/i18n/routing";
 import type { Timezone } from "@/i18n/timezone";
 import { NextIntlClientProvider } from "next-intl";

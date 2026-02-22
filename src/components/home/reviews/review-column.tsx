@@ -22,6 +22,7 @@ export default function ReviewColumn({
         pauseOnHover
         vertical
         reverse={reverse}
+        repeat={2}
         className={cn("[--duration:40s]", className)}
       >
         {reviews.map((review, idx) => (

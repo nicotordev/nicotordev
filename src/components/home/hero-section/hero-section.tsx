@@ -25,6 +25,8 @@ interface HighlightWordProps {
   imageSrc: string;
   imageAlt: string;
   rotate?: "-rotate-2" | "rotate-2";
+  /** Set for the first above-the-fold image only to improve LCP/FCP. */
+  priority?: boolean;
 }
 
 function HighlightWord({
@@ -32,12 +34,13 @@ function HighlightWord({
   imageSrc,
   imageAlt,
   rotate = "-rotate-2",
+  priority = false,
 }: HighlightWordProps) {
   return (
     <span
       className={cn(
         "inline-flex items-center gap-1 rounded-lg bg-card px-3 py-1 font-mono",
-        "font-extrabold tracking-tight", // ✅ más bold
+        "font-extrabold tracking-tight",
         "shadow-sm ring-1 ring-border",
         rotate,
         "text-3xl sm:text-4xl md:text-5xl"
@@ -47,7 +50,7 @@ function HighlightWord({
         as="span"
         mood="code"
         role="display"
-        className="text-secondary font-extrabold" // ✅ más bold
+        className="text-secondary font-extrabold"
       >
         {text}
       </Typography>
@@ -55,10 +58,11 @@ function HighlightWord({
       <Image
         src={imageSrc}
         alt={imageAlt}
-        unoptimized
         width={64}
         height={64}
+        quality={70}
         aria-hidden
+        priority={priority}
         className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-xl"
         sizes="(min-width: 768px) 64px, (min-width: 640px) 56px, 48px"
       />
@@ -126,6 +130,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                   text={messages.hero.headline.words}
                   imageSrc="/images/illustrations/writing.webp"
                   imageAlt={media.writingAlt || "Hand writing illustration"}
+                  priority
                 />
               </div>
 

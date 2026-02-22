@@ -19,7 +19,9 @@ export default function SolutionSectionVideo({
         height={1080}
         src="/animated/coding-no-bg.webp"
         alt={altText}
-        priority
+        loading="lazy"
+        quality={65}
+        sizes="(min-width: 1280px) 42vw, (min-width: 1024px) 48vw, (min-width: 640px) 88vw, 92vw"
         className="h-full w-full object-contain pointer-events-none bg-transparent drop-shadow-2xl"
       />
     </>

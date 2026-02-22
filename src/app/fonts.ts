@@ -7,11 +7,6 @@ const inter = localFont({
       weight: "100 900", // variable font, rango de pesos
       style: "normal",
     },
-    {
-      path: "../../public/fonts/Inter-Italic-VariableFont_opsz,wght.ttf",
-      weight: "100 900",
-      style: "italic",
-    },
   ],
   variable: "--font-inter",
   display: "swap",
@@ -29,34 +24,15 @@ const sora = localFont({
   display: "swap",
 });
 
-const sourceSerif4 = localFont({
-  src: [
-    {
-      path: "../../public/fonts/SourceSerif4-VariableFont_opsz,wght.ttf",
-      weight: "100 900",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/SourceSerif4-Italic-VariableFont_opsz,wght.ttf",
-      weight: "100 900",
-      style: "italic",
-    },
-  ],
+const sourceSerif4 = {
   variable: "--font-source-serif4",
-  display: "swap",
-});
+  className: "",
+} as const;
 
-const firaCode = localFont({
-  src: [
-    {
-      path: "../../public/fonts/FiraCode-VariableFont_wght.ttf",
-      weight: "100 900",
-      style: "normal",
-    },
-  ],
+const firaCode = {
   variable: "--font-fira-code",
-  display: "swap",
-});
+  className: "",
+} as const;
 
 // JetBrains Mono is loaded through @font-face in fonts.css
 const jetBrainsMono = {
@@ -67,44 +43,9 @@ const jetBrainsMono = {
 const ibmPlexMono = localFont({
   src: [
     {
-      path: "../../public/fonts/IBMPlexMono-Thin.ttf",
-      weight: "100",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-ThinItalic.ttf",
-      weight: "100",
-      style: "italic",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-ExtraLight.ttf",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-ExtraLightItalic.ttf",
-      weight: "200",
-      style: "italic",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-LightItalic.ttf",
-      weight: "300",
-      style: "italic",
-    },
-    {
       path: "../../public/fonts/IBMPlexMono-Regular.ttf",
       weight: "400",
       style: "normal",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-Italic.ttf",
-      weight: "400",
-      style: "italic",
     },
     {
       path: "../../public/fonts/IBMPlexMono-Medium.ttf",
@@ -112,58 +53,24 @@ const ibmPlexMono = localFont({
       style: "normal",
     },
     {
-      path: "../../public/fonts/IBMPlexMono-MediumItalic.ttf",
-      weight: "500",
-      style: "italic",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-SemiBold.ttf",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-SemiBoldItalic.ttf",
-      weight: "600",
-      style: "italic",
-    },
-    {
       path: "../../public/fonts/IBMPlexMono-Bold.ttf",
       weight: "700",
       style: "normal",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-BoldItalic.ttf",
-      weight: "700",
-      style: "italic",
     },
   ],
   variable: "--font-ibm-plex-mono",
   display: "swap",
 });
 
-const fontdinerSwanky = localFont({
-  src: [
-    {
-      path: "../../public/fonts/FontdinerSwanky-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
+const fontdinerSwanky = {
   variable: "--font-fontdiner-swanky",
-  display: "swap",
-});
+  className: "",
+} as const;
 
-const loveLight = localFont({
-  src: [
-    {
-      path: "../../public/fonts/LoveLight-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-  ],
+const loveLight = {
   variable: "--font-love-light",
-  display: "swap",
-});
+  className: "",
+} as const;
 
 const permanentMarker = localFont({
   src: [

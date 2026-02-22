@@ -114,7 +114,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: "/:all*(svg|jpg|png|webp|avif|css|js)",
+        source: "/_next/static/media/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/:all*(svg|jpg|png|webp|avif|css|js|woff2?|ttf|otf)",
         headers: [
           {
             key: "Cache-Control",
