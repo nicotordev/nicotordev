@@ -29,6 +29,7 @@ const ProjectsCarousel = ({ messages }: ProjectsCarouselProps) => {
   return (
     <section
       ref={ref}
+      id="projects-section"
       className="relative w-full h-fit min-h-[800px] select-none overflow-clip bg-primary text-foreground"
     >
       {inView ? <ProjectsCarouselClient messages={messages} /> : fallback}

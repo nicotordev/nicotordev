@@ -140,7 +140,7 @@ export function ReviewDialogProvider({ children }: { children: ReactNode }) {
                 </div>
               </DialogHeader>
 
-              <div className="px-6 pb-4">
+              <div className="px-4 sm:px-6 pb-4">
                 <DialogDescription className="text-[15px] leading-relaxed text-foreground/85 font-normal">
                   {selectedReview.feedback || (
                     <Typography
@@ -155,7 +155,7 @@ export function ReviewDialogProvider({ children }: { children: ReactNode }) {
               </div>
 
               <div className="border-t border-border/80">
-                <div className="px-2 py-1">
+                <div className="px-6 py-1">
                   <ListItem
                     label="Project dates"
                     value={selectedReview.dates}

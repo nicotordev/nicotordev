@@ -1,4 +1,4 @@
-export type ReviewId = (typeof reviewsData)[number]["id"];
+export type ReviewId = string;
 export type ReviewIdWithFeedback = Extract<
   (typeof reviewsData)[number],
   { feedback: string }

@@ -70,7 +70,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
   const media = messages.common?.a11y?.media ?? {};
 
   return (
-    <section className="relative z-10 bg-background py-8 sm:py-10 md:py-12">
+    <section id="hero-section" className="relative z-10 bg-background py-8 sm:py-10 md:py-12">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <BackgroundDecoration />
 
@@ -182,7 +182,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                 "sm:w-auto sm:px-8"
               )}
             >
-              <Link href="#about-section">
+              <Link href="#contact-section">
                 <Typography as="span" mood="artistic" role="button">
                   {messages.hero.cta.lets_talk}
                 </Typography>
@@ -202,6 +202,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                   {messages.hero.cta.download_resume}
                 </Typography>
               }
+              selectFormatLabel={messages.downloadResume?.selectFormat}
             />
           </div>
         </div>

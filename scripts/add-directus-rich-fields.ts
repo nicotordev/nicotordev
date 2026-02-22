@@ -3,12 +3,12 @@
  * Run: DIRECTUS_URL=https://directus.nicotordev.com DIRECTUS_TOKEN=... bun scripts/add-directus-rich-fields.ts
  */
 
-const BASE_URL =
+const RICH_BASE_URL =
   process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com";
-const AUTH_TOKEN = process.env.DIRECTUS_TOKEN ?? "";
+const RICH_AUTH_TOKEN = process.env.DIRECTUS_TOKEN ?? "";
 
 const REQ_HEADERS: HeadersInit = {
-  Authorization: `Bearer ${AUTH_TOKEN}`,
+  Authorization: `Bearer ${RICH_AUTH_TOKEN}`,
   "Content-Type": "application/json",
 };
 
@@ -17,21 +17,24 @@ async function createRichField(
   field: string,
   type: string,
   interfaceName: string,
-  options?: { note?: string }
+  options?: { note?: string },
 ) {
-  const res = await fetch(`${BASE_URL.replace(/\/$/, "")}/fields/${collection}`, {
-    method: "POST",
-    headers: REQ_HEADERS,
-    body: JSON.stringify({
-      field,
-      type,
-      schema: type === "text" ? { nullable: true } : {},
-      meta: {
-        interface: interfaceName,
-        note: options?.note ?? undefined,
-      },
-    }),
-  });
+  const res = await fetch(
+    `${RICH_BASE_URL.replace(/\/$/, "")}/fields/${collection}`,
+    {
+      method: "POST",
+      headers: REQ_HEADERS,
+      body: JSON.stringify({
+        field,
+        type,
+        schema: type === "text" ? { nullable: true } : {},
+        meta: {
+          interface: interfaceName,
+          note: options?.note ?? undefined,
+        },
+      }),
+    },
+  );
   if (res.ok) {
     console.log(`  Added ${collection}.${field} (${interfaceName})`);
     return;
@@ -45,25 +48,17 @@ async function createRichField(
 }
 
 async function runAddRichFields() {
-  if (!AUTH_TOKEN) {
+  if (!RICH_AUTH_TOKEN) {
     console.error("Set DIRECTUS_TOKEN");
     process.exit(1);
   }
   console.log("Adding rich content fields...");
-  await createRichField(
-    "projects",
-    "body",
-    "text",
-    "input-rich-text-html",
-    { note: "Rich HTML body (WYSIWYG) for project story/long content" }
-  );
-  await createRichField(
-    "blogs",
-    "excerpt",
-    "text",
-    "input-rich-text-html",
-    { note: "Rich excerpt (optional)" }
-  );
+  await createRichField("projects", "body", "text", "input-rich-text-html", {
+    note: "Rich HTML body (WYSIWYG) for project story/long content",
+  });
+  await createRichField("blogs", "excerpt", "text", "input-rich-text-html", {
+    note: "Rich excerpt (optional)",
+  });
   console.log("Done.");
 }
 

@@ -10,10 +10,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ArrowRight, Download } from "lucide-react";
-import { useMessages } from "next-intl";
 
 interface DownloadResumeButtonProps {
   label: React.ReactNode;
+  /** Localized label for the format selector (e.g. "Select format"). Pass from server to avoid intl context. */
+  selectFormatLabel?: string;
   className?: string;
 }
 
@@ -77,13 +78,13 @@ const RESUME_FORMATS: ResumeFormat[] = [
   },
 ];
 
+const DEFAULT_SELECT_FORMAT_LABEL = "Select format";
+
 export default function DownloadResumeButton({
   label,
+  selectFormatLabel = DEFAULT_SELECT_FORMAT_LABEL,
   className,
 }: DownloadResumeButtonProps) {
-  const messages = useMessages();
-  const selectFormatLabel =
-    messages.downloadResume?.selectFormat || "Select Format";
 
   const handleDownload = (format: ResumeFormat) => {
     const link = document.createElement("a");

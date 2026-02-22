@@ -4,7 +4,7 @@
  */
 
 const SEED_DIRECTUS_URL =
-  process.env.DIRECTUS_URL ?? "https://directus-production-a249.up.railway.app";
+  process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com";
 const SEED_TOKEN = process.env.DIRECTUS_TOKEN ?? "";
 
 const SEED_HEADERS: HeadersInit = {

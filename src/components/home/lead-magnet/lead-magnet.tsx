@@ -47,7 +47,8 @@ export default function LeadMagnet({ messages }: LeadMagnetProps) {
 
   return (
     <section
-      aria-label={labels.section}
+    id="contact-section"
+    aria-label={labels.section}
       className={cn(
         "relative overflow-hidden bg-primary bg-blend-overlay",
         "min-h-[80vh] py-16 sm:py-24 lg:py-32",

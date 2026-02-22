@@ -63,7 +63,7 @@ export default function SocialProofSection({
   } as const;
 
   return (
-    <section className="relative" id="social-proof">
+    <section className="relative" id="social-proof-section">
       {/* Background decorations (deduped) */}
       <BackgroundShape
         containerClassName={cn(

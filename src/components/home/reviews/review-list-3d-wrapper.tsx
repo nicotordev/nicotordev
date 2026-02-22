@@ -1,8 +1,7 @@
+  import type { ReviewFromCMS } from "@/lib/directus";
 import { BackgroundDecoration } from "@/components/backgrounds/background-decoration";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { Messages } from "@/types/i18n";
 import dynamic from "next/dynamic";
-import ReviewList3DWrapperTitle from "./review-list-3d-wrapper-title";
 
 const REVIEW_MIN_HEIGHT_PX = 1800;
 
@@ -21,14 +20,16 @@ const ReviewList3D = dynamic(() => import("./review-list-3d"), {
   ),
 });
 
-function ReviewList3DWrapper({ messages }: { messages: Messages }) {
-  const reviewsMessages = messages.reviews ?? {};
+interface ReviewList3DWrapperProps {
+  reviews: ReviewFromCMS[];
+}
 
+export default function ReviewList3DWrapper({ reviews }: ReviewList3DWrapperProps) {
   return (
-    <section className="relative z-10 overflow-hidden bg-transparent ">
+    <section id="reviews-section" className="relative z-10 overflow-hidden bg-transparent ">
       <BackgroundDecoration className="-top-20 opacity-40 pointer-events-none" />
       <div className="container mx-auto">
-        <ReviewList3D />
+        <ReviewList3D reviews={reviews} />
       </div>
 
       <BackgroundDecoration
@@ -38,5 +39,3 @@ function ReviewList3DWrapper({ messages }: { messages: Messages }) {
     </section>
   );
 }
-
-export default ReviewList3DWrapper;

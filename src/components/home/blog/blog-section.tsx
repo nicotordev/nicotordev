@@ -15,9 +15,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 const BLOG_PLACEHOLDER_IMAGES: { src: string; alt: string }[] = [
-  { src: "/images/illustrations/undraw_freelancer_vibs.svg", alt: "Blog: ideas y código" },
-  { src: "/images/illustrations/undraw_freelancer_vibs.svg", alt: "Blog: ingeniería" },
-  { src: "/images/illustrations/undraw_freelancer_vibs.svg", alt: "Blog: producto" },
+  {
+    src: "/images/illustrations/undraw_freelancer_vibs.svg",
+    alt: "Blog: ideas y código",
+  },
+  {
+    src: "/images/illustrations/undraw_freelancer_vibs.svg",
+    alt: "Blog: ingeniería",
+  },
+  {
+    src: "/images/illustrations/undraw_freelancer_vibs.svg",
+    alt: "Blog: producto",
+  },
 ];
 
 type BlogPost = {
@@ -36,27 +45,24 @@ interface BlogSectionProps {
 }
 
 export default async function BlogSection({ messages }: BlogSectionProps) {
-  const t = (messages as unknown as { blogSection?: Record<string, any> })
-    .blogSection ?? {};
+  const t =
+    (messages as unknown as { blogSection?: Record<string, any> })
+      .blogSection ?? {};
 
-  const sectionTitle =
-    t.title ?? "Blog: ideas, código y negocio";
+  const sectionTitle = t.title ?? "Blog: ideas, código y negocio";
   const sectionSubtitle =
     t.subtitle ??
     "Explora artículos donde mezclo ingeniería, producto y experiencias reales construyendo software.";
   const ctaLabel = t.ctaLabel ?? "Ver todos los artículos";
-  const comingSoonMessage =
-    t.comingSoon ?? "Pronto se agregarán artículos.";
+  const comingSoonMessage = t.comingSoon ?? "Pronto se agregarán artículos.";
 
   const cmsBlogs = await fetchBlogsOptional();
   const hasBlogs = cmsBlogs && cmsBlogs.length > 0;
-  const posts: BlogPost[] = hasBlogs
-    ? mapBlogsFromCMSToPosts(cmsBlogs)
-    : [];
+  const posts: BlogPost[] = hasBlogs ? mapBlogsFromCMSToPosts(cmsBlogs) : [];
 
   return (
     <section
-      id="blog"
+      id="blog-section"
       className="relative py-24 sm:py-32 mx-auto max-w-7xl"
     >
       {/* Background shape */}
@@ -184,12 +190,16 @@ export default async function BlogSection({ messages }: BlogSectionProps) {
   );
 }
 
-const DEFAULT_BLOG_IMAGE = { src: "/images/illustrations/undraw_freelancer_vibs.svg", alt: "Blog" };
+const DEFAULT_BLOG_IMAGE = {
+  src: "/images/illustrations/undraw_freelancer_vibs.svg",
+  alt: "Blog",
+};
 
 function mapBlogsFromCMSToPosts(blogs: BlogPostFromCMS[]): BlogPost[] {
   return blogs.slice(0, 3).map((blog, index) => {
     const placeholder =
-      BLOG_PLACEHOLDER_IMAGES[index % BLOG_PLACEHOLDER_IMAGES.length] ?? DEFAULT_BLOG_IMAGE;
+      BLOG_PLACEHOLDER_IMAGES[index % BLOG_PLACEHOLDER_IMAGES.length] ??
+      DEFAULT_BLOG_IMAGE;
     return {
       id: String(blog.id ?? `blog-${index + 1}`),
       title: blog.title ?? "",
@@ -202,4 +212,3 @@ function mapBlogsFromCMSToPosts(blogs: BlogPostFromCMS[]): BlogPost[] {
     };
   });
 }
-

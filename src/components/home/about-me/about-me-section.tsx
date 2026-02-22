@@ -199,7 +199,7 @@ export default function AboutMeSection({
   const metricsTitle = about.metricsTitle ?? "Highlighted metrics";
 
   return (
-    <section className="relative py-24 sm:py-32">
+    <section id="about-section" className="relative py-24 sm:py-32">
       {/* Background blobs */}
       <div
         aria-hidden

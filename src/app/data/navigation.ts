@@ -7,8 +7,8 @@ export type NavigationT = {
 };
 export const navigationItems = (navigationT: NavigationT) => [
   { name: navigationT.home, href: "/" },
-  { name: navigationT.about, href: "#about" },
+  { name: navigationT.about, href: "#about-section" },
   { name: navigationT.projects, href: "#projects" },
   { name: navigationT.blog, href: "/blog" },
-  { name: navigationT.contact, href: "#contact" },
+  { name: navigationT.contact, href: "#contact-section" },
 ];
