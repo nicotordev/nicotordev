@@ -6,6 +6,8 @@ function HeroTechStackCarouselPlaceholder() {
   return (
     <div
       className="relative isolate w-full overflow-x-clip px-2 py-6 sm:px-4"
+      role="status"
+      aria-live="polite"
       aria-label="Loading tech stack"
     >
       <div className="h-28 w-full rounded-2xl bg-muted/30 animate-pulse" />
