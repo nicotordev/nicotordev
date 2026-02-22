@@ -1,25 +1,14 @@
 import localFont from "next/font/local";
+import { Inter, Sora } from "next/font/google";
 
-const inter = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Inter-VariableFont_opsz,wght.ttf",
-      weight: "100 900", // variable font, rango de pesos
-      style: "normal",
-    },
-  ],
+const inter = Inter({
+  subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
+  display: "optional",
 });
 
-const sora = localFont({
-  src: [
-    {
-      path: "../../public/fonts/Sora-VariableFont_wght.ttf",
-      weight: "100 900",
-      style: "normal",
-    },
-  ],
+const sora = Sora({
+  subsets: ["latin"],
   variable: "--font-sora",
   display: "swap",
 });
@@ -45,16 +34,6 @@ const ibmPlexMono = localFont({
     {
       path: "../../public/fonts/IBMPlexMono-Regular.ttf",
       weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/IBMPlexMono-Bold.ttf",
-      weight: "700",
       style: "normal",
     },
   ],
