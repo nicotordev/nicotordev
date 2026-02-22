@@ -84,7 +84,7 @@ export default async function BlogSection({ messages }: BlogSectionProps) {
         />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto w-full px-4">
         {/* Header */}
         <div className="w-full">
           <Badge variant="outline" className="mb-4">
@@ -111,7 +111,7 @@ export default async function BlogSection({ messages }: BlogSectionProps) {
         {/* Posts grid or coming soon */}
         {hasBlogs ? (
           <>
-            <div className="mt-10 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-3">
+            <div className="my-10 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-3">
               {posts.map((post) => (
                 <Card
                   key={post.id}

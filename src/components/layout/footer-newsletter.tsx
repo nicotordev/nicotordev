@@ -20,7 +20,7 @@ export default function FooterNewsletter({ messages }: FooterNewsletterProps) {
   };
 
   return (
-    <div className="flex items-center justify-center absolute z-20 w-full inset-x-0 -translate-y-1/2 max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="flex items-center justify-center absolute z-20 w-full inset-x-0 -translate-y-1/2 mx-auto px-4 max-w-7xl">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
