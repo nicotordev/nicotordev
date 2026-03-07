@@ -93,7 +93,7 @@ export default function ProblemSection({ messages }: ProblemSectionProps) {
 
             return (
               <div key={problem.key} className="relative pl-12">
-                <dt className="text-secondary">
+                <dt className="text-foreground">
                   <div className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-lg bg-secondary shadow-md">
                     {IconComponent ? (
                       <IconComponent

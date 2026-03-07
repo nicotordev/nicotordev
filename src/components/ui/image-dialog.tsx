@@ -53,9 +53,13 @@ export function ImageDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild className={className}>
-        <div className="cursor-zoom-in ease-in-out hover:brightness-110 active:scale-95 transition-all">
+        <button
+          type="button"
+          aria-label={alt}
+          className="cursor-zoom-in ease-in-out hover:brightness-110 active:scale-95 transition-all border-none bg-transparent p-0 block"
+        >
           {children}
-        </div>
+        </button>
       </DialogTrigger>
       <DialogContent
         showCloseButton={false}
@@ -98,7 +102,7 @@ export function ImageDialog({
             quality={100}
             className={cn(
               "object-contain w-full h-full max-h-[90vh] md:max-h-[95vh]",
-              imageClassName
+              imageClassName,
             )}
             priority
           />

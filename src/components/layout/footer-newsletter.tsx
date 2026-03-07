@@ -14,7 +14,7 @@ interface FooterNewsletterProps {
 export default function FooterNewsletter({ messages }: FooterNewsletterProps) {
   // Safe access to nested translation keys
   const t = (
-    key: "title" | "description" | "placeholder" | "button" | "disclaimer"
+    key: "title" | "description" | "placeholder" | "button" | "disclaimer",
   ) => {
     return messages?.newsletter?.[key] || key;
   };
@@ -55,6 +55,7 @@ export default function FooterNewsletter({ messages }: FooterNewsletterProps) {
               <Button
                 type="submit"
                 size="icon"
+                aria-label={t("button")}
                 className="absolute right-2 top-2 bottom-2 h-12 w-12 sm:w-auto sm:px-6 rounded-full shadow-lg shadow-primary/20 shrink-0"
               >
                 <span className="hidden sm:inline mr-2">{t("button")}</span>

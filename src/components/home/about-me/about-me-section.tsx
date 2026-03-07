@@ -303,7 +303,7 @@ export default function AboutMeSection({
             <Typography
               role="label"
               mood="product"
-              className="text-base font-semibold uppercase tracking-wide text-accent"
+              className="text-base font-semibold uppercase tracking-wide text-foreground"
             >
               {metricsTitle}
             </Typography>

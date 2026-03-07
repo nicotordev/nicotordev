@@ -12,13 +12,13 @@
   --card-foreground: oklch(18% 0.03 280);
   --popover: oklch(0.985 0.005 106.475);
   --popover-foreground: oklch(0.145 0.02 286.075);
-  --primary: oklch(68% 0.28 340); /* ≈ #ee2b89 */
+  --primary: oklch(56% 0.24 340); /* Más oscuro para mejorar contraste AA */
   --primary-foreground: oklch(98% 0.02 320);
-  --secondary: oklch(65% 0.3 300); /* ≈ #a033ff */
+  --secondary: oklch(52% 0.24 300); /* Más oscuro para texto/iconos sobre fondos claros */
   --secondary-foreground: oklch(98% 0.02 320);
   --muted: oklch(94% 0.03 310);
-  --muted-foreground: oklch(55% 0.06 300);
-  --accent: oklch(72% 0.24 320);
+  --muted-foreground: oklch(42% 0.05 300);
+  --accent: oklch(58% 0.2 320);
   --accent-foreground: oklch(15% 0.02 280);
   --destructive: oklch(65% 0.28 25);
   --destructive-foreground: oklch(96% 0.01 0);
@@ -465,8 +465,8 @@
 .gradient-text {
   background: linear-gradient(
     135deg,
-    oklch(70% 0.3 340),
-    /* rosa */ oklch(68% 0.33 300) /* morado neón */
+    oklch(56% 0.24 340),
+    /* rosa */ oklch(52% 0.24 300) /* morado */
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
