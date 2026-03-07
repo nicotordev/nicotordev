@@ -39,6 +39,7 @@ const ibmPlexMono = localFont({
   ],
   variable: "--font-ibm-plex-mono",
   display: "swap",
+  preload: false,
 });
 
 const fontdinerSwanky = {
@@ -61,6 +62,7 @@ const permanentMarker = localFont({
   ],
   variable: "--font-permanent-marker",
   display: "swap",
+  preload: false,
 });
 
 export {

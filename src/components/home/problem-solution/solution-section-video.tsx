@@ -15,13 +15,13 @@ export default function SolutionSectionVideo({
   return (
     <>
       <Image
-        width={1080}
-        height={1080}
+        width={640}
+        height={640}
         src="/animated/coding-no-bg.webp"
         alt={altText}
         loading="lazy"
-        quality={65}
-        sizes="(min-width: 1280px) 42vw, (min-width: 1024px) 48vw, (min-width: 640px) 88vw, 92vw"
+        quality={45}
+        sizes="(min-width: 1280px) 38vw, (min-width: 1024px) 45vw, (min-width: 640px) 86vw, 92vw"
         className="h-full w-full object-contain pointer-events-none bg-transparent drop-shadow-2xl"
       />
     </>

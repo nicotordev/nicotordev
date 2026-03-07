@@ -17,19 +17,19 @@ const ProblemSolutionSection = dynamic(
 const ProjectsCarousel = dynamic(
   () =>
     import("@/components/home/projects/projects-carousel").then((m) => m.default),
-  { ssr: true, loading: () => <SectionSkeleton className="min-h-[40vh]" /> }
+  { ssr: false, loading: () => <SectionSkeleton className="min-h-[40vh]" /> }
 );
 
 const ReviewList3DWrapper = dynamic(
   () =>
     import("@/components/home/reviews/review-list-3d-wrapper").then((m) => m.default),
-  { ssr: true, loading: () => <SectionSkeleton className="min-h-[60vh]" /> }
+  { ssr: false, loading: () => <SectionSkeleton className="min-h-[60vh]" /> }
 );
 
 const LeadMagnetContactForm = dynamic(
   () =>
     import("@/components/home/lead-magnet/lead-magnet").then((m) => m.default),
-  { ssr: true, loading: () => <SectionSkeleton className="min-h-[80vh]" /> }
+  { ssr: false, loading: () => <SectionSkeleton className="min-h-[80vh]" /> }
 );
 
 const AboutMeSection = dynamic(

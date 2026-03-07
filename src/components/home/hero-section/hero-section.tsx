@@ -60,7 +60,7 @@ function HighlightWord({
         alt={imageAlt}
         width={64}
         height={64}
-        quality={70}
+        quality={45}
         aria-hidden
         priority={priority}
         className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-xl"
@@ -160,6 +160,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                     alt={media.mechanicArmAlt || "Robotic arm illustration"}
                     width={96}
                     height={96}
+                    quality={45}
                     aria-hidden
                     className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain drop-shadow-xl"
                     sizes="(min-width: 768px) 96px, (min-width: 640px) 80px, 64px"
