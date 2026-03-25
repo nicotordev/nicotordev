@@ -1,6 +1,5 @@
 import { routing } from "@/i18n/routing";
 import { buildJsonLdGraph, jsonLdToScriptInnerHtml } from "@/lib/seo/jsonld";
-import { getSeoMessages } from "@/lib/seo/get-seo";
 import {
   getAlternatesLanguages,
   getLocaleUrl,
@@ -9,7 +8,7 @@ import {
 } from "@/lib/seo/i18n";
 import type { Locale } from "@/i18n/config";
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -25,8 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const typedLocale = locale as Locale;
 
-  const seo = await getSeoMessages(typedLocale);
-  const siteUrl = seo.site.url.replace(/\/$/, "");
+  const translation = await getTranslations({ locale: typedLocale });
+  const siteUrl = translation("seo.site.url").replace(/\/$/, "");
   const canonical = getLocaleUrl(siteUrl, typedLocale);
 
   const alternatesLanguages = {
@@ -46,14 +45,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     metadataBase: new URL(siteUrl),
-    title: { default: seo.title.default, template: seo.title.template },
-    description: seo.description,
-    applicationName: seo.site.name,
-    keywords: seo.keywords,
+    title: { default: translation("seo.title.default"), template: translation("seo.title.template")  },
+    description: translation("seo.description"),
+    applicationName: translation("seo.site.name"),
+    keywords: translation("seo.keywords"),
     alternates: { canonical, languages: alternatesLanguages },
-    authors: [{ name: seo.person.name, url: siteUrl }],
-    creator: seo.person.name,
-    publisher: seo.site.name,
+    authors: [{ name: translation("seo.person.name"), url: siteUrl }],
+    creator: translation("seo.person.name"),
+    publisher: translation("seo.site.name"),
     robots: {
       index: true,
       follow: true,
@@ -68,9 +67,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       type: "website",
       url: canonical,
-      title: seo.openGraph.title,
-      description: seo.openGraph.description,
-      siteName: seo.site.name,
+      title: translation("seo.openGraph.title"),
+      description: translation("seo.openGraph.description"),
+      siteName: translation("seo.site.name"),
       locale: openGraphLocale,
       alternateLocale: openGraphAlternateLocales,
       images: [
@@ -78,16 +77,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           url: "/og/og-image.png",
           width: 1200,
           height: 630,
-          alt: seo.openGraph.imageAlt,
+          alt: translation("seo.openGraph.imageAlt"),
           type: "image/png",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: seo.twitter.title,
-      description: seo.twitter.description,
-      creator: seo.twitter.creator,
+      title: translation("seo.twitter.title"),
+      description: translation("seo.twitter.description"),
+      creator: translation("seo.twitter.creator"),
       images: ["/og/og-image.png"],
     },
     verification: {
@@ -105,14 +104,20 @@ export default async function LocaleLayout({ children, params }: Props) {
   const typedLocale = locale as Locale;
 
   setRequestLocale(typedLocale);
-  const seo = await getSeoMessages(typedLocale);
+  const translation = await getTranslations({ locale: typedLocale });
 
   const graph = buildJsonLdGraph({
-    siteName: seo.site.name,
-    siteUrl: seo.site.url,
+    siteName: translation("seo.site.name"),
+    siteUrl: translation("seo.site.url"),
     locale: typedLocale,
-    ogImageUrl: `${seo.site.url.replace(/\/$/, "")}/og/og-image.png`,
-    person: seo.person,
+    ogImageUrl: `${translation("seo.site.url").replace(/\/$/, "")}/og/og-image.png`,
+    person: {
+      name: translation("seo.person.name"),
+      jobTitle: translation("seo.person.jobTitle"),
+      image: translation("seo.person.image"),
+      sameAs: translation("seo.person.sameAs").split(","),
+      knowsAbout: translation("seo.person.knowsAbout").split(","),
+    },
   });
 
   return (

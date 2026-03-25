@@ -542,5 +542,12 @@
         "SaaS"
       ]
     }
+  },
+
+  "blogSection": {
+    "title": "Blog: ideas, código y negocio",
+    "subtitle": "Explora artículos donde mezclo ingeniería, producto y experiencias reales construyendo software.",
+    "ctaLabel": "Ver todos los artículos",
+    "comingSoon": "Pronto se agregarán artículos."
   }
 }
