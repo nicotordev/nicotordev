@@ -43,11 +43,17 @@ function buildSearchParams(query?: DirectusQuery): string {
   if (query.offset != null) params.set("offset", String(query.offset));
   if (query.sort?.length) params.set("sort", query.sort.join(","));
   if (query.filter && Object.keys(query.filter).length) {
+    const formattedFilter: Record<string, unknown> = {};
     Object.entries(query.filter).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
-        params.set(`filter[${key}][_eq]`, String(value));
+        if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+          formattedFilter[key] = value;
+        } else {
+          formattedFilter[key] = { _eq: value };
+        }
       }
     });
+    params.set("filter", JSON.stringify(formattedFilter));
   }
   const s = params.toString();
   return s ? `?${s}` : "";

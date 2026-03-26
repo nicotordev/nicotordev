@@ -11,6 +11,13 @@ import {
 import "./globals.css";
 import ProvidersWrapper from "@/providers/providers-wrapper";
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fdf2f8" },
+    { media: "(prefers-color-scheme: dark)", color: "#1c1917" },
+  ],
+};
+
 export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
@@ -18,11 +25,6 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.webp",
   },
   manifest: "/site.webmanifest",
-  // Reduce layout shift and help crawlers; themeColor can improve browser chrome.
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fdf2f8" },
-    { media: "(prefers-color-scheme: dark)", color: "#1c1917" },
-  ],
   robots: {
     index: true,
     follow: true,

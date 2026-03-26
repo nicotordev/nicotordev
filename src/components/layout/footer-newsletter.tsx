@@ -1,22 +1,52 @@
 "use client";
 
+import { subscribeToNewsletterAction } from "@/app/actions/newsletter.actions";
 import { BackgroundDecoration } from "@/components/backgrounds/background-decoration";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Spinner } from "@/components/ui/spinner";
 import type { Messages } from "@/types/i18n";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 interface FooterNewsletterProps {
   messages: Messages;
 }
 
 export default function FooterNewsletter({ messages }: FooterNewsletterProps) {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
   // Safe access to nested translation keys
   const t = (
     key: "title" | "description" | "placeholder" | "button" | "disclaimer",
   ) => {
     return messages?.newsletter?.[key] || key;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || !email.includes("@")) {
+      toast.error(messages?.leadMagnet?.form?.errors?.email_invalid || "Invalid email");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const result = await subscribeToNewsletterAction(email.trim());
+      if (result.success) {
+        toast.success(messages?.leadMagnet?.form?.successMessage || "Subscribed successfully!");
+        setEmail("");
+      } else {
+        toast.error(result.error || "Failed to subscribe");
+      }
+    } catch (error) {
+      toast.error("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -44,22 +74,32 @@ export default function FooterNewsletter({ messages }: FooterNewsletterProps) {
 
           <form
             className="relative w-full max-w-md mx-auto md:mx-0"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             <div className="relative flex items-center">
               <Input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder={t("placeholder")}
+                disabled={loading}
                 className="h-16 pl-6 pr-16 sm:pr-36 rounded-full bg-background/60 border-primary/20 shadow-inner focus:border-primary/50 focus:ring-primary/50 text-base sm:text-lg transition-all placeholder:text-muted-foreground/50"
               />
               <Button
                 type="submit"
                 size="icon"
+                disabled={loading}
                 aria-label={t("button")}
                 className="absolute right-2 top-2 bottom-2 h-12 w-12 sm:w-auto sm:px-6 rounded-full shadow-lg shadow-primary/20 shrink-0"
               >
-                <span className="hidden sm:inline mr-2">{t("button")}</span>
-                <Send className="w-5 h-5" />
+                {loading ? (
+                  <Spinner className="w-5 h-5 text-primary-foreground" />
+                ) : (
+                  <>
+                    <span className="hidden sm:inline mr-2">{t("button")}</span>
+                    <Send className="w-5 h-5" />
+                  </>
+                )}
               </Button>
             </div>
 

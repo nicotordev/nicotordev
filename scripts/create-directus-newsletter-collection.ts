@@ -1,6 +1,6 @@
 /**
- * Create the "links" collection in Directus for the linktr.ee style page.
- * Run: DIRECTUS_URL=https://directus.nicotordev.com DIRECTUS_TOKEN=... bun scripts/create-directus-links-collection.ts
+ * Create the "newsletter" collection in Directus.
+ * Run: DIRECTUS_URL=https://directus.nicotordev.com DIRECTUS_TOKEN=... bun scripts/create-directus-newsletter-collection.ts
  */
 
 export {};
@@ -14,42 +14,26 @@ const HEADERS: HeadersInit = {
   "Content-Type": "application/json",
 };
 
-const LINKS_FIELDS = [
+const NEWSLETTER_FIELDS = [
   {
-    field: "title",
+    field: "email",
     type: "string",
-    schema: { max_length: 255, is_nullable: false },
+    schema: { max_length: 255, is_nullable: false, is_unique: true },
     meta: { interface: "input", required: true },
   },
   {
-    field: "url",
+    field: "status",
     type: "string",
-    schema: { max_length: 512, is_nullable: false },
-    meta: { interface: "input", required: true },
-  },
-  {
-    field: "icon",
-    type: "string",
-    schema: { max_length: 64, is_nullable: true },
-    meta: { interface: "input", note: "Icon name (e.g. github, twitter, linkedin)" },
-  },
-  {
-    field: "icon_image",
-    type: "uuid",
-    schema: { is_nullable: true },
-    meta: { interface: "file-image", note: "Upload an image to replace the icon" },
-  },
-  {
-    field: "is_active",
-    type: "boolean",
-    schema: { default_value: true },
-    meta: { interface: "boolean" },
-  },
-  {
-    field: "sort",
-    type: "integer",
-    schema: { is_nullable: true },
-    meta: { interface: "input", hidden: true },
+    schema: { default_value: "subscribed", max_length: 32 },
+    meta: { 
+      interface: "select-dropdown", 
+      options: {
+        choices: [
+          { text: "Subscribed", value: "subscribed" },
+          { text: "Unsubscribed", value: "unsubscribed" }
+        ]
+      }
+    },
   },
 ];
 
@@ -64,28 +48,27 @@ async function run() {
     method: "POST",
     headers: HEADERS,
     body: JSON.stringify({
-      collection: "links",
+      collection: "newsletter",
       meta: {
-        icon: "link",
-        note: "Links for linktr.ee style page",
-        sort_field: "sort",
+        icon: "email",
+        note: "Newsletter subscribers",
       },
       schema: {},
-      fields: LINKS_FIELDS,
+      fields: NEWSLETTER_FIELDS,
     }),
   });
 
   if (res.ok) {
-    console.log("Created collection: links");
+    console.log("Created collection: newsletter");
     return;
   }
 
   const err = await res.text();
   if (err.includes("already exists") || res.status === 409) {
-    console.log("Collection 'links' already exists. Synchronizing fields...");
+    console.log("Collection 'newsletter' already exists. Synchronizing fields...");
     
-    for (const field of LINKS_FIELDS) {
-      const fieldRes = await fetch(`${BASE_URL.replace(/\/$/, "")}/fields/links`, {
+    for (const field of NEWSLETTER_FIELDS) {
+      const fieldRes = await fetch(`${BASE_URL.replace(/\/$/, "")}/fields/newsletter`, {
         method: "POST",
         headers: HEADERS,
         body: JSON.stringify(field),
@@ -95,7 +78,6 @@ async function run() {
         console.log(`Added missing field: ${field.field}`);
       } else {
         const fieldErr = await fieldRes.text();
-        // Ignore "already exists" errors for fields
         if (!fieldErr.includes("has to be unique") && !fieldErr.includes("already exists") && fieldRes.status !== 409) {
           console.error(`Failed to add field ${field.field}:`, fieldRes.status, fieldErr);
         }

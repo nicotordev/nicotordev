@@ -10,6 +10,7 @@ export type LinkFromCMS = {
   title: string;
   url: string;
   icon: string | null;
+  iconImage: string | null;
   isActive: boolean;
   sort: number | null;
 };
@@ -20,6 +21,7 @@ function mapDirectusLink(l: DirectusLink): LinkFromCMS {
     title: l.title,
     url: l.url,
     icon: l.icon,
+    iconImage: l.icon_image,
     isActive: l.is_active,
     sort: l.sort,
   };
@@ -30,6 +32,7 @@ const DEFAULT_FIELDS = [
   "title",
   "url",
   "icon",
+  "icon_image",
   "is_active",
   "sort",
 ] as const;
@@ -44,7 +47,7 @@ export async function fetchLinks(
     "/items/links",
     {
       fields: [...DEFAULT_FIELDS],
-      filter: { is_active: { _eq: true } },
+      filter: { is_active: true },
       sort: ["sort", "title"],
       limit: 100,
       ...query,
@@ -62,7 +65,7 @@ export async function fetchLinksOptional(): Promise<LinkFromCMS[] | null> {
     DirectusItemsResponse<DirectusLink>
   >("/items/links", {
     fields: [...DEFAULT_FIELDS],
-    filter: { is_active: { _eq: true } },
+    filter: { is_active: true },
     sort: ["sort", "title"],
     limit: 100,
   });

@@ -45,3 +45,8 @@ export {
   fetchLinksOptional,
   type LinkFromCMS,
 } from "@/lib/directus/links";
+
+export {
+  subscribeToNewsletter,
+  type DirectusNewsletterCreate,
+} from "@/lib/directus/newsletter";

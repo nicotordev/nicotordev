@@ -63,6 +63,7 @@ export type DirectusLink = {
   title: string;
   url: string;
   icon: string | null;
+  icon_image: string | null;
   is_active: boolean;
   sort: number | null;
 };

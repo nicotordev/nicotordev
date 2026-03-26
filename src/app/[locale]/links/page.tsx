@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 import type { Locale } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
-import { fetchLinksOptional, type LinkFromCMS } from "@/lib/directus";
+import { fetchLinksOptional, type LinkFromCMS, getDirectusUrl } from "@/lib/directus";
 import { getLocaleUrl } from "@/lib/seo/i18n";
 import type { Messages } from "@/types/i18n";
 import {
@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 export interface LinksPageProps {
   params: Promise<{ locale: string }>;
@@ -100,14 +101,14 @@ export default async function LinksPage({ params }: LinksPageProps) {
 
         <BackgroundDecoration className="opacity-50" />
         
-        <div className="pt-24 min-h-[70vh] relative z-10 w-full max-w-md mx-auto px-4 flex flex-col items-center gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
+        <div className="pb-32 pt-12 md:py-32 min-h-[70vh] relative z-10 w-full max-w-md mx-auto px-4 flex flex-col items-center gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
           
           {/* Profile Section */}
           <div className="flex flex-col items-center text-center gap-4">
             <div className="relative group">
               <div className="absolute -inset-1 bg-linear-to-r from-primary to-secondary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
               <Avatar className="h-28 w-28 sm:h-32 sm:w-32 ring-4 ring-background relative">
-                <AvatarImage src="/images/nicolas/nico-pc.webp" alt="NicoTorDev" className="object-cover" />
+                <AvatarImage src="/images/nicolas/nico-pc.webp" alt="NicoTorDev" className="object-cover rounded-full" />
                 <AvatarFallback>NT</AvatarFallback>
               </Avatar>
             </div>
@@ -130,6 +131,8 @@ export default async function LinksPage({ params }: LinksPageProps) {
           <div className="w-full flex flex-col gap-4">
             {linksList.map((link, index) => {
               const IconComponent = getIconComponent(link.icon);
+              const customImageUrl = link.iconImage ? `${getDirectusUrl()}/assets/${link.iconImage}` : null;
+              
               return (
                 <div 
                   key={link.id} 
@@ -145,8 +148,21 @@ export default async function LinksPage({ params }: LinksPageProps) {
                       <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                       
                       <div className="flex items-center gap-4 w-full">
-                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-secondary/10 group-hover:bg-primary/20 transition-colors duration-300 text-foreground shrink-0">
-                          <IconComponent className="h-5 w-5" />
+                        <div className="flex items-center justify-center h-10 w-10 shrink-0">
+                          {customImageUrl ? (
+                            <Image 
+                              src={customImageUrl} 
+                              alt={`${link.title} icon`} 
+                              width={40} 
+                              height={40} 
+                              className="object-contain h-full w-full rounded-sm"
+                              unoptimized
+                            />
+                          ) : (
+                            <div className="flex items-center justify-center h-full w-full rounded-full bg-secondary/10 group-hover:bg-primary/20 transition-colors duration-300 text-foreground">
+                              <IconComponent className="h-5 w-5" />
+                            </div>
+                          )}
                         </div>
                         <Typography as="span" className="font-semibold text-base sm:text-lg tracking-tight grow truncate">
                           {link.title}
