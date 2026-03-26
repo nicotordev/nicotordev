@@ -22,7 +22,6 @@ import {
 } from "lucide-react";
 import type { Metadata } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
-import Image from "next/image";
 
 export interface LinksPageProps {
   params: Promise<{ locale: string }>;
