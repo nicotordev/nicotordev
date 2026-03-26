@@ -4,6 +4,8 @@
  * Then run: bun scripts/seed-directus.ts to populate reviews.
  */
 
+export {};
+
 const BASE_URL =
   process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com";
 const AUTH_TOKEN = process.env.DIRECTUS_TOKEN ?? "";

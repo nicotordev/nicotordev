@@ -45,9 +45,7 @@ interface BlogSectionProps {
 }
 
 export default async function BlogSection({ messages }: BlogSectionProps) {
-  const t =
-    (messages as unknown as { blogSection?: Record<string, any> })
-      .blogSection ?? {};
+  const t = messages.blogSection ?? {};
 
   const sectionTitle = t.title ?? "Blog: ideas, código y negocio";
   const sectionSubtitle =

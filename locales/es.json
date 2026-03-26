@@ -292,37 +292,6 @@
       "error": "Error al reclamar el regalo. Por favor, intenta de nuevo."
     }
   },
-  "blogSection": {
-    "title": "Blog: ideas, código y negocio",
-    "subtitle": "Artículos donde mezclo ingeniería, producto y experiencias reales construyendo software con clientes alrededor del mundo.",
-    "comingSoon": "Pronto se agregarán artículos.",
-    "ctaLabel": "Ver todos los artículos",
-    "ctaHref": "#",
-    "readMoreLabel": "Leer artículo",
-    "posts": {
-      "first": {
-        "title": "Cómo pienso proyectos SaaS desde el día 0",
-        "description": "Del primer mensaje en Slack al primer usuario pagando: arquitectura, métricas y decisiones que nunca ignoro.",
-        "readTime": "8 min de lectura",
-        "href": "#",
-        "tag": "Producto + Ingeniería"
-      },
-      "second": {
-        "title": "Next.js + IA: patrones que realmente escalan",
-        "description": "Lecciones técnicas después de construir aplicaciones con IA que tienen usuarios reales y tráfico real.",
-        "readTime": "10 min de lectura",
-        "href": "#",
-        "tag": "AI · Full Stack"
-      },
-      "third": {
-        "title": "Freelance sin drama: cómo trabajo con equipos remotos",
-        "description": "Procesos, comunicación y acuerdos que uso para que los proyectos fluyan sin microgestión ni sorpresas.",
-        "readTime": "6 min de lectura",
-        "href": "#",
-        "tag": "Trabajo remoto"
-      }
-    }
-  },
   "reviews": {
     "pre_title": "Testimonios",
     "title": "Lo que dicen mis clientes",
@@ -572,5 +541,13 @@
         "SaaS"
       ]
     }
+  },
+  "blogSection": {
+    "title": "Blog: ideas, código y negocio",
+    "subtitle": "Artículos donde mezclo ingeniería, producto y experiencias reales construyendo software con clientes alrededor del mundo.",
+    "ctaLabel": "Ver todos los artículos",
+    "comingSoon": "Pronto se agregarán artículos.",
+    "readMoreLabel": "Leer artículo",
+    "ctaHref": "#"
   }
 }

@@ -3,6 +3,7 @@
     "home": "Inicio",
     "about": "Acerca de",
     "projects": "Proyectos",
+    "services": "Services",
     "blog": "Blog",
     "contact": "Contacto",
     "aria": {
@@ -401,7 +402,12 @@
     }
   },
   "footer": {
-    "opensInNewTab": "(se abre en una nueva pestaña)"
+    "title": "NicoTorDev Footer",
+    "description": {
+      "focus": "Building calm, fast products with a human voice."
+    },
+    "opensInNewTab": "(se abre en una nueva pestaña)",
+    "copyright": "All rights reserved."
   },
   "reviewsList": {
     "review-01": {
@@ -536,11 +542,12 @@
       ]
     }
   },
-
   "blogSection": {
     "title": "Blog: ideas, código y negocio",
     "subtitle": "Explora artículos donde combino ingeniería, producto y experiencias reales creando software.",
     "ctaLabel": "Ver todos los artículos",
-    "comingSoon": "Pronto se añadirán artículos."
+    "comingSoon": "Pronto se añadirán artículos.",
+    "readMoreLabel": "Read article",
+    "ctaHref": "#"
   }
 }

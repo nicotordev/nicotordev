@@ -13,7 +13,6 @@
     }
   },
   "common": {
-    "see_reviews": "Ver reseñas",
     "viewDetails": "Ver detalles",
     "login": "Iniciar sesión",
     "settings": "Ajustes",
@@ -84,7 +83,7 @@
     "description": {
       "intro": "Soy",
       "name": "Nicolás Torres",
-      "text": ", un Ingeniero Web Full-Stack especializado en TypeScript, Next.js, React, Node.js y sistemas potenciados con IA. He entregado software escalable a clientes en Alemania, Singapur, EE.UU. y Chile—manteniendo un 100% de Job Success Score como talento Top Rated en Upwork.",
+      "text": ", un Ingeniero Web Full-Stack especializado en TypeScript, Next.js, React, Node.js y sistemas potenciados con IA. He entregado software escalable a clientes en Alemania, Singapur, EE.UU. y Chile—manteniendo un alto Job Success Score como talento Top Rated en Upwork.",
       "focus": "Mi enfoque es construir productos limpios, rápidos y con propósito, que mejoren cómo operan los equipos."
     },
     "stats": {
@@ -543,11 +542,12 @@
       ]
     }
   },
-
   "blogSection": {
     "title": "Blog: ideas, código y negocio",
     "subtitle": "Explora artículos donde mezclo ingeniería, producto y experiencias reales construyendo software.",
     "ctaLabel": "Ver todos los artículos",
-    "comingSoon": "Pronto se agregarán artículos."
+    "comingSoon": "Pronto se agregarán artículos.",
+    "readMoreLabel": "Leer artículo",
+    "ctaHref": "#"
   }
 }

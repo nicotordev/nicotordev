@@ -541,5 +541,13 @@
         "SaaS"
       ]
     }
+  },
+  "blogSection": {
+    "title": "Blog: Ideas, Code, and Business",
+    "subtitle": "Explore articles where I mix engineering, product strategy, and real-world experiences building software.",
+    "ctaLabel": "View all articles",
+    "comingSoon": "Articles will be added soon.",
+    "readMoreLabel": "Read article",
+    "ctaHref": "#"
   }
 }

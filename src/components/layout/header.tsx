@@ -31,7 +31,7 @@ export default function Header({ messages }: { messages: Messages }) {
   return (
     <header
       className={cn(
-        "left-0 top-0 sticky z-40 w-full px-2 py-2 flex items-center justify-center"
+        "left-0 top-0 sticky z-40 w-full px-2 py-2 flex items-center justify-center bg-transparent"
       )}
     >
       <div

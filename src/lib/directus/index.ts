@@ -11,6 +11,7 @@ export type {
   DirectusProject,
   DirectusProjectAsset,
   DirectusBlog,
+  DirectusLink,
   DirectusItemsResponse,
   DirectusItemResponse,
 } from "@/lib/directus/types";
@@ -38,3 +39,9 @@ export {
 } from "@/lib/directus/blogs";
 
 export { createLead, type CreateLeadPayload } from "@/lib/directus/leads";
+
+export {
+  fetchLinks,
+  fetchLinksOptional,
+  type LinkFromCMS,
+} from "@/lib/directus/links";

@@ -3,6 +3,7 @@
     "home": "Startseite",
     "about": "Über mich",
     "projects": "Projekte",
+    "services": "Services",
     "blog": "Blog",
     "contact": "Kontakt",
     "aria": {
@@ -12,7 +13,6 @@
     }
   },
   "common": {
-    "see_reviews": "Bewertungen ansehen",
     "viewDetails": "Details ansehen",
     "login": "Anmelden",
     "settings": "Einstellungen",
@@ -402,7 +402,12 @@
     }
   },
   "footer": {
-    "opensInNewTab": "(öffnet in einem neuen Tab)"
+    "title": "NicoTorDev Footer",
+    "description": {
+      "focus": "Building calm, fast products with a human voice."
+    },
+    "opensInNewTab": "(öffnet in einem neuen Tab)",
+    "copyright": "All rights reserved."
   },
   "reviewsList": {
     "review-01": {
@@ -536,5 +541,13 @@
         "SaaS"
       ]
     }
+  },
+  "blogSection": {
+    "title": "Blog: Ideen, Code und Business",
+    "subtitle": "Entdecke Artikel, in denen ich Engineering, Produktstrategie und meine Erfahrungen aus der Softwareentwicklung teile.",
+    "ctaLabel": "Alle Artikel ansehen",
+    "comingSoon": "Artikel folgen in Kürze.",
+    "readMoreLabel": "Artikel lesen",
+    "ctaHref": "#"
   }
 }

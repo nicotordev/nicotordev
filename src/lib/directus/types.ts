@@ -58,6 +58,15 @@ export type DirectusBlog = {
   date_published: string | null;
 };
 
+export type DirectusLink = {
+  id: number;
+  title: string;
+  url: string;
+  icon: string | null;
+  is_active: boolean;
+  sort: number | null;
+};
+
 export type DirectusItemsResponse<T> = {
   data: T[] | null;
   meta?: { total_count?: number; filter_count?: number };

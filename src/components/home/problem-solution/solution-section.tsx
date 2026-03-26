@@ -117,7 +117,7 @@ export default function SolutionSection({
                   {subtitleBold3}
                 </Typography>{" "}
                 {subtitleTo}{" "}
-                <Typography as="span" className="font-semibold text-primary">
+                <Typography as="span" className="font-semibold text-secondary">
                   {subtitleBold4}
                 </Typography>
                 .
