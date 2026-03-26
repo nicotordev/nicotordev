@@ -81,15 +81,6 @@ export default function AboutMeSection({
 
   const resolvedGallery: AboutMeGalleryItem[] = [
     {
-      src: "/images/nicolas/conce-ai.webp",
-      alt:
-        galleryMsgs.conceAi?.alt ?? photosMsgs.gallery_1_alt ?? "Conce AI Logo",
-      size: "large",
-      description:
-        galleryMsgs.conceAi?.description ??
-        "The official logo of Conce AI, my technology business.",
-    },
-    {
       src: "/images/nicolas/nico-as-psychedelic-wizard.webp",
       alt:
         galleryMsgs.wizard?.alt ??

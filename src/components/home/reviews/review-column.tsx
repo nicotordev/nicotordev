@@ -17,10 +17,9 @@ export default function ReviewColumn({
   reverse = false,
 }: ReviewColumnProps) {
   return (
-    <div className="h-full w-80">
+    <div className="w-full relative">
       <Marquee
         pauseOnHover
-        vertical
         reverse={reverse}
         repeat={2}
         className={cn("[--duration:40s]", className)}

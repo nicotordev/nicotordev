@@ -16,16 +16,16 @@ export default function ReviewList3D({ reviews }: ReviewList3DProps) {
   );
 
   return (
-    <div className="relative flex w-full h-fit items-center justify-center overflow-y-clip rounded-2xl bg-transparent">
+    <div className="relative flex w-full h-fit flex-col items-center justify-center overflow-x-hidden overflow-y-clip rounded-2xl bg-transparent py-10 sm:py-20 lg:py-32">
       <ReviewDialogProvider>
-        <div className="w-full relative z-10 flex h-[1800px] items-center bg-transparent px-4 sm:px-6 lg:px-8">
-          <div className="flex w-full justify-center md:hidden">
+        <div className="w-full relative z-10 flex flex-col items-center gap-6 sm:gap-8 bg-transparent">
+          <div className="flex w-full md:hidden">
             <ReviewColumn
               reviews={mobileRow.reviews}
               reverse={mobileRow.reverse}
             />
           </div>
-          <div className="hidden w-full items-center justify-between gap-6 md:flex">
+          <div className="hidden w-full flex-col gap-6 sm:gap-8 md:flex mt-12 mb-12 transform-gpu">
             {rows.map((col, idx) => (
               <ReviewColumn
                 key={`reviews-col-${idx}`}
