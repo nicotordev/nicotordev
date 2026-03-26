@@ -1,6 +1,7 @@
 "use server";
 
 import { createLead } from "@/lib/directus/leads";
+import { notifyNewLead } from "@/lib/mail";
 
 export type SubmitLeadPayload = {
   name: string;
@@ -29,6 +30,17 @@ export async function saveLeadAction(
       source,
       turnstileValidated: Boolean(turnstileToken),
     });
+
+    if (lead) {
+      // Notify admin - don't await to avoid blocking response
+      notifyNewLead({
+        name: name.trim(),
+        email: email.trim(),
+        message: message.trim(),
+        source,
+      }).catch((e) => console.error("Failed to notify admin of new lead:", e));
+    }
+
     return { success: lead != null };
   } catch (e) {
     const message = e instanceof Error ? e.message : "Failed to save lead";
