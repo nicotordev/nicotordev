@@ -8,7 +8,7 @@ import {
 } from "@/lib/seo/i18n";
 import type { Locale } from "@/i18n/config";
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale, getMessages } from "next-intl/server";
 import type { ReactNode } from "react";
 
 type Props = {
@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const typedLocale = locale as Locale;
 
   const translation = await getTranslations({ locale: typedLocale });
+  const messages = (await getMessages({ locale: typedLocale })) as any;
   const siteUrl = translation("seo.site.url").replace(/\/$/, "");
   const canonical = getLocaleUrl(siteUrl, typedLocale);
 
@@ -45,10 +46,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     metadataBase: new URL(siteUrl),
-    title: { default: translation("seo.title.default"), template: translation("seo.title.template")  },
+    title: {
+      default: translation("seo.title.default"),
+      template: translation("seo.title.template"),
+    },
     description: translation("seo.description"),
     applicationName: translation("seo.site.name"),
-    keywords: translation("seo.keywords"),
+    keywords: messages?.seo?.keywords as string[] || [],
     alternates: { canonical, languages: alternatesLanguages },
     authors: [{ name: translation("seo.person.name"), url: siteUrl }],
     creator: translation("seo.person.name"),
@@ -91,7 +95,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     verification: {
       ...(googleVerification ? { google: googleVerification } : {}),
-      ...(Object.keys(otherVerification).length ? { other: otherVerification } : {}),
+      ...(Object.keys(otherVerification).length
+        ? { other: otherVerification }
+        : {}),
     },
     other: {
       "content-language": localeToLanguageTag[typedLocale],
@@ -105,6 +111,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(typedLocale);
   const translation = await getTranslations({ locale: typedLocale });
+  const messages = (await getMessages({ locale: typedLocale })) as any;
 
   const graph = buildJsonLdGraph({
     siteName: translation("seo.site.name"),
@@ -115,8 +122,8 @@ export default async function LocaleLayout({ children, params }: Props) {
       name: translation("seo.person.name"),
       jobTitle: translation("seo.person.jobTitle"),
       image: translation("seo.person.image"),
-      sameAs: translation("seo.person.sameAs").split(","),
-      knowsAbout: translation("seo.person.knowsAbout").split(","),
+      sameAs: messages?.seo?.person?.sameAs as string | string[],
+      knowsAbout: messages?.seo?.person?.knowsAbout as string | string[],
     },
   });
 

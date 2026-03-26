@@ -23,8 +23,8 @@ export type SeoMessages = {
     name: string;
     jobTitle: string;
     image: string;
-    sameAs: string[];
-    knowsAbout: string[];
+    sameAs: string | string[];
+    knowsAbout: string | string[];
   };
 };
 
