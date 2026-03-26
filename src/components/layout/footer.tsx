@@ -93,10 +93,10 @@ export default function Footer({ messages }: FooterProps) {
               </nav>
 
               <a
-                href="mailto:hello@nicotordev.com"
+                href="mailto:nicotordev@gmail.com"
                 className="text-sm font-medium text-primary-foreground transition-colors hover:text-primary-foreground/90"
               >
-                hello@nicotordev.com
+                nicotordev@gmail.com
               </a>
             </div>
           </div>

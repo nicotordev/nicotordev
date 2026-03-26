@@ -9,6 +9,7 @@ import { useWindowScroll } from "react-use";
 import type { Messages } from "@/types/i18n";
 import { Typography } from "../ui/typography";
 import HeaderMobileMenu from "./header-mobile-menu";
+import Link from "next/link";
 
 // Render real header on first paint to avoid LCP delay and layout shift (no client-only skeleton).
 export default function Header({ messages }: { messages: Messages }) {
@@ -31,7 +32,7 @@ export default function Header({ messages }: { messages: Messages }) {
   return (
     <header
       className={cn(
-        "left-0 top-0 sticky z-40 w-full px-2 py-2 flex items-center justify-center bg-transparent"
+        "left-0 top-0 sticky z-40 w-full px-2 py-2 flex items-center justify-center bg-transparent",
       )}
     >
       <div
@@ -39,16 +40,16 @@ export default function Header({ messages }: { messages: Messages }) {
           "relative w-full max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
           y > 10
             ? "bg-background/50 backdrop-blur-xl border-primary/40 shadow-primary supports-backdrop-filter:bg-background/50"
-            : "bg-transparent border-transparent shadow-none"
+            : "bg-transparent border-transparent shadow-none",
         )}
       >
         <nav
           aria-label={navigationAria.global || "Global navigation"}
           className="relative flex items-center justify-between gap-4 py-2"
         >
-          <div className="flex md:flex-1">
+          <Link href="/" className="flex md:flex-1">
             <Logo width={120} height={30} priority alt={logoAlt} />
-          </div>
+          </Link>
 
           {/* Mobile menu */}
 
