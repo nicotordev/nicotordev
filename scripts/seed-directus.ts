@@ -291,7 +291,7 @@ type ProjectSeed = {
   linkText?: string;
   isActive: boolean;
   sortOrder: number;
-  assets: Array<{ id: string; name: string; url: string; alt?: string; type: string }>;
+  gallery: Array<{ id: string; name: string; url: string; alt?: string; type: string }>;
 };
 
 async function seedProjects() {
@@ -312,7 +312,6 @@ async function seedProjects() {
       link_text: p.linkText ?? null,
       is_active: p.isActive,
       sort_order: p.sortOrder,
-      assets: p.assets,
     };
     const res = await fetch(`${SEED_DIRECTUS_URL}/items/projects`, {
       method: "POST",

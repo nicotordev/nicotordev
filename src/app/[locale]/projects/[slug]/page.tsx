@@ -3,6 +3,7 @@ import Header from "@/components/layout/header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { ImageDialog } from "@/components/ui/image-dialog";
 import type { Locale } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
 import { fetchProjectBySlug } from "@/lib/directus";
@@ -127,6 +128,42 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               priority
             />
           </div>
+
+          {project.gallery.length > 0 ? (
+            <div className="mt-10 grid gap-4 sm:grid-cols-2">
+              {project.gallery.map((item) => (
+                <div
+                  key={item.id}
+                  className="relative aspect-video overflow-hidden rounded-lg border bg-muted"
+                >
+                  {item.type === "VIDEO" ? (
+                    <video
+                      src={item.url}
+                      className="h-full w-full object-cover"
+                      controls
+                      playsInline
+                      preload="metadata"
+                    />
+                  ) : (
+                    <ImageDialog
+                      src={item.url}
+                      alt={item.alt ?? item.name}
+                      width={1920}
+                      height={1080}
+                    >
+                      <Image
+                        src={item.url}
+                        alt={item.alt ?? item.name}
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 1024px) 480px, 100vw"
+                      />
+                    </ImageDialog>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : null}
 
           <Card className="mt-10 border-border/70 bg-card/80 backdrop-blur-sm">
             <CardContent className="p-6 sm:p-10">

@@ -19,7 +19,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 1,
     createdAt: "2025-06-29T00:00:00Z",
     updatedAt: "2025-06-29T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "regulex-1",
         name: "Regulex compliance dashboard",
@@ -102,7 +102,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 2,
     createdAt: "2025-10-20T00:00:00Z",
     updatedAt: "2025-10-20T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "v0-mcp-1",
         name: "MCP integration overview",
@@ -129,7 +129,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 3,
     createdAt: "2025-10-18T00:00:00Z",
     updatedAt: "2025-10-18T00:00:00Z",
-    assets: [],
+    gallery: [],
   },
   {
     id: "proj_4",
@@ -148,7 +148,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 4,
     createdAt: "2024-10-15T00:00:00Z",
     updatedAt: "2024-10-15T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "seguidoress-1",
         name: "Seguidoress storefront",
@@ -240,7 +240,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 5,
     createdAt: "2024-09-25T00:00:00Z",
     updatedAt: "2024-09-25T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "sexyconce-1",
         name: "SexyConce automation UI",
@@ -267,7 +267,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 6,
     createdAt: "2024-05-01T00:00:00Z",
     updatedAt: "2024-10-01T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "flowcl-1",
         name: "FlowCL Pagos SDK",
@@ -294,7 +294,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 8,
     createdAt: "2023-11-01T00:00:00Z",
     updatedAt: "2023-11-01T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "spiritory-1",
         name: "Spiritory marketplace hero",
@@ -370,7 +370,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 9,
     createdAt: "2024-01-15T00:00:00Z",
     updatedAt: "2024-01-15T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "funpicai-1",
         name: "FunpicAI gallery",
@@ -418,7 +418,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 10,
     createdAt: "2023-11-12T00:00:00Z",
     updatedAt: "2023-11-12T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "crypto-screener-1",
         name: "Crypto screener overview",
@@ -492,7 +492,7 @@ export const staticProjects: ProjectDTO[] = [
     sortOrder: 11,
     createdAt: "2023-08-20T00:00:00Z",
     updatedAt: "2023-08-20T00:00:00Z",
-    assets: [
+    gallery: [
       {
         id: "classpro-1",
         name: "Classpro planner",

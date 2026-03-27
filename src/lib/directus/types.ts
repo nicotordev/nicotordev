@@ -17,12 +17,19 @@ export type DirectusReview = {
   hourly_rate: number | null;
 };
 
-export type DirectusProjectAsset = {
-  id: string;
-  name: string;
-  url: string;
-  alt?: string;
-  type: string;
+/** Junction row from `projects.gallery` (M2M to `directus_files`). */
+export type DirectusProjectGalleryRow = {
+  id?: number;
+  directus_files_id:
+    | string
+    | {
+        id: string;
+        title?: string | null;
+        type?: string | null;
+        description?: string | null;
+      }
+    | null;
+  sort?: number | null;
 };
 
 export type DirectusProject = {
@@ -40,7 +47,8 @@ export type DirectusProject = {
   link_text: string | null;
   is_active: boolean;
   sort_order: number;
-  assets: DirectusProjectAsset[] | null;
+  /** M2M files field; may be IDs only or expanded via `fields`. */
+  gallery?: DirectusProjectGalleryRow[] | number[] | null;
   /** Rich HTML content (WYSIWYG) */
   body?: string | null;
   date_created?: string | null;

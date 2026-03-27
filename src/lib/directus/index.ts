@@ -9,7 +9,7 @@ export {
 export type {
   DirectusReview,
   DirectusProject,
-  DirectusProjectAsset,
+  DirectusProjectGalleryRow,
   DirectusBlog,
   DirectusLink,
   DirectusItemsResponse,

@@ -1,6 +1,19 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
+function directusImageHostname(): string {
+  const raw =
+    process.env.NEXT_PUBLIC_DIRECTUS_URL ??
+    process.env.DIRECTUS_URL ??
+    "https://directus.nicotordev.com";
+  try {
+    const withProto = raw.startsWith("http") ? raw : `https://${raw}`;
+    return new URL(withProto).hostname;
+  } catch {
+    return "directus.nicotordev.com";
+  }
+}
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   reactCompiler: true,
@@ -13,6 +26,7 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "i.pravatar.cc" },
       { protocol: "https", hostname: "avatars.dicebear.com" },
       { protocol: "https", hostname: "picsum.photos" },
+      { protocol: "https", hostname: directusImageHostname() },
     ],
   },
 

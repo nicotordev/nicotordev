@@ -3,12 +3,13 @@
  *
  * 1) GET /fields/projects — detect missing columns.
  * 2) POST /fields/projects — ensure:
- *    - `assets` (json) for seed JSON gallery data.
  *    - `date_created` / `date_updated` (timestamp + special date-created / date-updated)
  *      if the collection was created without system timestamps (common when collections
  *      are added via API without defaults).
  * 3) PATCH /permissions/:id — merge read rules that use an explicit field list so
- *    `assets`, `date_created`, `date_updated` are included (skip when `fields` is ["*"]).
+ *    `gallery`, `date_created`, `date_updated` are included (skip when `fields` is ["*"]).
+ *
+ * Gallery is a native Directus M2M/files field (`gallery`); it is not created here.
  *
  * Use an admin token (or one that can manage fields + permissions), not a public read token.
  *
@@ -26,7 +27,7 @@ const HEADERS: HeadersInit = {
 };
 
 const REQUIRED_READ_FIELDS = [
-  "assets",
+  "gallery",
   "date_created",
   "date_updated",
 ] as const;
@@ -47,44 +48,6 @@ async function getProjectFieldNames(): Promise<Set<string>> {
     data?: Array<{ field: string }>;
   };
   return new Set((listJson.data ?? []).map((f) => f.field));
-}
-
-async function ensureAssetsField(names: Set<string>): Promise<void> {
-  if (names.has("assets")) {
-    console.log("Field projects.assets already exists.");
-    return;
-  }
-
-  const createRes = await fetch(`${BASE_URL}/fields/projects`, {
-    method: "POST",
-    headers: HEADERS,
-    body: JSON.stringify({
-      field: "assets",
-      type: "json",
-      schema: {},
-      meta: {
-        interface: "input-json",
-        note: "Gallery / asset list JSON (see seed-directus.ts)",
-      },
-    }),
-  });
-  if (createRes.ok) {
-    console.log("Created field: projects.assets (json).");
-    names.add("assets");
-    return;
-  }
-  const err = await createRes.text();
-  if (err.includes("already exists") || createRes.status === 409) {
-    console.log("Field projects.assets already exists.");
-    names.add("assets");
-    return;
-  }
-  console.error(
-    "POST /fields/projects (assets) failed:",
-    createRes.status,
-    err,
-  );
-  process.exit(1);
 }
 
 async function ensureSystemTimestampField(
@@ -176,7 +139,7 @@ async function patchProjectsReadPermissions(): Promise<void> {
   for (const row of rows) {
     if (readFieldsAlreadyOk(row.fields)) {
       console.log(
-        `Permission id=${row.id} (read projects): fields already allow assets + timestamps or "*".`,
+        `Permission id=${row.id} (read projects): fields already allow gallery + timestamps or "*".`,
       );
       continue;
     }
@@ -212,8 +175,12 @@ async function main() {
   }
   const names = await getProjectFieldNames();
 
-  console.log("Ensuring projects.assets...");
-  await ensureAssetsField(names);
+  if (!names.has("gallery")) {
+    console.warn(
+      "Field projects.gallery is missing. Add a Files/M2M gallery field in Directus; this script does not create it.",
+    );
+  }
+
   console.log("Ensuring projects.date_created / date_updated...");
   await ensureSystemTimestampField(names, "date_created", "date-created");
   await ensureSystemTimestampField(names, "date_updated", "date-updated");

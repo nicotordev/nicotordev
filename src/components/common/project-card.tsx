@@ -1,6 +1,5 @@
 "use client";
 
-import type { AssetDTO } from "@/types/projects";
 import {
   Card,
   CardContent,
@@ -28,7 +27,6 @@ interface ProjectCardProps {
   sortOrder: number;
   createdAt: string;
   updatedAt: string;
-  assets: AssetDTO[];
 }
 
 export default function ProjectCard({
@@ -45,7 +43,6 @@ export default function ProjectCard({
   sortOrder,
   createdAt,
   updatedAt,
-  assets,
 }: ProjectCardProps) {
   const {} = useLocalizedPreferences();
   return (

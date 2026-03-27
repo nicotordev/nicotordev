@@ -27,5 +27,6 @@ export type ProjectDTO = {
   updatedAt: string;
   /** Rich HTML body from Directus (WYSIWYG). */
   body?: string | null;
-  assets: AssetDTO[];
+  /** Gallery items (Directus `gallery` M2M → files, or static URLs in local data). */
+  gallery: AssetDTO[];
 };
