@@ -25,5 +25,7 @@ export type ProjectDTO = {
   sortOrder: number;
   createdAt: string;
   updatedAt: string;
+  /** Rich HTML body from Directus (WYSIWYG). */
+  body?: string | null;
   assets: AssetDTO[];
 };

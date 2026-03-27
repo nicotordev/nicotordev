@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -13,13 +14,15 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Typography } from "@/components/ui/typography";
-
-import { staticProjects } from "@/app/data/projects";
+import type { Locale } from "@/i18n/config";
+import type { ProjectFromCMS } from "@/lib/directus";
 import type { Messages } from "@/types/i18n";
 import ProjectsTitleOverlay from "./projects-title-overlay";
 
 interface ProjectsCarouselClientProps {
   messages: Messages;
+  projects: ProjectFromCMS[];
+  locale: Locale;
 }
 
 type ProjectsCarouselI18n = {
@@ -27,14 +30,18 @@ type ProjectsCarouselI18n = {
   viewProject?: string;
 };
 
-const ProjectsCarouselClient = ({ messages }: ProjectsCarouselClientProps) => {
+const ProjectsCarouselClient = ({
+  messages,
+  projects,
+  locale,
+}: ProjectsCarouselClientProps) => {
   const t = (messages.projects?.carousel ?? {}) as ProjectsCarouselI18n;
 
   const media = messages.common?.a11y?.media ?? {};
   const textureAlt = media.textureAlt || "Animated texture";
 
   const [carouselApi, setCarouselApi] = useState<CarouselApi | undefined>(
-    undefined
+    undefined,
   );
   const [canScrollPrev, setCanScrollPrev] = useState<boolean>(false);
   const [canScrollNext, setCanScrollNext] = useState<boolean>(false);
@@ -133,7 +140,7 @@ const ProjectsCarouselClient = ({ messages }: ProjectsCarouselClientProps) => {
           className="relative w-full max-w-full"
         >
           <CarouselContent className="w-full max-w-full -ml-6 px-1 sm:px-2">
-            {staticProjects.map((item, index) => (
+            {projects.map((item, index) => (
               <CarouselItem
                 key={item.id}
                 className="pl-6 basis-10/12 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/3 2xl:basis-1/4"
@@ -176,12 +183,15 @@ const ProjectsCarouselClient = ({ messages }: ProjectsCarouselClientProps) => {
                       {item.description}
                     </Typography>
 
-                    <div className="group/btn mt-auto flex w-fit items-center pt-4 text-sm font-medium text-white transition-colors group-hover:text-accent">
+                    <Link
+                      href={`/${locale}/projects/${item.slug}`}
+                      className="group/btn mt-auto flex w-fit items-center pt-4 text-sm font-medium text-white transition-colors hover:text-accent"
+                    >
                       <Typography
                         as="span"
                         role="button"
                         mood="artistic"
-                        className="underline decoration-white/50 underline-offset-4 transition-all group-hover:decoration-accent"
+                        className="underline decoration-white/50 underline-offset-4 transition-all group-hover/btn:decoration-accent"
                       >
                         {viewProjectText}
                       </Typography>
@@ -189,7 +199,7 @@ const ProjectsCarouselClient = ({ messages }: ProjectsCarouselClientProps) => {
                         className="ml-2 size-4 transition-transform group-hover/btn:translate-x-1"
                         aria-hidden="true"
                       />
-                    </div>
+                    </Link>
                   </div>
                 </motion.div>
               </CarouselItem>

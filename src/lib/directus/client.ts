@@ -33,6 +33,55 @@ export type DirectusQuery = {
   offset?: number;
 };
 
+/** Serialize a filter object into Directus REST query params (nested keys, not JSON). */
+function appendDirectusFilter(
+  params: URLSearchParams,
+  filter: Record<string, unknown>,
+  keyPrefix: string,
+): void {
+  for (const [key, value] of Object.entries(filter)) {
+    if (value === undefined || value === null) continue;
+    const path = `${keyPrefix}[${key}]`;
+
+    if (Array.isArray(value)) {
+      value.forEach((item, index) => {
+        if (item != null && typeof item === "object" && !Array.isArray(item)) {
+          appendDirectusFilter(
+            params,
+            item as Record<string, unknown>,
+            `${keyPrefix}[${key}][${index}]`,
+          );
+        }
+      });
+      continue;
+    }
+
+    if (typeof value === "object" && !Array.isArray(value)) {
+      const sub = value as Record<string, unknown>;
+      const subKeys = Object.keys(sub);
+      const operatorsOnly =
+        subKeys.length > 0 && subKeys.every((k) => k.startsWith("_"));
+      if (operatorsOnly) {
+        for (const [op, v] of Object.entries(sub)) {
+          if (v === undefined || v === null) continue;
+          if (op === "_in" && Array.isArray(v)) {
+            params.append(`${path}[${op}]`, v.map(String).join(","));
+          } else if (typeof v === "boolean") {
+            params.append(`${path}[${op}]`, v ? "true" : "false");
+          } else {
+            params.append(`${path}[${op}]`, String(v));
+          }
+        }
+      } else {
+        appendDirectusFilter(params, sub, path);
+      }
+      continue;
+    }
+
+    params.append(`${path}[_eq]`, String(value));
+  }
+}
+
 function buildSearchParams(query?: DirectusQuery): string {
   if (!query) return "";
   const params = new URLSearchParams();
@@ -46,14 +95,18 @@ function buildSearchParams(query?: DirectusQuery): string {
     const formattedFilter: Record<string, unknown> = {};
     Object.entries(query.filter).forEach(([key, value]) => {
       if (value !== undefined && value !== null) {
-        if (typeof value === "object" && value !== null && !Array.isArray(value)) {
+        if (
+          typeof value === "object" &&
+          value !== null &&
+          !Array.isArray(value)
+        ) {
           formattedFilter[key] = value;
         } else {
           formattedFilter[key] = { _eq: value };
         }
       }
     });
-    params.set("filter", JSON.stringify(formattedFilter));
+    appendDirectusFilter(params, formattedFilter, "filter");
   }
   const s = params.toString();
   return s ? `?${s}` : "";
@@ -61,7 +114,7 @@ function buildSearchParams(query?: DirectusQuery): string {
 
 export async function directusFetch<T>(
   path: string,
-  query?: DirectusQuery
+  query?: DirectusQuery,
 ): Promise<T> {
   const url = `${getDirectusUrl()}${path}${buildSearchParams(query)}`;
   const res = await fetch(url, {
@@ -77,7 +130,7 @@ export async function directusFetch<T>(
 
 export async function directusFetchOptional<T>(
   path: string,
-  query?: DirectusQuery
+  query?: DirectusQuery,
 ): Promise<T | null> {
   try {
     return await directusFetch<T>(path, query);
@@ -89,7 +142,7 @@ export async function directusFetchOptional<T>(
 /** POST JSON to Directus (e.g. create item). Use server-side so DIRECTUS_TOKEN is available. */
 export async function directusPost<T, B = unknown>(
   path: string,
-  body: B
+  body: B,
 ): Promise<T> {
   const url = `${getDirectusUrl()}${path}`;
   const res = await fetch(url, {

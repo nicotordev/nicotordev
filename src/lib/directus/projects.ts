@@ -22,8 +22,8 @@ const DEFAULT_FIELDS = [
   "link_text",
   "is_active",
   "sort_order",
-  "assets",
   "body",
+  "assets",
   "date_created",
   "date_updated",
 ] as const;
@@ -85,7 +85,7 @@ function toProjectFromCMS(p: DirectusProject): ProjectFromCMS {
  * Fetch all active projects from Directus, ordered by sort_order.
  */
 export async function fetchProjects(
-  query?: Partial<DirectusQuery>
+  query?: Partial<DirectusQuery>,
 ): Promise<ProjectFromCMS[]> {
   const res = await directusFetch<DirectusItemsResponse<DirectusProject>>(
     "/items/projects",
@@ -95,7 +95,7 @@ export async function fetchProjects(
       sort: ["sort_order", "id"],
       limit: 100,
       ...query,
-    }
+    },
   );
   const list = res.data ?? [];
   return list.map(toProjectFromCMS);
@@ -104,7 +104,9 @@ export async function fetchProjects(
 /**
  * Fetch projects from Directus; returns null on failure.
  */
-export async function fetchProjectsOptional(): Promise<ProjectFromCMS[] | null> {
+export async function fetchProjectsOptional(): Promise<
+  ProjectFromCMS[] | null
+> {
   const res = await directusFetchOptional<
     DirectusItemsResponse<DirectusProject>
   >("/items/projects", {
@@ -121,7 +123,7 @@ export async function fetchProjectsOptional(): Promise<ProjectFromCMS[] | null> 
  * Fetch a single project by project_id.
  */
 export async function fetchProjectById(
-  projectId: string
+  projectId: string,
 ): Promise<ProjectFromCMS | null> {
   try {
     const res = await directusFetch<{ data: DirectusProject[] }>(
@@ -130,7 +132,7 @@ export async function fetchProjectById(
         fields: [...DEFAULT_FIELDS],
         filter: { project_id: projectId },
         limit: 1,
-      }
+      },
     );
     const item = res.data?.[0];
     return item ? toProjectFromCMS(item) : null;
@@ -143,7 +145,7 @@ export async function fetchProjectById(
  * Fetch a single project by slug (e.g. "regulex", "v0-dev-mcp").
  */
 export async function fetchProjectBySlug(
-  slug: string
+  slug: string,
 ): Promise<ProjectFromCMS | null> {
   try {
     const res = await directusFetch<{ data: DirectusProject[] }>(
@@ -152,7 +154,7 @@ export async function fetchProjectBySlug(
         fields: [...DEFAULT_FIELDS],
         filter: { slug, is_active: true },
         limit: 1,
-      }
+      },
     );
     const item = res.data?.[0];
     return item ? toProjectFromCMS(item) : null;
