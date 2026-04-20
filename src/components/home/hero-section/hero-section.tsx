@@ -174,7 +174,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
           <div
             className={cn(
               "mt-8 w-full",
-              "flex flex-col gap-3",
+              "flex flex-col gap-3 items-center",
               "sm:flex-row sm:justify-center sm:gap-6"
             )}
           >
@@ -201,7 +201,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                 "w-full",
                 "border border-border",
                 "text-sm font-medium opacity-90",
-                "sm:w-auto sm:opacity-100"
+                "sm:w-auto sm:opacity-100",
               )}
               label={
                 <Typography as="span" mood="artistic" role="button">

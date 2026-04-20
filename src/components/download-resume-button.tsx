@@ -1,5 +1,6 @@
 "use client";
 
+import { assets } from "@/app/assets";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -26,57 +27,35 @@ interface ResumeFormat {
   extension: string;
 }
 
-const RESUME_FORMATS: ResumeFormat[] = [
-  {
-    label: "PDF",
-    icon: "📄",
-    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.pdf",
-    downloadName: "Nicolas-Torres-Henriquez-2026-CV.pdf",
-    extension: "pdf",
-  },
-  {
-    label: "Text",
-    icon: "📃",
-    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.txt",
-    downloadName: "Nicolas-Torres-Henriquez-2026-CV.txt",
-    extension: "txt",
-  },
-  {
-    label: "Markdown",
-    icon: "📋",
-    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.md",
-    downloadName: "Nicolas-Torres-Henriquez-2026-CV.md",
-    extension: "md",
-  },
-  {
-    label: "HTML",
-    icon: "🌐",
-    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.html",
-    downloadName: "Nicolas-Torres-Henriquez-2026-CV.html",
-    extension: "html",
-  },
-  {
-    label: "PNG (Page 1)",
-    icon: "🖼️",
-    href: "/documents/Nicolas-Torres-Henriquez-2026-CV-page-1.png",
-    downloadName: "Nicolas-Torres-Henriquez-2026-CV-page-1.png",
-    extension: "png",
-  },
-  {
-    label: "PNG (Page 2)",
-    icon: "🖼️",
-    href: "/documents/Nicolas-Torres-Henriquez-2026-CV-page-2.png",
-    downloadName: "Nicolas-Torres-Henriquez-2026-CV-page-2.png",
-    extension: "png",
-  },
-  {
-    label: "Metadata",
-    icon: "ℹ️",
-    href: "/documents/Nicolas-Torres-Henriquez-2026-CV.info.txt",
-    downloadName: "Nicolas-Torres-Henriquez-2026-CV.info.txt",
-    extension: "txt",
-  },
-];
+/** Public path under `public/` → suggested download filename and extension. */
+function downloadMetaFromPublicHref(
+  href: string,
+): Pick<ResumeFormat, "downloadName" | "extension"> {
+  const downloadName = href.slice(href.lastIndexOf("/") + 1);
+  const dot = downloadName.lastIndexOf(".");
+  const extension = dot >= 0 ? downloadName.slice(dot + 1) : "";
+  return { downloadName, extension };
+}
+
+const RESUME_FORMAT_DEFS = [
+  { key: "pdf" as const, label: "PDF", icon: "📄" },
+  { key: "txt" as const, label: "Text", icon: "📃" },
+  { key: "md" as const, label: "Markdown", icon: "📋" },
+  { key: "html" as const, label: "HTML", icon: "🌐" },
+  { key: "pngPage1" as const, label: "PNG (Page 1)", icon: "🖼️" },
+  { key: "pngPage2" as const, label: "PNG (Page 2)", icon: "🖼️" },
+  { key: "info" as const, label: "Metadata", icon: "ℹ️" },
+] as const;
+
+const RESUME_FORMATS: ResumeFormat[] = RESUME_FORMAT_DEFS.map((def) => {
+  const href = assets.resume[def.key];
+  return {
+    label: def.label,
+    icon: def.icon,
+    href,
+    ...downloadMetaFromPublicHref(href),
+  };
+});
 
 const DEFAULT_SELECT_FORMAT_LABEL = "Select format";
 
@@ -85,7 +64,6 @@ export default function DownloadResumeButton({
   selectFormatLabel = DEFAULT_SELECT_FORMAT_LABEL,
   className,
 }: DownloadResumeButtonProps) {
-
   const handleDownload = (format: ResumeFormat) => {
     const link = document.createElement("a");
     link.href = format.href;

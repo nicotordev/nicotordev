@@ -1,75 +1,91 @@
-                                  Nicolas Torres
-                                      FULL-STACK ENGINEER
+# Nicolas Richard Torres Henriquez
 
+_Exportado desde el PDF del CV._
 
+NICOLAS RICHARD TORRES HENRIQUEZ
++56 9 5740 0908
+nicotordev@gmail.com | www.nicotordev,com
 
-                                   ABOUT ME
-                                   Senior Full Stack Engineer with strong experience
-                                   building scalable marketplaces, AI-powered
-                                   systems, SaaS platforms, and high-performance web
- nicotordev@gmail.com              applications. Proven ability to take full
-                                   ownership from architecture design to deployment,
- www.nicotordev.com                translating complex business requirements into
-                                   production-ready solutions.
-Courses
- Design Databases With             EXPERIENCE
- PostgreSQL (codecademy)
-                                   Senior Full Stack Engineer – Spiritory GmbH &
- Learn Intermediate Java Course
- (codecademy)
-                                   Marketplace Platforms
-                                   2023-2025
-Language                           Led Professional Seller onboarding with Tax/KYC validation
-                                   workflows.
- English, fluent.                  • Refactored international shipping engine (tiered pricing +
- Spanish, native.                  tracking).
-                                   • Improved frontend architecture and reduced technical
-                                   debt in long-term marketplace projects.
-                                   • Migrated data layer to React Query, improving
-                                   performance and caching.
-                                   • Built admin dashboards for operational tooling and payout
-                                   management.
-                                   • Delivered scalable full-stack dashboard systems (React /
-                                   Next.js / Tailwind).
+PROFESSIONAL SUMMARY
+Full-Stack Web Engineer specialized in TypeScript, Next.js, React, and Node.js, with a strong focus on building scalable,
+high-performance SaaS platforms and AI-powered applications. Proven experience delivering production-ready
+systems across international teams in Germany, Singapore, the United States, and Chile.
 
-                                   Full Stack Engineer – AI & Compliance
-                                   Systems
-                                   Jan 2024 – Present (Multiple US Clients)
-                                     Built Legal Compliance MVP integrating OpenAI
-                                     APIs for document analysis.
-                                     Designed backend orchestration systems for AI
-                                     workflows.
-                                     Implemented LLM-based feature integrations in
-                                     production SaaS platforms.
-                                     Translated complex regulatory and business logic
-                                     into intuitive UX flows. • Delivered scalable backend
-                                     restructuring in Next.js environments.
-  Full Stack & DevOps Engineer –
-  Infrastructure & Systems
-    Configured Nginx, Ubuntu servers, and deployment
-    pipelines.
-    Delivered infrastructure automation reducing
-    delivery timelines (3-day project completed in 12
-    hours).
-    Implemented authentication systems (Clerk) and
-    Neon DB integrations.
-    Built file server systems with drag-and-drop
-    functionality.
-    Optimized CMS and static page architectures for
-    performance and maintainability.
+RELEVANT EXPERIENCE
+Shred Labs, LLC.
 
+Nov 23, 2025 - Present
 
+Senior Full-Stack Engineer (TypeScript + AI)
+Collaborated with a 3-person team to develop the galerie MVP using TypeScript (Hono) and React with Vite,
+implementing onboarding flows, product personalization logic, and social features. Additionally, contributed to
+shred.app with a focus on the user onboarding process, implementing OAuth authentication and core APIs.
+Produncan Lands
 
+Jan 21, 2026 - Present
 
-TECHNICAL STACK
-• Frontend: React, Next.js, TypeScript, Tailwind CSS,
-Shadcn/UI, MUI
-• Backend: Node.js, Express, Prisma, PostgreSQL,
-MySQL, REST APIs
-• Cloud & DevOps: Nginx, Ubuntu, CI/CD, Azure DevOps,
-Linux
-• AI & Automation: OpenAI API, LLM integrations, RAG
-systems, n8n
-• Systems: API design, Auth systems (Clerk), DB
-optimization, Performance tuning, i18n
+Full-Stack Engineer
+Led the development of produncan.cl, focusing on high-performance architecture. I defined the data structures in
+Directus and implemented a robust SSR strategy to hit a 100% score on Google PageSpeed Insights. Beyond
+building the entire frontend, I integrated specialized features like Google Maps to enhance the user experience.
+Sonik, S.A.S
+Part-time Full Stack Developer
+
+Jul 8, 2025 - Jan 15, 2026
+
+Led the development of the sonik.fm ticketing app, implementing WebSockets for real-time POS (Point of Sale)
+machine integration. Collaborated with a cross-functional team of 10+ members in feature planning and agile
+meetings, while consistently managing bug fixes and technical ticket resolution.
+Regulex
+Full-Stack Developer
+
+Jun 29, 2025 - Nov 15, 2025
+
+Architected and developed a legal compliance MVP, integrating OpenAI to transform complex regulatory
+requirements into intuitive, functional web solutions. Focused on translating intricate legal concepts into a userfriendly interface, ensuring high quality and clear communication throughout the project lifecycle. Recognized by
+the client for technical excellence and the ability to convert abstract needs into production-ready features.
+Shadcnblocks.com
+Front End Developer
+
+Jun 28, 2025 - Sep 8, 2025
+
+Contributed to the development and expansion of a premium admin dashboard template. Designed and built
+production-ready components, complex layouts, and app patterns (Kanban, Ecommerce, and Dashboards) using
+Next.js, Tailwind CSS, and shadcn/ui. Focused on creating reusable UI blocks and improving product usability for a
+global customer base, maintaining high standards of code quality through GitHub-based peer reviews.
+Spiritory GMBH
+Full-Stack Developer
+
+Nov 16, 2023 - Aug 30, 2025
+
+Built and scaled a B2B marketplace using Next.js, Node.js, Prisma, and PostgreSQL. Developed key features
+including seller onboarding (KYC/tax) and refactored shipping systems for scalability and real-time tracking.
+Designed robust APIs and delivered high-performance, mobile-first interfaces. Improved system architecture, state
+management, and CI/CD workflows. Collaborated closely with product and engineering teams to ship reliable,
+production-ready solutions.
+
+ADDITIONAL EXPERIENCE
+Remote
+
+Aug 3, 2023 - Present
+
+Freelance Full-Stack developer
+Top-Rated Full-Stack Web Engineer | Specialist in AI & Modern Web Stacks
+"Versatile Freelance Developer with a 94% Job Success Score on Upwork and over 1,400+ hours of delivered highquality code. Proven track record of architecting scalable solutions for international clients using TypeScript, Next.js, and
+Node.js. Expert in translating complex business requirements into production-ready applications, with a specialized
+focus on AI integrations and high-performance frontend architectures."
+SKILLS
+Technical Skills:
+TypeScript, JavaScript, Next.js, React, Node.js, PostgreSQL, Prisma ORM, REST APIs, GraphQL, Web Development
+AI & Automation:
+OpenAI API, AI Integration, LLM Applications, Embeddings, Automation Workflows
+Architecture & Backend:
+Clean Architecture, SOLID Principles, Scalable Systems, API Design, Microservices, Backend Development
+Frontend:
+Responsive Design, UI Development, React Query, Component-Based Architecture, UX Optimization
+DevOps & Tools:
+Docker, CI/CD, Vercel, Railway, Render, Linux, Git
+Soft Skills:
+Communication, Collaboration, Problem Solving, Attention to Detail, Reliability, Accountability
+
 

@@ -40,10 +40,14 @@ export const assets = {
     dark: "/logo/logo-dark.svg",
   },
 
+  /** Paths under public/documents; keep in sync with scripts/convert-cv-from-pdf.sh */
   resume: {
-    pdf: "/documents/resume.pdf",
-    pptx: "/documents/resume.pptx",
-    csv: "/documents/resume.csv",
-    json: "/documents/resume.json",
+    pdf: "/documents/Nicolas-Torres-Henriquez-2026-CV.pdf",
+    txt: "/documents/Nicolas-Torres-Henriquez-2026-CV.txt",
+    md: "/documents/Nicolas-Torres-Henriquez-2026-CV.md",
+    html: "/documents/Nicolas-Torres-Henriquez-2026-CV.html",
+    pngPage1: "/documents/Nicolas-Torres-Henriquez-2026-CV-page-1.png",
+    pngPage2: "/documents/Nicolas-Torres-Henriquez-2026-CV-page-2.png",
+    info: "/documents/Nicolas-Torres-Henriquez-2026-CV.info.txt",
   },
 };

@@ -1,10 +1,10 @@
-Title:           A4 Curriculum Fotógrafo Freelance Moderno Simple Gris y Crema
-Keywords:        DAG-OkQ7bhA,BAGaHJdRGG4,0
+Title:           Nicolas Richard Torres Henriquez
+Keywords:        DAHFnUMkCqw,BAGaHJdRGG4,0
 Author:          Nicolas Torres
 Creator:         Canva
 Producer:        Canva
-CreationDate:    Tue Feb 17 11:32:38 2026 -03
-ModDate:         Tue Feb 17 11:32:37 2026 -03
+CreationDate:    Wed Apr  1 11:20:52 2026 -03
+ModDate:         Wed Apr  1 11:20:51 2026 -03
 Custom Metadata: no
 Metadata Stream: yes
 Tagged:          yes
@@ -14,8 +14,8 @@ Form:            none
 JavaScript:      no
 Pages:           2
 Encrypted:       no
-Page size:       595.5 x 842.25 pts (A4)
+Page size:       842.25 x 1190.25 pts (A3)
 Page rot:        0
-File size:       186710 bytes
+File size:       99678 bytes
 Optimized:       no
 PDF version:     1.4
