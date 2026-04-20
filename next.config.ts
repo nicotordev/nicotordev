@@ -22,6 +22,7 @@ const nextConfig: NextConfig = {
   output: "standalone",
 
   images: {
+    qualities: [45, 75],
     remotePatterns: [
       { protocol: "https", hostname: "i.pravatar.cc" },
       { protocol: "https", hostname: "avatars.dicebear.com" },

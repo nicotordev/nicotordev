@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
 type LogoProps = {
-  theme?: "dark" | "light";
   width?: number;
   height?: number;
   className?: string;
@@ -12,13 +12,13 @@ type LogoProps = {
 };
 
 export default function Logo({
-  theme = "dark",
-  width = 300,
+  width = 120,
   height,
   className,
   priority,
   alt = "NicoTorDev logo",
 }: LogoProps) {
+  const { theme } = useTheme();
   // Maintain ~4:1 aspect ratio by default if height not provided
   const computedHeight = height ?? Math.round(width / 4);
 
@@ -37,7 +37,7 @@ export default function Logo({
         alt={alt}
         width={width}
         height={computedHeight}
-        style={{ height: "auto" }}
+        className="h-auto max-w-full"
         {...(priority ? { priority: true } : {})}
       />
     </span>
