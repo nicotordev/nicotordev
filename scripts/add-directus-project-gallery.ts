@@ -13,6 +13,8 @@
  *   bun scripts/add-directus-project-gallery.ts
  */
 
+export {};
+
 const GALLERY_BASE_URL =
   process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com";
 const GALLERY_AUTH_TOKEN = process.env.DIRECTUS_TOKEN ?? "";

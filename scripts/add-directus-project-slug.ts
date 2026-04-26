@@ -3,6 +3,8 @@
  * Run: DIRECTUS_URL=https://directus.nicotordev.com DIRECTUS_TOKEN=... bun scripts/add-directus-project-slug.ts
  */
 
+export {};
+
 const SLUG_BASE_URL =
   process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com";
 const SLUG_AUTH_TOKEN = process.env.DIRECTUS_TOKEN ?? "";

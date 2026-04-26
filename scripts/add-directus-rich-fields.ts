@@ -3,6 +3,8 @@
  * Run: DIRECTUS_URL=https://directus.nicotordev.com DIRECTUS_TOKEN=... bun scripts/add-directus-rich-fields.ts
  */
 
+export {};
+
 const RICH_BASE_URL =
   process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com";
 const RICH_AUTH_TOKEN = process.env.DIRECTUS_TOKEN ?? "";

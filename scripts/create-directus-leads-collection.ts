@@ -3,6 +3,8 @@
  * Run: DIRECTUS_URL=https://directus.nicotordev.com DIRECTUS_TOKEN=... bun scripts/create-directus-leads-collection.ts
  */
 
+export {};
+
 const LEADS_BASE_URL =
   process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com";
 const LEADS_AUTH_TOKEN = process.env.DIRECTUS_TOKEN ?? "";

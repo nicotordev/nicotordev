@@ -3,6 +3,8 @@
  * Usage: DIRECTUS_URL=https://... DIRECTUS_TOKEN=... bun scripts/seed-directus.ts
  */
 
+export {};
+
 const SEED_DIRECTUS_URL =
   process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com";
 const SEED_TOKEN = process.env.DIRECTUS_TOKEN ?? "";

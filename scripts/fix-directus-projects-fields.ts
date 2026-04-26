@@ -16,6 +16,8 @@
  * DIRECTUS_URL=https://directus.nicotordev.com DIRECTUS_TOKEN=... bun scripts/fix-directus-projects-fields.ts
  */
 
+export {};
+
 const BASE_URL = (
   process.env.DIRECTUS_URL ?? "https://directus.nicotordev.com"
 ).replace(/\/$/, "");
