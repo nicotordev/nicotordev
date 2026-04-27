@@ -1,6 +1,6 @@
 "use client";
 
-import { assets } from "@/app/assets";
+import { assets, type ResumeFormatKey } from "@/app/assets";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -17,6 +17,8 @@ interface DownloadResumeButtonProps {
   /** Localized label for the format selector (e.g. "Select format"). Pass from server to avoid intl context. */
   selectFormatLabel?: string;
   className?: string;
+  /** If set, only formats whose files exist under `public/` are listed (from server fs check). */
+  availableResumeFormatKeys?: ResumeFormatKey[];
 }
 
 interface ResumeFormat {
@@ -47,15 +49,25 @@ const RESUME_FORMAT_DEFS = [
   { key: "info" as const, label: "Metadata", icon: "ℹ️" },
 ] as const;
 
-const RESUME_FORMATS: ResumeFormat[] = RESUME_FORMAT_DEFS.map((def) => {
-  const href = assets.resume[def.key];
-  return {
-    label: def.label,
-    icon: def.icon,
-    href,
-    ...downloadMetaFromPublicHref(href),
-  };
-});
+function buildResumeFormats(
+  keys?: ResumeFormatKey[],
+): ResumeFormat[] {
+  const allow =
+    keys === undefined
+      ? null
+      : new Set<ResumeFormatKey>(keys);
+  return RESUME_FORMAT_DEFS.filter(
+    (def) => allow === null || allow.has(def.key),
+  ).map((def) => {
+    const href = assets.resume[def.key];
+    return {
+      label: def.label,
+      icon: def.icon,
+      href,
+      ...downloadMetaFromPublicHref(href),
+    };
+  });
+}
 
 const DEFAULT_SELECT_FORMAT_LABEL = "Select format";
 
@@ -63,7 +75,10 @@ export default function DownloadResumeButton({
   label,
   selectFormatLabel = DEFAULT_SELECT_FORMAT_LABEL,
   className,
+  availableResumeFormatKeys,
 }: DownloadResumeButtonProps) {
+  const resumeFormats = buildResumeFormats(availableResumeFormatKeys);
+
   const handleDownload = (format: ResumeFormat) => {
     const link = document.createElement("a");
     link.href = format.href;
@@ -89,7 +104,7 @@ export default function DownloadResumeButton({
           {selectFormatLabel}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        {RESUME_FORMATS.map((format) => (
+        {resumeFormats.map((format) => (
           <DropdownMenuItem
             key={format.downloadName}
             onClick={() => handleDownload(format)}

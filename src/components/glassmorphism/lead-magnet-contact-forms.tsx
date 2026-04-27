@@ -12,7 +12,7 @@ import type messages from "@/locales/es-cl.json";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Turnstile } from "next-turnstile";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import toast from "react-hot-toast";
 
 type LeadMagnetFormTranslations = (typeof messages)["leadMagnet"]["form"];
@@ -28,6 +28,19 @@ function isValidEmail(email: string) {
 function extractEmail(text: string) {
   const match = text.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i);
   return match?.[0] ?? null;
+}
+
+/**
+ * Defer rich form markup until after hydration so password-manager / autofill
+ * extensions cannot inject nodes into SSR HTML before React hydrates
+ * (avoids mismatches on wrappers like `.ft-manual-attach`).
+ */
+function useClientMounted() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 }
 
 function extractName(text: string) {
@@ -52,6 +65,7 @@ export default function LeadMagnetContactFormMinimal({
   const t = useTranslations("leadMagnet.form");
   const { loading, sendContactRequest } = useConceAI();
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const mounted = useClientMounted();
 
   const [formState, setFormState] = useState({
     quickMessage: "",
@@ -136,23 +150,30 @@ export default function LeadMagnetContactFormMinimal({
       className="space-y-6"
       onSubmit={handleSubmit}
     >
-      <div className="space-y-4">
-        <Label htmlFor="quickMessage">
-          <Typography role="label" className="text-lg">
-            {translations?.quickMessageTitle || "Quick Message"}
-          </Typography>
-        </Label>
-        <Typography role="body" className="text-sm text-muted-foreground">
-          {translations?.quickMessageDescription ||
-            "Share your name, contact info, and project details all in one message."}
-        </Typography>
-        <Textarea
-          id="quickMessage"
-          name="quickMessage"
-          rows={12}
-          placeholder={
-            translations?.quickMessagePlaceholder ||
-            `Hi Nico! 👋
+      {!mounted ? (
+        <div
+          className="min-h-[28rem] rounded-2xl bg-background/5 border border-white/5 animate-pulse"
+          aria-hidden
+        />
+      ) : (
+        <>
+          <div className="space-y-4">
+            <Label htmlFor="quickMessage">
+              <Typography role="label" className="text-lg">
+                {translations?.quickMessageTitle || "Quick Message"}
+              </Typography>
+            </Label>
+            <Typography role="body" className="text-sm text-muted-foreground">
+              {translations?.quickMessageDescription ||
+                "Share your name, contact info, and project details all in one message."}
+            </Typography>
+            <Textarea
+              id="quickMessage"
+              name="quickMessage"
+              rows={12}
+              placeholder={
+                translations?.quickMessagePlaceholder ||
+                `Hi Nico! 👋
 
 My name is [Your Name]
 Email: [your.email@example.com]
@@ -162,61 +183,63 @@ I'm looking for help with:
 [Describe your project here...]
 
 Looking forward to hearing from you!`
-          }
-          className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all resize-none font-mono text-sm leading-relaxed rounded-2xl p-6"
-          onChange={handleInputChange}
-          value={formState.quickMessage}
-          disabled={loading}
-        />
-      </div>
+              }
+              className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all resize-none font-mono text-sm leading-relaxed rounded-2xl p-6"
+              onChange={handleInputChange}
+              value={formState.quickMessage}
+              disabled={loading}
+            />
+          </div>
 
-      {turnstileSiteKey ? (
-        <div className="flex justify-center sm:justify-start">
-          <Turnstile
-            key={turnstileKey}
-            siteKey={turnstileSiteKey}
-            sandbox={process.env.NODE_ENV === "development"}
-            theme="auto"
-            size="flexible"
-            onVerify={(token) =>
-              setFormState((prev) => ({ ...prev, turnstileToken: token }))
-            }
-            onExpire={() =>
-              setFormState((prev) => ({ ...prev, turnstileToken: "" }))
-            }
-            onError={() =>
-              setFormState((prev) => ({ ...prev, turnstileToken: "" }))
-            }
-          />
-        </div>
-      ) : null}
+          {turnstileSiteKey ? (
+            <div className="flex justify-center sm:justify-start">
+              <Turnstile
+                key={turnstileKey}
+                siteKey={turnstileSiteKey}
+                sandbox={process.env.NODE_ENV === "development"}
+                theme="auto"
+                size="flexible"
+                onVerify={(token) =>
+                  setFormState((prev) => ({ ...prev, turnstileToken: token }))
+                }
+                onExpire={() =>
+                  setFormState((prev) => ({ ...prev, turnstileToken: "" }))
+                }
+                onError={() =>
+                  setFormState((prev) => ({ ...prev, turnstileToken: "" }))
+                }
+              />
+            </div>
+          ) : null}
 
-      <div className="flex flex-col sm:flex-row gap-4 items-center mt-8">
-        <Button
-          type="submit"
-          size="lg"
-          disabled={loading || !formState.turnstileToken}
-          className="group relative w-full sm:w-auto overflow-hidden rounded-full bg-primary px-8 transition-transform hover:scale-105"
-        >
-          <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-          <span className="inline-flex items-center gap-2">
-            {loading ? <Spinner className="text-primary-foreground" /> : null}
-            {translations?.submitQuick || translations?.submit || "Send Message"}
-          </span>
-        </Button>
+          <div className="flex flex-col sm:flex-row gap-4 items-center mt-8">
+            <Button
+              type="submit"
+              size="lg"
+              disabled={loading || !formState.turnstileToken}
+              className="group relative w-full sm:w-auto overflow-hidden rounded-full bg-primary px-8 transition-transform hover:scale-105"
+            >
+              <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <span className="inline-flex items-center gap-2">
+                {loading ? <Spinner className="text-primary-foreground" /> : null}
+                {translations?.submitQuick || translations?.submit || "Send Message"}
+              </span>
+            </Button>
 
-        <Typography role="caption" className="text-xs text-muted-foreground/80">
-          {translations?.privacyCopy ||
-            "By submitting this form, I agree to the"}{" "}
-          <a
-            href="#"
-            className="text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-4"
-          >
-            {translations?.privacyPolicy || "privacy policy"}
-          </a>
-          .
-        </Typography>
-      </div>
+            <Typography role="caption" className="text-xs text-muted-foreground/80">
+              {translations?.privacyCopy ||
+                "By submitting this form, I agree to the"}{" "}
+              <a
+                href="#"
+                className="text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-4"
+              >
+                {translations?.privacyPolicy || "privacy policy"}
+              </a>
+              .
+            </Typography>
+          </div>
+        </>
+      )}
     </motion.form>
   );
 }
@@ -227,6 +250,7 @@ export function LeadMagnetContactFormFull({
   const t = useTranslations("leadMagnet.form");
   const { loading, sendContactRequest } = useConceAI();
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+  const mounted = useClientMounted();
 
   const [formState, setFormState] = useState({
     firstName: "",
@@ -337,171 +361,180 @@ export function LeadMagnetContactFormFull({
       className="space-y-6"
       onSubmit={handleSubmit}
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <Label htmlFor="firstName">
-            <Typography role="label">
-              {translations?.firstName || "First name"}
-            </Typography>
-          </Label>
-          <Input
-            id="firstName"
-            name="firstName"
-            autoComplete="given-name"
-            placeholder={translations?.firstName || "John"}
-            className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
-            onChange={handleInputChange}
-            value={formState.firstName}
-            disabled={loading}
-          />
-        </div>
+      {!mounted ? (
+        <div
+          className="min-h-[36rem] rounded-2xl bg-background/5 border border-white/5 animate-pulse"
+          aria-hidden
+        />
+      ) : (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <Label htmlFor="firstName">
+                <Typography role="label">
+                  {translations?.firstName || "First name"}
+                </Typography>
+              </Label>
+              <Input
+                id="firstName"
+                name="firstName"
+                autoComplete="given-name"
+                placeholder={translations?.firstName || "John"}
+                className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
+                onChange={handleInputChange}
+                value={formState.firstName}
+                disabled={loading}
+              />
+            </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="lastName">
-            <Typography role="label">
-              {translations?.lastName || "Last name"}
-            </Typography>
-          </Label>
-          <Input
-            id="lastName"
-            name="lastName"
-            autoComplete="family-name"
-            placeholder={translations?.lastName || "Doe"}
-            className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
-            onChange={handleInputChange}
-            value={formState.lastName}
-            disabled={loading}
-          />
-        </div>
+            <div className="space-y-2">
+              <Label htmlFor="lastName">
+                <Typography role="label">
+                  {translations?.lastName || "Last name"}
+                </Typography>
+              </Label>
+              <Input
+                id="lastName"
+                name="lastName"
+                autoComplete="family-name"
+                placeholder={translations?.lastName || "Doe"}
+                className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
+                onChange={handleInputChange}
+                value={formState.lastName}
+                disabled={loading}
+              />
+            </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="email">
-            <Typography role="label">
-              {translations?.email || "Email"}
-            </Typography>
-          </Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            placeholder={translations?.email || "john@example.com"}
-            className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
-            onChange={handleInputChange}
-            value={formState.email}
-            disabled={loading}
-          />
-        </div>
+            <div className="space-y-2">
+              <Label htmlFor="email">
+                <Typography role="label">
+                  {translations?.email || "Email"}
+                </Typography>
+              </Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
+                placeholder={translations?.email || "john@example.com"}
+                className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
+                onChange={handleInputChange}
+                value={formState.email}
+                disabled={loading}
+              />
+            </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="budget">
-            <Typography role="label">
-              {translations?.budget || "Budget"}
-            </Typography>
-          </Label>
-          <Input
-            id="budget"
-            name="budget"
-            placeholder={
-              translations?.budget || "$28/hour or fixed-amount/project"
-            }
-            className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
-            onChange={handleInputChange}
-            value={formState.budget}
-            disabled={loading}
-          />
-        </div>
+            <div className="space-y-2">
+              <Label htmlFor="budget">
+                <Typography role="label">
+                  {translations?.budget || "Budget"}
+                </Typography>
+              </Label>
+              <Input
+                id="budget"
+                name="budget"
+                placeholder={
+                  translations?.budget || "$28/hour or fixed-amount/project"
+                }
+                className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
+                onChange={handleInputChange}
+                value={formState.budget}
+                disabled={loading}
+              />
+            </div>
 
-        <div className="sm:col-span-2 space-y-2">
-          <Label htmlFor="website">
-            <Typography role="label">
-              {translations?.website || "Website"}
-              <span className="text-muted-foreground ml-2 text-xs font-normal">
-                {translations?.websiteOptionalHint || "(optional)"}
+            <div className="sm:col-span-2 space-y-2">
+              <Label htmlFor="website">
+                <Typography role="label">
+                  {translations?.website || "Website"}
+                  <span className="text-muted-foreground ml-2 text-xs font-normal">
+                    {translations?.websiteOptionalHint || "(optional)"}
+                  </span>
+                </Typography>
+              </Label>
+              <Input
+                id="website"
+                name="website"
+                type="url"
+                placeholder="https://example.com"
+                className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
+                onChange={handleInputChange}
+                value={formState.website}
+                disabled={loading}
+              />
+            </div>
+
+            <div className="sm:col-span-2 space-y-2">
+              <Label htmlFor="message">
+                <Typography role="label">
+                  {translations?.projectDetails || "Project Details"}
+                </Typography>
+              </Label>
+              <Textarea
+                id="message"
+                name="message"
+                rows={4}
+                placeholder={
+                  translations?.projectPlaceholder ||
+                  "Tell me about your project..."
+                }
+                className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all resize-none rounded-xl"
+                onChange={handleInputChange}
+                value={formState.message}
+                disabled={loading}
+              />
+            </div>
+          </div>
+
+          {turnstileSiteKey ? (
+            <div className="flex justify-center sm:justify-start">
+              <Turnstile
+                key={turnstileKey}
+                siteKey={turnstileSiteKey}
+                sandbox={process.env.NODE_ENV === "development"}
+                theme="auto"
+                size="flexible"
+                onVerify={(token) =>
+                  setFormState((prev) => ({ ...prev, turnstileToken: token }))
+                }
+                onExpire={() =>
+                  setFormState((prev) => ({ ...prev, turnstileToken: "" }))
+                }
+                onError={() =>
+                  setFormState((prev) => ({ ...prev, turnstileToken: "" }))
+                }
+              />
+            </div>
+          ) : null}
+
+          <div className="flex flex-col sm:flex-row gap-4 items-center mt-6">
+            <Button
+              type="submit"
+              size="lg"
+              disabled={loading || !formState.turnstileToken}
+              className="group relative w-full sm:w-auto overflow-hidden rounded-full bg-primary px-8 transition-transform hover:scale-105"
+            >
+              <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <span className="inline-flex items-center gap-2">
+                {loading ? <Spinner className="text-primary-foreground" /> : null}
+                {translations?.submitFull || translations?.submit || "Let's talk"}
               </span>
+            </Button>
+
+            <Typography role="caption" className="text-xs text-muted-foreground/80">
+              {translations?.privacyCopy ||
+                "By submitting this form, I agree to the"}{" "}
+              <a
+                href="#"
+                className="text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-4"
+              >
+                {translations?.privacyPolicy || "privacy policy"}
+              </a>
+              .
             </Typography>
-          </Label>
-          <Input
-            id="website"
-            name="website"
-            type="url"
-            placeholder="https://example.com"
-            className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all rounded-xl h-12"
-            onChange={handleInputChange}
-            value={formState.website}
-            disabled={loading}
-          />
-        </div>
-
-        <div className="sm:col-span-2 space-y-2">
-          <Label htmlFor="message">
-            <Typography role="label">
-              {translations?.projectDetails || "Project Details"}
-            </Typography>
-          </Label>
-          <Textarea
-            id="message"
-            name="message"
-            rows={4}
-            placeholder={
-              translations?.projectPlaceholder ||
-              "Tell me about your project..."
-            }
-            className="bg-background/10 backdrop-blur-sm border-white/10 focus:border-primary/50 focus:bg-background/20 transition-all resize-none rounded-xl"
-            onChange={handleInputChange}
-            value={formState.message}
-            disabled={loading}
-          />
-        </div>
-      </div>
-
-      {turnstileSiteKey ? (
-        <div className="flex justify-center sm:justify-start">
-          <Turnstile
-            key={turnstileKey}
-            siteKey={turnstileSiteKey}
-            sandbox={process.env.NODE_ENV === "development"}
-            theme="auto"
-            size="flexible"
-            onVerify={(token) =>
-              setFormState((prev) => ({ ...prev, turnstileToken: token }))
-            }
-            onExpire={() =>
-              setFormState((prev) => ({ ...prev, turnstileToken: "" }))
-            }
-            onError={() =>
-              setFormState((prev) => ({ ...prev, turnstileToken: "" }))
-            }
-          />
-        </div>
-      ) : null}
-
-      <div className="flex flex-col sm:flex-row gap-4 items-center mt-6">
-        <Button
-          type="submit"
-          size="lg"
-          disabled={loading || !formState.turnstileToken}
-          className="group relative w-full sm:w-auto overflow-hidden rounded-full bg-primary px-8 transition-transform hover:scale-105"
-        >
-          <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-          <span className="inline-flex items-center gap-2">
-            {loading ? <Spinner className="text-primary-foreground" /> : null}
-            {translations?.submitFull || translations?.submit || "Let's talk"}
-          </span>
-        </Button>
-
-        <Typography role="caption" className="text-xs text-muted-foreground/80">
-          {translations?.privacyCopy ||
-            "By submitting this form, I agree to the"}{" "}
-          <a
-            href="#"
-            className="text-primary hover:text-primary/80 underline decoration-primary/30 underline-offset-4"
-          >
-            {translations?.privacyPolicy || "privacy policy"}
-          </a>
-          .
-        </Typography>
-      </div>
+          </div>
+        </>
+      )}
     </motion.form>
   );
 }

@@ -38,6 +38,7 @@ export default function Logo({
         width={width}
         height={computedHeight}
         className="h-auto max-w-full"
+        style={{ width: "auto" }}
         {...(priority ? { priority: true } : {})}
       />
     </span>

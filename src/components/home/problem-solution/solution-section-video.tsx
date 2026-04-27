@@ -21,6 +21,7 @@ export default function SolutionSectionVideo({
         alt={altText}
         loading="lazy"
         quality={45}
+        unoptimized
         sizes="(min-width: 1280px) 38vw, (min-width: 1024px) 45vw, (min-width: 640px) 86vw, 92vw"
         className="h-full w-full object-contain pointer-events-none bg-transparent drop-shadow-2xl"
       />

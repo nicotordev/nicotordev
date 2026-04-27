@@ -1,5 +1,6 @@
 import { BackgroundDecoration } from "@/components/backgrounds/background-decoration";
 import DownloadResumeButton from "@/components/download-resume-button";
+import { getExistingResumeFormatKeys } from "@/lib/resume-downloads";
 import ChileFlag from "@/components/emojis/chile-flag";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -61,6 +62,7 @@ function HighlightWord({
         width={64}
         height={64}
         quality={45}
+        unoptimized
         aria-hidden
         priority={priority}
         className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-xl"
@@ -72,6 +74,7 @@ function HighlightWord({
 
 export default function HeroSection({ messages }: HeroSectionProps) {
   const media = messages.common?.a11y?.media ?? {};
+  const availableResumeFormatKeys = getExistingResumeFormatKeys();
 
   return (
     <section id="hero-section" className="relative z-10 bg-background py-8 sm:py-10 md:py-12">
@@ -161,6 +164,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                     width={96}
                     height={96}
                     quality={45}
+                    unoptimized
                     aria-hidden
                     className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain drop-shadow-xl"
                     sizes="(min-width: 768px) 96px, (min-width: 640px) 80px, 64px"
@@ -209,6 +213,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                 </Typography>
               }
               selectFormatLabel={messages.downloadResume?.selectFormat}
+              availableResumeFormatKeys={availableResumeFormatKeys}
             />
           </div>
         </div>

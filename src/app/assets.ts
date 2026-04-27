@@ -50,4 +50,6 @@ export const assets = {
     pngPage2: "/documents/Nicolas-Torres-Henriquez-2026-CV-page-2.png",
     info: "/documents/Nicolas-Torres-Henriquez-2026-CV.info.txt",
   },
-};
+} as const;
+
+export type ResumeFormatKey = keyof typeof assets.resume;
