@@ -106,7 +106,7 @@
     "react-resizable-panels": "^4.7.3",
     "react-use": "^17.6.0",
     "recharts": "^3.8.0",
-    "resend": "^6.9.4",
+    "resend": "^6.12.2",
     "sonner": "^2.0.7",
     "swiper": "^12.1.2",
     "tailwind-merge": "^3.5.0",

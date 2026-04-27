@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 
 type LogoProps = {
   width?: number;
-  height?: number;
+  height?: number | `${number}` | "auto";
   className?: string;
   priority?: boolean;
   alt?: string;
@@ -13,14 +13,14 @@ type LogoProps = {
 
 export default function Logo({
   width = 120,
-  height,
+  height = "auto",
   className,
   priority,
   alt = "NicoTorDev logo",
 }: LogoProps) {
   const { theme } = useTheme();
-  // Maintain ~4:1 aspect ratio by default if height not provided
-  const computedHeight = height ?? Math.round(width / 4);
+
+  const computedHeight = typeof height === "number" ? height : height === 'auto' ? width / 4 : Number(height);
 
   return (
     <span
@@ -37,8 +37,6 @@ export default function Logo({
         alt={alt}
         width={width}
         height={computedHeight}
-        className="h-auto max-w-full"
-        style={{ width: "auto" }}
         {...(priority ? { priority: true } : {})}
       />
     </span>

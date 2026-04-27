@@ -12,11 +12,10 @@ export type SubmitLeadPayload = {
 };
 
 /**
- * Save a lead to Directus (leads collection).
- * Call this from the lead-magnet form before or after sending to ConceAI.
+ * Save a lead to Directus (leads collection) and notify admin via Resend when successful.
  */
 export async function saveLeadAction(
-  payload: SubmitLeadPayload
+  payload: SubmitLeadPayload,
 ): Promise<{ success: boolean; error?: string }> {
   const { name, email, message, source, turnstileToken } = payload;
   if (!name?.trim() || !email?.trim() || !message?.trim()) {

@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
 import { Typography } from "@/components/ui/typography";
-import useConceAI from "@/hooks/useConceAI";
 import type messages from "@/locales/es-cl.json";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
@@ -63,10 +62,10 @@ export default function LeadMagnetContactFormMinimal({
   translations,
 }: LeadMagnetContactFormProps) {
   const t = useTranslations("leadMagnet.form");
-  const { loading, sendContactRequest } = useConceAI();
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const mounted = useClientMounted();
 
+  const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState({
     quickMessage: "",
     turnstileToken: "",
@@ -74,7 +73,7 @@ export default function LeadMagnetContactFormMinimal({
   const [turnstileKey, setTurnstileKey] = useState(0);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -110,8 +109,9 @@ export default function LeadMagnetContactFormMinimal({
       return;
     }
 
+    setLoading(true);
     try {
-      await saveLeadAction({
+      const result = await saveLeadAction({
         name,
         email,
         message,
@@ -119,14 +119,14 @@ export default function LeadMagnetContactFormMinimal({
         turnstileToken: formState.turnstileToken,
       });
 
-      await sendContactRequest({
-        name,
-        email,
-        message,
-        turnstileToken: formState.turnstileToken,
-      });
+      if (!result.success) {
+        toast.error(result.error ?? t("errorMessage"));
+        setFormState((prev) => ({ ...prev, turnstileToken: "" }));
+        setTurnstileKey((k) => k + 1);
+        return;
+      }
+
       toast.success(t("successMessage"));
-      // Reset form on success
       setFormState({
         quickMessage: "",
         turnstileToken: "",
@@ -137,6 +137,8 @@ export default function LeadMagnetContactFormMinimal({
       toast.error(t("errorMessage"));
       setFormState((prev) => ({ ...prev, turnstileToken: "" }));
       setTurnstileKey((k) => k + 1);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -221,12 +223,19 @@ Looking forward to hearing from you!`
             >
               <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <span className="inline-flex items-center gap-2">
-                {loading ? <Spinner className="text-primary-foreground" /> : null}
-                {translations?.submitQuick || translations?.submit || "Send Message"}
+                {loading ? (
+                  <Spinner className="text-primary-foreground" />
+                ) : null}
+                {translations?.submitQuick ||
+                  translations?.submit ||
+                  "Send Message"}
               </span>
             </Button>
 
-            <Typography role="caption" className="text-xs text-muted-foreground/80">
+            <Typography
+              role="caption"
+              className="text-xs text-muted-foreground/80"
+            >
               {translations?.privacyCopy ||
                 "By submitting this form, I agree to the"}{" "}
               <a
@@ -248,10 +257,10 @@ export function LeadMagnetContactFormFull({
   translations,
 }: LeadMagnetContactFormProps) {
   const t = useTranslations("leadMagnet.form");
-  const { loading, sendContactRequest } = useConceAI();
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
   const mounted = useClientMounted();
 
+  const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState({
     firstName: "",
     lastName: "",
@@ -273,7 +282,8 @@ export function LeadMagnetContactFormFull({
     const base = formState.message.trim();
     const extras: string[] = [];
 
-    if (formState.budget.trim()) extras.push(`Budget: ${formState.budget.trim()}`);
+    if (formState.budget.trim())
+      extras.push(`Budget: ${formState.budget.trim()}`);
     if (formState.website.trim())
       extras.push(`Website: ${formState.website.trim()}`);
 
@@ -284,7 +294,7 @@ export function LeadMagnetContactFormFull({
   }, [formState.budget, formState.message, formState.website]);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -294,11 +304,15 @@ export function LeadMagnetContactFormFull({
     e.preventDefault();
 
     if (!derivedName) {
-      toast.error(`${t("errors.required")}: ${translations?.name || t("name")}`);
+      toast.error(
+        `${t("errors.required")}: ${translations?.name || t("name")}`,
+      );
       return;
     }
     if (!formState.email.trim()) {
-      toast.error(`${t("errors.required")}: ${translations?.email || t("email")}`);
+      toast.error(
+        `${t("errors.required")}: ${translations?.email || t("email")}`,
+      );
       return;
     }
     if (!isValidEmail(formState.email.trim())) {
@@ -307,7 +321,7 @@ export function LeadMagnetContactFormFull({
     }
     if (!derivedMessage) {
       toast.error(
-        `${t("errors.required")}: ${translations?.message || t("message")}`
+        `${t("errors.required")}: ${translations?.message || t("message")}`,
       );
       return;
     }
@@ -316,8 +330,9 @@ export function LeadMagnetContactFormFull({
       return;
     }
 
+    setLoading(true);
     try {
-      await saveLeadAction({
+      const result = await saveLeadAction({
         name: derivedName,
         email: formState.email.trim(),
         message: derivedMessage,
@@ -325,14 +340,14 @@ export function LeadMagnetContactFormFull({
         turnstileToken: formState.turnstileToken,
       });
 
-      await sendContactRequest({
-        name: derivedName,
-        email: formState.email.trim(),
-        message: derivedMessage,
-        turnstileToken: formState.turnstileToken,
-      });
+      if (!result.success) {
+        toast.error(result.error ?? t("errorMessage"));
+        setFormState((prev) => ({ ...prev, turnstileToken: "" }));
+        setTurnstileKey((k) => k + 1);
+        return;
+      }
+
       toast.success(t("successMessage"));
-      // Reset form on success
       setFormState({
         firstName: "",
         lastName: "",
@@ -348,6 +363,8 @@ export function LeadMagnetContactFormFull({
       toast.error(t("errorMessage"));
       setFormState((prev) => ({ ...prev, turnstileToken: "" }));
       setTurnstileKey((k) => k + 1);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -516,12 +533,19 @@ export function LeadMagnetContactFormFull({
             >
               <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
               <span className="inline-flex items-center gap-2">
-                {loading ? <Spinner className="text-primary-foreground" /> : null}
-                {translations?.submitFull || translations?.submit || "Let's talk"}
+                {loading ? (
+                  <Spinner className="text-primary-foreground" />
+                ) : null}
+                {translations?.submitFull ||
+                  translations?.submit ||
+                  "Let's talk"}
               </span>
             </Button>
 
-            <Typography role="caption" className="text-xs text-muted-foreground/80">
+            <Typography
+              role="caption"
+              className="text-xs text-muted-foreground/80"
+            >
               {translations?.privacyCopy ||
                 "By submitting this form, I agree to the"}{" "}
               <a

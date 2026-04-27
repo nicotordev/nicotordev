@@ -1,7 +1,12 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const ADMIN_EMAILS = process.env.ADMIN_EMAILS ? process.env.ADMIN_EMAILS.split(",") : [];
+const RESEND_FROM = process.env.RESEND_FROM?.trim();
+const ADMIN_EMAILS = process.env.ADMIN_EMAILS
+  ? process.env.ADMIN_EMAILS.split(",")
+      .map((e) => e.trim())
+      .filter(Boolean)
+  : [];
 
 export async function sendAdminNotification({
   subject,
@@ -10,14 +15,20 @@ export async function sendAdminNotification({
   subject: string;
   html: string;
 }) {
-  if (!process.env.RESEND_API_KEY || ADMIN_EMAILS.length === 0) {
-    console.warn("Resend API key or ADMIN_EMAILS not configured");
+  if (
+    !process.env.RESEND_API_KEY ||
+    !RESEND_FROM ||
+    ADMIN_EMAILS.length === 0
+  ) {
+    console.warn(
+      "Resend not configured: set RESEND_API_KEY, RESEND_FROM, and ADMIN_EMAILS",
+    );
     return;
   }
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "NicoTorDev Notifications <notifications@nicotordev.com>",
+      from: RESEND_FROM,
       to: ADMIN_EMAILS,
       subject,
       html,

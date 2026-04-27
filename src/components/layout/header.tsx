@@ -47,14 +47,14 @@ export default function Header({ messages }: { messages: Messages }) {
           aria-label={navigationAria.global || "Global navigation"}
           className="relative flex items-center justify-between gap-4 py-2"
         >
-          <Link href="/" className="flex md:flex-1">
-            <Logo width={120} height={30} priority alt={logoAlt} />
+          <Link href="/" className="flex items-center justify-start w-full">
+            <Logo width={200} height="auto" priority alt={logoAlt} />
           </Link>
 
           {/* Mobile menu */}
 
           {/* Desktop menu */}
-          <div className="hidden md:flex md:gap-x-6 lg:gap-x-12">
+          <div className="hidden md:flex md:gap-x-6 lg:gap-x-12 w-full items-center justify-center">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -67,7 +67,7 @@ export default function Header({ messages }: { messages: Messages }) {
               </a>
             ))}
           </div>
-          <div className="hidden md:flex md:flex-1 md:justify-end md:items-center md:gap-3">
+          <div className="hidden md:flex md:justify-end md:items-center md:gap-3 w-full items-center justify-end">
             <SettingsMenu loginLabel={commonMessages.login || "Login"} />
           </div>
           <HeaderMobileMenu messages={messages} navItems={navItems} />
