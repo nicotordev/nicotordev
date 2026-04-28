@@ -123,6 +123,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "baseline-browser-mapping": "^2.10.8",
+    "cloudflared": "^0.7.1",
     "deepl": "^1.0.13",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.0",
@@ -134,10 +135,12 @@
   },
   "trustedDependencies": [
     "@clerk/shared",
+    "@parcel/watcher",
     "@swc/core",
     "@tailwindcss/oxide",
     "bcrypt",
     "canvas",
+    "cloudflared",
     "sharp",
     "unrs-resolver"
   ],

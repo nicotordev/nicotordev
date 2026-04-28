@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { parseAllowedOrigins } from "./src/lib/security/allowed-origins";
 
 function directusImageHostname(): string {
   const raw =
@@ -49,6 +50,9 @@ const nextConfig: NextConfig = {
   cacheComponents: false,
 
   experimental: {
+    serverActions: {
+      allowedOrigins: parseAllowedOrigins(process.env.ALLOWED_ORIGINS),
+    },
     // ✅ reemplazo de ppr
 
     optimizePackageImports: [
@@ -72,7 +76,6 @@ const nextConfig: NextConfig = {
 
     // CWV diagnostics: include attribution for CLS/LCP when available (e.g., DOM node summary).
     webVitalsAttribution: ["CLS", "LCP"],
-
   },
 
   turbopack: {
