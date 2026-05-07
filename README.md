@@ -1,6 +1,6 @@
 # 🧩 **NicoTorDev — Full-Stack Problem Solver**
 
-> **Next.js Specialist · TypeScript Artisan ❤️ · AI-Lover 🤖**
+> **Next.js Specialist · TypeScript Artisan ❤️ · AI 🤖**
 
 ![NicoTorDev banner](https://github.com/user-attachments/assets/10c6c86d-bfa4-496e-8537-738e0d2ac626)
 
@@ -25,9 +25,5 @@ I live in the intersection between **art, logic, and rebellion**, where clean ar
 ## 🌄 **Beyond Code**
 
 Born in Concepción, raised between cables and cassette tapes.
-I’ve hacked, built, and dreamed my way through the web — now I write software that **balances ethics and efficiency**, for startups, AI platforms, and people who dare to think different.
 
----
-
-*“A well-defined problem is already half solved.”*
 **— NicoTorDev**
