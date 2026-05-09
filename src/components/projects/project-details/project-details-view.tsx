@@ -550,7 +550,7 @@ export function ProjectDetailsView({
                 <Link
                   href={`/${locale}/projects/${item.slug}`}
                   className={cn(
-                    "group block overflow-hidden rounded-3xl border border-border/40 bg-muted/5 p-3 transition-all duration-300",
+                    "group block overflow-hidden rounded-3xl border border-border/40 bg-muted/5 p-3 transition-all duration-300 h-full",
                     "hover:-translate-y-1 hover:border-primary/30 hover:bg-muted/20 hover:shadow-lg hover:shadow-primary/5",
                   )}
                 >
