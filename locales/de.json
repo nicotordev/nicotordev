@@ -181,6 +181,10 @@
     "carousel": {
       "title": "Projekte, die ich gebaut habe",
       "viewProject": "Projekt ansehen"
+    },
+    "caseStudy": {
+      "estimatedBudget": "Geschätztes Budget",
+      "budgetDisclaimer": "Orientierungswerte nach typischem Umfang (~USD 28/h); kein Angebot oder Proforma."
     }
   },
   "downloadResume": {

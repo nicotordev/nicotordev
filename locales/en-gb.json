@@ -181,6 +181,10 @@
     "carousel": {
       "title": "Projects I’ve built",
       "viewProject": "View project"
+    },
+    "caseStudy": {
+      "estimatedBudget": "Estimated budget",
+      "budgetDisclaimer": "Indicative estimate based on typical scope (~USD 28/h); not a quote or invoice."
     }
   },
   "downloadResume": {

@@ -8,30 +8,66 @@ import type {
   DirectusItemsResponse,
   DirectusProject,
   DirectusProjectGalleryRow,
+  DirectusProjectTranslation,
 } from "@/lib/directus/types";
+import { defaultLocale, type Locale } from "@/i18n/config";
+import { resolveProjectCostDisplay } from "@/lib/projects/cost-display";
 import type { AssetDTO, ProjectDTO } from "@/types/projects";
 
 const DEFAULT_FIELDS = [
   "project_id",
   "slug",
-  "name",
   "cost",
-  "description",
-  "tech",
-  "impact",
+  "cost_display",
   "image",
   "link",
-  "link_text",
   "is_active",
   "sort_order",
-  "body",
   "gallery.directus_files_id.id",
   "gallery.directus_files_id.title",
   "gallery.directus_files_id.type",
   "gallery.directus_files_id.description",
   "date_created",
   "date_updated",
+  "translations.id",
+  "translations.languages_code",
+  "translations.name",
+  "translations.description",
+  "translations.tech",
+  "translations.impact",
 ] as const;
+
+function readLanguagesCode(
+  v: DirectusProjectTranslation["languages_code"],
+): string | null {
+  if (v == null) return null;
+  if (typeof v === "string") return v;
+  if (typeof v === "object" && "code" in v && typeof v.code === "string") {
+    return v.code;
+  }
+  return null;
+}
+
+function pickTranslation(
+  rows: DirectusProject["translations"],
+  locale: Locale,
+): DirectusProjectTranslation | null {
+  if (!Array.isArray(rows) || rows.length === 0) return null;
+  for (const row of rows) {
+    if (readLanguagesCode(row.languages_code) === locale) return row;
+  }
+  return null;
+}
+
+/** Prefer requested locale, then English (`en`). */
+function pickTranslationForLocale(
+  rows: DirectusProject["translations"],
+  locale: Locale,
+): DirectusProjectTranslation | null {
+  const primary = pickTranslation(rows, locale);
+  if (primary) return primary;
+  return pickTranslation(rows, defaultLocale);
+}
 
 function mimeToAssetType(mime: string | null | undefined): AssetDTO["type"] {
   if (!mime) return "IMAGE";
@@ -87,15 +123,18 @@ function mapGalleryToAssets(
   return out;
 }
 
+/** Structural fields only; titles and copy come from `translations`. */
 function mapDirectusProjectToProject(p: DirectusProject): ProjectDTO {
   const baseUrl = getDirectusUrl();
+  const slug = p.slug ?? slugFromId(p.project_id);
   const dto: ProjectDTO = {
     id: p.project_id,
-    slug: p.slug ?? slugFromId(p.project_id),
-    name: p.name,
+    slug,
+    name: slug,
     cost: p.cost,
-    description: p.description,
-    tech: p.tech,
+    costDisplay: resolveProjectCostDisplay(slug, p.cost, p.cost_display),
+    description: "",
+    tech: "",
     image: p.image,
     isActive: p.is_active,
     sortOrder: p.sort_order,
@@ -103,9 +142,7 @@ function mapDirectusProjectToProject(p: DirectusProject): ProjectDTO {
     updatedAt: p.date_updated ?? new Date().toISOString(),
     gallery: mapGalleryToAssets(p.gallery, baseUrl),
   };
-  if (p.impact != null) dto.impact = p.impact;
   if (p.link != null) dto.link = p.link;
-  if (p.link_text != null) dto.linkText = p.link_text;
   return dto;
 }
 
@@ -115,13 +152,48 @@ function slugFromId(projectId: string): string {
 }
 
 export type ProjectFromCMS = ProjectDTO & {
-  /** Rich HTML body from Directus (WYSIWYG). */
+  /** Kept for compatibility with static fallback data; CMS does not supply HTML body anymore. */
   body?: string | null;
 };
 
-function toProjectFromCMS(p: DirectusProject): ProjectFromCMS {
+function mergeCopyFromTranslation(
+  base: ProjectDTO,
+  row: DirectusProjectTranslation | null,
+): ProjectDTO {
+  if (!row) return base;
+  const name = row.name?.trim() || base.name;
+  const description = row.description?.trim() || base.description;
+  const tech = row.tech?.trim() || base.tech;
+  const next: ProjectDTO = {
+    ...base,
+    name,
+    description,
+    tech,
+  };
+  const impact =
+    row.impact != null && row.impact.trim() !== ""
+      ? row.impact.trim()
+      : base.impact;
+  if (impact !== undefined) next.impact = impact;
+  return next;
+}
+
+function toProjectFromCMS(
+  p: DirectusProject,
+  locale: Locale = defaultLocale,
+): ProjectFromCMS {
   const base = mapDirectusProjectToProject(p);
-  return { ...base, body: p.body ?? null };
+  const row = pickTranslationForLocale(p.translations, locale);
+  const merged = mergeCopyFromTranslation(base, row);
+
+  return {
+    ...merged,
+    costDisplay: resolveProjectCostDisplay(
+      merged.slug,
+      merged.cost,
+      p.cost_display,
+    ),
+  };
 }
 
 /**
@@ -129,6 +201,7 @@ function toProjectFromCMS(p: DirectusProject): ProjectFromCMS {
  */
 export async function fetchProjects(
   query?: Partial<DirectusQuery>,
+  locale: Locale = defaultLocale,
 ): Promise<ProjectFromCMS[]> {
   const res = await directusFetch<DirectusItemsResponse<DirectusProject>>(
     "/items/projects",
@@ -141,15 +214,15 @@ export async function fetchProjects(
     },
   );
   const list = res.data ?? [];
-  return list.map(toProjectFromCMS);
+  return list.map((p) => toProjectFromCMS(p, locale));
 }
 
 /**
  * Fetch projects from Directus; returns null on failure.
  */
-export async function fetchProjectsOptional(): Promise<
-  ProjectFromCMS[] | null
-> {
+export async function fetchProjectsOptional(
+  locale: Locale = defaultLocale,
+): Promise<ProjectFromCMS[] | null> {
   const res = await directusFetchOptional<
     DirectusItemsResponse<DirectusProject>
   >("/items/projects", {
@@ -159,7 +232,7 @@ export async function fetchProjectsOptional(): Promise<
     limit: 100,
   });
   if (!res?.data) return null;
-  return res.data.map(toProjectFromCMS);
+  return res.data.map((p) => toProjectFromCMS(p, locale));
 }
 
 /**
@@ -167,6 +240,7 @@ export async function fetchProjectsOptional(): Promise<
  */
 export async function fetchProjectById(
   projectId: string,
+  locale: Locale = defaultLocale,
 ): Promise<ProjectFromCMS | null> {
   try {
     const res = await directusFetch<{ data: DirectusProject[] }>(
@@ -178,17 +252,18 @@ export async function fetchProjectById(
       },
     );
     const item = res.data?.[0];
-    return item ? toProjectFromCMS(item) : null;
+    return item ? toProjectFromCMS(item, locale) : null;
   } catch {
     return null;
   }
 }
 
 /**
- * Fetch a single project by slug (e.g. "regulex", "v0-dev-mcp").
+ * Fetch a single project by slug (kebab-case, matches CMS `slug`).
  */
 export async function fetchProjectBySlug(
   slug: string,
+  locale: Locale = defaultLocale,
 ): Promise<ProjectFromCMS | null> {
   try {
     const res = await directusFetch<{ data: DirectusProject[] }>(
@@ -200,7 +275,7 @@ export async function fetchProjectBySlug(
       },
     );
     const item = res.data?.[0];
-    return item ? toProjectFromCMS(item) : null;
+    return item ? toProjectFromCMS(item, locale) : null;
   } catch {
     return null;
   }

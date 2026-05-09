@@ -181,6 +181,10 @@
     "carousel": {
       "title": "Proyectos que he construido",
       "viewProject": "Ver proyecto"
+    },
+    "caseStudy": {
+      "estimatedBudget": "Presupuesto estimado",
+      "budgetDisclaimer": "Estimación orientativa según alcance típico (~USD 28/h); no es cotización ni factura."
     }
   },
   "downloadResume": {

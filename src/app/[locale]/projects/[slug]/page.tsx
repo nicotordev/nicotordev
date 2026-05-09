@@ -11,7 +11,7 @@ import { getLocaleUrl } from "@/lib/seo/i18n";
 import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
 import type { Metadata } from "next";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -20,13 +20,20 @@ export interface ProjectPageProps {
   params: Promise<{ locale: string; slug: string }>;
 }
 
+function plainFromHtml(html: string): string {
+  return html
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
   const typedLocale = locale as Locale;
   const messages = (await getMessages({ locale: typedLocale })) as Messages;
-  const project = await fetchProjectBySlug(slug);
+  const project = await fetchProjectBySlug(slug, typedLocale);
 
   const baseCanonical = getLocaleUrl(messages.seo.site.url, typedLocale);
   const canonical = `${baseCanonical}/projects/${slug}`;
@@ -44,9 +51,13 @@ export async function generateMetadata({
     };
   }
 
+  const descPlain = plainFromHtml(project.description);
+  const metaDesc =
+    descPlain.length > 0 ? descPlain.slice(0, 160) : messages.seo.description;
+
   return {
     title: { absolute: project.name },
-    description: project.description,
+    description: metaDesc,
     alternates: {
       canonical,
       languages: {
@@ -56,12 +67,12 @@ export async function generateMetadata({
     openGraph: {
       url: canonical,
       title: project.name,
-      description: project.description,
+      description: metaDesc,
       images: [{ url: project.image }],
     },
     twitter: {
       title: project.name,
-      description: project.description,
+      description: metaDesc,
       images: [project.image],
     },
   };
@@ -71,9 +82,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const { locale, slug } = await params;
   const typedLocale = locale as Locale;
 
-  const [messages, project] = await Promise.all([
+  const [messages, project, tProjects] = await Promise.all([
     getMessages({ locale: typedLocale }) as Promise<Messages>,
-    fetchProjectBySlug(slug),
+    fetchProjectBySlug(slug, typedLocale),
+    getTranslations({ locale: typedLocale, namespace: "projects" }),
   ]);
 
   if (!project) {
@@ -117,6 +129,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <p className="mt-6 max-w-3xl text-lg text-muted-foreground">
             {project.description}
           </p>
+
+          {project.costDisplay ? (
+            <div className="mt-4 rounded-lg border border-border/80 bg-muted/40 px-4 py-3">
+              <p className="text-sm font-medium text-foreground">
+                {messages.projects.caseStudy.estimatedBudget}
+              </p>
+              <p className="mt-1 text-muted-foreground">{project.costDisplay}</p>
+              <p className="mt-2 text-xs text-muted-foreground">
+                {messages.projects.caseStudy.budgetDisclaimer}
+              </p>
+            </div>
+          ) : null}
 
           <div className="relative mt-10 aspect-16/10 overflow-hidden rounded-xl border bg-muted">
             <Image
@@ -167,10 +191,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
           <Card className="mt-10 border-border/70 bg-card/80 backdrop-blur-sm">
             <CardContent className="p-6 sm:p-10">
-              {project.body ? (
+              {project.description ? (
                 <article
                   className="blog-content text-foreground [&_a]:text-primary [&_a]:underline [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6"
-                  dangerouslySetInnerHTML={{ __html: project.body }}
+                  dangerouslySetInnerHTML={{ __html: project.description }}
                 />
               ) : (
                 <div className="space-y-4 text-muted-foreground">
@@ -185,7 +209,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {project.link ? (
               <Button asChild>
                 <Link href={project.link} target="_blank" rel="noreferrer">
-                  {project.linkText ?? "Visit project"}
+                  {tProjects("carousel.viewProject")}
                 </Link>
               </Button>
             ) : null}

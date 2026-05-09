@@ -55,9 +55,6 @@ async function runAddRichFields() {
     process.exit(1);
   }
   console.log("Adding rich content fields...");
-  await createRichField("projects", "body", "text", "input-rich-text-html", {
-    note: "Rich HTML body (WYSIWYG) for project story/long content",
-  });
   await createRichField("blogs", "excerpt", "text", "input-rich-text-html", {
     note: "Rich excerpt (optional)",
   });

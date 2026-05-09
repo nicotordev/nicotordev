@@ -65,7 +65,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const [messages, cmsReviews, cmsProjects] = await Promise.all([
     getMessages({ locale: locale as Locale }) as Promise<Messages>,
     fetchReviewsOptional(),
-    fetchProjectsOptional(),
+    fetchProjectsOptional(locale as Locale),
   ]);
 
   const reviewsList: ReviewFromCMS[] =

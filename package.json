@@ -43,6 +43,13 @@
     "lint": "eslint .",
     "check-locales": "bun scripts/check-locales.ts",
     "sync-locales": "bun scripts/sync-locale-structure.ts",
+    "sync-directus-project-costs": "bun scripts/sync-project-costs-to-directus.ts",
+    "sync-directus-project-slugs": "bun scripts/sync-project-slugs-to-directus.ts",
+    "setup-directus-projects-translations": "bun scripts/setup-directus-projects-translations.ts",
+    "seed-projects-translations": "bun scripts/seed-projects-translations-from-default.ts",
+    "configure-projects-translations-ui": "bun scripts/configure-projects-translations-interface.ts",
+    "migrate-projects-root-to-translations": "bun scripts/migrate-projects-root-fields-to-en-translations.ts",
+    "drop-projects-slim-schema": "bun scripts/drop-projects-slim-schema.ts",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "check": "bun run lint && bun run type-check"

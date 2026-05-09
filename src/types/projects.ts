@@ -11,10 +11,13 @@ export type AssetDTO = {
 
 export type ProjectDTO = {
   id: string;
-  /** URL-friendly identifier (e.g. "regulex", "v0-dev-mcp"). */
+  /** URL-friendly identifier from `slugifyTitle(name)` (kebab-case, unique per project). */
   slug: string;
   name: string;
+  /** Midpoint USD for estimates (e.g. from hours × rate); UI uses `costDisplay` when set. */
   cost: number;
+  /** Resolved budget line (range or estimate); filled when mapping from CMS + fallbacks. */
+  costDisplay?: string;
   description: string;
   tech: string; // Prisma: `@db.VarChar(255)` (comma or space separated)
   impact?: string;

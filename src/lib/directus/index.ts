@@ -9,6 +9,8 @@ export {
 export type {
   DirectusReview,
   DirectusProject,
+  DirectusLanguage,
+  DirectusProjectTranslation,
   DirectusProjectGalleryRow,
   DirectusBlog,
   DirectusLink,

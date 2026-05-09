@@ -299,32 +299,54 @@ type ProjectSeed = {
 async function seedProjects() {
   const mod = await import("../src/app/data/projects");
   const staticProjects = (mod as { staticProjects: ProjectSeed[] }).staticProjects;
+  const root = SEED_DIRECTUS_URL.replace(/\/$/, "");
   console.log("Seeding projects...");
   for (const p of staticProjects) {
-    const body = {
-      project_id: p.id,
-      slug: p.slug,
-      name: p.name,
-      cost: p.cost,
-      description: p.description,
-      tech: p.tech,
-      impact: p.impact ?? null,
-      image: p.image,
-      link: p.link ?? null,
-      link_text: p.linkText ?? null,
-      is_active: p.isActive,
-      sort_order: p.sortOrder,
-    };
-    const res = await fetch(`${SEED_DIRECTUS_URL}/items/projects`, {
+    const res = await fetch(`${root}/items/projects`, {
       method: "POST",
       headers: SEED_HEADERS,
-      body: JSON.stringify(body),
+      body: JSON.stringify({
+        project_id: p.id,
+        slug: p.slug,
+        cost: p.cost,
+        image: p.image,
+        link: p.link ?? null,
+        is_active: p.isActive,
+        sort_order: p.sortOrder,
+      }),
     });
     if (!res.ok) {
-      const err = await res.text();
-      console.error("Project failed:", p.id, res.status, err);
+      console.error("Project failed:", p.id, res.status, await res.text());
+      continue;
+    }
+    const json = (await res.json()) as { data?: { id: number } };
+    const numericId = json.data?.id;
+    if (numericId === undefined) {
+      console.error("Project missing id in response:", p.id);
+      continue;
+    }
+
+    const tr = await fetch(`${root}/items/projects_translations`, {
+      method: "POST",
+      headers: SEED_HEADERS,
+      body: JSON.stringify({
+        projects_id: numericId,
+        languages_code: "en",
+        name: p.name,
+        description: p.description,
+        tech: p.tech,
+        impact: p.impact ?? null,
+      }),
+    });
+    if (!tr.ok) {
+      console.error(
+        "  Translation failed:",
+        p.id,
+        tr.status,
+        await tr.text(),
+      );
     } else {
-      console.log("  Created project:", p.id, p.name.slice(0, 40) + "...");
+      console.log("  Created project + en:", p.id, p.name.slice(0, 40) + "...");
     }
   }
 }

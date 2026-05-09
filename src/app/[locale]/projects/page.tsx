@@ -62,7 +62,7 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
   const typedLocale = locale as Locale;
   const [messages, cmsProjects] = await Promise.all([
     getMessages({ locale: typedLocale }) as Promise<Messages>,
-    fetchProjectsOptional(),
+    fetchProjectsOptional(typedLocale),
   ]);
 
   const projects: ProjectFromCMS[] = cmsProjects ?? [];
@@ -100,6 +100,9 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
             A curated selection of products built end-to-end: architecture,
             implementation and measurable impact.
           </p>
+          <p className="mt-3 max-w-3xl text-sm text-muted-foreground">
+            {messages.projects.caseStudy.budgetDisclaimer}
+          </p>
 
           {projects.length > 0 ? (
             <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -121,7 +124,15 @@ export default async function ProjectsPage({ params }: ProjectsPageProps) {
                     <CardTitle className="line-clamp-2 text-xl">
                       {project.name}
                     </CardTitle>
-                    <CardDescription className="line-clamp-3">
+                    {project.costDisplay ? (
+                      <p className="mt-2 text-sm font-medium text-foreground">
+                        {messages.projects.caseStudy.estimatedBudget}:{" "}
+                        <span className="text-muted-foreground font-normal">
+                          {project.costDisplay}
+                        </span>
+                      </p>
+                    ) : null}
+                    <CardDescription className="line-clamp-3 mt-2">
                       {project.description}
                     </CardDescription>
                   </CardHeader>

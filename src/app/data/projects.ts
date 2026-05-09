@@ -1,12 +1,16 @@
+import { resolveProjectCostDisplay } from "@/lib/projects/cost-display";
+import { slugifyTitle } from "@/lib/slugify";
 import type { ProjectDTO } from "@/types/projects";
 
-export const staticProjects: ProjectDTO[] = [
+/** CMS/static rows without slug — URL slug is always `slugifyTitle(name)`. */
+type ProjectSeed = Omit<ProjectDTO, "slug" | "costDisplay">;
+
+const projectSeeds: ProjectSeed[] = [
   // --- 2025 ---
   {
     id: "proj_1",
-    slug: "regulex",
     name: "Regulex: AI-Powered Legal Compliance & Auditing Platform",
-    cost: 0,
+    cost: 13_000,
     description:
       "Private AI-driven MVP for automated legislative reference detection, jurisdiction validation, and compliance review of legal documents. Enables real-time analysis and compliance automation for legal firms.",
     tech: "Next.js 15, TypeScript, OpenAI API, Prisma, PostgreSQL, Tailwind CSS",
@@ -87,9 +91,8 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_2",
-    slug: "v0-dev-mcp",
     name: "V0.dev MCP: AI Agent Context Protocol Integration",
-    cost: 0,
+    cost: 800,
     description:
       "Model Context Protocol (MCP) integration for V0.dev, enabling AI agents to interact with external systems via TypeScript-based context servers.",
     tech: "TypeScript, Bun, MCP, OpenAI API, Node.js",
@@ -114,9 +117,8 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_3",
-    slug: "conexus-space-planner",
     name: "Conexus: AI-Assisted Workspace Planning Calculator",
-    cost: 0,
+    cost: 2100,
     description:
       "AI-assisted calculator for workspace design and area planning. Built with Supabase backend, Next.js 15 frontend, and serverless edge functions.",
     tech: "Next.js 15, Supabase, TypeScript, PostgreSQL, Tailwind CSS",
@@ -133,9 +135,8 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_4",
-    slug: "seguidoress",
     name: "Seguidoress: Full-Stack SaaS for Social Media Services",
-    cost: 0,
+    cost: 13_000,
     description:
       "An e-commerce platform for social media growth services targeting influencers and brands in Latin America.",
     tech: "Next.js, Python, TensorFlow, PostgreSQL, Docker, AWS",
@@ -225,9 +226,8 @@ export const staticProjects: ProjectDTO[] = [
   // --- 2024 ---
   {
     id: "proj_5",
-    slug: "sexyconce",
     name: "SexyConce: Telegram Community Automation Bot",
-    cost: 0,
+    cost: 1500,
     description:
       "Telegram bot architecture for community automation in Concepción, Chile. Designed with modular commands, AI integrations, and real-time admin dashboards.",
     tech: "Bun, TypeScript, grammy.js, Redis, Supabase",
@@ -252,9 +252,8 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_6",
-    slug: "flowcl-pagos",
     name: "FlowCL Pagos: TypeScript SDK for Payment Integration",
-    cost: 0,
+    cost: 1000,
     description:
       "SDK en TypeScript para integrar pagos con la API de Flow.cl. Facilita la generación de órdenes de pago, validación de transacciones y gestión de reembolsos.",
     tech: "TypeScript, Node.js, API SDK, Flow API, Webpay",
@@ -280,9 +279,8 @@ export const staticProjects: ProjectDTO[] = [
   // --- 2023 ---
   {
     id: "proj_8",
-    slug: "spiritory",
     name: "Spiritory: Collectible Whisky & Spirits E-commerce Platform",
-    cost: 0,
+    cost: 15_500,
     description:
       "A B2B/B2C marketplace for high-value spirits. Engineered a modular frontend for inventory management and secure payments.",
     tech: "Next.js, Node.js, PostgreSQL, Docker, CI/CD, Stripe Integration",
@@ -355,9 +353,8 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_9",
-    slug: "funpicai",
     name: "FunpicAI: AI-Powered Creative Image Generator",
-    cost: 0,
+    cost: 3500,
     description:
       "AI app allowing users to generate creative images using natural language prompts. Integrates OpenAI API and Next.js.",
     tech: "Next.js, OpenAI API, React Query, Vercel, Tailwind CSS",
@@ -403,9 +400,8 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_10",
-    slug: "crypto-asset-screener",
     name: "Crypto Asset Screener: Real-Time Market Analytics Platform",
-    cost: 0,
+    cost: 2700,
     description:
       "A financial analytics tool designed to analyze cryptocurrency market data in real time with advanced filters and visualizations.",
     tech: "React, Node.js, API Integration, Data Visualization, Async State",
@@ -479,9 +475,8 @@ export const staticProjects: ProjectDTO[] = [
   },
   {
     id: "proj_11",
-    slug: "classpro",
     name: "Classpro: Education Management Platform",
-    cost: 0,
+    cost: 1500,
     description:
       "A test project focused on education management and intuitive UX.",
     tech: "React, Node.js, WebSocket, PostgreSQL, UX/UI Design",
@@ -511,10 +506,21 @@ export const staticProjects: ProjectDTO[] = [
   },
 ];
 
+const staticProjectsBase: ProjectDTO[] = projectSeeds.map((p) => ({
+  ...p,
+  slug: slugifyTitle(p.name),
+}));
+
+/** Static fallback when CMS is unavailable; includes resolved `costDisplay` labels. */
+export const staticProjects: ProjectDTO[] = staticProjectsBase.map((p) => ({
+  ...p,
+  costDisplay: resolveProjectCostDisplay(p.slug, p.cost, p.costDisplay),
+}));
+
 export const featuredProject: ProjectDTO = staticProjects[0]!;
 
 
 export const featuredProjects: ProjectDTO[] = [
   staticProjects[3]!,
   staticProjects[6]!,
-]
+];

@@ -17,6 +17,24 @@ export type DirectusReview = {
   hourly_rate: number | null;
 };
 
+/** Row in `languages` (string PK `code`; matches app `Locale` codes). */
+export type DirectusLanguage = {
+  code: string;
+  name?: string | null;
+  direction?: string | null;
+};
+
+/** Locale row for `projects` (copy lives here — not on `projects`). */
+export type DirectusProjectTranslation = {
+  id?: number;
+  projects_id?: number | null;
+  languages_code?: string | DirectusLanguage | null;
+  name?: string | null;
+  description?: string | null;
+  tech?: string | null;
+  impact?: string | null;
+};
+
 /** Junction row from `projects.gallery` (M2M to `directus_files`). */
 export type DirectusProjectGalleryRow = {
   id?: number;
@@ -35,22 +53,18 @@ export type DirectusProjectGalleryRow = {
 export type DirectusProject = {
   id: number;
   project_id: string;
-  /** URL-friendly identifier; may be missing on older items. */
   slug?: string | null;
-  name: string;
   cost: number;
-  description: string;
-  tech: string;
-  impact: string | null;
+  /** Override for portfolio budget label; see `resolveProjectCostDisplay`. */
+  cost_display?: string | null;
   image: string;
   link: string | null;
-  link_text: string | null;
   is_active: boolean;
   sort_order: number;
   /** M2M files field; may be IDs only or expanded via `fields`. */
   gallery?: DirectusProjectGalleryRow[] | number[] | null;
-  /** Rich HTML content (WYSIWYG) */
-  body?: string | null;
+  /** Per-locale title, pitch, tech, impact (canonical copy — not stored on root). */
+  translations?: DirectusProjectTranslation[] | null;
   date_created?: string | null;
   date_updated?: string | null;
 };
