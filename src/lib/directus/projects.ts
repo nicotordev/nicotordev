@@ -35,7 +35,7 @@ const DEFAULT_FIELDS = [
   "translations.tech",
   "translations.impact",
 ] as const;
-const DEFAULT_PROJECT_IMAGE = "/images/projects/regulex/home-1.webp";
+const DEFAULT_PROJECT_IMAGE = "/images/placeholders/project.webp";
 
 function readLanguagesCode(
   v: DirectusProjectTranslation["languages_code"],

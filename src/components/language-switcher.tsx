@@ -1,7 +1,12 @@
 "use client";
 
 import { setLocaleCookie } from "@/app/actions/locale.actions";
-import { localeNames, locales, type Locale } from "@/i18n/config";
+import {
+  getPathWithoutLocale,
+  localeNames,
+  locales,
+  type Locale,
+} from "@/i18n/config";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import { useTransition } from "react";
@@ -57,7 +62,8 @@ export default function LanguageSwitcher({
     if (next === locale) return;
     startTransition(async () => {
       await setLocaleCookie(next as Locale);
-      router.replace(pathname, { locale: next as Locale });
+      const normalizedPathname = getPathWithoutLocale(pathname);
+      router.replace(normalizedPathname, { locale: next as Locale });
     });
   };
 

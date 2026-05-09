@@ -5,7 +5,12 @@ import { Check, Clock, DollarSign, Globe, Settings } from "lucide-react";
 import { useLocale, useMessages } from "next-intl";
 import { useTransition } from "react";
 
-import { localeNames, locales, type Locale } from "@/i18n/config";
+import {
+  getPathWithoutLocale,
+  localeNames,
+  locales,
+  type Locale,
+} from "@/i18n/config";
 import {
   currencies,
   CURRENCY_LABELS,
@@ -37,7 +42,7 @@ interface SettingsMenuProps {
   loginLabel: string;
 }
 
-export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
+export default function SettingsMenu({}: SettingsMenuProps) {
   const messages = useMessages();
   const common = messages.common as any;
 
@@ -57,7 +62,8 @@ export default function SettingsMenu({ loginLabel }: SettingsMenuProps) {
     if (next === locale) return;
     startTransition(async () => {
       await setLocaleCookie(next);
-      router.replace(pathname, { locale: next });
+      const normalizedPathname = getPathWithoutLocale(pathname);
+      router.replace(normalizedPathname, { locale: next });
     });
   };
 
