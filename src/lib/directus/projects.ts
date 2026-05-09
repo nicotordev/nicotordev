@@ -1,3 +1,4 @@
+import { defaultLocale, type Locale } from "@/i18n/config";
 import {
   directusFetch,
   directusFetchOptional,
@@ -10,7 +11,6 @@ import type {
   DirectusProjectGalleryRow,
   DirectusProjectTranslation,
 } from "@/lib/directus/types";
-import { defaultLocale, type Locale } from "@/i18n/config";
 import { resolveProjectCostDisplay } from "@/lib/projects/cost-display";
 import type { AssetDTO, ProjectDTO } from "@/types/projects";
 
@@ -18,7 +18,6 @@ const DEFAULT_FIELDS = [
   "project_id",
   "slug",
   "cost",
-  "cost_display",
   "image",
   "link",
   "is_active",
@@ -36,6 +35,7 @@ const DEFAULT_FIELDS = [
   "translations.tech",
   "translations.impact",
 ] as const;
+const DEFAULT_PROJECT_IMAGE = "/images/projects/regulex/home-1.webp";
 
 function readLanguagesCode(
   v: DirectusProjectTranslation["languages_code"],
@@ -98,6 +98,19 @@ function directusFileToAsset(
   return dto;
 }
 
+function toDirectusAssetUrl(
+  value: string | null | undefined,
+  baseUrl: string,
+): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  if (!trimmed) return trimmed;
+  if (/^https?:\/\//i.test(trimmed) || trimmed.startsWith("/")) {
+    return trimmed;
+  }
+  return `${baseUrl}/assets/${trimmed}`;
+}
+
 function mapGalleryToAssets(
   gallery: DirectusProject["gallery"],
   baseUrl: string,
@@ -126,6 +139,11 @@ function mapGalleryToAssets(
 /** Structural fields only; titles and copy come from `translations`. */
 function mapDirectusProjectToProject(p: DirectusProject): ProjectDTO {
   const baseUrl = getDirectusUrl();
+  const gallery = mapGalleryToAssets(p.gallery, baseUrl);
+  const resolvedImage =
+    toDirectusAssetUrl(p.image, baseUrl) ??
+    gallery[0]?.url ??
+    DEFAULT_PROJECT_IMAGE;
   const slug = p.slug ?? slugFromId(p.project_id);
   const dto: ProjectDTO = {
     id: p.project_id,
@@ -135,12 +153,12 @@ function mapDirectusProjectToProject(p: DirectusProject): ProjectDTO {
     costDisplay: resolveProjectCostDisplay(slug, p.cost, p.cost_display),
     description: "",
     tech: "",
-    image: p.image,
+    image: resolvedImage,
     isActive: p.is_active,
     sortOrder: p.sort_order,
     createdAt: p.date_created ?? new Date().toISOString(),
     updatedAt: p.date_updated ?? new Date().toISOString(),
-    gallery: mapGalleryToAssets(p.gallery, baseUrl),
+    gallery,
   };
   if (p.link != null) dto.link = p.link;
   return dto;

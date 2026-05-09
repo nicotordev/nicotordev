@@ -16,6 +16,7 @@ import { Dot } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
+import HeroSectionTechStackCarouselClient from "./hero-section-tech-stack-carousel-client";
 
 interface HeroSectionProps {
   messages: Messages;
@@ -44,7 +45,7 @@ function HighlightWord({
         "font-extrabold tracking-tight",
         "shadow-sm ring-1 ring-border",
         rotate,
-        "text-3xl sm:text-4xl md:text-5xl"
+        "text-3xl sm:text-4xl md:text-5xl",
       )}
     >
       <Typography
@@ -77,7 +78,10 @@ export default function HeroSection({ messages }: HeroSectionProps) {
   const availableResumeFormatKeys = getExistingResumeFormatKeys();
 
   return (
-    <section id="hero-section" className="relative z-10 bg-background py-8 sm:py-10 md:py-12">
+    <section
+      id="hero-section"
+      className="relative z-10 bg-background py-8 sm:py-10 md:py-12"
+    >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <BackgroundDecoration />
 
@@ -179,7 +183,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
             className={cn(
               "mt-8 w-full",
               "flex flex-col gap-3 items-center",
-              "sm:flex-row sm:justify-center sm:gap-6"
+              "sm:flex-row sm:justify-center sm:gap-6",
             )}
           >
             {/* Primary CTA */}
@@ -189,7 +193,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
               className={cn(
                 "w-full",
                 "text-base font-bold",
-                "sm:w-auto sm:px-8"
+                "sm:w-auto sm:px-8",
               )}
             >
               <Link href="#contact-section">
@@ -219,7 +223,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
         </div>
 
         <div className="py-10 sm:py-12">
-          <HeroSectionTechStackCarousel />
+          <HeroSectionTechStackCarouselClient />
         </div>
 
         <BackgroundDecoration

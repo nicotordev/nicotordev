@@ -54,7 +54,7 @@ export default function Header({ messages }: { messages: Messages }) {
           {/* Mobile menu */}
 
           {/* Desktop menu */}
-          <div className="hidden md:flex md:gap-x-6 lg:gap-x-12 w-full items-center justify-center">
+          <div className="hidden md:flex md:gap-x-6 w-full items-center justify-center">
             {navItems.map((item) => (
               <a
                 key={item.name}

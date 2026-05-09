@@ -57,7 +57,7 @@ export type DirectusProject = {
   cost: number;
   /** Override for portfolio budget label; see `resolveProjectCostDisplay`. */
   cost_display?: string | null;
-  image: string;
+  image: string | null;
   link: string | null;
   is_active: boolean;
   sort_order: number;

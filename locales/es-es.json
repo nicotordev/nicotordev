@@ -185,6 +185,35 @@
     "caseStudy": {
       "estimatedBudget": "Presupuesto estimado",
       "budgetDisclaimer": "Estimación orientativa según alcance típico (~USD 28/h); no es cotización ni factura."
+    },
+    "details": {
+      "viewSource": "View source",
+      "backToProjects": "Back to projects",
+      "nextProject": "Next Project",
+      "projectShowcase": "Project Showcase",
+      "projectMeta": "Project Meta",
+      "gallery": "Gallery",
+      "projectDescription": "Project Description",
+      "impact": "Business Impact",
+      "techStack": "Tech Stack",
+      "updated": "Updated",
+      "locale": "Locale",
+      "stack": "Stack",
+      "status": "Status",
+      "timeline": "Timeline",
+      "statusActive": "Activo",
+      "statusArchived": "Archivado",
+      "customStack": "Stack personalizado",
+      "assetsCount": "{count} recursos",
+      "noGalleryAssets": "Aún no hay recursos de galería disponibles para este proyecto.",
+      "descriptionFallback": "Este caso de estudio se está ampliando con más detalles de producción.",
+      "noItemsInGroup": "No hay elementos en este grupo.",
+      "caseStudy": "Caso de estudio",
+      "moreProjectsComing": "Se están preparando más proyectos para esta muestra.",
+      "openGalleryImage": "Abrir imagen de galería {index}",
+      "previousImage": "Imagen anterior",
+      "nextImage": "Imagen siguiente",
+      "closeGalleryLightbox": "Cerrar visor de galería"
     }
   },
   "downloadResume": {

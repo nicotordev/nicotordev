@@ -185,6 +185,35 @@
     "caseStudy": {
       "estimatedBudget": "Estimated budget",
       "budgetDisclaimer": "Indicative estimate based on typical scope (~USD 28/h); not a quote or invoice."
+    },
+    "details": {
+      "viewSource": "View source",
+      "backToProjects": "Back to projects",
+      "nextProject": "Next Project",
+      "projectShowcase": "Project Showcase",
+      "projectMeta": "Project Meta",
+      "gallery": "Gallery",
+      "projectDescription": "Project Description",
+      "impact": "Business Impact",
+      "techStack": "Tech Stack",
+      "updated": "Updated",
+      "locale": "Locale",
+      "stack": "Stack",
+      "status": "Status",
+      "timeline": "Timeline",
+      "statusActive": "Active",
+      "statusArchived": "Archived",
+      "customStack": "Custom stack",
+      "assetsCount": "{count} assets",
+      "noGalleryAssets": "No gallery assets available for this project yet.",
+      "descriptionFallback": "This case study is being expanded with more production details.",
+      "noItemsInGroup": "No items in this group.",
+      "caseStudy": "Case study",
+      "moreProjectsComing": "More projects are being prepared for this showcase.",
+      "openGalleryImage": "Open gallery image {index}",
+      "previousImage": "Previous image",
+      "nextImage": "Next image",
+      "closeGalleryLightbox": "Close gallery lightbox"
     }
   },
   "downloadResume": {

@@ -237,9 +237,9 @@ export const nicolasStats = [
   {
     id: 3,
     key: "activeEngagements",
-    value: 4,
+    value: 2,
     rightSymbol: "",
     leftSymbol: "",
   },
-  { id: 4, key: "rate", value: 30, rightSymbol: "/hr", leftSymbol: "$" },
+  { id: 4, key: "rate", value: 28, rightSymbol: "/hr", leftSymbol: "$" },
 ];

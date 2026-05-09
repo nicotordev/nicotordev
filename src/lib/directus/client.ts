@@ -1,6 +1,6 @@
 /**
  * Directus REST client for https://directus.nicotordev.com/
- * Uses DIRECTUS_URL and optional DIRECTUS_TOKEN (for restricted collections).
+ * Uses DIRECTUS_URL for public, unauthenticated reads.
  */
 
 const DIRECTUS_URL =
@@ -8,21 +8,14 @@ const DIRECTUS_URL =
   process.env.NEXT_PUBLIC_DIRECTUS_URL ??
   "https://directus.nicotordev.com";
 
-const DIRECTUS_TOKEN = process.env.DIRECTUS_TOKEN ?? "";
-
 export function getDirectusUrl(): string {
   return DIRECTUS_URL.replace(/\/$/, "");
 }
 
 export function getDirectusHeaders(): HeadersInit {
-  const headers: HeadersInit = {
+  return {
     "Content-Type": "application/json",
   };
-  if (DIRECTUS_TOKEN) {
-    (headers as Record<string, string>)["Authorization"] =
-      `Bearer ${DIRECTUS_TOKEN}`;
-  }
-  return headers;
 }
 
 export type DirectusQuery = {

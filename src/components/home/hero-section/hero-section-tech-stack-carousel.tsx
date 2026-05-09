@@ -31,7 +31,7 @@ export default function HeroSectionTechStackCarousel() {
         setIsIntersecting(true);
         observer.disconnect();
       },
-      { rootMargin: "0px 0px -35% 0px", threshold: 0.2 }
+      { rootMargin: "0px 0px -35% 0px", threshold: 0.2 },
     );
 
     observer.observe(target);
@@ -60,9 +60,11 @@ export default function HeroSectionTechStackCarousel() {
     };
 
     if ("requestIdleCallback" in window) {
-      (window as Window & {
-        requestIdleCallback: (cb: IdleRequestCallback) => number;
-      }).requestIdleCallback(() => load());
+      (
+        window as Window & {
+          requestIdleCallback: (cb: IdleRequestCallback) => number;
+        }
+      ).requestIdleCallback(() => load());
     } else {
       globalThis.setTimeout(load, 400);
     }
