@@ -100,9 +100,9 @@ export default async function LinksPage({ params }: LinksPageProps) {
       <Header messages={messages} />
 
         <BackgroundDecoration className="opacity-50" />
-        
-        <div className="pb-32 pt-12 md:py-32 min-h-[70vh] relative z-10 w-full max-w-md mx-auto px-4 flex flex-col items-center gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
-          
+
+        <div className="relative z-10 w-full max-w-md mx-auto px-4 flex flex-col items-center gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
+
           {/* Profile Section */}
           <div className="flex flex-col items-center text-center gap-4">
             <div className="relative group">
@@ -112,7 +112,7 @@ export default async function LinksPage({ params }: LinksPageProps) {
                 <AvatarFallback>NT</AvatarFallback>
               </Avatar>
             </div>
-            
+
             <div className="space-y-1">
               <Typography as="h1" className="text-2xl sm:text-3xl font-bold font-display tracking-tight text-foreground">
                 {messages.hero?.name || "Nicolás Torres"}
@@ -132,10 +132,10 @@ export default async function LinksPage({ params }: LinksPageProps) {
             {linksList.map((link, index) => {
               const IconComponent = getIconComponent(link.icon);
               const customImageUrl = link.iconImage ? `${getDirectusUrl()}/assets/${link.iconImage}` : null;
-              
+
               return (
-                <div 
-                  key={link.id} 
+                <div
+                  key={link.id}
                   className="w-full"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
@@ -146,15 +146,15 @@ export default async function LinksPage({ params }: LinksPageProps) {
                   >
                     <a href={link.url} target="_blank" rel="noopener noreferrer">
                       <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                      
+
                       <div className="flex items-center gap-4 w-full">
                         <div className="flex items-center justify-center h-10 w-10 shrink-0">
                           {customImageUrl ? (
-                            <Image 
-                              src={customImageUrl} 
-                              alt={`${link.title} icon`} 
-                              width={40} 
-                              height={40} 
+                            <Image
+                              src={customImageUrl}
+                              alt={`${link.title} icon`}
+                              width={40}
+                              height={40}
                               className="object-contain h-full w-full rounded-sm"
                               unoptimized
                             />
