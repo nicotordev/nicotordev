@@ -96,9 +96,9 @@ export default async function LinksPage({ params }: LinksPageProps) {
 
   return (
     <>
-      <main className="relative">
       <Header messages={messages} />
 
+      <main className="relative py-12">
         <BackgroundDecoration className="opacity-50" />
 
         <div className="relative z-10 w-full max-w-md mx-auto px-4 flex flex-col items-center gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
