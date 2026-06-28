@@ -37,8 +37,6 @@ type RootLayoutProps = {
 
 export default async function RootLayout({ children }: RootLayoutProps) {
   const locale = (await getLocale()) ?? routing.defaultLocale;
-  const messages = await getMessages({ locale });
-
   return (
     <html
       lang={locale}

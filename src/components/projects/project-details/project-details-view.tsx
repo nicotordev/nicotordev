@@ -10,12 +10,12 @@ import {
   CalendarClock,
   CircleDollarSign,
   ExternalLink,
-  Github,
   Globe,
   Layers2,
   TrendingUp,
   Zap,
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -317,7 +317,7 @@ export function ProjectDetailsView({
               >
                 <Link href={sourceUrl} target="_blank" rel="noreferrer">
                   {tDetails("viewSource")}
-                  <Github className="ml-2 size-4" />
+                  <FaGithub className="ml-2 size-4" />  
                 </Link>
               </Button>
             ) : null}

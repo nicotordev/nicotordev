@@ -64,6 +64,7 @@ const nextConfig: NextConfig = {
       "@radix-ui/react-avatar",
       "recharts",
       "framer-motion",
+      "react-icons"
     ],
 
     // ⛔ eliminar serverComponentsExternalPackages (ya movido arriba)
@@ -112,25 +113,6 @@ const nextConfig: NextConfig = {
             value: "camera=(), microphone=(), geolocation=()",
           },
         ],
-      },
-    ];
-  },
-
-  async rewrites() {
-    const backendBase =
-      process.env.ADMIN_API_BASE_URL ??
-      process.env.NEXT_PUBLIC_ADMIN_API_BASE_URL ??
-      "http://localhost:3001";
-    const backend = backendBase.replace(/\/$/, "");
-
-    return [
-      {
-        source: "/r/:slug*",
-        destination: `${backend}/r/:slug*`,
-      },
-      {
-        source: "/api/:path*",
-        destination: `${backend}/api/:path*`,
       },
     ];
   },
