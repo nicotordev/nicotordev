@@ -1,4 +1,9 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaXTwitter,
+  FaInstagram,
+} from "react-icons/fa6";
 
 export const footerNavigation = {
   links: [
@@ -8,21 +13,25 @@ export const footerNavigation = {
     { key: "contact", fallback: "Contact", href: "#contact-section" },
   ],
   social: [
-    { name: "GitHub", href: "https://github.com/nicotordev", icon: Github },
+    {
+      name: "GitHub",
+      href: "https://github.com/nicotordev",
+      icon: FaGithub,
+    },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/nicotordev",
-      icon: Linkedin,
+      icon: FaLinkedin,
     },
     {
       name: "Twitter",
       href: "https://twitter.com/nicotordev",
-      icon: Twitter,
+      icon: FaXTwitter,
     },
     {
       name: "Instagram",
-      href: "https://www.instagram.com/4cidkid",
-      icon: Instagram,
+      href: "https://www.instagram.com/nicotordev",
+      icon: FaInstagram,
     },
   ],
-};
+} as const;
