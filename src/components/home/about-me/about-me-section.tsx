@@ -51,7 +51,7 @@ export default function AboutMeSection({
     methodology.description ??
     "My way of working is built on clarity, autonomy, and impact.";
 
-  const experienceRaw = metrics.experienceValue ?? "2.5+ years";
+  const experienceRaw = metrics.experienceValue ?? "4+ years";
   const [experienceValue, ...experienceSuffixParts] = experienceRaw.split(" ");
   const experienceSuffix = experienceSuffixParts.join(" ").trim();
 

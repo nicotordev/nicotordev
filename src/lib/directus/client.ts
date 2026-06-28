@@ -114,11 +114,15 @@ export async function directusFetch<T>(
     headers: getDirectusHeaders(),
     next: { revalidate: 60 },
   });
+
+  // Read response body once to avoid stream reuse issues in Bun
+  const data = (await res.json()) as T;
+
   if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Directus ${path}: ${res.status} ${text}`);
+    throw new Error(`Directus ${path}: ${res.status} ${JSON.stringify(data)}`);
   }
-  return res.json() as Promise<T>;
+
+  return data;
 }
 
 export async function directusFetchOptional<T>(
@@ -143,9 +147,15 @@ export async function directusPost<T, B = unknown>(
     headers: getDirectusHeaders(),
     body: JSON.stringify(body),
   });
+
+  // Read response body once to avoid stream reuse issues in Bun
+  const data = (await res.json()) as T;
+
   if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`Directus POST ${path}: ${res.status} ${text}`);
+    throw new Error(
+      `Directus POST ${path}: ${res.status} ${JSON.stringify(data)}`,
+    );
   }
-  return res.json() as Promise<T>;
+
+  return data;
 }

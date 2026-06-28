@@ -9,6 +9,7 @@ import { NextResponse, type NextRequest } from "next/server";
 const nextIntlMiddleware = createMiddleware(routing);
 const allowedOrigins = getAllowedOrigins();
 
+
 function withCorsHeaders(
   request: NextRequest,
   response: NextResponse,

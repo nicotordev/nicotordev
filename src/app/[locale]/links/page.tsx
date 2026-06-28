@@ -6,20 +6,21 @@ import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
 import type { Locale } from "@/i18n/config";
 import { routing } from "@/i18n/routing";
-import { fetchLinksOptional, type LinkFromCMS, getDirectusUrl } from "@/lib/directus";
+import {
+  fetchLinksOptional,
+  type LinkFromCMS,
+  getDirectusUrl,
+} from "@/lib/directus";
 import { getLocaleUrl } from "@/lib/seo/i18n";
 import type { Messages } from "@/types/i18n";
+import { Globe, Link as LinkIcon, Mail, MessageCircle } from "lucide-react";
 import {
-  Github,
-  Globe,
-  Instagram,
-  Linkedin,
-  Link as LinkIcon,
-  Mail,
-  MessageCircle,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+  FaGithub,
+  FaLinkedin,
+  FaXTwitter,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa6";
 import type { Metadata } from "next";
 import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
@@ -37,7 +38,7 @@ export async function generateMetadata({
 
   const canonical = getLocaleUrl(
     translation("seo.site.url") + "/links",
-    typedLocale
+    typedLocale,
   );
 
   return {
@@ -48,7 +49,7 @@ export async function generateMetadata({
       languages: {
         "x-default": getLocaleUrl(
           translation("seo.site.url") + "/links",
-          routing.defaultLocale
+          routing.defaultLocale,
         ),
       },
     },
@@ -64,13 +65,13 @@ export async function generateMetadata({
   };
 }
 
-const IconMap: Record<string, typeof LinkIcon> = {
-  github: Github,
-  linkedin: Linkedin,
-  twitter: Twitter,
-  x: Twitter,
-  youtube: Youtube,
-  instagram: Instagram,
+const IconMap: Record<string, typeof LinkIcon | typeof FaGithub> = {
+  github: FaGithub,
+  linkedin: FaLinkedin,
+  twitter: FaXTwitter,
+  x: FaXTwitter,
+  youtube: FaYoutube,
+  instagram: FaInstagram,
   mail: Mail,
   email: Mail,
   whatsapp: MessageCircle,
@@ -102,19 +103,25 @@ export default async function LinksPage({ params }: LinksPageProps) {
         <BackgroundDecoration className="opacity-50" />
 
         <div className="relative z-10 w-full max-w-md mx-auto px-4 flex flex-col items-center gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out fill-mode-both">
-
           {/* Profile Section */}
           <div className="flex flex-col items-center text-center gap-4">
             <div className="relative group">
               <div className="absolute -inset-1 bg-linear-to-r from-primary to-secondary rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
               <Avatar className="h-28 w-28 sm:h-32 sm:w-32 ring-4 ring-background relative">
-                <AvatarImage src="/images/nicolas/nico-pc.webp" alt="NicoTorDev" className="object-cover rounded-full" />
+                <AvatarImage
+                  src="/images/nicolas/nico-pc.webp"
+                  alt="NicoTorDev"
+                  className="object-cover rounded-full"
+                />
                 <AvatarFallback>NT</AvatarFallback>
               </Avatar>
             </div>
 
             <div className="space-y-1">
-              <Typography as="h1" className="text-2xl sm:text-3xl font-bold font-display tracking-tight text-foreground">
+              <Typography
+                as="h1"
+                className="text-2xl sm:text-3xl font-bold font-display tracking-tight text-foreground"
+              >
                 {messages.hero?.name || "Nicolás Torres"}
               </Typography>
               <Typography as="p" className="text-muted-foreground font-medium">
@@ -123,7 +130,8 @@ export default async function LinksPage({ params }: LinksPageProps) {
             </div>
 
             <p className="text-sm text-foreground/80 max-w-xs mx-auto">
-              {messages.hero?.description || "Software developer, content creator, and tech enthusiast."}
+              {messages.hero?.description ||
+                "Software developer, content creator, and tech enthusiast."}
             </p>
           </div>
 
@@ -131,7 +139,9 @@ export default async function LinksPage({ params }: LinksPageProps) {
           <div className="w-full flex flex-col gap-4">
             {linksList.map((link, index) => {
               const IconComponent = getIconComponent(link.icon);
-              const customImageUrl = link.iconImage ? `${getDirectusUrl()}/assets/${link.iconImage}` : null;
+              const customImageUrl = link.iconImage
+                ? `${getDirectusUrl()}/assets/${link.iconImage}`
+                : null;
 
               return (
                 <div
@@ -144,7 +154,11 @@ export default async function LinksPage({ params }: LinksPageProps) {
                     variant="outline"
                     className="w-full h-auto py-4 px-6 relative overflow-hidden group hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-card/50 backdrop-blur-sm justify-start border-border"
                   >
-                    <a href={link.url} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                       <div className="flex items-center gap-4 w-full">
@@ -164,7 +178,10 @@ export default async function LinksPage({ params }: LinksPageProps) {
                             </div>
                           )}
                         </div>
-                        <Typography as="span" className="font-semibold text-base sm:text-lg tracking-tight grow truncate">
+                        <Typography
+                          as="span"
+                          className="font-semibold text-base sm:text-lg tracking-tight grow truncate"
+                        >
                           {link.title}
                         </Typography>
                       </div>
