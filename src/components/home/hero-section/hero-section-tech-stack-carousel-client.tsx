@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import HeroSectionTechStackCarouselPill from "./hero-section-tech-stack-carousel-pill";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function HeroSectionTechStackCarouselClient() {
   const [hasMounted, setHasMounted] = useState(false);
