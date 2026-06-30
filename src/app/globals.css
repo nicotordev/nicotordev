@@ -624,7 +624,6 @@
 .project-prose h2,
 .project-prose h3,
 .project-prose h4 {
-  font-family: var(--font-display);
   letter-spacing: -0.015em;
   line-height: 1.24;
   margin-top: 1.7rem;

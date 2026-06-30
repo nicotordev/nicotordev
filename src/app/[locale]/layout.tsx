@@ -1,3 +1,4 @@
+import '../globals.css';
 import { routing } from "@/i18n/routing";
 import { buildJsonLdGraph, jsonLdToScriptInnerHtml } from "@/lib/seo/jsonld";
 import {
@@ -8,8 +9,19 @@ import {
 } from "@/lib/seo/i18n";
 import type { Locale } from "@/i18n/config";
 import type { Metadata } from "next";
-import { getTranslations, setRequestLocale, getMessages } from "next-intl/server";
+import {
+  getTranslations,
+  setRequestLocale,
+  getMessages,
+} from "next-intl/server";
 import type { ReactNode } from "react";
+import {
+  localIBMPlexMono,
+  localInter,
+  localPermanentMarker,
+  localSora,
+} from "../fonts";
+import ProvidersWrapper from "@/providers/providers-wrapper";
 
 type Props = {
   children: ReactNode;
@@ -52,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: translation("seo.description"),
     applicationName: translation("seo.site.name"),
-    keywords: messages?.seo?.keywords as string[] || [],
+    keywords: (messages?.seo?.keywords as string[]) || [],
     alternates: { canonical, languages: alternatesLanguages },
     authors: [{ name: translation("seo.person.name"), url: siteUrl }],
     creator: translation("seo.person.name"),
@@ -128,12 +140,18 @@ export default async function LocaleLayout({ children, params }: Props) {
   });
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={jsonLdToScriptInnerHtml(graph)}
-      />
-      {children}
-    </>
+     <html
+        lang={locale}
+        suppressHydrationWarning
+        className={`${localInter.variable} ${localSora.variable} ${localIBMPlexMono.variable} ${localPermanentMarker.variable}`}
+      >
+        <body className="antialiased">
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={jsonLdToScriptInnerHtml(graph)}
+          />
+          <ProvidersWrapper>{children}</ProvidersWrapper>
+        </body>
+      </html>
   );
 }

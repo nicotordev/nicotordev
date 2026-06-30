@@ -37,7 +37,7 @@ function withCorsHeaders(
   return response;
 }
 
-export default function middleware(req: NextRequest) {
+export default function proxy(req: NextRequest) {
   if (new URL(req.url).pathname.startsWith("/api")) {
     const method = req.method.toUpperCase();
     const requestOrigin = req.headers.get("origin");

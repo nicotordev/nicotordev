@@ -50,7 +50,6 @@ function HighlightWord({
     >
       <Typography
         as="span"
-        mood="code"
         role="display"
         className="text-secondary font-extrabold"
       >
@@ -90,14 +89,12 @@ export default function HeroSection({ messages }: HeroSectionProps) {
           <div className="mb-3">
             <Badge
               variant="success"
-              className="relative pl-6"
+              className="relative"
               role="status"
               aria-live="polite"
             >
-              <Dot className="absolute -left-4 top-1/2 h-16 w-16 -translate-y-1/2" />
-              <Typography as="span">
-                {messages.hero.available_for_hire}
-              </Typography>
+              <Dot className="mr-2 text-2xl h-auto animate-pulse" />
+              {messages.hero.available_for_hire}
             </Badge>
           </div>
 
@@ -129,7 +126,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
           </Typography>
 
           {/* Headline */}
-          <Typography as="h1" role="display" mood="artistic">
+          <Typography as="h1" role="display">
             <div className="space-y-3">
               <div className="space-y-2">
                 {messages.hero.headline.transform}{" "}
@@ -182,37 +179,38 @@ export default function HeroSection({ messages }: HeroSectionProps) {
           <div
             className={cn(
               "mt-8 w-full",
-              "flex flex-col gap-3 items-center",
+              "flex flex-col gap-3 items-stretch",
               "sm:flex-row sm:justify-center sm:gap-6",
             )}
           >
             {/* Primary CTA */}
-            <Button
-              asChild
-              size="lg"
-              className={cn(
-                "w-full",
-                "text-base font-bold",
-                "sm:w-auto sm:px-8",
-              )}
-            >
-              <Link href="#contact-section">
-                <Typography as="span" mood="artistic" role="button">
+            <Link href="#contact-section">
+              <Button
+                asChild
+                size="lg"
+                className={cn(
+                  "w-full h-full",
+                  "text-base font-bold",
+                  "sm:w-auto sm:px-8",
+                  "inline-flex items-center justify-center",
+                )}
+              >
+                <Typography as="span" role="button">
                   {messages.hero.cta.lets_talk}
                 </Typography>
-              </Link>
-            </Button>
+              </Button>
+            </Link>
 
             {/* Secondary CTA */}
             <DownloadResumeButton
               className={cn(
-                "w-full",
+                "w-full h-full",
                 "border border-border",
                 "text-sm font-medium opacity-90",
                 "sm:w-auto sm:opacity-100",
               )}
               label={
-                <Typography as="span" mood="artistic" role="button">
+                <Typography as="span" role="button">
                   {messages.hero.cta.download_resume}
                 </Typography>
               }

@@ -18,6 +18,19 @@ export function getDirectusHeaders(): HeadersInit {
   };
 }
 
+async function parseJsonBody<T>(res: Response, path: string): Promise<T> {
+  const raw = await res.text();
+  if (raw.trim() === "") {
+    return {} as T;
+  }
+
+  try {
+    return JSON.parse(raw) as T;
+  } catch {
+    throw new Error(`Directus ${path}: invalid JSON response (${res.status})`);
+  }
+}
+
 export type DirectusQuery = {
   fields?: string[];
   filter?: Record<string, unknown>;
@@ -112,11 +125,12 @@ export async function directusFetch<T>(
   const url = `${getDirectusUrl()}${path}${buildSearchParams(query)}`;
   const res = await fetch(url, {
     headers: getDirectusHeaders(),
-    next: { revalidate: 60 },
+    // Work around runtime TransformStream failures observed in Next Data Cache.
+    cache: "no-store",
   });
 
-  // Read response body once to avoid stream reuse issues in Bun
-  const data = (await res.json()) as T;
+  // Parse from text to avoid runtime stream bugs seen with Response.json() on Bun.
+  const data = await parseJsonBody<T>(res, path);
 
   if (!res.ok) {
     throw new Error(`Directus ${path}: ${res.status} ${JSON.stringify(data)}`);
@@ -148,8 +162,8 @@ export async function directusPost<T, B = unknown>(
     body: JSON.stringify(body),
   });
 
-  // Read response body once to avoid stream reuse issues in Bun
-  const data = (await res.json()) as T;
+  // Parse from text to avoid runtime stream bugs seen with Response.json() on Bun.
+  const data = await parseJsonBody<T>(res, `POST ${path}`);
 
   if (!res.ok) {
     throw new Error(

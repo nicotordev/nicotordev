@@ -14,7 +14,7 @@ export default function HeroSectionTechStackCarouselPill({ tech }: { tech: TechN
           className="relative w-8 h-8 sm:w-9 sm:h-9 drop-shadow-[0_12px_30px_rgba(0,0,0,0.12)]"
         />
       </div>
-      <Typography as="span" mood="artistic" role="label">
+      <Typography as="span" mood="serious" role="label" className="font-bold">
         {meta.label}
       </Typography>
       <span className="pointer-events-none absolute inset-x-2 bottom-0 h-px bg-linear-to-r from-transparent via-secondary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />

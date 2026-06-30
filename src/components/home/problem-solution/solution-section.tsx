@@ -1,8 +1,16 @@
+import type { ComponentType } from "react";
+import {
+  TbHierarchy3,
+  TbBriefcase,
+  TbShieldCheck,
+  TbMessage2,
+} from "react-icons/tb";
 import { solutionSectionSolutions } from "@/app/data/home";
 import { Typography } from "@/components/ui/typography";
 import type { Messages } from "@/types/i18n";
 import SolutionSectionTitles from "./solution-section-titles";
 import SolutionSectionVideo from "./solution-section-video";
+
 
 type SolutionMessages = Messages["problemSolution"]["solution"];
 type CommonMessages = Messages["common"];
@@ -24,6 +32,16 @@ const ORDER: readonly SolutionKey[] = [
   "totalOwnership",
   "radicalTransparency",
 ] as const;
+
+const ORDERICONS: Record<
+  SolutionKey,
+  ComponentType<{ className?: string; "aria-hidden"?: boolean }>
+> = {
+  scalableArchitecture: TbHierarchy3,
+  productPartner: TbBriefcase,
+  totalOwnership: TbShieldCheck,
+  radicalTransparency: TbMessage2,
+} as const;
 
 export default function SolutionSection({
   messages,
@@ -57,6 +75,7 @@ export default function SolutionSection({
     const merged = {
       ...(base ?? fallback),
       ...(override ?? {}),
+      icon: ORDERICONS[key],
     };
 
     return merged;

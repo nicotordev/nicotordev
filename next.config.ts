@@ -46,8 +46,6 @@ const nextConfig: NextConfig = {
     "prisma",
     "@prisma/client",
   ],
-  // Disable cacheComponents to allow per-route dynamic configs (e.g., force-dynamic).
-  cacheComponents: false,
 
   experimental: {
     serverActions: {
@@ -79,21 +77,6 @@ const nextConfig: NextConfig = {
     webVitalsAttribution: ["CLS", "LCP"],
   },
 
-  turbopack: {
-    resolveAlias: {
-      underscore: "lodash",
-    },
-  },
-
-  modularizeImports: {
-    lodash: {
-      transform: "lodash/{{member}}",
-      preventFullImport: true,
-    },
-    "date-fns": {
-      transform: "date-fns/{{member}}",
-    },
-  },
 
   async headers() {
     return [
