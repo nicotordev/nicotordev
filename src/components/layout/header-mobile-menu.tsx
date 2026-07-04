@@ -74,7 +74,6 @@ export default function HeaderMobileMenu({
                   >
                     <Typography
                       as="span"
-                      mood="artistic"
                       role="button"
                       className="text-base font-semibold text-foreground"
                     >

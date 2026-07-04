@@ -61,7 +61,7 @@ export default function Header({ messages }: { messages: Messages }) {
                 href={item.href}
                 className="text-sm font-semibold text-foreground/90 hover:text-foreground"
               >
-                <Typography as="span" mood="artistic" role="button">
+                <Typography as="span" role="button">
                   {item.name}
                 </Typography>
               </a>

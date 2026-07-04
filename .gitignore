@@ -47,3 +47,5 @@ locales/*.d.json.ts
 
 .vscode/settings.json
 .vscode/sessions.json
+
+.lighthouse/
