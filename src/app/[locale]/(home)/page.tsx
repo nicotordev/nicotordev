@@ -80,7 +80,7 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <>
       <Header messages={messages} />
-      <main>
+      <main className="w-full h-full overflow-x-clip">
         <HeroSection messages={messages} />
         <SocialProofSection messages={messages} />
         <ProblemSolutionSection messages={messages} />

@@ -230,16 +230,16 @@ export const nicolasStats = [
   {
     id: 2,
     key: "projectsDelivered",
-    value: 18,
+    value: 28,
     rightSymbol: "",
     leftSymbol: "",
   },
   {
     id: 3,
     key: "activeEngagements",
-    value: 2,
+    value: 3,
     rightSymbol: "",
     leftSymbol: "",
   },
-  { id: 4, key: "rate", value: 28, rightSymbol: "/hr", leftSymbol: "$" },
+  { id: 4, key: "rate", value: 29.4, rightSymbol: "/hr", leftSymbol: "$" },
 ];

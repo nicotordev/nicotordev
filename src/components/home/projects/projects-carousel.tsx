@@ -38,7 +38,7 @@ const ProjectsCarousel = ({
     <section
       ref={ref}
       id="projects"
-      className="relative w-full h-fit min-h-[800px] select-none overflow-clip bg-primary text-foreground"
+      className="relative w-full h-fit select-none overflow-clip bg-primary text-foreground"
     >
       {inView ? (
         <ProjectsCarouselClient

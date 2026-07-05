@@ -3,13 +3,13 @@
 import { navigationItems } from "@/app/data/navigation";
 import SettingsMenu from "@/components/common/settings-menu";
 import Logo from "@/components/logo";
+import { useScrolledPast } from "@/hooks/use-scrolled-past";
 import { cn } from "@/lib/utils";
-import { useWindowScroll } from "react-use";
 
 import type { Messages } from "@/types/i18n";
+import Link from "next/link";
 import { Typography } from "../ui/typography";
 import HeaderMobileMenu from "./header-mobile-menu";
-import Link from "next/link";
 
 // Render real header on first paint to avoid LCP delay and layout shift (no client-only skeleton).
 export default function Header({ messages }: { messages: Messages }) {
@@ -27,52 +27,57 @@ export default function Header({ messages }: { messages: Messages }) {
   };
 
   const navItems = navigationItems(navigation);
-  const { y } = useWindowScroll();
+  const { scrolled, sentinelRef } = useScrolledPast();
 
   return (
-    <header
-      className={cn(
-        "left-0 top-0 sticky z-40 w-full px-2 py-2 flex items-center justify-center bg-transparent",
-      )}
-    >
+    <>
       <div
+        ref={sentinelRef}
+        className="pointer-events-none h-px w-full"
+        aria-hidden="true"
+      />
+      <header
         className={cn(
-          "relative w-full max-w-7xl px-4 sm:px-6 lg:px-8 transition-all duration-300 ease-in-out rounded-full shadow-primary border border-primary/50",
-          y > 10
-            ? "bg-background/50 backdrop-blur-xl border-primary/40 shadow-primary supports-backdrop-filter:bg-background/50"
-            : "bg-transparent border-transparent shadow-none",
+          "left-0 top-4 sticky z-40 mt-4 flex w-full items-center justify-center bg-transparent px-2 pb-2",
         )}
       >
-        <nav
-          aria-label={navigationAria.global || "Global navigation"}
-          className="relative flex items-center justify-between gap-4 py-2"
+        <div
+          className={cn(
+            "relative w-full max-w-7xl rounded-full border px-4 shadow-primary transition-[border-color,box-shadow] duration-300 ease-in-out sm:px-6 lg:px-8",
+            scrolled
+              ? "header-scroll-glass isolate border-primary/40 shadow-primary"
+              : "border-transparent bg-transparent shadow-none",
+          )}
         >
-          <Link href="/" className="flex items-center justify-start w-full">
-            <Logo width={200} height="auto" priority alt={logoAlt} />
-          </Link>
+          <nav
+            aria-label={navigationAria.global || "Global navigation"}
+            className="relative flex items-center justify-between gap-4 py-2"
+          >
+            <Link href="/" className="flex w-full items-center justify-start">
+              <Logo height="auto" priority alt={logoAlt} />
+            </Link>
 
-          {/* Mobile menu */}
-
-          {/* Desktop menu */}
-          <div className="hidden md:flex md:gap-x-6 w-full items-center justify-center">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm font-semibold text-foreground/90 hover:text-foreground"
-              >
-                <Typography as="span" role="button">
-                  {item.name}
-                </Typography>
-              </a>
-            ))}
-          </div>
-          <div className="hidden md:flex md:justify-end md:items-center md:gap-3 w-full items-center justify-end">
-            <SettingsMenu loginLabel={commonMessages.login || "Login"} />
-          </div>
-          <HeaderMobileMenu messages={messages} navItems={navItems} />
-        </nav>
-      </div>
-    </header>
+            {/* Desktop menu */}
+            <div className="hidden w-full items-center justify-center md:flex md:gap-x-6">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-semibold text-foreground/90 hover:text-foreground"
+                >
+                  <Typography as="span" role="button">
+                    {item.name}
+                  </Typography>
+                </a>
+              ))}
+            </div>
+            <div className="hidden w-full items-center justify-end md:flex md:items-center md:justify-end md:gap-3">
+              <SettingsMenu loginLabel={commonMessages.login || "Login"} />
+            </div>
+            <HeaderMobileMenu messages={messages} navItems={navItems} />
+          </nav>
+        </div>
+      </header>
+    </>
   );
 }

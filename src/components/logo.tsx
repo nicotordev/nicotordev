@@ -12,7 +12,7 @@ type LogoProps = {
 };
 
 export default function Logo({
-  width = 120,
+  width = 40,
   height = "auto",
   className,
   priority,
@@ -31,8 +31,8 @@ export default function Logo({
       <Image
         src={
           theme === "light"
-            ? "/images/logo/logo-dark.svg"
-            : "/images/logo/logo-light.svg"
+            ? "/images/logo/only-logo-dark.svg"
+            : "/images/logo/only-logo-light.svg"
         }
         alt={alt}
         width={width}

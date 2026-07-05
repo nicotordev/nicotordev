@@ -83,7 +83,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <BackgroundDecoration />
 
-        <div className="relative z-20 mx-auto flex max-w-7xl flex-col items-center px-2 py-12 text-center sm:px-0 sm:py-18 lg:py-22">
+        <div className="relative z-20 mx-auto flex max-w-7xl flex-col items-center px-2 pt-0 pb-12 text-center sm:px-0 sm:py-18 lg:py-22">
           {/* Availability badge */}
           <div className="mb-3">
             <Badge
@@ -198,6 +198,7 @@ export default function HeroSection({ messages }: HeroSectionProps) {
                   "text-base font-bold",
                   "sm:w-auto sm:px-8",
                   "inline-flex items-center justify-center",
+                  "py-3"
                 )}
               >
                 <Typography as="span" role="button">

@@ -2,18 +2,23 @@
 
 import type { Messages } from "@/types/i18n";
 import { Menu } from "lucide-react";
-import CurrencySwitcher from "../currency-switcher";
-import LanguageSwitcher from "../language-switcher";
-import TimezoneSwitcher from "../timezone-switcher";
+import dynamic from "next/dynamic";
+import { useState } from "react";
 import { Button } from "../ui/button";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
 import { Typography } from "../ui/typography";
+
+const HeaderMobileMenuPreferences = dynamic(
+  () => import("./header-mobile-menu-preferences"),
+  { ssr: false },
+);
 
 interface HeaderMobileMenuProps {
   messages: Messages;
@@ -28,10 +33,11 @@ export default function HeaderMobileMenu({
   navItems,
 }: HeaderMobileMenuProps) {
   const navigationAria = messages.navigation?.aria ?? {};
-  const commonMessages = messages.common ?? {};
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="flex md:hidden">
-      <Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
           <Button
             variant="ghost"
@@ -42,44 +48,34 @@ export default function HeaderMobileMenu({
             <Menu className="size-6" aria-hidden="true" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-full sm:max-w-sm">
+        <SheetContent
+          side="right"
+          className="w-full overscroll-contain sm:max-w-sm"
+        >
           <SheetHeader className="p-0">
             <SheetTitle className="sr-only">
               {navigationAria.mobileMenu || "Mobile Menu"}
             </SheetTitle>
           </SheetHeader>
-          <div className="mt-6">
+          <div className="mt-6 flex min-h-0 flex-1 flex-col overflow-y-auto">
             <div className="divide-y divide-border">
-              <div className="space-y-3 py-6">
-                <div className="px-3">
-                  <Typography
-                    role="label"
-                    className="text-xs font-semibold text-muted-foreground mb-2"
-                  >
-                    {commonMessages.preferences || "Preferences"}
-                  </Typography>
-                  <div className="space-y-2">
-                    <LanguageSwitcher size="default" className="w-full" />
-                    <CurrencySwitcher className="w-full" />
-                    <TimezoneSwitcher className="w-full" />
-                  </div>
-                </div>
-              </div>
+              {open ? <HeaderMobileMenuPreferences /> : null}
               <div className="space-y-2 py-6">
                 {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
-                  >
-                    <Typography
-                      as="span"
-                      role="button"
-                      className="text-base font-semibold text-foreground"
+                  <SheetClose asChild key={item.name}>
+                    <a
+                      href={item.href}
+                      className="block rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
                     >
-                      {item.name}
-                    </Typography>
-                  </a>
+                      <Typography
+                        as="span"
+                        role="button"
+                        className="text-base font-semibold text-foreground"
+                      >
+                        {item.name}
+                      </Typography>
+                    </a>
+                  </SheetClose>
                 ))}
               </div>
             </div>
