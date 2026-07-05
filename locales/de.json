@@ -432,6 +432,95 @@
           "description": "Der wahre Boss des Betriebs: Koka."
         }
       }
+    },
+    "page": {
+      "eyebrow": "Full-Stack Engineer · TypeScript · KI-Systeme",
+      "heroTitle": "Ich baue praktische Software für Menschen, die brauchen, dass Dinge funktionieren.",
+      "heroSubtitle": "Ich bin Nicolas Torres, Full-Stack-Web-Ingenieur aus Concepción, Chile. Ich entwerfe, baue und skaliere SaaS-Produkte, Marktplätze, Dashboards, APIs und KI-gestützte Tools mit TypeScript, Next.js, React, Node.js und PostgreSQL.",
+      "story": {
+        "paragraph1": "Meine Arbeit liegt zwischen Produktdenken und tiefer technischer Umsetzung. Ich nehme unübersichtliche Anforderungen, Legacy-Flows, halbfertige MVPs oder ambitionierte Produktideen und verwandle sie in klare, wartbare Systeme für echte Nutzer.",
+        "paragraph2": "Ich habe mit internationalen Teams in Chile, den USA, Deutschland, Singapur und anderen Remote-Märkten gearbeitet und Produktionsfeatures für SaaS-Plattformen, Marktplätze, Legal-Tech, Ticketing und KI-Anwendungen ausgeliefert.",
+        "paragraph3": "Ich arbeite am besten mit klaren Zielen, ehrlichen Rahmenbedingungen und genug Autonomie für starke Engineering-Entscheidungen. Mein Standard ist async-first, typisiert, wo nötig dokumentiert und mit Blick auf den künftigen Maintainer gebaut.",
+        "paragraph4": "Saubere Architektur ist mir wichtig, aber ich bin nicht dogmatisch bei Patterns. Die richtige Lösung ist stabil, verständlich und nützlich. Ich baue Software mit der Einstellung, sie vielleicht für immer warten zu müssen."
+      },
+      "heroImageAlt": "Nicolas Torres arbeitet an einem Softwareprojekt",
+      "stats": [
+        { "label": "Top Rated auf Upwork", "value": "Upwork" },
+        { "label": "1.400+ gelieferte Stunden", "value": "1.400+" },
+        { "label": "Internationale Remote-Teams", "value": "Global" },
+        { "label": "SaaS, Marktplätze & KI-Systeme", "value": "Kernfokus" }
+      ],
+      "values": {
+        "title": "Wie ich über Engineering denke",
+        "subtitle": "Nützliche Software, klare Systeme und Entscheidungen, die auch in sechs Monaten noch Sinn ergeben.",
+        "items": [
+          {
+            "name": "Ownership statt Hand-Holding",
+            "description": "Ich übernehme Verantwortung für Ergebnisse, nicht nur für Tasks."
+          },
+          {
+            "name": "Klarheit statt Cleverness",
+            "description": "Lesbare Systeme schlagen beeindruckende Abstraktionen."
+          },
+          {
+            "name": "Pragmatismus statt Hype",
+            "description": "Ich wähle Tools und Patterns, die zum Problem passen."
+          },
+          {
+            "name": "Striktes Typing statt Raten",
+            "description": "TypeScript, Verträge und Constraints reduzieren Risiko früh."
+          },
+          {
+            "name": "Nützliche Software statt Show-Tech",
+            "description": "Das Produkt muss echten Nutzern helfen, nicht nur gut in Demos aussehen."
+          }
+        ]
+      },
+      "experience": {
+        "title": "Ausgewählte Projekterfahrung",
+        "subtitle": "Produktionsarbeit in SaaS, Marktplätzen, Legal-Tech, Ticketing und KI-Produkten.",
+        "projects": [
+          {
+            "name": "Shred Labs / Galerie",
+            "role": "Full-Stack · TypeScript",
+            "description": "Produkt-Flows, Onboarding, Personalisierungslogik, OAuth, APIs und Social Features mit modernen TypeScript-Stacks.",
+            "location": "USA · Remote"
+          },
+          {
+            "name": "Produncan",
+            "role": "Full-Stack · Performance",
+            "description": "Leitung einer performanten Headless-Immobilienwebsite mit Directus, SSR, Google Maps und starkem PageSpeed-Fokus.",
+            "location": "Chile · Remote"
+          },
+          {
+            "name": "Regulex",
+            "role": "KI · Legal-Tech MVP",
+            "description": "Legal-Compliance-MVP mit OpenAI, das komplexe regulatorische Anforderungen in nutzbare Workflows übersetzt.",
+            "location": "International · Remote"
+          },
+          {
+            "name": "Spiritory",
+            "role": "Marktplatz · B2B",
+            "description": "B2B-Marktplatz mit Seller-Onboarding, KYC/Tax-Flows, Shipping-Systemen, APIs, Prisma, PostgreSQL, React Query und i18n.",
+            "location": "International · Remote"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Brauchst du ein Produkt oder einen entwirrten Codebase?",
+        "description": "Hast du ein Produkt, MVP oder einen unübersichtlichen Codebase, der ernsthafte Arbeit braucht? Machen wir es klarer, schneller und leichter skalierbar.",
+        "imageAlt": "Nicolas Torres in einer natürlichen Umgebung",
+        "benefits": [
+          "SaaS-Plattformen und MVPs",
+          "Marktplätze und Produkt-Dashboards",
+          "APIs, Integrationen und Backend-Systeme",
+          "KI-Features, RAG-Flows, LLM-Tools und Automationen",
+          "Admin-Panels und interne Tools",
+          "Performance-orientierte Frontend-Erlebnisse"
+        ],
+        "linkLabel": "Lass uns reden",
+        "linkHref": "/#contact-section"
+      }
     }
   },
   "footer": {
@@ -573,6 +662,18 @@
         "OpenAI API",
         "SaaS"
       ]
+    },
+    "about": {
+      "title": "Über Nicolas Torres | Full-Stack Engineer & KI-Builder",
+      "description": "Lerne Nicolas Torres kennen, einen Full-Stack-Web-Ingenieur aus Concepción, Chile, der SaaS-Plattformen, Marktplätze, Dashboards und praktische KI-Systeme mit TypeScript, Next.js, React, Node.js und PostgreSQL baut.",
+      "openGraph": {
+        "title": "Über nicotordev | TypeScript, Next.js & KI-Systeme",
+        "description": "Full-Stack-Web-Ingenieur aus Concepción, Chile. SaaS, Marktplätze, Dashboards, APIs und praktische KI mit TypeScript, Next.js, React, Node.js und PostgreSQL."
+      },
+      "twitter": {
+        "title": "Über Nicolas Torres | Full-Stack Engineer & KI-Builder",
+        "description": "Nicolas Torres — Full-Stack-Web-Ingenieur, der SaaS, Marktplätze, Dashboards und praktische KI-Systeme aus Chile baut."
+      }
     }
   },
   "blogSection": {

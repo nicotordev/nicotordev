@@ -10,16 +10,10 @@ import {
 import { ImageDialog } from "@/components/ui/image-dialog";
 import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
+import { getAboutStats, type AboutStat } from "@/lib/about-stats";
 import type { Messages } from "@/types/i18n";
 import Image from "next/image";
 import type { BentoSize } from "../../../types/footer";
-
-type AboutMeStat = {
-  label: string;
-  value: string;
-  prefix?: string;
-  suffix?: string;
-};
 
 type AboutMeGalleryItem = {
   src: string;
@@ -30,7 +24,7 @@ type AboutMeGalleryItem = {
 
 export interface AboutMeSectionProps {
   messages: Messages;
-  stats?: AboutMeStat[];
+  stats?: AboutStat[];
   gallery?: AboutMeGalleryItem[];
 }
 
@@ -44,40 +38,13 @@ export default function AboutMeSection({
   const photosMsgs = about.photos ?? {};
   const methodology = about.methodology ?? {};
   const personal = about.personal ?? {};
-  const metrics = about.metrics ?? {};
 
   const methodologyTitle = methodology.title ?? "Philosophy and methodology";
   const methodologyDescription =
     methodology.description ??
     "My way of working is built on clarity, autonomy, and impact.";
 
-  const experienceRaw = metrics.experienceValue ?? "4+ years";
-  const [experienceValue, ...experienceSuffixParts] = experienceRaw.split(" ");
-  const experienceSuffix = experienceSuffixParts.join(" ").trim();
-
-  const resolvedStats: AboutMeStat[] = stats ?? [
-    {
-      label: metrics.total_earnings ?? "Total earnings",
-      prefix: "$",
-      value: "50",
-      suffix: "K+",
-    },
-    {
-      label: metrics.hours ?? "Hours worked",
-      value: "~3.6K",
-      suffix: " hrs",
-    },
-    {
-      label: metrics.success ?? "Success rate",
-      value: "99.99",
-      suffix: "%",
-    },
-    {
-      label: metrics.experience ?? "Experience",
-      value: experienceValue || experienceRaw,
-      suffix: experienceSuffix,
-    },
-  ];
+  const resolvedStats = stats ?? getAboutStats(messages);
 
   const resolvedGallery: AboutMeGalleryItem[] = [
     {
@@ -205,7 +172,7 @@ export default function AboutMeSection({
             "relative left-[calc(50%-11rem)] -translate-x-1/2 rotate-30",
             "aspect-1155/678 w-144.5",
             "bg-linear-to-tr from-primary to-secondary opacity-30",
-            "sm:left-[calc(50%-30rem)] sm:w-288.75"
+            "sm:left-[calc(50%-30rem)] sm:w-288.75",
           )}
         />
       </div>

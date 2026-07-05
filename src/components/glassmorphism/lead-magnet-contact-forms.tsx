@@ -8,6 +8,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
 import { Typography } from "@/components/ui/typography";
 import type messages from "@/locales/es-cl.json";
+import type { LeadSource } from "@/lib/lead-sources";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { Turnstile } from "next-turnstile";
@@ -18,6 +19,8 @@ type LeadMagnetFormTranslations = (typeof messages)["leadMagnet"]["form"];
 
 interface LeadMagnetContactFormProps {
   translations?: LeadMagnetFormTranslations;
+  source?: LeadSource;
+  onSuccess?: () => void;
 }
 
 function isValidEmail(email: string) {
@@ -60,6 +63,8 @@ function extractName(text: string) {
 
 export default function LeadMagnetContactFormMinimal({
   translations,
+  source = "lead_magnet_minimal",
+  onSuccess,
 }: LeadMagnetContactFormProps) {
   const t = useTranslations("leadMagnet.form");
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -115,7 +120,7 @@ export default function LeadMagnetContactFormMinimal({
         name,
         email,
         message,
-        source: "lead_magnet_minimal",
+        source,
         turnstileToken: formState.turnstileToken,
       });
 
@@ -132,6 +137,7 @@ export default function LeadMagnetContactFormMinimal({
         turnstileToken: "",
       });
       setTurnstileKey((k) => k + 1);
+      onSuccess?.();
     } catch (error) {
       console.error(error);
       toast.error(t("errorMessage"));
@@ -255,6 +261,8 @@ Looking forward to hearing from you!`
 
 export function LeadMagnetContactFormFull({
   translations,
+  source = "lead_magnet_full",
+  onSuccess,
 }: LeadMagnetContactFormProps) {
   const t = useTranslations("leadMagnet.form");
   const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -336,7 +344,7 @@ export function LeadMagnetContactFormFull({
         name: derivedName,
         email: formState.email.trim(),
         message: derivedMessage,
-        source: "lead_magnet_full",
+        source,
         turnstileToken: formState.turnstileToken,
       });
 
@@ -358,6 +366,7 @@ export function LeadMagnetContactFormFull({
         turnstileToken: "",
       });
       setTurnstileKey((k) => k + 1);
+      onSuccess?.();
     } catch (error) {
       console.error(error);
       toast.error(t("errorMessage"));

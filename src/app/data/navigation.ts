@@ -5,10 +5,13 @@ export type NavigationT = {
   blog: string;
   contact: string;
 };
+
+export const CONTACT_NAV_HREF = "/contact";
+
 export const navigationItems = (navigationT: NavigationT) => [
   { name: navigationT.home, href: "/" },
   { name: navigationT.about, href: "/about" },
   { name: navigationT.projects, href: "/projects" },
   { name: navigationT.blog, href: "/blog" },
-  { name: navigationT.contact, href: "/contact" },
+  { name: navigationT.contact, href: CONTACT_NAV_HREF },
 ];

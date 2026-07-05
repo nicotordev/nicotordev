@@ -432,6 +432,95 @@
           "description": "The real boss of the operation: Koka."
         }
       }
+    },
+    "page": {
+      "eyebrow": "Full-Stack Engineer · TypeScript · AI Systems",
+      "heroTitle": "I build practical software for people who need things to work.",
+      "heroSubtitle": "I'm Nicolas Torres, a Full-Stack Web Engineer from Concepción, Chile. I design, build, and scale SaaS products, marketplaces, dashboards, APIs, and AI-powered tools using TypeScript, Next.js, React, Node.js, and PostgreSQL.",
+      "story": {
+        "paragraph1": "My work sits between product thinking and deep technical execution. I like taking messy requirements, legacy flows, half-built MVPs, or ambitious product ideas and turning them into systems that are clear, maintainable, and ready for real users.",
+        "paragraph2": "I have worked with international teams across Chile, the U.S., Germany, Singapore, and other remote markets, shipping production features for SaaS platforms, marketplaces, legal-tech products, ticketing systems, and AI-enabled applications.",
+        "paragraph3": "I work best with clear goals, honest constraints, and enough autonomy to make strong engineering decisions. My default is async-first, typed, documented where it matters, and built with the future maintainer in mind.",
+        "paragraph4": "I care about clean architecture, but I am not religious about patterns. The right solution is the one that is stable, understandable, and useful. I build software with the mindset of someone who may need to maintain it forever."
+      },
+      "heroImageAlt": "Nicolas Torres working on a software project",
+      "stats": [
+        { "label": "Top Rated on Upwork", "value": "Upwork" },
+        { "label": "Hours delivered", "value": "1,400+" },
+        { "label": "International remote teams", "value": "Global" },
+        { "label": "SaaS, marketplaces & AI systems", "value": "Core focus" }
+      ],
+      "values": {
+        "title": "How I think about engineering",
+        "subtitle": "Useful software, clear systems, and decisions that still make sense six months from now.",
+        "items": [
+          {
+            "name": "Ownership over hand-holding",
+            "description": "I take responsibility for outcomes, not just tasks."
+          },
+          {
+            "name": "Clarity over cleverness",
+            "description": "Readable systems beat impressive abstractions."
+          },
+          {
+            "name": "Pragmatism over hype",
+            "description": "I choose tools and patterns that fit the problem."
+          },
+          {
+            "name": "Strict typing over guessing",
+            "description": "TypeScript, contracts, and constraints reduce risk early."
+          },
+          {
+            "name": "Useful software over vanity tech",
+            "description": "The product has to help real users, not just demo well."
+          }
+        ]
+      },
+      "experience": {
+        "title": "Selected project experience",
+        "subtitle": "Production work across SaaS, marketplaces, legal-tech, ticketing, and AI-enabled products.",
+        "projects": [
+          {
+            "name": "Shred Labs / Galerie",
+            "role": "Full-Stack · TypeScript",
+            "description": "Built product flows, onboarding, personalization logic, OAuth, APIs, and social features across modern TypeScript stacks.",
+            "location": "U.S. · Remote"
+          },
+          {
+            "name": "Produncan",
+            "role": "Full-Stack · Performance",
+            "description": "Led a high-performance headless real estate website with Directus, SSR, Google Maps, and strong PageSpeed goals.",
+            "location": "Chile · Remote"
+          },
+          {
+            "name": "Regulex",
+            "role": "AI · Legal-tech MVP",
+            "description": "Built a legal compliance MVP using OpenAI to turn complex regulatory requirements into usable workflows.",
+            "location": "International · Remote"
+          },
+          {
+            "name": "Spiritory",
+            "role": "Marketplace · B2B",
+            "description": "Worked on a B2B marketplace with seller onboarding, KYC/tax flows, shipping systems, APIs, Prisma, PostgreSQL, React Query, and i18n.",
+            "location": "International · Remote"
+          }
+        ]
+      },
+      "cta": {
+        "title": "Need a product built or a codebase untangled?",
+        "description": "Have a product, MVP, or messy codebase that needs serious hands? Let's make it cleaner, faster, and easier to scale.",
+        "imageAlt": "Nicolas Torres in a natural setting",
+        "benefits": [
+          "SaaS platforms and MVPs",
+          "Marketplaces and product dashboards",
+          "APIs, integrations, and backend systems",
+          "AI features, RAG flows, LLM tools, and automations",
+          "Admin panels and internal tools",
+          "Performance-focused frontend experiences"
+        ],
+        "linkLabel": "Let's talk",
+        "linkHref": "/#contact-section"
+      }
     }
   },
   "footer": {
@@ -573,6 +662,18 @@
         "OpenAI API",
         "SaaS"
       ]
+    },
+    "about": {
+      "title": "About Nicolas Torres | Full-Stack Engineer & AI Builder",
+      "description": "Meet Nicolas Torres, a Full-Stack Web Engineer from Concepción, Chile building SaaS platforms, marketplaces, dashboards, and practical AI systems with TypeScript, Next.js, React, Node.js, and PostgreSQL.",
+      "openGraph": {
+        "title": "About nicotordev | TypeScript, Next.js & AI Systems",
+        "description": "Full-Stack Web Engineer from Concepción, Chile. SaaS, marketplaces, dashboards, APIs, and practical AI with TypeScript, Next.js, React, Node.js, and PostgreSQL."
+      },
+      "twitter": {
+        "title": "About Nicolas Torres | Full-Stack Engineer & AI Builder",
+        "description": "Meet Nicolas Torres — Full-Stack Web Engineer building SaaS, marketplaces, dashboards, and practical AI systems from Chile."
+      }
     }
   },
   "blogSection": {

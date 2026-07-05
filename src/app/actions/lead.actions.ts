@@ -1,13 +1,14 @@
 "use server";
 
 import { createLead } from "@/lib/directus/leads";
+import type { LeadSource } from "@/lib/lead-sources";
 import { notifyNewLead } from "@/lib/mail";
 
 export type SubmitLeadPayload = {
   name: string;
   email: string;
   message: string;
-  source: "lead_magnet_minimal" | "lead_magnet_full";
+  source: LeadSource;
   turnstileToken?: string;
 };
 

@@ -4,12 +4,13 @@ import type {
   DirectusLead,
   DirectusLeadCreate,
 } from "@/lib/directus/types";
+import type { LeadSource } from "@/lib/lead-sources";
 
 export type CreateLeadPayload = {
   name: string;
   email: string;
   message: string;
-  source: "lead_magnet_minimal" | "lead_magnet_full";
+  source: LeadSource;
   turnstileValidated?: boolean;
 };
 
@@ -17,7 +18,7 @@ export type CreateLeadPayload = {
  * Create a lead in Directus (server-side only; requires DIRECTUS_TOKEN).
  */
 export async function createLead(
-  payload: CreateLeadPayload
+  payload: CreateLeadPayload,
 ): Promise<DirectusLead | null> {
   const body: DirectusLeadCreate = {
     name: payload.name,
@@ -29,7 +30,7 @@ export async function createLead(
   try {
     const res = await directusPost<DirectusItemResponse<DirectusLead>>(
       "/items/leads",
-      body
+      body,
     );
     return res.data ?? null;
   } catch {

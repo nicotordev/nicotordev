@@ -1,6 +1,6 @@
 "use client";
 
-import { navigationItems } from "@/app/data/navigation";
+import { CONTACT_NAV_HREF, navigationItems } from "@/app/data/navigation";
 import SettingsMenu from "@/components/common/settings-menu";
 import Logo from "@/components/logo";
 import { useScrolledPast } from "@/hooks/use-scrolled-past";
@@ -8,15 +8,17 @@ import { cn } from "@/lib/utils";
 
 import type { Messages } from "@/types/i18n";
 import Link from "next/link";
+import { useState } from "react";
 import { Typography } from "../ui/typography";
+import HeaderContactDialog from "./header-contact-dialog";
 import HeaderMobileMenu from "./header-mobile-menu";
 
-// Render real header on first paint to avoid LCP delay and layout shift (no client-only skeleton).
 export default function Header({ messages }: { messages: Messages }) {
   const navigationMessages = messages.navigation ?? {};
   const commonMessages = messages.common ?? {};
   const navigationAria = navigationMessages.aria ?? {};
   const logoAlt = commonMessages.a11y?.media?.logoAlt || "NicoTorDev logo";
+  const [contactOpen, setContactOpen] = useState(false);
 
   const navigation = {
     home: navigationMessages.home || "Home",
@@ -29,6 +31,8 @@ export default function Header({ messages }: { messages: Messages }) {
   const navItems = navigationItems(navigation);
   const { scrolled, sentinelRef } = useScrolledPast();
 
+  const openContact = () => setContactOpen(true);
+
   return (
     <>
       <div
@@ -38,7 +42,7 @@ export default function Header({ messages }: { messages: Messages }) {
       />
       <header
         className={cn(
-          "left-0 top-4 sticky z-40 mt-4 flex w-full items-center justify-center bg-transparent px-2 pb-2",
+          "left-0 top-4 fixed z-40 mt-4 flex w-full items-center justify-center bg-transparent px-2 pb-2",
         )}
       >
         <div
@@ -57,27 +61,49 @@ export default function Header({ messages }: { messages: Messages }) {
               <Logo height="auto" priority alt={logoAlt} />
             </Link>
 
-            {/* Desktop menu */}
             <div className="hidden w-full items-center justify-center md:flex md:gap-x-6">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-sm font-semibold text-foreground/90 hover:text-foreground"
-                >
-                  <Typography as="span" role="button">
-                    {item.name}
-                  </Typography>
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.href === CONTACT_NAV_HREF ? (
+                  <button
+                    key={item.name}
+                    type="button"
+                    onClick={openContact}
+                    className="cursor-pointer text-sm font-semibold text-foreground/90 hover:text-foreground"
+                  >
+                    <Typography as="span" role="button">
+                      {item.name}
+                    </Typography>
+                  </button>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="cursor-pointer text-sm font-semibold text-foreground/90 hover:text-foreground"
+                  >
+                    <Typography as="span" role="button">
+                      {item.name}
+                    </Typography>
+                  </a>
+                ),
+              )}
             </div>
             <div className="hidden w-full items-center justify-end md:flex md:items-center md:justify-end md:gap-3">
               <SettingsMenu loginLabel={commonMessages.login || "Login"} />
             </div>
-            <HeaderMobileMenu messages={messages} navItems={navItems} />
+            <HeaderMobileMenu
+              messages={messages}
+              navItems={navItems}
+              onContactClick={openContact}
+            />
           </nav>
         </div>
       </header>
+
+      <HeaderContactDialog
+        messages={messages}
+        open={contactOpen}
+        onOpenChange={setContactOpen}
+      />
     </>
   );
 }

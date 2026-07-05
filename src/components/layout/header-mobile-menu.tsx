@@ -1,5 +1,6 @@
 "use client";
 
+import { CONTACT_NAV_HREF } from "@/app/data/navigation";
 import type { Messages } from "@/types/i18n";
 import { Menu } from "lucide-react";
 import dynamic from "next/dynamic";
@@ -26,11 +27,13 @@ interface HeaderMobileMenuProps {
     name: string;
     href: string;
   }[];
+  onContactClick: () => void;
 }
 
 export default function HeaderMobileMenu({
   messages,
   navItems,
+  onContactClick,
 }: HeaderMobileMenuProps) {
   const navigationAria = messages.navigation?.aria ?? {};
   const [open, setOpen] = useState(false);
@@ -61,11 +64,16 @@ export default function HeaderMobileMenu({
             <div className="divide-y divide-border">
               {open ? <HeaderMobileMenuPreferences /> : null}
               <div className="space-y-2 py-6">
-                {navItems.map((item) => (
-                  <SheetClose asChild key={item.name}>
-                    <a
-                      href={item.href}
-                      className="block rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
+                {navItems.map((item) =>
+                  item.href === CONTACT_NAV_HREF ? (
+                    <button
+                      key={item.name}
+                      type="button"
+                      onClick={() => {
+                        setOpen(false);
+                        onContactClick();
+                      }}
+                      className="block w-full cursor-pointer rounded-md px-3 py-2 text-left hover:bg-accent hover:text-accent-foreground"
                     >
                       <Typography
                         as="span"
@@ -74,9 +82,24 @@ export default function HeaderMobileMenu({
                       >
                         {item.name}
                       </Typography>
-                    </a>
-                  </SheetClose>
-                ))}
+                    </button>
+                  ) : (
+                    <SheetClose asChild key={item.name}>
+                      <a
+                        href={item.href}
+                        className="block cursor-pointer rounded-md px-3 py-2 hover:bg-accent hover:text-accent-foreground"
+                      >
+                        <Typography
+                          as="span"
+                          role="button"
+                          className="text-base font-semibold text-foreground"
+                        >
+                          {item.name}
+                        </Typography>
+                      </a>
+                    </SheetClose>
+                  ),
+                )}
               </div>
             </div>
           </div>

@@ -432,6 +432,98 @@
           "description": "El verdadero jefe de la operación: Koka."
         }
       }
+    },
+    "page": {
+      "eyebrow": "Full-Stack Engineer · TypeScript · IA aplicada",
+      "heroTitle": "Construyo software práctico para gente que necesita que las cosas funcionen.",
+      "heroSubtitle": "Soy Nicolas Torres, Full-Stack Web Engineer de Concepción, Chile. Diseño, construyo y escalo SaaS, marketplaces, dashboards, APIs y herramientas con IA usando TypeScript, Next.js, React, Node.js y PostgreSQL.",
+      "story": {
+        "paragraph1": "Mi trabajo vive entre el criterio de producto y la ejecución técnica profunda. Me gusta tomar requerimientos desordenados, flujos legacy, MVPs a medio construir o ideas ambiciosas, y convertirlas en sistemas claros, mantenibles y listos para usuarios reales.",
+        "paragraph2": "He trabajado con equipos internacionales en Chile, Estados Unidos, Alemania, Singapur y otros mercados remotos, desarrollando features de producción para SaaS, marketplaces, legal-tech, ticketing e IA aplicada.",
+        "paragraph3": "Trabajo mejor con objetivos claros, restricciones honestas y suficiente autonomía para tomar buenas decisiones de ingeniería. Mi forma natural de trabajar es async-first, tipada, documentada donde importa y pensada para quien tenga que mantener el sistema después.",
+        "paragraph4": "Me importa la arquitectura limpia, pero no soy religioso con los patrones. La mejor solución es la que funciona, se entiende y se puede sostener. Construyo software con mentalidad de dueño: si lo toco, lo dejo más claro, más rápido y más fácil de mantener."
+      },
+      "heroImageAlt": "Nicolas Torres trabajando en un proyecto de software",
+      "stats": [
+        { "label": "Top Rated en Upwork", "value": "Upwork" },
+        { "label": "1.400+ horas entregadas", "value": "1.400+" },
+        { "label": "Equipos remotos internacionales", "value": "Global" },
+        {
+          "label": "SaaS, marketplaces e IA aplicada",
+          "value": "Foco principal"
+        }
+      ],
+      "values": {
+        "title": "Cómo pienso la ingeniería",
+        "subtitle": "Software útil, sistemas claros y decisiones que siguen teniendo sentido seis meses después.",
+        "items": [
+          {
+            "name": "Ownership antes que dependencia",
+            "description": "Me hago cargo de los resultados, no solo de las tareas."
+          },
+          {
+            "name": "Claridad antes que cleverness innecesario",
+            "description": "Los sistemas legibles ganan a las abstracciones impresionantes."
+          },
+          {
+            "name": "Pragmatismo antes que hype",
+            "description": "Elijo herramientas y patrones que encajan con el problema."
+          },
+          {
+            "name": "Tipado estricto antes que adivinar",
+            "description": "TypeScript, contratos y restricciones reducen riesgo desde temprano."
+          },
+          {
+            "name": "Software útil antes que tecnología de vitrina",
+            "description": "El producto tiene que ayudar a usuarios reales, no solo verse bien en un demo."
+          }
+        ]
+      },
+      "experience": {
+        "title": "Experiencia en proyectos seleccionados",
+        "subtitle": "Trabajo de producción en SaaS, marketplaces, legal-tech, ticketing y productos con IA.",
+        "projects": [
+          {
+            "name": "Shred Labs / Galerie",
+            "role": "Full-Stack · TypeScript",
+            "description": "Desarrollo de flujos de producto, onboarding, personalización, OAuth, APIs y features sociales con stacks modernos de TypeScript.",
+            "location": "EE.UU. · Remoto"
+          },
+          {
+            "name": "Produncan",
+            "role": "Full-Stack · Performance",
+            "description": "Lideré una web inmobiliaria headless de alto rendimiento con Directus, SSR, Google Maps y foco fuerte en PageSpeed.",
+            "location": "Chile · Remoto"
+          },
+          {
+            "name": "Regulex",
+            "role": "IA · Legal-tech MVP",
+            "description": "Construí un MVP legal-tech con OpenAI para transformar requisitos regulatorios complejos en flujos usables.",
+            "location": "Internacional · Remoto"
+          },
+          {
+            "name": "Spiritory",
+            "role": "Marketplace · B2B",
+            "description": "Trabajé en un marketplace B2B con onboarding de sellers, flujos KYC/tax, sistemas de shipping, APIs, Prisma, PostgreSQL, React Query e i18n.",
+            "location": "Internacional · Remoto"
+          }
+        ]
+      },
+      "cta": {
+        "title": "¿Necesitas un producto construido o un codebase desordenado?",
+        "description": "¿Tienes un producto, MVP o codebase desordenada que necesita manos serias? Hagámoslo más claro, rápido y fácil de escalar.",
+        "imageAlt": "Nicolas Torres en un entorno natural",
+        "benefits": [
+          "SaaS y MVPs listos para producción",
+          "Marketplaces y dashboards de producto",
+          "APIs, integraciones y sistemas backend",
+          "Features con IA, RAG, LLMs y automatizaciones",
+          "Paneles administrativos y herramientas internas",
+          "Frontends rápidos, responsivos y cuidados"
+        ],
+        "linkLabel": "Hablemos",
+        "linkHref": "/#contact-section"
+      }
     }
   },
   "footer": {
@@ -573,6 +665,18 @@
         "OpenAI API",
         "SaaS"
       ]
+    },
+    "about": {
+      "title": "Sobre Nicolas Torres | Full-Stack Engineer & AI Builder",
+      "description": "Conoce a Nicolas Torres, Full-Stack Web Engineer de Concepción, Chile, especializado en SaaS, marketplaces, dashboards e IA aplicada con TypeScript, Next.js, React, Node.js y PostgreSQL.",
+      "openGraph": {
+        "title": "Sobre nicotordev | TypeScript, Next.js e IA aplicada",
+        "description": "Full-Stack Web Engineer de Concepción, Chile. SaaS, marketplaces, dashboards, APIs e IA aplicada con TypeScript, Next.js, React, Node.js y PostgreSQL."
+      },
+      "twitter": {
+        "title": "Sobre Nicolas Torres | Full-Stack Engineer & AI Builder",
+        "description": "Conoce a Nicolas Torres — Full-Stack Web Engineer que construye SaaS, marketplaces, dashboards e IA aplicada desde Chile."
+      }
     }
   },
   "blogSection": {
