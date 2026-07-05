@@ -26,7 +26,10 @@ const ReviewCard = (review: Review) => {
       }}
     >
       <figure
-        onClick={() => openDialog(review)}
+        onClick={(event) => {
+          event.stopPropagation();
+          openDialog(review);
+        }}
         className={cn(
           "relative w-full h-full cursor-pointer rounded-xl border bg-card/80 backdrop-blur-sm",
           "p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:scale-[1.025]",

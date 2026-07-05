@@ -4,7 +4,7 @@ import { BackgroundDecoration } from "@/components/backgrounds/background-decora
 import { Skeleton } from "@/components/ui/skeleton";
 import type { ReviewFromCMS } from "@/lib/directus";
 import dynamic from "next/dynamic";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const REVIEW_MIN_HEIGHT_PX = 800;
 
@@ -31,16 +31,28 @@ export default function ReviewList3DWrapper({
   reviews,
 }: ReviewList3DWrapperProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const [tapPaused, setTapPaused] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const paused = tapPaused || dialogOpen;
 
   return (
     <section
       id="reviews-section"
       className="relative z-10 overflow-hidden bg-transparent"
       ref={sectionRef}
+      onClick={() => {
+        if (!dialogOpen) {
+          setTapPaused((current) => !current);
+        }
+      }}
     >
       <BackgroundDecoration className="-top-20 opacity-40 pointer-events-none" />
       <div>
-        <ReviewList3D reviews={reviews} />
+        <ReviewList3D
+          reviews={reviews}
+          paused={paused}
+          onDialogOpenChange={setDialogOpen}
+        />
       </div>
 
       <BackgroundDecoration

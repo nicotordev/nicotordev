@@ -9,17 +9,20 @@ export interface ReviewColumnProps {
   reviews: Review[];
   className?: string;
   reverse?: boolean;
+  paused?: boolean;
 }
 // Componente helper para reducir duplicación y limpiar el renderizado
 export default function ReviewColumn({
   reviews,
   className,
   reverse = false,
+  paused = false,
 }: ReviewColumnProps) {
   return (
     <div className="w-full relative">
       <Marquee
         pauseOnHover
+        paused={paused}
         reverse={reverse}
         repeat={2}
         className={cn("[--duration:40s]", className)}

@@ -20,14 +20,14 @@ interface ReviewDialogContextType {
 }
 
 const ReviewDialogContext = createContext<ReviewDialogContextType | undefined>(
-  undefined
+  undefined,
 );
 
 export function useReviewDialog() {
   const context = useContext(ReviewDialogContext);
   if (!context) {
     throw new Error(
-      "useReviewDialog must be used within a ReviewDialogProvider"
+      "useReviewDialog must be used within a ReviewDialogProvider",
     );
   }
   return context;
@@ -47,7 +47,7 @@ function ListItem({
     <div
       className={cn(
         "flex items-center justify-between min-h-12 px-4 -mx-4 rounded-xl active:bg-black/5",
-        className
+        className,
       )}
     >
       <Typography
@@ -68,67 +68,85 @@ function ListItem({
   );
 }
 
-export function ReviewDialogProvider({ children }: { children: ReactNode }) {
+export function ReviewDialogProvider({
+  children,
+  onOpenChange,
+}: {
+  children: ReactNode;
+  onOpenChange?: (open: boolean) => void;
+}) {
   const [selectedReview, setSelectedReview] = useState<Review | null>(null);
   const [isOpen, setIsOpen] = useState(false);
 
   const openDialog = (review: Review) => {
     setSelectedReview(review);
     setIsOpen(true);
+    onOpenChange?.(true);
   };
 
   const closeDialog = () => {
     setIsOpen(false);
-    setTimeout(() => setSelectedReview(null), 300);
+    onOpenChange?.(false);
+    setTimeout(() => setSelectedReview(null), 200);
   };
 
   return (
     <ReviewDialogContext.Provider value={{ openDialog, closeDialog }}>
       {children}
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <Dialog
+        open={isOpen}
+        onOpenChange={(open) => {
+          setIsOpen(open);
+          onOpenChange?.(open);
+          if (!open) {
+            setTimeout(() => setSelectedReview(null), 200);
+          }
+        }}
+      >
         <DialogContent
           className={cn(
             "max-w-md md:max-w-2xl overflow-hidden p-0 gap-0",
             "rounded-4xl border border-white/20 dark:border-white/10",
-            "bg-background/70 backdrop-blur-2xl shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] dark:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)]",
-            "data-[state=open]:zoom-in-[0.95] data-[state=closed]:zoom-out-95 duration-500 sm:zoom-in-[0.97]"
+            "bg-background max-md:shadow-xl md:bg-background/70 md:backdrop-blur-2xl",
+            "md:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.3)] dark:md:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)]",
+            "transform-gpu duration-200 ease-out motion-reduce:animate-none",
+            "data-[state=open]:zoom-in-[0.98] data-[state=closed]:zoom-out-[0.98]",
           )}
         >
           {selectedReview && (
             <div className="flex flex-col relative w-full group">
-              {/* Premium Glow Gradient Background */}
-              <div className="absolute top-0 inset-x-0 h-48 bg-linear-to-b from-primary/15 via-primary/5 to-transparent pointer-events-none rounded-t-4xl opacity-70 group-hover:opacity-100 transition-opacity duration-700" />
-              
+              <div className="pointer-events-none absolute top-0 inset-x-0 h-48 rounded-t-4xl bg-linear-to-b from-primary/15 via-primary/5 to-transparent opacity-70 md:transition-opacity md:duration-300 md:group-hover:opacity-100" />
+
               <DialogHeader className="p-6 sm:p-8 sm:pb-5 text-left relative z-10 w-full">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-6 w-full">
-                  
                   {/* Avatar wrapper with gradient ring */}
                   <div className="relative h-16 w-16 sm:h-24 sm:w-24 shrink-0 rounded-full bg-linear-to-br from-primary/60 via-primary/30 to-transparent p-0.75 shadow-xl">
                     <div className="relative h-full w-full overflow-hidden rounded-full border-[3px] border-background bg-muted">
                       <Image
                         src={selectedReview.clientImage}
                         alt={selectedReview.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        width={96}
+                        height={96}
+                        className="h-full w-full object-cover md:transition-transform md:duration-300 md:group-hover:scale-105"
                       />
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col gap-2 min-w-0 flex-1">
                     <DialogTitle className="text-xl sm:text-2xl font-bold leading-tight tracking-tight bg-clip-text text-transparent bg-linear-to-br from-foreground to-foreground/60">
                       {selectedReview.title}
                     </DialogTitle>
                     <div className="flex flex-wrap items-center gap-3">
-                      <div className="flex items-center gap-1 bg-primary/10 px-3 py-1.5 rounded-full border border-primary/20 backdrop-blur-md">
+                      <div className="flex items-center gap-1 rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 md:backdrop-blur-md">
                         <div className="flex gap-0.5">
                           {[1, 2, 3, 4, 5].map((star) => (
                             <Star
                               key={star}
                               className={cn(
-                                "h-3.5 w-3.5 sm:h-4 sm:w-4 drop-shadow-sm transition-all duration-300",
+                                "h-3.5 w-3.5 sm:h-4 sm:w-4 drop-shadow-sm",
                                 (selectedReview.rating || 0) >= star
                                   ? "fill-primary text-primary"
-                                  : "fill-muted text-muted-foreground/30"
+                                  : "fill-muted text-muted-foreground/30",
                               )}
                             />
                           ))}
@@ -166,20 +184,32 @@ export function ReviewDialogProvider({ children }: { children: ReactNode }) {
               {/* Actionable / Stats Area styled as pills */}
               <div className="bg-muted/40 dark:bg-muted/20 border-t border-white/10 p-6 sm:p-8 rounded-b-4xl relative z-10 w-full">
                 <div className="flex flex-wrap sm:flex-nowrap gap-3 sm:gap-4 w-full">
-                  <div className="flex-1 flex flex-col gap-1 p-3.5 rounded-2xl bg-background/60 shadow-sm border border-border/40 backdrop-blur-md transition-all hover:bg-background/80 hover:-translate-y-0.5 hover:shadow-md">
-                    <Typography className="text-[11px] text-muted-foreground font-bold uppercase tracking-wider">Timeline</Typography>
-                    <Typography className="text-sm font-semibold text-foreground/90">{selectedReview.dates}</Typography>
+                  <div className="flex-1 flex flex-col gap-1 rounded-2xl border border-border/40 bg-background/90 p-3.5 shadow-sm md:bg-background/60 md:backdrop-blur-md md:transition-all md:hover:-translate-y-0.5 md:hover:bg-background/80 md:hover:shadow-md">
+                    <Typography className="text-[11px] text-muted-foreground font-bold uppercase tracking-wider">
+                      Timeline
+                    </Typography>
+                    <Typography className="text-sm font-semibold text-foreground/90">
+                      {selectedReview.dates}
+                    </Typography>
                   </div>
                   {selectedReview.amount > 0 && (
-                    <div className="flex-1 flex flex-col gap-1 p-3.5 rounded-2xl bg-background/60 shadow-sm border border-border/40 backdrop-blur-md transition-all hover:bg-background/80 hover:-translate-y-0.5 hover:shadow-md">
-                      <Typography className="text-[11px] text-muted-foreground font-bold uppercase tracking-wider">Budget</Typography>
-                      <Typography className="text-sm font-semibold text-foreground/90">${selectedReview.amount.toLocaleString()}</Typography>
+                    <div className="flex-1 flex flex-col gap-1 rounded-2xl border border-border/40 bg-background/90 p-3.5 shadow-sm md:bg-background/60 md:backdrop-blur-md md:transition-all md:hover:-translate-y-0.5 md:hover:bg-background/80 md:hover:shadow-md">
+                      <Typography className="text-[11px] text-muted-foreground font-bold uppercase tracking-wider">
+                        Budget
+                      </Typography>
+                      <Typography className="text-sm font-semibold text-foreground/90">
+                        ${selectedReview.amount.toLocaleString()}
+                      </Typography>
                     </div>
                   )}
                   {selectedReview.paymentType && (
-                    <div className="flex-1 flex flex-col gap-1 p-3.5 rounded-2xl bg-background/60 shadow-sm border border-border/40 backdrop-blur-md transition-all hover:bg-background/80 hover:-translate-y-0.5 hover:shadow-md">
-                      <Typography className="text-[11px] text-muted-foreground font-bold uppercase tracking-wider">Payment</Typography>
-                      <Typography className="text-sm font-semibold whitespace-nowrap text-foreground/90">{selectedReview.paymentType}</Typography>
+                    <div className="flex-1 flex flex-col gap-1 rounded-2xl border border-border/40 bg-background/90 p-3.5 shadow-sm md:bg-background/60 md:backdrop-blur-md md:transition-all md:hover:-translate-y-0.5 md:hover:bg-background/80 md:hover:shadow-md">
+                      <Typography className="text-[11px] text-muted-foreground font-bold uppercase tracking-wider">
+                        Payment
+                      </Typography>
+                      <Typography className="text-sm font-semibold whitespace-nowrap text-foreground/90">
+                        {selectedReview.paymentType}
+                      </Typography>
                     </div>
                   )}
                 </div>
