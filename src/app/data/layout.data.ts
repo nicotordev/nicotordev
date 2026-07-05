@@ -7,10 +7,10 @@ import {
 
 export const footerNavigation = {
   links: [
-    { key: "about", fallback: "About", href: "#about-section" },
-    { key: "projects", fallback: "Projects", href: "#projects-section" },
-    { key: "services", fallback: "Services", href: "#services-section" },
-    { key: "contact", fallback: "Contact", href: "#contact-section" },
+    { key: "about", fallback: "About", href: "/about" },
+    { key: "projects", fallback: "Projects", href: "/projects" },
+    { key: "services", fallback: "Services", href: "/services" },
+    { key: "contact", fallback: "Contact", href: "/contact" },
   ],
   social: [
     {
