@@ -18,7 +18,7 @@ const badgeVariants = cva(
         outline:
           "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         success:
-          "font-semibold border-transparent bg-green-100/70 text-green-700 [a&]:hover:bg-green-200 dark:bg-green-900 dark:text-green-300 dark:[a&]:hover:bg-green-800",
+          "font-semibold border-success/20 bg-success/10 text-success shadow-sm [a&]:hover:bg-success/20 dark:border-success/30 dark:bg-success/15 dark:text-success dark:[a&]:hover:bg-success/25",
         accent:
           "border-transparent bg-accent text-accent-foreground [a&]:hover:bg-accent/90",
       },
@@ -26,7 +26,7 @@ const badgeVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 );
 
 function Badge({

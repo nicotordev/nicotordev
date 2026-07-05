@@ -12,7 +12,6 @@ import {
 import { Typography } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
-import { Dot } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
@@ -89,11 +88,17 @@ export default function HeroSection({ messages }: HeroSectionProps) {
           <div className="mb-3">
             <Badge
               variant="success"
-              className="relative"
+              className="gap-2 px-3 py-1 text-sm tracking-wide"
               role="status"
               aria-live="polite"
             >
-              <Dot className="mr-2 text-2xl h-auto animate-pulse" />
+              <span
+                className="relative flex size-2.5 shrink-0"
+                aria-hidden="true"
+              >
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-60 motion-reduce:animate-none" />
+                <span className="relative inline-flex size-full rounded-full bg-success ring-2 ring-success/25" />
+              </span>
               {messages.hero.available_for_hire}
             </Badge>
           </div>

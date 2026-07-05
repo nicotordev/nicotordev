@@ -105,6 +105,8 @@ const nextConfig: NextConfig = {
       process.env.NODE_ENV === "production" ? { exclude: ["error"] } : false,
     reactRemoveProperties: true,
   },
+  
+  allowedDevOrigins: ['dev.nicotordev.com'],
 };
 
 const withNextIntl = createNextIntlPlugin({
