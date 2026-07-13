@@ -1,12 +1,17 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const RESEND_FROM = process.env.RESEND_FROM?.trim();
 const ADMIN_EMAILS = process.env.ADMIN_EMAILS
   ? process.env.ADMIN_EMAILS.split(",")
       .map((e) => e.trim())
       .filter(Boolean)
   : [];
+
+function getResendClient() {
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+  if (!apiKey) return null;
+  return new Resend(apiKey);
+}
 
 export async function sendAdminNotification({
   subject,
@@ -15,11 +20,9 @@ export async function sendAdminNotification({
   subject: string;
   html: string;
 }) {
-  if (
-    !process.env.RESEND_API_KEY ||
-    !RESEND_FROM ||
-    ADMIN_EMAILS.length === 0
-  ) {
+  const resend = getResendClient();
+
+  if (!resend || !RESEND_FROM || ADMIN_EMAILS.length === 0) {
     console.warn(
       "Resend not configured: set RESEND_API_KEY, RESEND_FROM, and ADMIN_EMAILS",
     );
