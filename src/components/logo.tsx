@@ -18,21 +18,21 @@ export default function Logo({
   priority,
   alt = "NicoTorDev logo",
 }: LogoProps) {
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+  const currentTheme = resolvedTheme || theme;
 
-  const computedHeight = typeof height === "number" ? height : height === 'auto' ? width / 4 : Number(height);
+  const computedHeight = typeof height === "number" ? height : height === 'auto' ? width : Number(height);
 
   return (
     <span
       className={className}
       style={{ display: "inline-block", lineHeight: 0 }}
     >
-      {/* Dark theme logo */}
       <Image
         src={
-          theme === "light"
-            ? "/images/logo/only-logo-dark.svg"
-            : "/images/logo/only-logo-light.svg"
+          currentTheme === "dark"
+            ? "/images/logo/only-logo-light.svg"
+            : "/images/logo/only-logo-dark.svg"
         }
         alt={alt}
         width={width}

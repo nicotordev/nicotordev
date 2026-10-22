@@ -14,7 +14,6 @@ import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
 import Image from "next/image";
 import Link from "next/link";
-import HeroSectionTechStackCarousel from "./hero-section-tech-stack-carousel";
 import HeroSectionTechStackCarouselClient from "./hero-section-tech-stack-carousel-client";
 
 interface HeroSectionProps {

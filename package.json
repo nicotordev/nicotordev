@@ -52,6 +52,7 @@
     "drop-projects-slim-schema": "bun scripts/drop-projects-slim-schema.ts",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
+    "generate:icons": "bun scripts/generate-icons.ts",
     "check": "bun run lint && bun run type-check"
   },
   "dependencies": {
