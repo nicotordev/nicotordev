@@ -1,6 +1,17 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import sharp from "/home/nicotordev/.bun/install/global/node_modules/sharp";
+let sharp: any;
+try {
+  // @ts-ignore
+  sharp = (await import("sharp")).default;
+} catch {
+  try {
+    // @ts-ignore
+    sharp = (await import("/home/nicotordev/.bun/install/global/node_modules/sharp")).default;
+  } catch {
+    // Sharp not available
+  }
+}
 
 const rootDir = process.cwd();
 const publicDir = path.join(rootDir, "public");
