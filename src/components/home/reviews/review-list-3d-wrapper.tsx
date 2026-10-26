@@ -46,7 +46,6 @@ export default function ReviewList3DWrapper({
         }
       }}
     >
-      <BackgroundDecoration className="-top-20 opacity-40 pointer-events-none" />
       <div>
         <ReviewList3D
           reviews={reviews}
@@ -54,11 +53,6 @@ export default function ReviewList3DWrapper({
           onDialogOpenChange={setDialogOpen}
         />
       </div>
-
-      <BackgroundDecoration
-        className="top-auto bottom-0 translate-y-1/3 pointer-events-none"
-        shapeClassName="left-[calc(50%+15rem)] bg-linear-to-tr from-secondary to-accent opacity-40 rotate-180"
-      />
     </section>
   );
 }

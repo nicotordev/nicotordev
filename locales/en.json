@@ -53,9 +53,13 @@
     "name": "Nicolás Torres",
     "title": "Full Stack Developer",
     "available_for_hire": "Available for hire",
-    "description": "Software developer, content creator, and tech enthusiast from Chile.",
+    "role_badge": "FULL-STACK WEB ENGINEER",
+    "bio_badge": "Hi, I'm Nicolás Torres from Chile 🇨🇱",
+    "description": "Specialized in TypeScript, Next.js, React, and Node.js. I build fast, scalable products with product mindset for founders and global teams.",
+    "email": "nicotordev@gmail.com",
+    "flag_alt": "Chile flag",
     "location": {
-      "from": "a full-stack web engineer from",
+      "from": "from Chile",
       "tooltip": "From Concepción, Chile. Glad you're here!"
     },
     "closing": "and my work is about",
@@ -65,14 +69,27 @@
       "and": "and",
       "ideas": "ideas",
       "into": "into",
-      "applications": "impactful",
-      "web": "web",
-      "impact": "applications"
+      "applications": "web applications",
+      "web": "",
+      "impact": "with impact"
     },
     "cta": {
       "about": "Learn more about me",
       "download_resume": "Download CV",
-      "lets_talk": "Let's talk 🚀"
+      "lets_talk": "Let's talk 🚀",
+      "email_copied": "Email copied to clipboard!",
+      "copy_email": "Copy email",
+      "copy_email_error": "Error copying email"
+    },
+    "stats": {
+      "top_rated": "TOP RATED",
+      "job_success": "Job Success on Upwork",
+      "years_experience": "+4 years",
+      "years_description": "Experience & scalable architecture",
+      "rating": "5.0",
+      "rating_description": "+70K USD with global founders",
+      "rating_stars_aria": "5 stars",
+      "job_success_rate": "100%"
     }
   },
   "socialProof": {
@@ -376,7 +393,10 @@
       "gallery_1_alt": "Conce AI logo",
       "gallery_2_alt": "Photo of Nicolás Torres Henriquez smiling",
       "gallery_3_alt": "Photo of Nicolás Torres Henriquez working on his computer",
-      "gallery_4_alt": "Photo of Nicolás Torres Henriquez in a natural setting"
+      "gallery_4_alt": "Photo of Nicolás Torres Henriquez in a natural setting",
+      "latest_alt": "Photo of Nicolás Torres Henriquez",
+      "latest_title": "Nicolás Torres Henriquez",
+      "latest_description": "Full-Stack Web Engineer & Software Architect"
     },
     "metricsTitle": "Key metrics",
     "galleryTitle": "Gallery",
@@ -445,10 +465,22 @@
       },
       "heroImageAlt": "Nicolas Torres working on a software project",
       "stats": [
-        { "label": "Top Rated on Upwork", "value": "Upwork" },
-        { "label": "Hours delivered", "value": "1,400+" },
-        { "label": "International remote teams", "value": "Global" },
-        { "label": "SaaS, marketplaces & AI systems", "value": "Core focus" }
+        {
+          "label": "Top Rated on Upwork",
+          "value": "Upwork"
+        },
+        {
+          "label": "Hours delivered",
+          "value": "1,400+"
+        },
+        {
+          "label": "International remote teams",
+          "value": "Global"
+        },
+        {
+          "label": "SaaS, marketplaces & AI systems",
+          "value": "Core focus"
+        }
       ],
       "values": {
         "title": "How I think about engineering",

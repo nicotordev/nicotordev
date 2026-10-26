@@ -7,13 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ImageDialog } from "@/components/ui/image-dialog";
 import { Typography } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
 import { getAboutStats, type AboutStat } from "@/lib/about-stats";
 import type { Messages } from "@/types/i18n";
 import Image from "next/image";
 import type { BentoSize } from "../../../types/footer";
+import { WorkspacePhoto } from "@/components/about/workspace-photo";
 
 type AboutMeGalleryItem = {
   src: string;
@@ -24,14 +23,10 @@ type AboutMeGalleryItem = {
 
 export interface AboutMeSectionProps {
   messages: Messages;
-  stats?: AboutStat[];
-  gallery?: AboutMeGalleryItem[];
 }
 
 export default function AboutMeSection({
   messages,
-  stats,
-  gallery,
 }: AboutMeSectionProps) {
   const about = messages.about ?? {};
   const galleryMsgs = about.gallery?.items ?? {};
@@ -43,8 +38,6 @@ export default function AboutMeSection({
   const methodologyDescription =
     methodology.description ??
     "My way of working is built on clarity, autonomy, and impact.";
-
-  const resolvedStats = stats ?? getAboutStats(messages);
 
   const resolvedGallery: AboutMeGalleryItem[] = [
     {
@@ -158,25 +151,6 @@ export default function AboutMeSection({
 
   return (
     <section id="about-section" className="relative py-24 sm:py-32">
-      {/* Background blobs */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-40 z-0 transform-gpu overflow-x-clip blur-3xl sm:-top-80"
-      >
-        <div
-          style={{
-            clipPath:
-              "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-          }}
-          className={cn(
-            "relative left-[calc(50%-11rem)] -translate-x-1/2 rotate-30",
-            "aspect-1155/678 w-144.5",
-            "bg-linear-to-tr from-primary to-secondary opacity-30",
-            "sm:left-[calc(50%-30rem)] sm:w-288.75",
-          )}
-        />
-      </div>
-
       <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -199,20 +173,13 @@ export default function AboutMeSection({
           </div>
 
           <div className="flex w-full items-center justify-center lg:w-7/12">
-            <ImageDialog
+            <Image
               src="/animated/handpicked.webp"
               alt="Nico handpicked"
               width={1500}
               height={1500}
-            >
-              <Image
-                src="/animated/handpicked.webp"
-                alt="Nico handpicked"
-                width={1500}
-                height={1500}
-                className="h-full w-full object-contain"
-              />
-            </ImageDialog>
+              className="h-full w-full object-contain"
+            />
           </div>
         </div>
 
@@ -256,53 +223,13 @@ export default function AboutMeSection({
               </CardContent>
             </Card>
           </div>
-
-          <div>
-            <Typography
-              role="label"
-              mood="product"
-              className="text-base font-semibold uppercase tracking-wide text-foreground"
-            >
-              {metricsTitle}
-            </Typography>
-            <hr className="mt-6 border-border" />
-            <dl className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {resolvedStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-xl p-4 transition-colors hover:bg-accent/5"
-                >
-                  <Typography
-                    as="dt"
-                    role="label"
-                    className="text-sm uppercase tracking-wide text-muted-foreground"
-                  >
-                    {stat.label}
-                  </Typography>
-                  <dd className="mt-1">
-                    <Typography
-                      as="span"
-                      role="headline"
-                      mood="code"
-                      className="text-3xl font-bold gradient-text"
-                    >
-                      {stat.prefix}
-                      {stat.value}
-                    </Typography>
-                    {stat.suffix && (
-                      <Typography
-                        as="span"
-                        role="code"
-                        className="ml-1 text-muted-foreground"
-                      >
-                        {stat.suffix}
-                      </Typography>
-                    )}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
+          <WorkspacePhoto
+            src="/images/nicolas/nico-latest.webp"
+            alt={photosMsgs.latest_alt ?? "Photo of Nicolás Torres Henriquez"}
+            title={photosMsgs.latest_title ?? "Nicolás Torres Henriquez"}
+            description={photosMsgs.latest_description ?? "Full-Stack Web Engineer & Software Architect"}
+            aspectRatioClassName="aspect-4/5 sm:aspect-auto h-full min-h-[440px]"
+          />
         </section>
       </div>
 

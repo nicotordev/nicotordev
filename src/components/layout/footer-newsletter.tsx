@@ -58,8 +58,6 @@ export default function FooterNewsletter({ messages }: FooterNewsletterProps) {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="pointer-events-auto relative overflow-hidden rounded-3xl bg-card border border-border/50 w-full p-6 lg:p-8 shadow-2xl backdrop-blur-xl"
       >
-        {/* Atmosphere Layer */}
-        <BackgroundDecoration className="opacity-20 scale-125 -top-20" />
         <div className="absolute inset-0 bg-linear-to-tr from-primary/5 via-transparent to-transparent pointer-events-none" />
 
         <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-12 justify-between">

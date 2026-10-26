@@ -168,7 +168,6 @@ Never render raw `<button>` elements. Use the project primitive which features:
 ### 4.3 Background Composition
 - Main sections wrap content with `relative z-10`.
 - Atmosphere backgrounds placed as absolute children:
-  - `<BackgroundDecoration />`: 16-point SVG polygon with `blur-3xl` gradient from `accent` to `primary`.
   - `<PsychedelicBackground />`: Low-opacity textured noise with `blur-sm`.
 
 ### 4.4 Keyframe Animations (Defined in `globals.css`)

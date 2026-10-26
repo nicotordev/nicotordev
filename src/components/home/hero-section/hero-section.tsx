@@ -2,72 +2,35 @@ import { BackgroundDecoration } from "@/components/backgrounds/background-decora
 import DownloadResumeButton from "@/components/download-resume-button";
 import { getExistingResumeFormatKeys } from "@/lib/resume-downloads";
 import ChileFlag from "@/components/emojis/chile-flag";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Typography } from "@/components/ui/typography";
-import { cn } from "@/lib/utils";
 import type { Messages } from "@/types/i18n";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import HeroSectionTechStackCarouselClient from "./hero-section-tech-stack-carousel-client";
+import HeroCopyEmail from "./hero-copy-email";
+import HeroImageFloatingCards from "./hero-image-floating-cards";
 
 interface HeroSectionProps {
   messages: Messages;
 }
 
-interface HighlightWordProps {
-  text: string;
-  imageSrc: string;
-  imageAlt: string;
-  rotate?: "-rotate-2" | "rotate-2";
-  /** Set for the first above-the-fold image only to improve LCP/FCP. */
-  priority?: boolean;
-}
+const TECH_KEYWORDS = ["TypeScript", "Next.js", "React", "Node.js"] as const;
 
-function HighlightWord({
-  text,
-  imageSrc,
-  imageAlt,
-  rotate = "-rotate-2",
-  priority = false,
-}: HighlightWordProps) {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center gap-1 rounded-lg bg-card px-3 py-1 font-mono",
-        "font-extrabold tracking-tight",
-        "shadow-sm ring-1 ring-border",
-        rotate,
-        "text-3xl sm:text-4xl md:text-5xl",
-      )}
-    >
-      <Typography
-        as="span"
-        role="display"
-        className="text-secondary font-extrabold"
-      >
-        {text}
-      </Typography>
+function renderDescription(text: string) {
+  const regex = new RegExp(`(${TECH_KEYWORDS.join("|")})`, "g");
+  const parts = text.split(regex);
 
-      <Image
-        src={imageSrc}
-        alt={imageAlt}
-        width={64}
-        height={64}
-        quality={45}
-        unoptimized
-        aria-hidden
-        priority={priority}
-        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain drop-shadow-xl"
-        sizes="(min-width: 768px) 64px, (min-width: 640px) 56px, 48px"
-      />
-    </span>
-  );
+  return parts.map((part, index) => {
+    if (TECH_KEYWORDS.includes(part as (typeof TECH_KEYWORDS)[number])) {
+      return (
+        <strong key={index} className="font-semibold text-foreground">
+          {part}
+        </strong>
+      );
+    }
+    return part;
+  });
 }
 
 export default function HeroSection({ messages }: HeroSectionProps) {
@@ -77,162 +40,202 @@ export default function HeroSection({ messages }: HeroSectionProps) {
   return (
     <section
       id="hero-section"
-      className="relative z-10 bg-background py-8 sm:py-10 md:py-12"
+      className="relative z-10 bg-background py-8 sm:py-12 md:py-16 overflow-hidden"
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <BackgroundDecoration />
-
-        <div className="relative z-20 mx-auto flex max-w-7xl flex-col items-center px-2 pt-0 pb-12 text-center sm:px-0 sm:py-18 lg:py-22">
-          {/* Availability badge */}
-          <div className="mb-3">
-            <Badge
-              variant="success"
-              className="gap-2 px-3 py-1 text-sm tracking-wide"
-              role="status"
-              aria-live="polite"
-            >
-              <span
-                className="relative flex size-2.5 shrink-0"
-                aria-hidden="true"
-              >
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-60 motion-reduce:animate-none" />
-                <span className="relative inline-flex size-full rounded-full bg-success ring-2 ring-success/25" />
-              </span>
-              {messages.hero.available_for_hire}
-            </Badge>
-          </div>
-
-          {/* Greeting */}
-          <Typography
-            as="h2"
-            className="mb-2 font-medium text-muted-foreground"
-          >
-            {messages.hero.greeting}{" "}
-            <span className="font-bold text-secondary">
-              {messages.hero.name}
-            </span>
-            , {messages.hero.location.from}{" "}
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button variant="link" className="px-1 sm:px-2">
-                  <span className="relative top-1 cursor-pointer font-bold underline">
-                    <ChileFlag />
-                  </span>
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <Typography role="body">
-                  {messages.hero.location.tooltip}
-                </Typography>
-              </TooltipContent>
-            </Tooltip>
-            {messages.hero.closing}
-          </Typography>
-
-          {/* Headline */}
-          <Typography as="h1" role="display">
-            <div className="space-y-3">
-              <div className="space-y-2">
-                {messages.hero.headline.transform}{" "}
-                <HighlightWord
-                  text={messages.hero.headline.words}
-                  imageSrc="/images/illustrations/writing.webp"
-                  imageAlt={media.writingAlt || "Hand writing illustration"}
-                  priority
+        <div className="relative z-20 mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center pt-2 pb-10 sm:pt-6 sm:pb-14">
+          {/* Main Content Column */}
+          <div className="flex flex-col items-start text-left lg:col-span-7">
+            {/* Top Badges */}
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card/80 px-3.5 py-1 text-xs sm:text-sm font-medium text-muted-foreground shadow-2xs backdrop-blur-xs">
+                {messages.hero.greeting}{" "}
+                <strong className="font-semibold text-foreground">
+                  {messages.hero.name}
+                </strong>{" "}
+                {messages.hero.location.from}
+                <ChileFlag
+                  width={18}
+                  height={18}
+                  alt={messages.hero.flag_alt}
+                  className="inline-block object-contain ml-0.5"
                 />
-              </div>
+                {messages.hero.closing}
+                <span className="text-foreground font-semibold">
+                  &hellip;
+                </span>
+              </span>
+            </div>
 
-              <div className="space-y-2">
-                <div>
-                  {messages.hero.headline.and}{" "}
-                  <HighlightWord
-                    text={messages.hero.headline.ideas}
-                    imageSrc="/images/illustrations/lightbulb.webp"
-                    imageAlt={media.lightbulbAlt || "Lightbulb illustration"}
-                    rotate="rotate-2"
-                  />{" "}
-                  {messages.hero.headline.into}{" "}
-                  <span className="gradient-text">
-                    {messages.hero.headline.applications}
-                  </span>{" "}
-                  <span className="gradient-text">
-                    {messages.hero.headline.web}
-                  </span>
-                </div>
-                <div className="inline-flex flex-wrap items-center justify-center gap-3">
-                  <span className="gradient-text">
-                    {messages.hero.headline.impact}
-                  </span>
-                  <Image
-                    src="/images/illustrations/mechanic-arm.webp"
-                    alt={media.mechanicArmAlt || "Robotic arm illustration"}
-                    width={96}
-                    height={96}
-                    quality={45}
-                    unoptimized
-                    aria-hidden
-                    className="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 object-contain drop-shadow-xl"
-                    sizes="(min-width: 768px) 96px, (min-width: 640px) 80px, 64px"
+            {/* Headline */}
+            <h1 className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold tracking-tight leading-[1.14] text-foreground font-display">
+              {messages.hero.headline.transform}{" "}
+              <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-2xl bg-secondary/10 border border-secondary/25 text-secondary px-2.5 sm:px-3 py-0.5 align-baseline">
+                {messages.hero.headline.words}
+                <Image
+                  src="/images/illustrations/writing.webp"
+                  alt={media.writingAlt || ""}
+                  width={48}
+                  height={48}
+                  quality={90}
+                  unoptimized
+                  priority
+                  className="inline-block size-7 sm:size-8 md:size-9 lg:size-10 object-contain drop-shadow-sm"
+                />
+              </span>{" "}
+              {messages.hero.headline.and}{" "}
+              <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-2xl bg-info/10 border border-info/25 text-info px-2.5 sm:px-3 py-0.5 align-baseline">
+                {messages.hero.headline.ideas}
+                <Image
+                  src="/images/illustrations/lightbulb.webp"
+                  alt={media.lightbulbAlt || ""}
+                  width={48}
+                  height={48}
+                  quality={90}
+                  unoptimized
+                  className="inline-block size-7 sm:size-8 md:size-9 lg:size-10 object-contain drop-shadow-sm"
+                />
+              </span>
+              <br />
+              {messages.hero.headline.into}{" "}
+              <span className="relative inline-block text-secondary">
+                {messages.hero.headline.applications}
+                {messages.hero.headline.web ? ` ${messages.hero.headline.web}` : ""}
+                <svg
+                  className="absolute -bottom-1 left-0 w-full h-2.5 text-secondary/40 -z-10"
+                  viewBox="0 0 100 8"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M0,5 Q50,1 100,5"
+                    stroke="currentColor"
+                    strokeWidth="6"
+                    strokeLinecap="round"
+                    fill="none"
                   />
+                </svg>
+              </span>
+              <br />
+              {messages.hero.headline.impact}{" "}
+              <Image
+                src="/images/illustrations/mechanic-arm.webp"
+                alt={media.mechanicArmAlt || ""}
+                width={56}
+                height={56}
+                quality={90}
+                unoptimized
+                className="inline-block size-9 sm:size-11 md:size-12 lg:size-14 object-contain drop-shadow-sm ml-1 align-middle"
+              />
+            </h1>
+
+            {/* Subtitle */}
+            <p className="mt-5 text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl font-normal">
+              {renderDescription(messages.hero.description)}
+            </p>
+
+            {/* CTA Row */}
+            <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+              {/* Primary CTA */}
+              <Link href="#contact-section">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="shadow-lg shadow-secondary/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                >
+                  {messages.hero.cta.lets_talk}
+                </Button>
+              </Link>
+
+              {/* Secondary CTA */}
+              <DownloadResumeButton
+                className="rounded-full border border-border bg-card hover:bg-muted text-foreground font-semibold px-6 py-3 text-base shadow-xs transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                label={
+                  <span className="inline-flex items-center gap-1.5">
+                    {messages.hero.cta.download_resume}
+                    <ArrowUpRight className="size-4 stroke-[2.5]" />
+                  </span>
+                }
+                selectFormatLabel={messages.downloadResume?.selectFormat}
+                availableResumeFormatKeys={availableResumeFormatKeys}
+              />
+
+              {/* Email Copy Pill */}
+              <HeroCopyEmail
+                email={messages.hero.email}
+                copiedMessage={messages.hero.cta.email_copied}
+                copyLabel={messages.hero.cta.copy_email}
+                errorMessage={messages.hero.cta.copy_email_error}
+              />
+            </div>
+
+            {/* Stats Card (mobile fallback) */}
+            <div className="mt-10 sm:mt-12 w-full max-w-2xl rounded-2xl border border-border bg-card/80 p-5 sm:p-6 shadow-xs backdrop-blur-md sm:hidden">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-4 sm:divide-x sm:divide-border">
+                {/* Top Rated */}
+                <div className="flex flex-col sm:pr-4">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+                      {messages.hero.stats.job_success_rate}
+                    </span>
+                    <span className="inline-flex items-center rounded-md border border-success/30 bg-success/10 px-2 py-0.5 text-[10px] font-bold text-success uppercase tracking-wider">
+                      {messages.hero.stats.top_rated}
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-xs text-muted-foreground font-medium">
+                    {messages.hero.stats.job_success}
+                  </p>
+                </div>
+
+                {/* Experience */}
+                <div className="flex flex-col sm:px-5">
+                  <span className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+                    {messages.hero.stats.years_experience}
+                  </span>
+                  <p className="mt-1.5 text-xs text-muted-foreground font-medium">
+                    {messages.hero.stats.years_description}
+                  </p>
+                </div>
+
+                {/* Rating */}
+                <div className="flex flex-col sm:pl-5">
+                  <div
+                    className="flex items-center gap-1.5"
+                    aria-label={`${messages.hero.stats.rating} - ${messages.hero.stats.rating_stars_aria}`}
+                  >
+                    <span className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight">
+                      {messages.hero.stats.rating}
+                    </span>
+                    <span
+                      className="text-warning text-sm tracking-widest ml-1 select-none"
+                      aria-hidden="true"
+                    >
+                      ★★★★★
+                    </span>
+                  </div>
+                  <p className="mt-1.5 text-xs text-muted-foreground font-medium">
+                    {messages.hero.stats.rating_description}
+                  </p>
                 </div>
               </div>
             </div>
-          </Typography>
+          </div>
 
-          {/* CTA (✅ mejorado <500px, mobile-first) */}
-          <div
-            className={cn(
-              "mt-8 w-full",
-              "flex flex-col gap-3 items-stretch",
-              "sm:flex-row sm:justify-center sm:gap-6",
-            )}
-          >
-            {/* Primary CTA */}
-            <Link href="#contact-section">
-              <Button
-                asChild
-                size="lg"
-                className={cn(
-                  "w-full h-full",
-                  "text-base font-bold",
-                  "sm:w-auto sm:px-8",
-                  "inline-flex items-center justify-center",
-                  "py-3"
-                )}
-              >
-                <Typography as="span" role="button">
-                  {messages.hero.cta.lets_talk}
-                </Typography>
-              </Button>
-            </Link>
-
-            {/* Secondary CTA */}
-            <DownloadResumeButton
-              className={cn(
-                "w-full h-full",
-                "border border-border",
-                "text-sm font-medium opacity-90",
-                "sm:w-auto sm:opacity-100",
-              )}
-              label={
-                <Typography as="span" role="button">
-                  {messages.hero.cta.download_resume}
-                </Typography>
-              }
-              selectFormatLabel={messages.downloadResume?.selectFormat}
-              availableResumeFormatKeys={availableResumeFormatKeys}
+          {/* Right Column: Hero Image with Floating Motion Metric Cards */}
+          <div className="relative lg:col-span-5 flex justify-center items-center w-full mt-6 lg:mt-0">
+            <HeroImageFloatingCards
+              stats={messages.hero.stats}
+              availableForHire={messages.hero.available_for_hire}
+              name={messages.hero.name}
             />
           </div>
         </div>
 
-        <div className="py-10 sm:py-12">
+        {/* Tech Stack Carousel */}
+        <div className="py-8 sm:py-10">
           <HeroSectionTechStackCarouselClient />
         </div>
 
-        <BackgroundDecoration
-          className="top-[calc(100%-13rem)] sm:top-[calc(100%-30rem)]"
-          shapeClassName="left-[calc(50%+3rem)] sm:left-[calc(50%+36rem)] bg-linear-to-tr from-accent to-secondary opacity-30"
-        />
       </div>
     </section>
   );

@@ -53,9 +53,13 @@
     "name": "Nicolás Torres",
     "title": "Desarrollador Full Stack",
     "available_for_hire": "Disponible para contratar",
-    "description": "Desarrollador de software, creador de contenido y entusiasta de la tecnología en Chile.",
+    "role_badge": "FULL-STACK WEB ENGINEER",
+    "bio_badge": "Hola, soy Nicolás Torres de Chile 🇨🇱",
+    "description": "Especialista en TypeScript, Next.js, React y Node.js. Construyo productos rápidos, escalables y con mentalidad de producto para fundadores y equipos globales.",
+    "email": "nicotordev@gmail.com",
+    "flag_alt": "Bandera de Chile",
     "location": {
-      "from": "un ingeniero web full-stack de",
+      "from": "de Chile",
       "tooltip": "Desde Concepción, Chile. ¡Me alegro de que estés aquí!"
     },
     "closing": "y mi trabajo consiste en",
@@ -72,7 +76,20 @@
     "cta": {
       "about": "Conóceme más",
       "download_resume": "Descargar CV",
-      "lets_talk": "Hablemos 🚀"
+      "lets_talk": "Hablemos 🚀",
+      "email_copied": "¡Email copiado al portapapeles!",
+      "copy_email": "Copiar correo",
+      "copy_email_error": "Error al copiar el correo"
+    },
+    "stats": {
+      "top_rated": "TOP RATED",
+      "job_success": "Job Success en Upwork",
+      "years_experience": "+4 años",
+      "years_description": "Experiencia y arquitectura escalable",
+      "rating": "5.0",
+      "rating_description": "+70k USD con fundadores globales",
+      "rating_stars_aria": "5 estrellas",
+      "job_success_rate": "100%"
     }
   },
   "socialProof": {
@@ -376,7 +393,10 @@
       "gallery_1_alt": "Logo de Conce AI",
       "gallery_2_alt": "Foto de Nicolás Torres Henriquez sonriendo",
       "gallery_3_alt": "Foto de Nicolás Torres Henriquez trabajando en su ordenador",
-      "gallery_4_alt": "Foto de Nicolás Torres Henriquez en un entorno natural"
+      "gallery_4_alt": "Foto de Nicolás Torres Henriquez en un entorno natural",
+      "latest_alt": "Foto de Nicolás Torres Henríquez",
+      "latest_title": "Nicolás Torres Henríquez",
+      "latest_description": "Ingeniero Web Full-Stack y Arquitecto de Software"
     },
     "metricsTitle": "Métricas destacadas",
     "galleryTitle": "Galería",
@@ -445,9 +465,18 @@
       },
       "heroImageAlt": "Nicolas Torres trabajando en un proyecto de software",
       "stats": [
-        { "label": "Top Rated en Upwork", "value": "Upwork" },
-        { "label": "1.400+ horas entregadas", "value": "1.400+" },
-        { "label": "Equipos remotos internacionales", "value": "Global" },
+        {
+          "label": "Top Rated en Upwork",
+          "value": "Upwork"
+        },
+        {
+          "label": "1.400+ horas entregadas",
+          "value": "1.400+"
+        },
+        {
+          "label": "Equipos remotos internacionales",
+          "value": "Global"
+        },
         {
           "label": "SaaS, marketplaces e IA aplicada",
           "value": "Foco principal"

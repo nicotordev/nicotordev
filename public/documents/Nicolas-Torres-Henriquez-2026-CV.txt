@@ -8,6 +8,14 @@ high-performance SaaS platforms and AI-powered applications. Proven experience d
 systems across international teams in Germany, Singapore, the United States, and Chile.
 
 RELEVANT EXPERIENCE
+Invernova SpA
+
+Aug 14, 2026 - Present
+
+Senior Full Stack Engineer – Dermalabs
+Collaborated with a 3-person team to build the Dermalabs B2B ecommerce MVP for Invernova SpA, using
+TypeScript, Next.js, React, and Supabase. Implemented professional onboarding, quantity-based pricing, checkout
+with Mercado Pago and Webpay, and the Odoo integration for inventory and invoicing.
 Shred Labs, LLC.
 
 Nov 23, 2025 - Present
@@ -18,7 +26,7 @@ implementing onboarding flows, product personalization logic, and social feature
 shred.app with a focus on the user onboarding process, implementing OAuth authentication and core APIs.
 Produncan Lands
 
-Jan 21, 2026 - Present
+Jan 21, 2026 - Jun 11, 2026
 
 Full-Stack Engineer
 Led the development of produncan.cl, focusing on high-performance architecture. I defined the data structures in
@@ -49,7 +57,8 @@ Contributed to the development and expansion of a premium admin dashboard templa
 production-ready components, complex layouts, and app patterns (Kanban, Ecommerce, and Dashboards) using
 Next.js, Tailwind CSS, and shadcn/ui. Focused on creating reusable UI blocks and improving product usability for a
 global customer base, maintaining high standards of code quality through GitHub-based peer reviews.
-Spiritory GMBH
+
+Spiritory GMBH
 Full-Stack Developer
 
 Nov 16, 2023 - Aug 30, 2025
@@ -59,8 +68,7 @@ including seller onboarding (KYC/tax) and refactored shipping systems for scalab
 Designed robust APIs and delivered high-performance, mobile-first interfaces. Improved system architecture, state
 management, and CI/CD workflows. Collaborated closely with product and engineering teams to ship reliable,
 production-ready solutions.
-
-ADDITIONAL EXPERIENCE
+ADDITIONAL EXPERIENCE
 Remote
 
 Aug 3, 2023 - Present

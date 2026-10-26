@@ -12,7 +12,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DOC="$ROOT/public/documents"
-PDF="$DOC/Nicolas-Torres-Henriquez-2026-CV.pdf"
+PDF="$DOC/Nicolas-Torres-Henriquez-2026-CV-V2.pdf"
 BASE="Nicolas-Torres-Henriquez-2026-CV"
 
 if [[ ! -f "$PDF" ]]; then

@@ -42,7 +42,9 @@ export default function Header({ messages }: { messages: Messages }) {
       />
       <header
         className={cn(
-          "left-0 top-4 fixed z-40 mt-4 flex w-full items-center justify-center bg-transparent px-2 pb-2",
+          "left-0 top-4 fixed z-40 mt-2 flex w-full items-center justify-center bg-transparent px-2 pb-2 transition-all duration-300 ease-in-out",
+          !scrolled &&
+            "opacity-0 pointer-events-none -translate-y-4 md:opacity-100 md:pointer-events-auto md:translate-y-0",
         )}
       >
         <div

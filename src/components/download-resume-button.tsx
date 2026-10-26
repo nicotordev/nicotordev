@@ -22,6 +22,7 @@ interface DownloadResumeButtonProps {
 }
 
 interface ResumeFormat {
+  id: string;
   label: string;
   icon: string;
   href: string;
@@ -61,6 +62,7 @@ function buildResumeFormats(
   ).map((def) => {
     const href = assets.resume[def.key];
     return {
+      id: def.key,
       label: def.label,
       icon: def.icon,
       href,
@@ -92,10 +94,14 @@ export default function DownloadResumeButton({
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="outline" className={className}>
-          <span className="inline-flex items-center">
-            {label}
-            <ArrowRight className="ml-1 size-4" aria-hidden="true" />
-          </span>
+          {typeof label === "string" ? (
+            <span className="inline-flex items-center gap-1.5">
+              {label}
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </span>
+          ) : (
+            label
+          )}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56">
@@ -106,7 +112,7 @@ export default function DownloadResumeButton({
         <DropdownMenuSeparator />
         {resumeFormats.map((format) => (
           <DropdownMenuItem
-            key={format.downloadName}
+            key={format.id}
             onClick={() => handleDownload(format)}
             className="cursor-pointer"
           >

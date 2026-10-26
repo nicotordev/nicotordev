@@ -1,10 +1,10 @@
 Title:           Nicolas Richard Torres Henriquez
-Keywords:        DAHFnUMkCqw,BAGaHJdRGG4,0
+Keywords:        DAHFnUMkCqw,BAGaHJdRGG4
 Author:          Nicolas Torres
 Creator:         Canva
 Producer:        Canva
-CreationDate:    Wed Apr  1 11:20:52 2026 -03
-ModDate:         Wed Apr  1 11:20:51 2026 -03
+CreationDate:    Mon Oct 26 03:44:52 2026 -03
+ModDate:         Mon Oct 26 03:44:52 2026 -03
 Custom Metadata: no
 Metadata Stream: yes
 Tagged:          yes
@@ -16,6 +16,6 @@ Pages:           2
 Encrypted:       no
 Page size:       842.25 x 1190.25 pts (A3)
 Page rot:        0
-File size:       99678 bytes
+File size:       117324 bytes
 Optimized:       no
 PDF version:     1.4
