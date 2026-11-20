@@ -204,6 +204,7 @@ Looking forward to hearing from you!`
               <Turnstile
                 key={turnstileKey}
                 siteKey={turnstileSiteKey}
+                action="lead"
                 sandbox={process.env.NODE_ENV === "development"}
                 theme="auto"
                 size="flexible"
@@ -517,6 +518,7 @@ export function LeadMagnetContactFormFull({
               <Turnstile
                 key={turnstileKey}
                 siteKey={turnstileSiteKey}
+                action="lead"
                 sandbox={process.env.NODE_ENV === "development"}
                 theme="auto"
                 size="flexible"

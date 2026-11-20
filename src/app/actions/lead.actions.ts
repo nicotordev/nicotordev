@@ -3,6 +3,7 @@
 import { createLead } from "@/lib/directus/leads";
 import type { LeadSource } from "@/lib/lead-sources";
 import { notifyNewLead } from "@/lib/mail";
+import { verifyLeadTurnstile } from "@/lib/turnstile";
 
 export type SubmitLeadPayload = {
   name: string;
@@ -22,13 +23,16 @@ export async function saveLeadAction(
   if (!name?.trim() || !email?.trim() || !message?.trim()) {
     return { success: false, error: "Missing name, email or message" };
   }
+  if (!(await verifyLeadTurnstile(turnstileToken))) {
+    return { success: false };
+  }
   try {
     const lead = await createLead({
       name: name.trim(),
       email: email.trim(),
       message: message.trim(),
       source,
-      turnstileValidated: Boolean(turnstileToken),
+      turnstileValidated: true,
     });
 
     if (lead) {

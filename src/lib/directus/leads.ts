@@ -11,7 +11,7 @@ export type CreateLeadPayload = {
   email: string;
   message: string;
   source: LeadSource;
-  turnstileValidated?: boolean;
+  turnstileValidated: boolean;
 };
 
 /**
@@ -25,12 +25,13 @@ export async function createLead(
     email: payload.email,
     message: payload.message,
     source: payload.source,
-    turnstile_validated: payload.turnstileValidated ?? true,
+    turnstile_validated: payload.turnstileValidated,
   };
   try {
     const res = await directusPost<DirectusItemResponse<DirectusLead>>(
       "/items/leads",
       body,
+      { authenticated: true },
     );
     return res.data ?? null;
   } catch {

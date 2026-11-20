@@ -1,3 +1,5 @@
+import "server-only";
+
 /**
  * Directus REST client for https://directus.nicotordev.com/
  * Uses DIRECTUS_URL for public, unauthenticated reads.
@@ -154,11 +156,19 @@ export async function directusFetchOptional<T>(
 export async function directusPost<T, B = unknown>(
   path: string,
   body: B,
+  options?: { authenticated?: boolean },
 ): Promise<T> {
   const url = `${getDirectusUrl()}${path}`;
+  const token = options?.authenticated ? process.env.DIRECTUS_TOKEN?.trim() : "";
+  if (options?.authenticated && !token) {
+    throw new Error("DIRECTUS_TOKEN is required for authenticated writes");
+  }
   const res = await fetch(url, {
     method: "POST",
-    headers: getDirectusHeaders(),
+    headers: {
+      ...getDirectusHeaders(),
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
     body: JSON.stringify(body),
   });
 
