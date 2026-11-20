@@ -306,7 +306,6 @@ async function seedProjects() {
       method: "POST",
       headers: SEED_HEADERS,
       body: JSON.stringify({
-        project_id: p.id,
         slug: p.slug,
         cost: p.cost,
         image: p.image,

@@ -59,7 +59,7 @@ async function run() {
 
   const col = await patchJson("/collections/projects", {
     meta: {
-      display_template: "{{slug}} · {{project_id}}",
+      display_template: "{{slug}} · {{id}}",
     },
   });
   if (col.ok) {

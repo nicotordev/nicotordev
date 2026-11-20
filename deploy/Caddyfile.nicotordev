@@ -1,0 +1,23 @@
+# Add these site blocks to the shared Caddyfile on the VPS.
+# Both upstreams resolve through docker-projects-edge.
+
+www.nicotordev.com {
+	redir https://nicotordev.com{uri} permanent
+}
+
+nicotordev.com {
+	encode zstd gzip
+
+	request_body {
+		max_size 25MB
+	}
+
+	reverse_proxy nicotordev-web:3000 {
+		header_up X-Forwarded-For {client_ip}
+		header_up X-Real-IP {client_ip}
+	}
+}
+
+directus.nicotordev.com {
+	reverse_proxy directus:8055
+}

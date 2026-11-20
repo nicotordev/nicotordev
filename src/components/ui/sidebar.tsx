@@ -617,6 +617,8 @@ function SidebarMenuSkeleton({
   // Compute post-render to satisfy purity rules.
   const [width, setWidth] = React.useState<string>("90%");
   React.useEffect(() => {
+    // This intentionally runs after hydration to avoid random SSR output.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setWidth(`${50 + Math.floor(Math.random() * 40)}%`);
   }, []);
 

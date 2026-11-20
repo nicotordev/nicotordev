@@ -34,28 +34,16 @@ async function getUsers(): Promise<User[]> {
 
 export default async function DashboardPage() {
   const pageLogger = log.child({ module: 'DashboardPage' });
+  let users: User[] = [];
 
   pageLogger.info('Rendering dashboard page');
 
   try {
-    const users = await getUsers();
+    users = await getUsers();
 
     pageLogger.debug(
       { userCount: users.length, firstUserId: users[0]?.id },
       'Page data loaded'
-    );
-
-    return (
-      <div>
-        <h1>Dashboard</h1>
-        <ul>
-          {users.map((user) => (
-            <li key={user.id}>
-              {user.name} - {user.email}
-            </li>
-          ))}
-        </ul>
-      </div>
     );
   } catch (error) {
     pageLogger.error({ error }, 'Failed to render dashboard');
@@ -67,4 +55,17 @@ export default async function DashboardPage() {
       </div>
     );
   }
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.name} - {user.email}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

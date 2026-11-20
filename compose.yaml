@@ -1,0 +1,151 @@
+name: nicotordev
+
+x-app-build-args: &app-build-args
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:-}
+  NEXT_PUBLIC_DIRECTUS_URL: ${NEXT_PUBLIC_DIRECTUS_URL:-https://directus.nicotordev.com}
+
+x-common: &common
+  restart: unless-stopped
+  security_opt:
+    - no-new-privileges:true
+  logging:
+    driver: local
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+services:
+  cms-db:
+    <<: *common
+    image: postgis/postgis:17-3.5
+    env_file:
+      - path: .env.cms-db
+        required: false
+    environment:
+      POSTGRES_DB: nicotordev_cms
+      POSTGRES_USER: nicotordev_cms
+    volumes:
+      - cms_db_data:/var/lib/postgresql
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    networks:
+      - private
+
+  directus:
+    <<: *common
+    image: directus/directus:11
+    env_file:
+      - path: .env.cms-db
+        required: false
+      - path: .env.directus
+        required: false
+    environment:
+      DB_CLIENT: pg
+      DB_HOST: cms-db
+      DB_PORT: 5432
+      DB_DATABASE: nicotordev_cms
+      DB_USER: nicotordev_cms
+      CACHE_ENABLED: "false"
+      TELEMETRY: "false"
+      PUBLIC_URL: https://directus.nicotordev.com
+    volumes:
+      - cms_uploads:/directus/uploads
+      - cms_extensions:/directus/extensions
+    depends_on:
+      cms-db:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - --spider
+        - --quiet
+        - http://127.0.0.1:8055/server/health
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    networks:
+      private:
+      edge:
+        aliases:
+          - directus
+
+  web:
+    <<: *common
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      args:
+        <<: *app-build-args
+    env_file:
+      - path: .env.docker
+        required: false
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: 3000
+    depends_on:
+      directus:
+        condition: service_healthy
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - >-
+          fetch("http://127.0.0.1:3000/api/health").then((response) =>
+          { if (!response.ok) process.exit(1); }).catch(() => process.exit(1));
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    networks:
+      private:
+      edge:
+        aliases:
+          - nicotordev-web
+
+  cms-tools:
+    profiles:
+      - tools
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+      args:
+        <<: *app-build-args
+    env_file:
+      - path: .env.docker
+        required: false
+    environment:
+      DIRECTUS_URL: http://directus:8055
+    depends_on:
+      directus:
+        condition: service_healthy
+    networks:
+      - private
+    command: ["bun", "scripts/seed-directus.ts"]
+
+volumes:
+  cms_db_data:
+    name: nicotordev_cms_db_data
+  cms_uploads:
+    name: nicotordev_cms_uploads
+  cms_extensions:
+    name: nicotordev_cms_extensions
+
+networks:
+  edge:
+    name: docker-projects-edge
+    external: true
+  private:
+    name: nicotordev-private
+    driver: bridge
