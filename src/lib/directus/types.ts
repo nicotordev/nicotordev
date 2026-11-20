@@ -52,7 +52,6 @@ export type DirectusProjectGalleryRow = {
 
 export type DirectusProject = {
   id: number;
-  project_id: string;
   slug?: string | null;
   cost: number;
   /** Override for portfolio budget label; see `resolveProjectCostDisplay`. */

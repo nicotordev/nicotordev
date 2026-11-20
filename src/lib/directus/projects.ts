@@ -15,7 +15,7 @@ import { resolveProjectCostDisplay } from "@/lib/projects/cost-display";
 import type { AssetDTO, ProjectDTO } from "@/types/projects";
 
 const DEFAULT_FIELDS = [
-  "project_id",
+  "id",
   "slug",
   "cost",
   "image",
@@ -144,9 +144,9 @@ function mapDirectusProjectToProject(p: DirectusProject): ProjectDTO {
     toDirectusAssetUrl(p.image, baseUrl) ??
     gallery[0]?.url ??
     DEFAULT_PROJECT_IMAGE;
-  const slug = p.slug ?? slugFromId(p.project_id);
+  const slug = p.slug ?? String(p.id);
   const dto: ProjectDTO = {
-    id: p.project_id,
+    id: String(p.id),
     slug,
     name: slug,
     cost: p.cost,
@@ -162,11 +162,6 @@ function mapDirectusProjectToProject(p: DirectusProject): ProjectDTO {
   };
   if (p.link != null) dto.link = p.link;
   return dto;
-}
-
-/** Fallback slug when Directus project has no slug (e.g. project_id "proj_1" -> "proj-1"). */
-function slugFromId(projectId: string): string {
-  return projectId.replace(/_/g, "-").toLowerCase();
 }
 
 export type ProjectFromCMS = ProjectDTO & {
@@ -254,18 +249,21 @@ export async function fetchProjectsOptional(
 }
 
 /**
- * Fetch a single project by project_id.
+ * Fetch a single project by its immutable, auto-incrementing Directus ID.
  */
 export async function fetchProjectById(
   projectId: string,
   locale: Locale = defaultLocale,
 ): Promise<ProjectFromCMS | null> {
+  const id = Number(projectId);
+  if (!Number.isSafeInteger(id) || id < 1) return null;
+
   try {
     const res = await directusFetch<{ data: DirectusProject[] }>(
       "/items/projects",
       {
         fields: [...DEFAULT_FIELDS],
-        filter: { project_id: projectId },
+        filter: { id },
         limit: 1,
       },
     );
